@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Servicio</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="../assets/css/pricing.css" rel="stylesheet" />
+    <style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+        
+    </style>
+  </head>
+  <body>
+    <div class="container py-3">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-2 ">
+          <a href="pagina-web.html" class="d-flex align-items-center text-decoration-none" >
+            <img  class="mb-2" src="../assets/img/gs1.png" alt="" height="61" />
+            
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Nosotros</a>
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Soluciones</a>
+            <a class="me-3 py-2 text-decoration-none"              href="servicios.html" >Servicios</a>
+ 
+            <a href="#planes" class="btn btn-success ms-1">Obtené tu código de barras</a>		  
+
+<div class="dropdown">
+  <button class="btn btn-outline-success ms-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Iniciá Sesión o Registrate
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="ingresar.html">Acceso al Portal de Socio</a></li>
+    <li><a class="dropdown-item" href="registro.html">Registrarte en GS1</a></li>
+    <li><a class="dropdown-item" href="ingresar-edi.html">Acceso a la Plataforma EDI</a></li>
+  </ul>
+</div>
+
+
+          </nav>
+        </div>
+      </header>
+      <main> 
+		  
+		<div class="p-5 text-center bg-body-tertiary rounded-3">
+		<img src="../assets/img/icono-codigo.svg" alt="" width="100" height="100" class="m-2 flex-shrink-0">
+        <h1 class="text-body-emphasis mt-3">Codificación</h1>
+        <p class="col-lg-10 mx-auto fs-5 text-muted">
+			La venta de un producto comienza con un código de barras GS1/GTIN. Somos el único proveedor oficial de códigos de barras GS1 GTIN y EAN/UPC a nivel mundial aceptados y utilizados por todos los supermercados, mayoristas, farmacias y tiendas online del país. 
+        </p>
+        <div class="d-inline-flex gap-2 ">
+          <a class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" href="#planes">
+            Lo quiero<span class="ms-3"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+</svg></span>
+          </a>
+         
+        </div>
+      </div>
+		 
+
+<a id="planes"> </a>	
+<h2 class="mb-3 mt-5">Un plan a la medida de tu negocio</h2> 
+<div class="row  mb-3 text-center">
+          <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm border-success shadow-lg">
+              <div class="card-header py-3 bg-success text-bg-primary border-success">
+                <h4 class="my-0 fw-normal">Starter</h4>
+              </div>
+              <div class="card-body bg-light rounded-2">
+                <div>Desde</div>
+                <div class="h1 mb-0">$46.000</div>
+				  <div><span class="badge text-bg-secondary bg-success">Por única vez</span></div>
+                <ul class="list-unstyled mt-3 mb-4">
+					<li>La solución ideal para microemprendedores y venta online</li>
+
+                </ul>
+                 <a href="registro-con-servicio1.html" class="w-100 btn btn-lg btn-success">
+                 Necesito 1 a 5 códigos
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm border-secondary shadow-lg">
+              <div class="card-header py-3 bg-secondary text-bg-primary">
+                <h4 class="my-0 fw-normal">Pack 10</h4>
+              </div>
+              <div class="card-body">
+                <div >Desde</div>
+                <div class="h1 mb-0">
+                  $23.000 </div>
+				  <div>Por mes</div>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>La opción para emprendedores medianos</li>
+                </ul>
+                 <a href="registro-con-servicio2.html" class="w-100 btn btn-lg btn-secondary">
+                  Quiero un Pack 10
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary shadow-lg">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Estándar</h4>
+              </div>
+              <div class="card-body">
+				  <div >Desde</div>
+                <div class="h1 mb-0">
+					 $38.750
+                </div>
+				  <div>Por mes</div>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>La mejor opción para PyMEs que están en etapa de crecimiento</li>
+                </ul>
+                <a href="registro-con-servicio3.html" class="w-100 btn btn-lg btn-primary">
+                  Hasta 99 códigos
+                </a>
+              </div>
+            </div>
+          </div>
+	<div class="col-12">
+            <div class="card mb-4 rounded-3 shadow-sm border-dark shadow-lg">
+              <div class="card-header py-3 text-bg-primary bg-dark border-primary">
+                <h4 class="my-0 fw-normal">Completo</h4>
+              </div>
+              <div class="card-body">
+				  <div >Desde</div>
+                <div class="h1 mb-0">
+					 $128.000
+                </div>
+				  <div>Por mes</div>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Para grandes empresas o con gran volumen de producción</li>
+                </ul>
+                <a href="registro-con-servicio4.html" class="w-100 btn btn-lg btn-dark">
+                  Quiero el Plan completo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>	
+		  
+
+
+
+
+
+
+
+
+
+
+<div class="table-responsive"> 
+	<table class="table text-center"> 
+<thead> 
+<tr> 
+<th style="width: 40%;"></th> 
+<th style="width: 15%;">Starter</th> 
+<th style="width: 15%;">Pack 10</th> 
+<th style="width: 15%;">Estándar</th>
+<th style="width: 157%;">Completo</th>
+	
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<th scope="row" class="text-start bg-primary-subtle">Cantidad de códigos de barras (GTIN)</th> 
+<td class=" bg-primary-subtle fs-5"><b>1 a 5</b></td> 
+<td class=" bg-primary-subtle fs-5"><b>Hasta 10</b></td> 
+<td class=" bg-primary-subtle fs-5"><b>11 a 99</b></td> 
+<td class=" bg-primary-subtle fs-5"><b>100 a 999</b></td> 
+</tr> 
+<tr> 
+<th scope="row" class="text-start">Identificación de ubicación (GLN)</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+	<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td> 
+</tr> 
+</tbody> 
+<tbody> 
+<tr> 
+<th scope="row" class="text-start">Generación de QR GS1</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+	<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td>  
+</tr> 
+<tr> 
+<th scope="row" class="text-start">Servicio de verificación</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+	<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td> 
+</tr> 
+<tr> 
+<th scope="row" class="text-start">Capacitaciones gratuitas</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+	<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td> 
+</tr> 
+<tr> 
+<th scope="row" class="text-start">Soporte en línea</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+	<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td> 
+</tr> 
+<tr> 
+<th scope="row" class="text-start">GS1 negociAR <a href="servicio-negociar.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase"><small>Saber más</small></a></th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+	<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td> 
+</tr>
+	
+<tr> 
+<th scope="row" class="text-start">GS1 TrazAR</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><small>Tarifado</small></td> 
+<td><small>Tarifado</small></td> 
+<td><small>Tarifado</small>
+</td> 
+</tr>
+	
+<tr> 
+<th scope="row" class="text-start">Plataforma EDI GS1 <a href="servicio-edi.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase"><small>Saber más</small></a></th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><small>Hasta 10 doc/año</small></td> 
+<td><small>Hasta 10 doc/año</small></td> 
+<td><small>Hasta 10 doc/año</small>
+</td> 
+</tr>
+	
+<tr> 
+<th scope="row" class="text-start">GS1 Verified (API) </th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><small>Tarifado</small></td> 
+<td><small>Tarifado</small></td> 
+<td><small>Tarifado</small>
+</td> 
+</tr>
+	
+<tr> 
+<th scope="row" class="text-start">Uso del CeDe</th> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">*
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg></td> 
+<td><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">*
+  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+</svg>
+</td> 
+</tr>
+	
+</tbody> 
+</table> 
+	
+	
+
+<div class="alert alert-light " role="alert">
+La facturación se realiza de manera anual y la primera cuota se abona al contratar la membresía.
+Los costos de las diferentes membresías pueden variar según la facturación anual declarada.
+</div>
+
+
+</div>
+		</main>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+		  <p class="float-end"><a href="#">Ir arriba</a></p>
+        <div class="row">
+          <div class="col-12 col-md">
+            <img              class="mb-2"              src="../assets/img/gs1.png"              alt=""              height="61"            />
+            <small class="d-block mb-3 text-body-secondary">
+    Fraga 1326<br>
+    C1427BUB, CABA<br>
+    Tel: (54-11) 4556 4700<br>
+    Email: info@gs1.org.ar<br>
+</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Nosotross</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Servicios</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Sectores</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+	<style>
+		.boton-calculadora {
+			color: #cd3c0d;
+			padding: 20px;
+			background: #ffffff;
+			position: fixed;
+			right: 10px;
+	
+			top: 200px;
+			width: 120px;
+			height: 120px;
+			z-index: 2;
+			cursor: pointer;
+			font-size: 12px;
+			text-align: center;
+			opacity: 0.8;
+			  transition: all .35s;
+			  -ms-transition: all .35s;
+			  -moz-transition: all .35s;
+			  -webkit-transition: all .35s;	
+		}
+		
+		.boton-calculadora.dos {
+			color: #002c6c;	
+			top: 050px;
+
+			  transition: all .35s;
+			  -ms-transition: all .35s;
+			  -moz-transition: all .35s;
+			  -webkit-transition: all .35s;	
+		}
+		
+		.boton-calculadora:hover {
+			opacity: 1;
+			  transition: all .35s;
+			  -ms-transition: all .35s;
+			  -moz-transition: all .35s;
+			  -webkit-transition: all .35s;
+		}
+	 
+	.modal-lg .modal-dialog {max-width: 600px;}
+</style>
+	  <div class="boton-calculadora shadow-lg rounded-2" data-bs-toggle="modal" data-bs-target="#ModalCalculadora">
+		  <div><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+			  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+			  <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+			</svg></div>
+		  <div>Calculadora de cuota</div>
+	  </div>
+	  
+	<div class="boton-calculadora shadow-lg rounded-2 dos" data-bs-toggle="modal" data-bs-target="#ModalCalculadoraCantidad">
+		  <div><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+			  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+			  <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+			</svg></div>
+		  <div>Calculadora de Plan</div>
+	  </div>   
+ <div class="modal  modal-lg fade" id="ModalCalculadora" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel3">Codificación: Calculadora de cuota estimada</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+
+	<div class="row p-1">
+		<div class="col-6">
+			 <label for="Cantidad" class="form-label">Plan de Codificación </label>
+ <select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="Actividad">
+  <option selected disabled > - </option>
+  <option value="1">Started (1 a 5 códigos)</option>
+  <option value="2">Pack 10 (hasta 10 códigos)</option>
+  <option value="3">Estándar (hasta 99 códigos)</option>
+  <option value="1">Completo (más de 100 códigos)</option> 
+</select>
+		</div>
+	 <div class="col-6">
+			 <label for="facturacion" class="form-label">Facturación anual de la empresa </label>
+             <input type="text" class="form-control  form-control-lg" id="facturacion" placeholder="En pesos"   value=" " required   />
+		</div>
+		
+		<div class="col-12 pt-3 text-center">
+			 <a class="w-100 btn btn-primary btn-lg" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Calcular Cuota</a><br>
+				<div class="collapse" id="collapseExample">
+					<div class="alert alert-light text-center fs-3 mt-3" role="alert">
+				  La cuota estimada es de <br><b>$25.750</b> por mes
+				</div>
+			</div>
+		</div>
+	</div>
+      </div>
+      <div class="modal-footer">
+		  <small><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></small>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+      </div>
+    </div>
+  </div>
+</div> 
+	  
+<div class="modal  modal-lg fade" id="ModalCalculadoraCantidad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel3">Codificación: Calculadora de plan que necesito</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+
+	<div class="row p-1">
+		<div class="col-6">
+			 <label for="Cantidad2" class="form-label">Cantidad de Productos 
+             <input type="text" class="form-control  form-control-lg" id="cantidad2" placeholder=""   value="" required   />
+		</div>
+		<div class="col-6">
+			 <label for="Cantidad3" class="form-label">Cantidad de Variantes 
+             <input type="text" class="form-control  form-control-lg" id="cantidad3" placeholder=""   value="" required   />
+		</div>
+
+		
+		<div class="col-12 pt-3 text-center">
+			 <a class="w-100 btn btn-primary btn-lg" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">Calcular Plan</a><br>
+				<div class="collapse" id="collapseExample2">
+					<div class="alert alert-light text-center fs-3 mt-3" role="alert">
+				  Necesitas 32 códigos diferentes<br>
+						Te recomendamos el <b>Plan Estándar</b>
+				</div>
+			</div>
+		</div>
+	</div>
+      </div>
+      <div class="modal-footer">
+		  <small><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></small>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+      </div>
+    </div>
+  </div>
+</div> 
+    <script
+      src="../assets/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>

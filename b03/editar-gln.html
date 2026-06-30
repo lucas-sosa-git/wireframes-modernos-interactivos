@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta  name="author"content="e-trade-consult"  />
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - editar GLN</title>
+   
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+	  <script defer src="../assets/js/jquery.js"></script>	
+    <meta name="theme-color" content="#712cf9" />
+  
+	  
+<link href="../assets/css/sidebars.css" rel="stylesheet" />	  
+<link href="../assets/css/micuenta2.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/sign-in.css" rel="stylesheet" />
+<link href="../assets/css/dropdowns.css" rel="stylesheet" />
+<script src="../assets/js/jquery.min.js"></script>
+<script defer src="../assets/js/jquery.js"></script>	
+<script src="../assets/js/feather.min.js" ></script>
+<link href="../assets/css/list-groups.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../assets/css/subir-imagen.css" />
+    <style>
+		
+		.form-control {
+			
+			
+			font-size: 1.4rem;
+		}
+		
+		
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+	  
+	<script>
+
+function mostrar_paso0() {
+	$("#inscripcion").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+
+
+	
+function mostrar_inscripcion1() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_inscripcion2() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_empresa_b() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso1() {
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	  
+function mostrar_paso2() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_paso2_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso3() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideDown(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+
+	
+function mostrar_representante_legal() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideDown(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_apoderado() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideDown(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_informacion_contable() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideDown(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_final() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+}
+		
+function mostrar_final_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+	
+
+	
+</script>
+  </head>
+  <body >
+   
+	  <style>
+		  .form-label {font-size: 18px;}
+	  </style>
+
+
+ 	<nav class="navbar  navbar-light fixed-top bg-body-tertiary"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="micuenta.html"><img class="mb-2" src="../assets/img/gs1.png" alt="" height="41"></a> 
+<div class="dropdown ">
+<div class="btn-group float-end">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg> Menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+
+	<li >
+		<a class="dropdown-item" href="micuenta.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+	  <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+    <li><a class="dropdown-item" href="empresas.html">Empresas</a></li>
+    <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
+	<li><a class="dropdown-item " href="productos.html">Productos</a></li>
+	  <li><hr class="dropdown-divider"></li>
+	<li><a class="dropdown-item" href="home.html">Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+</div> 
+				
+	</nav>
+   
+    <div class="container py-3">
+  
+      <main>
+        
+        
+    <div class="p-5 mt-5" >
+
+	<div class="mb-5 mt-6" >
+
+	</div>
+		
+</div>       
+<div class="panel-usuario p-2">
+			<div class="card m-2 mb-3" id="card-nuevo-producto" >
+				<div class="titulo-ventana" id="titulo-nuevo-producto" style="border-bottom: 0px;">Editar GLN  <span class="badge text-bg-primary py-2 px-3">7789830502050</span></div>
+				
+<style>
+	
+.form-control {
+			
+			font-size: 1.4rem;
+		}
+.form-control.chico {
+			
+			font-size: 1.1rem;
+		}	
+.form-label.chico {font-size: 15px;}
+.form-label {font-size: 18px;}
+	 
+.progreso-0 {  width: 0% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-1 {  width: 17% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-2 {  width: 34% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-3 {  width: 51% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-4 {  width: 68% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-5 {  width: 85% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-6 {  width: 100% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+</style>
+				 
+
+<style>
+	
+.productos{
+  font-size: 16px;
+  line-height: 1.3;
+}
+	
+.cortar-texto{
+  line-height: 1.3;
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}	
+	
+.abierto .cortar-texto{
+  font-size: 16px;
+  height: auto;
+  display:inline-block;
+  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}
+
+			</style>
+<div class="p-3">
+
+            
+<form class="needs-validation" novalidate>
+	
+
+	
+		
+
+
+
+				
+<!--datos-de-la-empresa-->				
+<div id="datos-de-la-empresa" style="overflow: hidden;" >
+	  
+       
+	    <div class="row g-3 p-1 ">
+			
+                <div class="col-sm-6">
+					 <label  class="form-label">Código GLN</label>
+                  <input type="text" class="form-control form-control-lg" id="cuit2"  placeholder="--------" value="7798385020005" disabled />
+                </div>
+               
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Descripción <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="firstName"  placeholder=""  value="Domicilio legal de ejemplo" required   />
+                </div>
+
+			
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Calle <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName"  value="Avenida Rivadavia" disabled/>
+                </div>
+                
+                <div class="col-3">
+                  <label for="email" class="form-label">Altura <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input  type="text"   class="form-control  form-control-lg" id="email"  value="1554" disabled/>
+                </div>
+			
+			 <div class="col-3">
+                  <label for="codigopostal" class="form-label">Código Postal </label>
+
+				 
+<div class="input-group">
+  <input type="text" id="codigopostal" class="form-control   form-control-lg" placeholder="----" aria-label="----" value="1414" aria-describedby="button-addon2">
+  <a class="btn btn-secondary pt-2"  type="button" id="button3" href="https://www.oca.com.ar/Busquedas/CodigosPostales" target="_blank" title="No se mi código postal">
+	  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14"/>
+	  </svg>
+	</a>
+</div>                </div>
+			
+			<div class="col-sm-3">
+                  <label for="lastName" class="form-label">Piso </label>
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName5"   placeholder=""   value="" required/>
+                </div>
+			
+			
+			<div class="col-sm-3">
+                  <label for="lastName" class="form-label">Departamento </label>
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName0"   placeholder=""   value="" required/>
+                </div>
+			
+			<div class="col-sm-3">
+                  <label for="lastName" class="form-label">Entre calle 1 </label> 
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName1"   placeholder=""   value="" />
+                </div>
+			
+			<div class="col-sm-3">
+                  <label for="lastName" class="form-label">Entre calle 2 </label>
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName2"   placeholder=""   value="" d/>
+                </div>
+			
+			<div class="col-sm-3">
+                  <label for="lastName" class="form-label">Provincia </label>
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName3"   placeholder="" title="Ciudad Autónoma de Buenos Aires" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"        data-bs-title="Ciudad Autónoma de Buenos Aires"   value="Ciudad Autónoma de Buenos Aires" disabled/>
+                </div>
+			
+			<div class="col-sm-3">
+                  <label for="lastName" class="form-label">Localidad </label>
+                  <input    type="text"  class="form-control  form-control-lg"     id="lastName4"   placeholder=""   value="Buenos Aires" disabled/>
+                </div>
+			
+			<div class="col-sm-6">
+				
+				
+                  <label for="lastName" class="form-label">Coordenadas </label>
+                 <div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder=" " aria-label=" " aria-describedby="button-addon2" value="(-34.5858637, -58.4368656)" disabled>
+				  <button class="btn btn-secondary" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#ModalMapa">
+					  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+						  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+					  </svg> Ver Mapa
+					 </button>
+				</div>
+				
+ 
+  
+
+                </div>
+			
+		<div class="col-sm-12 border-top mt-3 pt-3">
+			<div class="row">
+				<div class="col-6 h4">Contactos</div>
+				<div class="col-6">
+				<div class="text-end ">
+
+
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
+		  >
+	  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg> Buscar
+	</button>
+	
+		
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Ordenar
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Nombre</a></li>
+      <li><a class="dropdown-item" href="#">Apellido</a></li>
+		 <li><a class="dropdown-item" href="#">CUIT</a></li>
+		<li><a class="dropdown-item" href="#">e-mail</a></li>
+		<li><a class="dropdown-item" href="#">Teléfono</a></li>
+		<li><a class="dropdown-item" href="#">Cargo</a></li>
+    </ul>
+  </div>
+	
+</div>
+<a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
+  Agregar Contacto
+</a>
+<a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalNuevo">
+  Crear Nuevo Contacto
+</a>
+
+<div class="collapse" id="collapseExample">
+	<div class="p-2">
+  <div class="input-group input-group-lg mb-3">
+  <input type="text" class="form-control" placeholder="Usuario, nombre, apellido, etc" aria-label="Usuario, nombre, apellido, etc" aria-describedby="button-addon2">
+  <button class="btn btn-primary" type="button" id="button-addon2">Buscar Usuario</button>
+</div>
+</div>
+	
+</div>
+
+	</div></div>
+			
+			</div>
+			
+<div class="pt-0">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+		<th scope="col">CUIT</th>
+      <th scope="col">e-mail</th>
+		<th scope="col">Teléfono</th>
+		<th scope="col">Cargo</th>
+		<th scope="col"> </th>
+	
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Nombre1</td>
+      <td>Apellido1</td>
+	   <td>27184635775</td>
+      <td>nombre1apellido1@dominio.com</td>
+	  <td>1160528510</td>
+		<td>Gerente/a General</td>
+	  <td class="text-end">
+ 
+
+
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle px-4 py-0 border-0 py-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalEditar">Editar</a></li>
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalEliminar">Eliminar</a></li>
+  </ul>
+</div>
+
+		</td>
+    </tr>
+	  
+	  <tr>
+      <th scope="row">2</th>
+      <td>Nombre2</td>
+      <td>Apellido2</td>
+		  <td>27184635757</td>
+      <td>nombre2apellido2@dominio.com</td>
+		  
+	  <td>1160528201</td>
+		<td>Director/a Técnico/a</td>
+	  <td class="text-end">
+		  <div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle px-4 py-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalEditar">Editar</a></li>
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalEliminar">Eliminar</a></li>
+  </ul>
+</div>
+		</td>
+    </tr>
+	  
+	  <tr>
+      <th scope="row">3</th>
+      <td>Nombre3</td>
+      <td>Apellido3</td>
+		  <td>27184635777</td>
+      <td>nombre3apellido3@dominio.com</td>
+		  
+	  <td>1160528501</td>
+		<td>Representante Legal</td>
+	  <td class="text-end">
+		  <div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle px-4 py-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalEditar">Editar</a></li>
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalEliminar">Eliminar</a></li>
+  </ul>
+</div>
+		</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+</div>
+        </div>
+
+
+        <div > 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-1" href="empresas.html">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg> Volver a Empresas
+			</a>
+			
+			<a class="btn btn-primary px-5 btn-lg mb-1 " href="empresas.html" style="float: right">
+			  Guardar Datos
+			</a>
+			
+			<a type="button" class="btn btn-outline-primary px-5 btn-lg mb-1 me-2 ms-2" href="gln.html" style="float: right">
+  Asignar nuevo GLNs
+</a>
+			
+			
+		</div>
+       </div>  
+ 
+</div>
+
+
+
+				
+</form>
+				</div>
+
+ 	</div>
+		  </div>       
+       
+      </main>
+      
+    </div>
+	  
+<div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Contacto al GLN</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" > 
+	<div class="col-12">
+		<label for="actividad" class="form-label">Código GLN</label>
+		<input type="text" class="form-control  form-control-lg" id="gln" value="7798385020005" disabled     />
+	</div>
+	
+       <div class="col-sm-12">
+				 <label for="lastName" class="form-label">CUIL <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+				<input type="text" class="form-control  form-control-lg" id="cuil" value=" "    />
+		</div>
+	
+	<div class="col-sm-12">
+                  <label for="firstName" class="form-label">Cargo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+  <select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="empresa">
+  <option selected="" disabled=""> - </option>
+    <option value="5">Account Manager</option>
+	<option value="11">Analista</option>
+	<option value="9">Apoderado/a</option>
+	<option value="10">Contacto General</option>
+	<option value="13">Contacto Web-Login</option>
+	<option value="7">Director/a</option>
+	<option value="21">Director/a Técnico/a</option>
+	<option value="1">Empleado/a</option>
+	<option value="4">Gerente/a</option>
+	<option value="16">Gerente/a Comercial</option>
+	<option value="15">Gerente/a de Auditoria</option>
+	<option value="18">Gerente/a de Distibución</option>
+	<option value="17">Gerente/a de Operaciones</option>
+	<option value="8">Gerente/a General</option>
+	<option value="14">Gerente/a Logística</option>
+	<option value="3">Jefe/a de Departamento</option>
+	<option value="2">Jefe/a de Sector</option>
+	<option value="19">Lider de Proyecto</option>
+	<option value="20">Periodista</option>
+	<option value="6">Presidente/a</option>
+	<option value="25">Sin Seleccionar</option>
+	<option value="23">Socio/a Comanditado</option>
+	<option value="22">Socio/a Gerente/a</option>
+	<option value="12">Supervisor/a</option>
+	<option value="24">Titular</option> 
+</select>
+                </div>
+	
+<div class="col-12">
+
+  <div class="list-group-item mb-2">
+	  <input type="checkbox" class="form-check-input me-2 " id="responsablelegal1" style="width: 1.5em;  height: 1.5em;">
+    <label class="form-check-label form-label pt-1" for="responsablelegal1">Responsable Legal</label>
+  </div>
+</div>
+<div class="col-12">
+
+  Si el usuario no existe, pueden <a style="cursor: pointer" class="card-link" data-bs-toggle="modal" data-bs-target="#ModalNuevo">crear un nuevo contacto aquí</a>.
+</div>
+			</div>	
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCreado">Agregar Contacto</button>
+      </div>
+    </div>
+  </div>
+</div>  
+		
+<div class="modal fade" id="ModalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel">Información del Nuevo Contacto del GLN</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" > 
+	<div class="col-12">
+		<label for="actividad" class="form-label">Código GLN</label>
+		<input type="text" class="form-control  form-control-lg" id="gln" value="7798385020005" disabled     />
+	</div>
+	
+                
+              
+			<div class="col-sm-12">
+						  <label for="lastName" class="form-label">CUIL <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+						  <input type="text" class="form-control  form-control-lg" id="cuil" value=" "   placeholder="CUIL" />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="nombre" class="form-label">Nombre <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+						  <input type="text" class="form-control  form-control-lg" id="nombre" value=" "  placeholder="Nombre"  />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="apellido" class="form-label">Apellido <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+						  <input type="text" class="form-control  form-control-lg" id="apellido" value=" " placeholder="Apellido"   />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="tel" class="form-label">Teléfono <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+						  <input type="text" class="form-control  form-control-lg" id="tel" value=" " placeholder=""   />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="email" class="form-label">e-mail <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+						  <input type="text" class="form-control  form-control-lg" id="email" value=" " placeholder="e-mail"   />
+			</div>
+	
+	<div class="col-sm-12">
+                  <label for="firstName" class="form-label">Cargo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+  <select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="empresa">
+  <option selected="" disabled=""> - </option>
+    <option value="5">Account Manager</option>
+	<option value="11">Analista</option>
+	<option value="9">Apoderado/a</option>
+	<option value="10">Contacto General</option>
+	<option value="13">Contacto Web-Login</option>
+	<option value="7">Director/a</option>
+	<option value="21">Director/a Técnico/a</option>
+	<option value="1">Empleado/a</option>
+	<option value="4">Gerente/a</option>
+	<option value="16">Gerente/a Comercial</option>
+	<option value="15">Gerente/a de Auditoria</option>
+	<option value="18">Gerente/a de Distibución</option>
+	<option value="17">Gerente/a de Operaciones</option>
+	<option value="8">Gerente/a General</option>
+	<option value="14">Gerente/a Logística</option>
+	<option value="3">Jefe/a de Departamento</option>
+	<option value="2">Jefe/a de Sector</option>
+	<option value="19">Lider de Proyecto</option>
+	<option value="20">Periodista</option>
+	<option value="6">Presidente/a</option>
+	<option value="25">Sin Seleccionar</option>
+	<option value="23">Socio/a Comanditado</option>
+	<option value="22">Socio/a Gerente/a</option>
+	<option value="12">Supervisor/a</option>
+	<option value="24">Titular</option> 
+</select>
+                </div>
+	
+<div class="col-12">
+
+  <div class="list-group-item mb-2">
+	  <input type="checkbox" class="form-check-input me-2 " id="responsablelegal2" style="width: 1.5em;  height: 1.5em;">
+    <label class="form-check-label form-label pt-1" for="responsablelegal2">Responsable Legal</label>
+  </div>
+</div>
+			</div>	
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCreado">Crear Nuevo Contacto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal  fade" id="ModalEditar2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel2">Editar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" > 
+	<div class="col-12">
+	<label for="actividad" class="form-label">Empresa  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="empresa">
+  
+  <option value="1" selected="">Empresa 1</option>
+  <option value="2">Empresa 2</option>
+  <option value="3">Empresa 3</option>	 
+</select>
+</div>
+	
+                <div class="col-sm-12">
+                  <label for="firstName" class="form-label">Nombre <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value="Nombre1"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <label for="lastName" class="form-label">Apellido <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName"
+                    placeholder=""
+                    value="Apellido1"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>	
+	
+                <div class="col-sm-12">
+                  <label for="lastName" class="form-label">E-mail <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input disabled
+                    type="email"
+                    class="form-control  form-control-lg"
+                    id="lastName1"
+                    placeholder=""
+                    value="email1@dominio.com"
+                    required
+                  />
+           
+                </div>
+			<div class="col-sm-12">
+				<div style="position: relative" >
+		 <label for="lastName" class="form-label">Contraseña <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<span class="togglePassword" id="" style="position: absolute; right: 14px; top: 47px;">
+ <i data-feather="eye" style="cursor: pointer"></i>
+ </span>
+ <input type="password" class="form-control form-control-lg password" id="password-gs1" name="password-gs1" placeholder="contraseña" style="padding-right: 50px;" required />
+
+ </div>
+
+						</div>
+	<div class="col-12">
+	<label for="actividad" class="form-label">Servicios  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+		
+
+
+   <div class="list-group-item mb-2">
+    <input class="form-check-input me-1" type="checkbox" value="" id="socio2">
+    <label class="form-check-label" for="socio2">Socio GS1</label>
+  </div>
+  <div class="list-group-item mb-2">
+    <input class="form-check-input me-1" type="checkbox" value="" id="edi2">
+    <label class="form-check-label" for="edi2">Servicios EDI</label>
+  </div>
+  <div class="list-group-item mb-2">
+    <input class="form-check-input me-1" type="checkbox" value="" id="Negociar2">
+    <label class="form-check-label" for="Negociar2">Negociar</label>
+  </div>
+
+
+</div>
+			</div>	
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Contacto del GLN</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" > 
+	<div class="col-12">
+		<label for="actividad" class="form-label">Código GLN</label>
+		<input type="text" class="form-control  form-control-lg" id="gln" value="7798385020005" disabled     />
+	</div>
+	
+                
+              
+			<div class="col-sm-12">
+						  <label for="cuit2" class="form-label">CUIL <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+						  <input type="text" class="form-control  form-control-lg" id="cuil2" value="27184635775"   placeholder="CUIL" />
+			</div>
+	
+	<div class="col-sm-12">
+                  <label for="firstName" class="form-label">Cargo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+  <select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="empresa">
+ 
+    <option value="5">Account Manager</option>
+	<option value="11">Analista</option>
+	<option value="9">Apoderado/a</option>
+	<option value="10">Contacto General</option>
+	<option value="13">Contacto Web-Login</option>
+	<option value="7">Director/a</option>
+	<option value="21">Director/a Técnico/a</option>
+	<option value="1">Empleado/a</option>
+	<option value="4">Gerente/a</option>
+	<option value="16">Gerente/a Comercial</option>
+	<option value="15">Gerente/a de Auditoria</option>
+	<option value="18">Gerente/a de Distibución</option>
+	<option value="17">Gerente/a de Operaciones</option>
+	<option value="8" selected>Gerente/a General</option>
+	<option value="14">Gerente/a Logística</option>
+	<option value="3">Jefe/a de Departamento</option>
+	<option value="2">Jefe/a de Sector</option>
+	<option value="19">Lider de Proyecto</option>
+	<option value="20">Periodista</option>
+	<option value="6">Presidente/a</option>
+	<option value="25">Sin Seleccionar</option>
+	<option value="23">Socio/a Comanditado</option>
+	<option value="22">Socio/a Gerente/a</option>
+	<option value="12">Supervisor/a</option>
+	<option value="24">Titular</option> 
+</select>
+                </div>
+	
+	<div class="col-12">
+
+  <div class="list-group-item mb-2">
+	  <input type="checkbox" class="form-check-input me-2 " id="responsablelegal3" style="width: 1.5em;  height: 1.5em;">
+    <label class="form-check-label form-label pt-1" for="responsablelegal3">Responsable Legal</label>
+  </div>
+</div>
+	
+	<div class="col-sm-12">
+						  <label for="nombre2" class="form-label chico">Nombre </label>
+						  <input type="text" class="form-control chico " id="nombre2" value="Nombre1"  placeholder="Nombre" disabled />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="apellido2" class="form-label chico">Apellido </label>
+						  <input type="text" class="form-control chico  " id="apellido2" value="Apellido1" placeholder="Apellido"  disabled />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="tel2" class="form-label chico">Teléfono </label>
+						  <input type="text" class="form-control chico  " id="tel2" value="1160528510" placeholder=""  disabled />
+			</div>
+	
+	<div class="col-sm-12">
+						  <label for="email3" class="form-label chico">e-mail </label>
+						  <input type="text" class="form-control chico" id="email3" value="nombre1apellido1@dominio.com" placeholder="e-mail" disabled   />
+			</div>
+	
+	
+	
+
+			</div>	
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCreado">Aceptar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>		  
+<div class="modal fade" id="ModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0px !important">
+       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center pt-5 pb-5">
+       <h4> ¿Estas seguro de eliminar el Contacto?</h4><br>
+ 		<b>[nombre y apellido del usuario]<br>
+		  [e-mail del usuario]</b>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+		  
+<div class="modal fade" id="ModalCreado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0px !important">
+       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center pt-5 pb-5">
+       <h4> Contacto agregado con éxito</h4><br>
+ 		<b>Al nuevo usuario le llegara un e-mail para activar la cuenta</b><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        		  
+<div class="modal modal-lg fade" id="ModalMapa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0px !important"><h3>GLN: 7789830502050</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center pt-0 pb-1">
+ 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.8366987999248!2d-58.46502822279844!3d-34.582998356406726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacdefa869bd%3A0x71b026df6f970f08!2sGS1%20Argentina!5e0!3m2!1ses-419!2suy!4v1767717778446!5m2!1ses-419!2suy" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar Mapa</button>
+      </div>
+    </div>
+  </div>
+</div> 
+	  
+    <script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+    <script src="../assets/js/checkout.js" class="astro-vvvwv3sm"></script>
+  </body>
+</html>

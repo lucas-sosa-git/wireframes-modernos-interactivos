@@ -1,0 +1,73 @@
+
+
+.file-uploader,
+.file-uploader2{
+   opacity: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+	
+  top: 0%;
+  left: 0%;
+}
+
+.upload-icon,
+.upload-icon2{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.0;
+  transition: opacity 0.3s ease;
+  color: #ccc;
+  text-align: center;
+	background-image:url("../../img/icono-mas.svg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100px;
+	width: 100px;
+	
+
+}
+
+.profile-picture,
+.profile-picture2{
+  opacity: 1;
+  height: 400px;
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: #f3f4f6;
+  background-image:url("../../img/subir-imagen-producto.png");
+	border: 1px #c7cdd3 solid;
+}
+
+
+.profile-picture2{
+  opacity: 1;
+  height: 250px;
+  width: 250px;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: #b0b0b0;
+  background-image:url("../../img/subir-imagen-producto.png");
+  border: 1px #c7cdd3 solid;
+}
+
+.profile-picture:hover .upload-icon,
+.profile-picture2:hover .upload-icon2{
+  opacity: 0.2;
+}

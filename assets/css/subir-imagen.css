@@ -1,0 +1,51 @@
+
+
+.file-uploader {
+   opacity: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+	
+  top: 0%;
+  left: 0%;
+}
+
+.upload-icon {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.0;
+  transition: opacity 0.3s ease;
+  color: #ccc;
+  text-align: center;
+	background-image:url("../img/icono-mas.svg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100px;
+	width: 100px;
+	
+
+}
+
+.profile-picture {
+  opacity: 1;
+  height: 400px;
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: #f3f4f6;
+  background-image:url("../img/subir-imagen-producto.png");
+	border: 1px #c7cdd3 solid;
+}
+
+.profile-picture:hover .upload-icon {
+  opacity: 0.2;
+}

@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Home</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/b04/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+	  
+   
+<link href="../assets/b04/css/sidebars.css" rel="stylesheet" />	  
+<link href="../assets/b04/css/micuenta2.css" rel="stylesheet" type="text/css" />
+<link href="../assets/b04/css/sign-in.css" rel="stylesheet" />
+<link href="../assets/b04/css/dropdowns.css" rel="stylesheet" />
+<script src="../assets/js/jquery.min.js"></script>
+<script defer src="../assets/js/jquery.js"></script>	
+<script src="../assets/js/feather.min.js" ></script>
+<link href="../assets/b04/css/list-groups.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../assets/b04/css/subir-imagen.css" />
+
+  </head>
+  <body>
+  	<nav class="navbar  navbar-light fixed-top bg-body-tertiary"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="micuenta.html"><img class="mb-2" src="../assets/img/gs1.png" alt="" height="41"></a> 
+<div class="dropdown ">
+<div class="btn-group float-end">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg> Menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+
+	<li >
+		<a class="dropdown-item" href="micuenta.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+	  <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+    <li><a class="dropdown-item" href="empresas.html">Empresas</a></li>
+    <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
+	<li><a class="dropdown-item " href="productos.html">Productos</a></li>
+	  <li><hr class="dropdown-divider"></li>
+	<li><a class="dropdown-item" href="home.html">Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+</div> 
+				
+	</nav>
+		
+		 
+	   <div class="container py-3">
+	 <main >
+		 
+		 
+	
+<div class="p-5 mt-5" >
+
+	<div class="mb-5 mt-6" >
+
+	</div>
+		
+</div>
+		
+		<div class="panel-usuario p-2">
+			<div class="card m-2 mb-3" id="card-nuevo-producto" >
+				<div class="titulo-ventana" id="titulo-nuevo-producto" style="border-bottom: 0px;">Editar GTIN 14 (DUN 14) <div class="float-end"> <span class="badge text-bg-primary py-2 px-3">GTIN 14: 17798385020019</span></div>
+				 </div>
+				<div class="titulo-ventana" id="titulo-modificar-producto" style="display: none">Modificar Producto <div class="float-end"> <span class="badge text-bg-primary py-2 px-3">GTIN Contenido: 7798336831071</span></div></div>
+<style>
+	
+.form-control {
+			
+			font-size: 1.4rem;
+		}
+	
+
+		  .form-label {font-size: 18px;}
+	 
+.progreso-0 {  width: 0% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-1 {  width: 17% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-2 {  width: 34% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-3 {  width: 51% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-4 {  width: 68% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-5 {  width: 85% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-6 {  width: 100% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+</style>
+				 
+<div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 6px; border-radius: 0px !important; border-bottom: 1px solid rgba(203,203,203,1.00);">
+  <div id="progreso" class="progress-bar progreso-0" ></div>
+</div>
+
+			 
+ 
+<style>
+	
+.productos{
+  font-size: 16px;
+  line-height: 1.3;
+}
+	
+.cortar-texto{
+  line-height: 1.3;
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}	
+	
+.abierto .cortar-texto{
+  font-size: 16px;
+  height: auto;
+  display:inline-block;
+  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}
+
+			</style>
+<div class="p-3 ">
+	
+<div>
+	
+
+	
+<form class="needs-validation" novalidate>
+
+<!-- tipo de inscripcion -->	
+<div id="inscripcion">
+
+	
+
+	
+<div class="row mb-3 g-5 p-3" style="overflow: hidden">
+<div class="col-3">
+	
+	<div class="profile-picture rounded-2 mb-2" style="background-image: url(../assets/img/caja-2.jpg);">
+      <h1 class="upload-icon">
+      </h1>
+      <input id="imagen-producto" name="imagen-producto" class="file-uploader" type="file" onchange="upload()" accept="image/*"   />
+    </div>
+	<div class="mb-4">
+		<label class="btn btn-dark w-100" for="imagen-producto">Seleccione la imagen </label>
+	</div>
+
+	
+	<style>
+	.profile-picture {
+  opacity: 1;
+  height: 263px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+}
+	</style>
+	
+		
+<a href="#" data-bs-toggle="modal" data-bs-target="#recomendaciones">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+</svg> Recomendaciones
+</a>
+<div class="modal fade modal-lg" id="recomendaciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Recomendaciones para subir una imagen</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 border-bottom pb-3">
+		<p class="mb-1">- No uses imágenes descargadas de Internet, pueden tener derechos de autor.</p>
+		<p class="mb-1">- Sólo subí fotos que sean de tu propiedad y sean nítidas.</p>
+	</div>
+
+	<div class="mb-3 border-bottom pb-3">
+		<div class="row g-3">
+			<div class="col-sm-6">
+			Tipos de archivos permitodos:<br>
+		<span class="badge text-bg-secondary fs-5">.JPG</span> <span class="badge text-bg-secondary fs-5">.PNG</span> <span class="badge text-bg-secondary fs-5">.GIF</span>
+			</div>
+		<div class="col-sm-6">
+			Tamaño mínimo:<br>
+		<span class="badge text-bg-secondary fs-5">300 x 300 px</span>
+			</div>
+			<div class="col-sm-6">
+				Tamaño recomendado:<br>
+		<span class="badge text-bg-secondary fs-5">1600 x 1600 px</span>
+			</div>
+		</div>
+			
+	</div>
+<div class="mb-3 border-bottom pb-3">
+	<p class="mb-1"><b>Tener buenas fotos es clave para el buen funcionamiento de la plataforma.</b></p>
+	<div class="small">
+<p class="mb-1">Tu foto debe tener fondo blanco puro creado digitalmente con un editor de imágenes para que tu producto se luzca.</p>
+<p class="mb-1">Las fotos sacadas delante de una pared podrían hacer que tu publicación pierda presencia.</p>
+<p class="mb-1">Tu foto no debe mostrar el producto dentro del empaque.</p>
+<p class="mb-1">No agregues elementos extras a tus imágenes que distraen la atención de tu producto.
+(Sin logos o marcas de agua; sin bordes o banners, sin códigos QR, ni textos)</p>
+<p class="mb-1">No incluyas condiciones de venta.</p>
+<p class="mb-1">No uses información adicional como promociones, forma de envío.</p>
+<p class="mb-1">Toda los datos extras agregalos en la descripción del producto.</p>
+<p class="mb-1">Un sólo producto por foto.</p>
+<p class="mb-1">Usá fotos del producto que estás publicando solo, no muestres varios productos juntos.</p>
+<p class="mb-1">Si querés ofrecer otros variedades deberás hacerlo en forma individua.</p>
+		</div>
+	</div>	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+      </div>
+    </div>
+  </div>
+</div>		
+   
+	
+	
+
+</div>
+	
+<div class="col-9">
+	<div class="row g-4" > 
+  		<div class="col-4"> 
+			<label for="gtin14" class="form-label">GTIN 14 (DUN 14) <span class="badge text-bg-secondary bg-primary bg-opacity-50" style="font-weight: lighter">Autogenerado</span></label> 
+			<input type="text" class="form-control  form-control-lg" id="gtin14" placeholder="" value="17798385020019" required disabled /> 
+  		</div>
+		
+
+		
+		<div class="col-12"> 
+			<label for="descgtin14" class="form-label">Descripción GTIN 14 (DUN 14) <span class="badge text-bg-secondary bg-primary bg-opacity-50" style="font-weight: lighter">Autogenerado</span></label> 
+			<input type="text" class="form-control  form-control-lg" id="descgtin14" placeholder="" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit." required disabled /> 
+  		</div>
+		
+<div class="col-12"> 		
+	<label for="variable" class="form-label">Variable Logistica <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label> 
+	<div>
+		
+	
+	<div class="input-group float-start w-auto">			
+		<input type="radio" class="btn-check" name="variable" id="btn-check-1" autocomplete="off" >
+		<label class="btn btn-light border fs-5" for="btn-check-1" style="border-radius: 7px 0px  0px 7px !important" >1</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-2" autocomplete="off" >
+		<label class="btn btn-light border fs-5" for="btn-check-2">2</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-3" autocomplete="off" >
+		<label class="btn btn-light border fs-5" for="btn-check-3">3</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-4" autocomplete="off" checked >
+		<label class="btn btn-light border fs-5" for="btn-check-4">4</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-5" autocomplete="off">
+		<label class="btn btn-light border fs-5" for="btn-check-5">5</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-6" autocomplete="off" >
+		<label class="btn btn-light border fs-5" for="btn-check-6">6</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-7" autocomplete="off">
+		<label class="btn btn-light border fs-5" for="btn-check-7">7</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-8" autocomplete="off" >
+		<label class="btn btn-light border fs-5" for="btn-check-8">8</label>
+
+		<input type="radio" class="btn-check" name="variable" id="btn-check-9" autocomplete="off">
+		<label class="btn btn-light border fs-5 rounded-0" style="border-radius: 0px 7px  7px 0px !important" for="btn-check-9">9</label>
+	</div>
+		<a class="ms-3" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+				  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+				  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+				</svg>
+			</a>
+	<style>
+	.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+  color: #ffffff;
+  background-color:  #002c6c;
+  border-color: #002c6c;
+}
+		
+.btn-check:disabled + .btn, 
+.btn-check[disabled] + .btn {
+  pointer-events: none;
+  filter: none;
+  opacity: .90;
+	color:rgba(0,0,0,0.20);
+	background: rgba(0,0,0,0.10);
+	
+}
+	</style>
+	</div>
+</div>
+		
+<div class="collapse m-0 p-0" id="collapseExample3" >
+
+		<div class="alert alert-light alert-dismissible fade show small mt-3" role="alert">La variable logistica es un digito que identifica la cantidad de unidades que contiene cada Bulto Continente o unidad comercial. Puede asignársele valores del 1 al 8 para unidades de consumo de medida fija y el 9 para unidades de consumo de medida variables. <br>
+			Ejemplo con la variable Logistica 1 para la caja que contiene 6 unidades de un GTIN (EAN) o unidad comercial. Ejemplo con la variable Logistica 2 para la caja que contiene 12 unidades del mismo GTIN (EAN) o unidad comercial. En este caso serían 2 presentaciones o bultos con la misma unidad comercial o GTIN contenido. Se podrían generar hasta 8 presentaciones de un mismo GTIN. La variable Logistica 9 se utiliza únicamente para unidades de consumo de medida variable, ejemplo frutas, carnes, pan, etc. ( todo producto que se venda al peso).
+			<button type="button" class="btn-close" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3" ></button>
+	</div>
+</div>
+		
+		<div class="col-4"> 
+			<label for="Unidades Contenidas" class="form-label">Unidades Contenidas <span class="badge text-bg-secondary" style="font-weight: lighter">Requerido</span></label> 
+			<input type="text" class="form-control  form-control-lg" id="Unidades Contenidas" placeholder="##" value="12" required  /> 
+  		</div>
+		
+		<div class="col-8"> 
+			<label for="envase" class="form-label">Envase Agrupador <span class="badge text-bg-secondary" style="font-weight: lighter">Requerido</span></label> 
+			<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="variable">
+			 
+   <option value="86" selected>CAJA DE CARTÓN</option>
+	<option value="2">AEROSOL</option>
+  <option value="3">AGARRADERAS</option>
+  <option value="4">AMPOLLA</option>
+  <option value="5">AMPOLLA NO PROTEGIDA</option>
+  <option value="6">AMPOLLA PROTEGIDA</option>
+  <option value="7">ASTIL</option>
+  <option value="8">ATAÚD / CAJÓN</option>
+  <option value="9">CQ</option>
+  <option value="10">ATOMIZADOR</option>
+  <option value="11">BALDE</option>
+  <option value="12">BANDEJA</option>
+  <option value="13">BANDEJA CUBIERTA DE PLÁSTICO</option>
+  <option value="14">BANDEJA DE CARTÓN, DOS CAPAS SIN ENVOLTURA</option>
+  <option value="15">BANDEJA DE CARTÓN, UNA CAPA SIN ENVOLTURA</option>
+  <option value="16">BANDEJA DE MADERA, DOS CAPAS SIN ENVOLTURA</option>
+  <option value="17">BANDEJA DE MADERA, UNA CAPA, SIN ENVOLTURA</option>
+  <option value="18">BANDEJA DE PLÁSTICO, DOS CAPAS SIN ENVOLTURA</option>
+  <option value="19">BANDEJA DE PLÁSTICO, UNA CAPA SIN ENVOLTURA</option>
+  <option value="20">BANDEJA DE POLIESTIRENO, UNA CAPA SIN ENVOLTURA</option>
+  <option value="21">BARCAZA</option>
+  <option value="22">BARRA</option>
+  <option value="23">BARRAS ENTRAMADAS</option>
+  <option value="24">BARRICA PEQUEÑA</option>
+  <option value="25">BARRIL</option>
+  <option value="26">BARRIL</option>
+  <option value="27">BARRIL / TONEL</option>
+  <option value="28">BARRIL DE MADERA</option>
+  <option value="29">BARRIL DE MADERA CON TAPA REMOVIBLE</option>
+  <option value="30">BARRIL DE MADERA CON TAPÓN</option>
+  <option value="31">BAUL</option>
+  <option value="32">BAÚL</option>
+  <option value="33">BAÚL, MUESTRA DEL VENDEDOR</option>
+  <option value="34">BAÚL DE MADERA</option>
+  <option value="35">BIDÓN DE ACERO</option>
+  <option value="36">BIDÓN DE ACERO CON TAPA NO REMOVIBLE</option>
+  <option value="37">BIDÓN DE ACERO CON TAPA REMOVIBLE</option>
+  <option value="38">BIDÓN DE PLÁSTICO</option>
+  <option value="39">BIDÓN DE PLÁSTICO CON TAPA NO REMOVIBLE</option>
+  <option value="40">BIDÓN DE PLÁSTICO CON TAPA REMOVIBLE</option>
+  <option value="41">BIDÓN, CILÍNDRICO</option>
+  <option value="42">BIDÓN, RECTANGULAR</option>
+  <option value="43">BING CHEST</option>
+  <option value="44">BLISTER</option>
+  <option value="45">BLISTER EN CAJA</option>
+  <option value="46">BOBINA</option>
+  <option value="47">BOLSA</option>
+  <option value="48">BOLSA CON PELÍCULA DE PLÁSTICO</option>
+  <option value="49">BOLSA DE LONA</option>
+  <option value="50">BOLSA DE PAPEL</option>
+  <option value="51">BOLSA DE PAPEL, VARIAS PAREDES</option>
+  <option value="52">BOLSA DE PAPEL, VARIAS PAREDES, RESISTENTE AL AGUA</option>
+  <option value="53">BOLSA DE PLÁSTICO</option>
+  <option value="54">BOLSA DE TEJIDO DE PLÁSTICO</option>
+  <option value="55">BOLSA DE TEJIDO DE PLÁSTICO, NO RECUBIERTO Y SIN FORRO</option>
+  <option value="56">BOLSA DE TEJIDO DE PLÁSTICO, RESISTENTE AL AGUA</option>
+  <option value="57">BOLSA DE TEJIDO DE PLÁSTICO, TAMIZADA</option>
+  <option value="58">BOLSA DE TEXTIL</option>
+  <option value="59">BOLSA EN CAJA</option>
+  <option value="60">BOLSA GRANDE</option>
+  <option value="61">BOLSA MULTIUSOS</option>
+  <option value="62">BOLSA TEXTIL SIN CUBIERTA/FORRO</option>
+  <option value="63">BOLSA TEXTIL TAMIZADA</option>
+  <option value="64">BOLSA TEXTIL, RESISTENTE AL AGUA</option>
+  <option value="65">BOMBONA</option>
+  <option value="66">BOTELLA</option>
+  <option value="67">BOTELLA EN CAJA</option>
+  <option value="68">BOTELLA NO PROTEGIDA BULBOSA</option>
+  <option value="69">BOTELLA NO PROTEGIDA CILINDRICA</option>
+  <option value="70">BOTELLA PARA GAS</option>
+  <option value="71">BOTELLA PROTEGIDA BULBOSA</option>
+  <option value="72">BOTELLA PROTEGIDA CILINDRICA</option>
+  <option value="73">BULTO</option>
+  <option value="74">BULTO IMPERMEABLE</option>
+  <option value="75">BULTO PARA GAS (EN 1031 MBAR Y 15ºC)</option>
+  <option value="76">BULTO PARA GAS LICUADO (A TEMPERATURA Y PRESIÓN NORMAL)</option>
+  <option value="77">BULTO PARA LIQUIDO</option>
+  <option value="78">BULTO PARA PARTÍCULAS FINAS (POLVOS)</option>
+  <option value="79">BULTO PARA PARTÍCULAS GRANDES</option>
+  <option value="80">BULTO PARA PARTÍCULAS GRANULARES (GRANOS)</option>
+  <option value="81" selected="">CAJA</option>
+  <option value="82" selected="">CAJA</option>
+  <option value="83">CAJA CON CONTENEDOR INTERIOR</option>
+  <option value="84">CAJA DE ACERO</option>
+  <option value="85">CAJA DE ALUMINIO</option>
+  
+  <option value="87">CAJA DE CERILLAS</option>
+  <option value="88">CAJA DE FIBRA DE MADERA</option>
+  <option value="89">CAJA DE LATAS</option>
+  <option value="90">CAJA DE MADERA CHAPEADA</option>
+  <option value="91">CAJA DE MADERA NATURAL</option>
+  <option value="92">CAJA DE MADERA NATURAL</option>
+  <option value="93">CAJA DE MADERA NATURAL TAMIZADA</option>
+  <option value="94">CAJA DE MADERA RECONSTITUIDA</option>
+  <option value="95">CAJA DE PLÁSTICO</option>
+  <option value="96">CAJA DE PLÁSTICO EXPANDIDO</option>
+  <option value="97">CAJA DE PLÁSTICO SÓLIDO</option>
+  <option value="98">CAJA PARA LIQUIDOS</option>
+  <option value="99">CAJA PEQUEÑA</option>
+  <option value="100">CAJA POCO PROFUNDA</option>
+  <option value="101">CAMIÓN</option>
+  <option value="102">CANASTA</option>
+  <option value="103">CANASTILLA</option>
+  <option value="104">CÁNTARA</option>
+  <option value="105">CAPA</option>
+  <option value="106">CAPAS ENTRAMADAS</option>
+  <option value="107">CARD</option>
+  <option value="108">CARRETE</option>
+  <option value="109">CARRETE</option>
+  <option value="110">CARRETE INVERSO</option>
+  <option value="111">CARRO DE CARGA EN RIEL</option>
+  <option value="112">CARTON DE CIGARRILLOS</option>
+  <option value="113">CARTUCHO</option>
+  <option value="114">CERCADO</option>
+  <option value="115">CERROJO</option>
+  <option value="116">CESTA</option>
+  <option value="117">CESTO</option>
+  <option value="118">CESTO DE CARTÓN CON ASA</option>
+  <option value="119">CESTO DE MADERA CON ASA</option>
+  <option value="120">CESTO DE PLÁSTICO CON ASA</option>
+  <option value="121">CHEESES</option>
+  <option value="122">CILINDRO</option>
+  <option value="123">CILINDROS</option>
+  <option value="124">COFRE</option>
+  <option value="125">CON BORDE DE PROTECCIÓN</option>
+  <option value="126">CON ESQUINAR REFORZADAS</option>
+  <option value="127">CONEX</option>
+  <option value="128">CONOS</option>
+  <option value="129">CONTENEDOR</option>
+  <option value="130">CONTENEDOR</option>
+  <option value="131">CONTENEDOR A GRANEL CON UNA PELÍCULA DE PLÁSTICO, INTERMEDIARIO</option>
+  <option value="132">CONTENEDOR A GRANEL DE ACERO, INTERMEDIARIO</option>
+  <option value="133">CONTENEDOR A GRANEL DE ACERO, INTERMEDIARIO, PRESURIZADO &gt; 10 KPA</option>
+  <option value="134">CONTENEDOR A GRANEL DE ALUMINIO, INTERMEDIARIO</option>
+  <option value="135">CONTENEDOR A GRANEL DE ALUMINIO, INTERMEDIARIO, PRESURIZADO &gt;10 KPA</option>
+  <option value="136">CONTENEDOR A GRANEL DE MADERA CHAPEADA CON FORRO, INTERMEDIARIO</option>
+  <option value="137">CONTENEDOR A GRANEL DE MADERA NATURAL CON FORRO, INTERMEDIARIO</option>
+  <option value="138">CONTENEDOR A GRANEL DE MADERA RECONSTITUIDA CON FORRO, INTERMEDIARIO</option>
+  <option value="139">CONTENEDOR A GRANEL DE METAL, INTERMEDIARIO</option>
+  <option value="140">CONTENEDOR A GRANEL DE METAL, INTERMEDIARIO, PRESURIZADO 10 KPA</option>
+  <option value="141">CONTENEDOR A GRANEL DE TEJIDO DE PLÁSTICO, INTERMEDIARIO, CON FORRO</option>
+  <option value="142">CONTENEDOR A GRANEL DE TEJIDO DE PLÁSTICO, INTERMEDIARIO, RECUBIERTO</option>
+  <option value="143">CONTENEDOR A GRANEL, INTERMEDIARIO</option>
+  <option value="144">CONTENEDOR COMERCIAL</option>
+  <option value="145">CONTENEDOR CON ELEVADOR PRIMARIO</option>
+  <option value="146">CONTENEDOR CON RUEDAS</option>
+  <option value="147">CONTENEDOR DE ACERO, INTERMEDIARIO, PARA LIQUIDO</option>
+  <option value="148">CONTENEDOR DE ALUMINIO, INTERMEDIARIO, PARA LIQUIDO</option>
+  <option value="149">CONTENEDOR DE EMBARQUE MARÍTIMO SIN RUEDAS</option>
+  <option value="150">CONTENEDOR DE MADERA PARA ARTÍCULOS DEL HOGAR</option>
+  <option value="151">CONTENEDOR DE MERCANCIA A GRANEL</option>
+  <option value="152">CONTENEDOR DE METAL, INTERMEDIARIO PARA LIQUIDO</option>
+  <option value="153">CONTENEDOR DE MOTOR</option>
+  <option value="154">CONTENEDOR DE PAPEL MULTIPARED, INTERMEDIARIO</option>
+  <option value="155">CONTENEDOR DE PAPEL MULTIPARED, INTERMEDIARIO, RESISTENTE AL AGUA</option>
+  <option value="156">CONTENEDOR DE PAREDES MÚLTIPLES</option>
+  <option value="157">CONTENEDOR EN ROLLO</option>
+  <option value="158">CONTENEDOR FLOBIN</option>
+  <option value="159">CONTENEDOR INTERMEDIARIO</option>
+  <option value="160">CONTENEDOR INTERMODAL</option>
+  <option value="161">CONTENEDOR MAC-ISO, LT WGT 8x8x20</option>
+  <option value="162">CONTENEDOR MIXTO VARIADO</option>
+  <option value="163">CONTENEDOR NO ESPECIFICADO COMO EQUIPO DE TRANSPORTE</option>
+  <option value="164">CONTENEDOR PARA LIQUIDOS COMPUESTO DE PLÁSTICO FLEXIBLE, INTERMEDIARIO</option>
+  <option value="165">CONTENEDOR PARA LIQUIDOS COMPUESTO DE PLÁSTICO RÍGIDO, INTERMEDIARIO</option>
+  <option value="166">CONTENEDOR PARA LIQUIDOS, PLÁSTICO RÍGIDO, AISLADO, INTERMEDIARIO</option>
+  <option value="167">CONTENEDOR PARA LIQUIDOS, PLÁSTICO RÍGIDO, INTERMEDIARIO</option>
+  <option value="168">CONTENEDOR PARA SOLIDOS COMPUESTO DE PLÁSTICO FLEXIBLE, INTERMEDIARIO</option>
+  <option value="169">CONTENEDOR PARA SOLIDOS COMPUESTO DE PLÁSTICO RÍGIDO, INTERMEDIARIO</option>
+  <option value="170">CONTENEDOR PARA SOLIDOS, PLÁSTICO RÍGIDO, AISLADO, INTERMEDIARIO</option>
+  <option value="171">CONTENEDOR PARA SOLIDOS, PLÁSTICO RÍGIDO, INTERMEDIARIO</option>
+  <option value="172">CONTENEDOR PARA TEXTILES NO RECUBIERTO Y SIN FORRO, INTERMEDIARIO</option>
+  <option value="173">CONTENEDOR PARA TEXTILES, CON FORRO, INTERMEDIARIO</option>
+  <option value="174">CONTENEDOR PARA TEXTILES, RECUBIERTO Y CON FORRO, INTERMEDIARIO</option>
+  <option value="175">CONTENEDOR PARA TEXTILES, RECUBIERTO, INTERMEDIARIO</option>
+  <option value="176">CONTENEDOR TRANSPORTE NAVAL</option>
+  <option value="177">CORE</option>
+  <option value="178">CORREAS</option>
+  <option value="179">CUBETA</option>
+  <option value="180">CUBIERTA RECLINABLE</option>
+  <option value="181">CUBO</option>
+  <option value="182">CUÑETE</option>
+  <option value="183">CUÑETE</option>
+  <option value="184">DISPENSADOR</option>
+  <option value="185">DIVISOR</option>
+  <option value="186">DOLLY</option>
+  <option value="187">DOYPACK</option>
+  <option value="188">ELEVADOR DE CAMIONETA</option>
+  <option value="189">ELEVADORES</option>
+  <option value="190">EMBALAJE EXPOSITOR (DISPLAY)</option>
+  <option value="191">EMBALAJE SUELTO</option>
+  <option value="192">EMPACADO AL VACÍO</option>
+  <option value="193">EMPAQUE</option>
+  <option value="194">EMPAQUE SIN ESPECIFICACIÓN</option>
+  <option value="195">EMPAQUETADO AL CALOR</option>
+  <option value="196">EN HANGAR O ESTANTE EN CAJA</option>
+  <option value="197">EN VARIAS PIEZAS</option>
+  <option value="198">ENTRAMADO</option>
+  <option value="199">ENVASADO DE ALIMENTOS</option>
+  <option value="200">ENVOLTURA</option>
+  <option value="201">ENVOLTURA</option>
+  <option value="202">ENVOLTURA</option>
+  <option value="203">ENVUELTO EN PLÁSTICO</option>
+  <option value="204">ESTANTE</option>
+  <option value="205">ESTANTE DE DOBLE LONGITUD</option>
+  <option value="206">ESTANTE DESMONTABLE</option>
+  <option value="207">ESTANTE MEDIO-ESTANDAR</option>
+  <option value="208">ESTANTE PARA COLGAR ROPA</option>
+  <option value="209">ESTANTE PARA TUBERÍAS</option>
+  <option value="210">ESTERA</option>
+  <option value="211">ESTUCHE CON PALET COMO BASE</option>
+  <option value="212">ESTUCHE DE CARTÓN CON PALET COMO BASE</option>
+  <option value="213">ESTUCHE DE MADERA CON PALET COMO BASE</option>
+  <option value="214">ESTUCHE DE METAL CON PALET COMO BASE</option>
+  <option value="215">ESTUCHE DE PLÁSTICO CON PALET COMO BASE</option>
+  <option value="216">ESTUCHE ISOTÉRMICO</option>
+  <option value="217">ETIQUETA COLGANTE</option>
+  <option value="218">EXPEDIDOR</option>
+  <option value="219">FARDO</option>
+  <option value="220">FILMPACK</option>
+  <option value="221">FLOW PACK</option>
+  <option value="222">FOOTLOCKER</option>
+  <option value="223">FRASCO</option>
+  <option value="224">FRASCO</option>
+  <option value="225">GABINETE</option>
+  <option value="226">GARRAFA NO PROTEGIDA</option>
+  <option value="227">GARRAFA PROTEGIDA</option>
+  <option value="228">GARRAFÓN NO PROTEGIDO</option>
+  <option value="229">GARRAFÓN PROTEGIDO</option>
+  <option value="230">GAVERA</option>
+  <option value="231">GAVERA CERVEZA</option>
+  <option value="232">GAVERA DE CARTÓN CON MÚLTIPLES CAPAS</option>
+  <option value="233">GAVERA DE FRUTAS</option>
+  <option value="234">GAVERA DE LECHE</option>
+  <option value="235">GAVERA DE MADERA CON MÚLTIPLES CAPAS</option>
+  <option value="236">GAVERA DE PLASTICO CON MÚLTIPLES CAPAS</option>
+  <option value="237">GAVERA ENMARCADA</option>
+  <option value="238">GAVERA, BULTO DE CARTÓN</option>
+  <option value="239">GAVERA, BULTO DE MADERA</option>
+  <option value="240">GAVERA, BULTO DE PLÁSTICO</option>
+  <option value="241">GLOBO NO PROTEGIDO</option>
+  <option value="242">GLOBO PROTEGIDO</option>
+  <option value="243">GRANEL</option>
+  <option value="244">HOJA DESLIZANTE</option>
+  <option value="245">HOJALATA</option>
+  <option value="246">HUSO</option>
+  <option value="247">Intmdte bulk contnr, composite, flxble plastic, presisd</option>
+  <option value="248">Intmdte bulk contnr, composite, rigid plastic, presisd</option>
+  <option value="249">Intmdte bulk contnr, rgd plstc + strctrl eqpmt, presisd</option>
+  <option value="250">Intmdte bulk contnr, rigid plstc, freestanding, presisd</option>
+  <option value="251">JARRA</option>
+  <option value="252">JARRA</option>
+  <option value="253">JARRÓN</option>
+  <option value="254">JAULA</option>
+  <option value="255">JAULA ENCERRADA</option>
+  <option value="256">JUEGO</option>
+  <option value="257">JUEGO / ESTUCHE</option>
+  <option value="258">JUNCOS</option>
+  <option value="259">JUTE BAG</option>
+  <option value="260">LADO DE LA CARNE DE VACUNO</option>
+  <option value="261">LÁMINA (REMPLAZA AL PALET)</option>
+  <option value="262">LÁMINA ENVUELTA DE PLÁSTICO</option>
+  <option value="263">LAMINADO METÁLICO</option>
+  <option value="264">LATA</option>
+  <option value="265">LATA CILINDRICA</option>
+  <option value="266">LATA CON ASA</option>
+  <option value="267">LATA RECTANGULAR</option>
+  <option value="268">LINGOTE</option>
+  <option value="269">LINGOTES ENTRAMADOS</option>
+  <option value="270">LONA</option>
+  <option value="271">LOTE</option>
+  <option value="272">MALLA</option>
+  <option value="273">MAPLE</option>
+  <option value="274">MARCO</option>
+  <option value="275">MATRAZ</option>
+  <option value="276">MILVAN</option>
+  <option value="277">MIMBRE PARA BOTELLAS</option>
+  <option value="278">MORRAL</option>
+  <option value="279">MSCVAN A</option>
+  <option value="280">MULTIPACK</option>
+  <option value="281">MUTUAMENTE DEFINIDO</option>
+  <option value="282">NIDO</option>
+  <option value="283">NO DISPONIBLE</option>
+  <option value="284">NO INFORMADO</option>
+  <option value="285">NOIL</option>
+  <option value="286">PACA</option>
+  <option value="287">PACA COMPRIMIDO</option>
+  <option value="288">PACA NO COMPRIMIDO</option>
+  <option value="289">PALET</option>
+  <option value="290">PALET - 2 WAY</option>
+  <option value="291">PALET - 4 WAY</option>
+  <option value="292">PALET CAJA</option>
+  <option value="293">PALET CHEP</option>
+  <option value="294">PALET CHEP</option>
+  <option value="295">PALET RETORNABLE</option>
+  <option value="296">PALLET, MODULAR, COLLARS 80CMS * 100CMS</option>
+  <option value="297">PALLET, MODULAR, COLLARS 80CMS * 120CMS</option>
+  <option value="298">PAQUETE</option>
+  <option value="299">PAQUETE</option>
+  <option value="300">PAQUETE DE BANDEJAS</option>
+  <option value="301">PAQUETE DE MUNICIONES</option>
+  <option value="302">PAQUETE DE VARAS</option>
+  <option value="303">PAQUETE DISPLAY DE CARTÓN</option>
+  <option value="304">PAQUETE DISPLAY DE MADERA</option>
+  <option value="305">PAQUETE DISPLAY DE METAL</option>
+  <option value="306">PAQUETE DISPLAY DE PLÁSTICO</option>
+  <option value="307">PAQUETE ENVUELTO EN PAPEL</option>
+  <option value="308">PAQUETE MULTI ROLLO</option>
+  <option value="309">PAQUETE QUE FLUYE</option>
+  <option value="310">PAQUETE QUE PERMITE OBSERVAR EL CONTENIDO</option>
+  <option value="311">PELÍCULA AJUSTADA (SIN CALOR)</option>
+  <option value="312">PELÍCULA TERMOFORMADA</option>
+  <option value="313">PERCHA</option>
+  <option value="314">PET</option>
+  <option value="315">PIEZAS</option>
+  <option value="316">PIPA</option>
+  <option value="317">PLACA</option>
+  <option value="318">PLACAS ENTRAMADAS</option>
+  <option value="319">PLATAFORMA</option>
+  <option value="320">PLATAFORMA</option>
+  <option value="321">POMO</option>
+  <option value="322">PORTABULTOS</option>
+  <option value="323">PORTAFOLIO</option>
+  <option value="324">POTE / TARRO</option>
+  <option value="325">POUCH</option>
+  <option value="326">RACIMO</option>
+  <option value="327">RAMPA</option>
+  <option value="328">RAMPA DE DOBLE LONGITUD</option>
+  <option value="329">RAMPA ELEVADORA</option>
+  <option value="330">RECIPIENTE DE METAL</option>
+  <option value="331">RECIPIENTE DE PLÁSTICO</option>
+  <option value="332">RECIPIENTE DE PLÁSTICO</option>
+  <option value="333">RECIPIENTE DE PLÁSTICO EN CAJA DE CARTÓN</option>
+  <option value="334">RECIPIENTE DE PLÁSTICO EN CAJA DE MADERA</option>
+  <option value="335">RECIPIENTE DE PLÁSTICO EN CAJA DE MADERA</option>
+  <option value="336">RECIPIENTE DE PLÁSTICO EN CAJA DE PLÁSTICO SÓLIDO</option>
+  <option value="337">RECIPIENTE DE PLÁSTICO EN GAVERA DE ACERO</option>
+  <option value="338">RECIPIENTE DE PLÁSTICO EN GAVERA DE ALUMINIO</option>
+  <option value="339">RECIPIENTE DE PLÁSTICO EN TAMBOR DE ACERO</option>
+  <option value="340">RECIPIENTE DE PLÁSTICO EN TAMBOR DE ALUMINIO</option>
+  <option value="341">RECIPIENTE DE PLÁSTICO EN TAMBOR DE FIBRA</option>
+  <option value="342">RECIPIENTE DE PLÁSTICO EN TAMBOR DE MADERA</option>
+  <option value="343">RECIPIENTE DE PLÁSTICO EN TAMBOR DE PLÁSTICO</option>
+  <option value="344">RECIPIENTE DE VIDRIO</option>
+  <option value="345">RECIPIENTE DE VIDRIO</option>
+  <option value="346">RECIPIENTE DE VIDRIO EN CAJA DE CARTÓN</option>
+  <option value="347">RECIPIENTE DE VIDRIO EN CAJA DE MADERA</option>
+  <option value="348">RECIPIENTE DE VIDRIO EN CESTO DE MIMBRE</option>
+  <option value="349">RECIPIENTE DE VIDRIO EN GAVERA DE ACERO</option>
+  <option value="350">RECIPIENTE DE VIDRIO EN GAVERA DE ALUMINIO</option>
+  <option value="351">RECIPIENTE DE VIDRIO EN PAQUETE DE PLÁSTICO EXPANDIBLE</option>
+  <option value="352">RECIPIENTE DE VIDRIO EN PAQUETE DE PLÁSTICO SÓLIDO</option>
+  <option value="353">RECIPIENTE DE VIDRIO EN TAMBOR DE ACERO</option>
+  <option value="354">RECIPIENTE DE VIDRIO EN TAMBOR DE ALUMINIO</option>
+  <option value="355">RECIPIENTE DE VIDRIO EN TAMBOR DE FIBRA</option>
+  <option value="356">RECIPIENTE DE VIDRIO EN TAMBOR DE MADERA</option>
+  <option value="357">RECIPIENTE ENVUELTO EN PLÁSTICO</option>
+  <option value="358">REDNET</option>
+  <option value="359">REFUERZO</option>
+  <option value="360">RIEL</option>
+  <option value="361">ROLLO</option>
+  <option value="362">ROLLO</option>
+  <option value="363">ROLLO METÁLICO</option>
+  <option value="364">SACHET</option>
+  <option value="365">SACHET EN CAJA</option>
+  <option value="366">SACO</option>
+  <option value="367">SACO MULTIPARED</option>
+  <option value="368">SEA CHEST</option>
+  <option value="369">SEPARADOR DE ARTÍCULO - EMPAQUE INTERIOR</option>
+  <option value="370">SEPARADOR DE ARTÍCULOS EN EL INTERIOR</option>
+  <option value="371">SEPARADORES</option>
+  <option value="372">SHOOK</option>
+  <option value="373">SIN EMPAQUE</option>
+  <option value="374">SIN EMPAQUE</option>
+  <option value="375">SOBRE</option>
+  <option value="376">SOBRE SUS PROPIAS RUEDAS</option>
+  <option value="377">SOPORTE</option>
+  <option value="378">SOPORTE DE SEGURIDAD</option>
+  <option value="379">SPLASH BLEND</option>
+  <option value="380">TABLA</option>
+  <option value="381">TABLA / TABLON</option>
+  <option value="382">TABLA / TABLON ENTRAMADO</option>
+  <option value="383">TAMBOR</option>
+  <option value="384">TAMBOR DE ACERO</option>
+  <option value="385">TAMBOR DE ACERO CON TAPA NO REMOVIBLE</option>
+  <option value="386">TAMBOR DE ACERO CON TAPA REMOVIBLE</option>
+  <option value="387">TAMBOR DE ALUMINIO</option>
+  <option value="388">TAMBOR DE ALUMINIO CON TAPA NO REMOVIBLE</option>
+  <option value="389">TAMBOR DE ALUMINIO CON TAPA REMOVIBLE</option>
+  <option value="390">TAMBOR DE FIBRA</option>
+  <option value="391">TAMBOR DE HIERRO</option>
+  <option value="392">TAMBOR DE MADERA CHAPEADA</option>
+  <option value="393">TAMBOR DE PLÁSTICO</option>
+  <option value="394">TAMBOR DE PLÁSTICO CON TAPA NO REMOVIBLE</option>
+  <option value="395">TAMBOR DE PLÁSTICO CON TAPA REMOVIBLE</option>
+  <option value="396">TANQUE</option>
+  <option value="397">TANQUE CILINDRICO</option>
+  <option value="398">TANQUE RECTANGULAR</option>
+  <option value="399">TAPA</option>
+  <option value="400">TAZA</option>
+  <option value="401">TAZON</option>
+  <option value="402">TEA-CHEST</option>
+  <option value="403">TETRABRICK CARTON MULTILAMINADO</option>
+  <option value="404">TOLVA DE CAMIÓN</option>
+  <option value="405">TONEL</option>
+  <option value="406">TONEL</option>
+  <option value="407">TONELADA</option>
+  <option value="408">TOTE BIN</option>
+  <option value="409">TOTE BIN DE DOBLE LONGITUD</option>
+  <option value="410">TOTE BIN DESMONTABLE</option>
+  <option value="411">TOTE BIN MEDIO-ESTANDAR</option>
+  <option value="412">TRONCO</option>
+  <option value="413">TRONCOS ENTRAMADOS</option>
+  <option value="414">TUBERÍA</option>
+  <option value="415">TUBERÍA</option>
+  <option value="416">TUBERIAS ENTRAMADAS</option>
+  <option value="417">TUBO</option>
+  <option value="418">TUBO</option>
+  <option value="419">TUBO CON BOQUILLA</option>
+  <option value="420">TUBO EN CAJA</option>
+  <option value="421">TUBO EN MALLA DE PLÁSTICO</option>
+  <option value="422">TUBO EN MALLA DE TEXTIL</option>
+  <option value="423">TUBO PLEGABLE</option>
+  <option value="424">TUBOS ENTRAMADOS</option>
+  <option value="425">UNIDAD</option>
+  <option value="426">VAGÓN CISTERNA</option>
+  <option value="427">VAN PACK</option>
+  <option value="428">VARA</option>
+  <option value="429">VARAS ENTRAMADAS</option>
+  <option value="430">VARIADO</option>
+  <option value="431">VEHICULO EN CONDICIÓN OPERATIVA</option>
+  <option value="432">VEHÍCULO PRIVADO</option>
+  <option value="433">VEHICULOS</option>
+  <option value="434">VIGA</option>
+  <option value="435">VIGAS ENTRAMADAS</option>
+  <option value="436">ZIPPER</option> 
+				
+			</select>
+  		</div>
+		
+		
+		<div class="col-sm-12">
+                  <label for="codigointerno" class="form-label">Código Interno / Descripción interna</label>
+                  <input type="text"  class="form-control  form-control-lg" id="codigointerno" placeholder="Ejemplo: SKU" value=" Caja de 12 unidades"  />
+</div>
+		
+		
+		
+</div>
+	
+	
+	
+</div>	
+
+	
+</div>
+
+<div class="row g-3 p-3 bg-light mb-3 mt-4" style="overflow: hidden" >
+<h4 class="mb-1 pt-0 mt-0">Producto Contenido <a class="btn btn-outline-primary btn-sm mb-1 " data-bs-toggle="modal" data-bs-target="#ModalVer">
+					Ver ficha del producto contenido
+			</a></h4>	
+	
+<div class="col-2 pt-1" >
+	<img src="../assets/img/producto-1c.jpg" class="w-100 rounded-1" />
+</div>
+	
+<div class="col-10 ps-4" id="ficha-contendor-datos">
+	<div class="row g-2" >
+	  <div class="col-6 border-bottom pb-2">
+		  <div>GTIN Contenido </div>
+		  <div class="d-block fs-5"><strong>7798336831071</strong>
+			  
+			
+		  
+		  </div>
+	  </div>
+		
+	 <div class="col-6 border-bottom pb-2">
+		  
+	  </div>
+	
+	  <div class="col-12 border-bottom pb-2">
+		  <div>Descripción GTIN Contenido</div>
+		  <div class="d-block fs-5"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+	  </div>
+<div class="col-12  pb-2">
+	  <div class="float-start me-5" style="overflow: ">
+		  <div><small>Marca</small></div>
+		  <div class="d-block"><strong>MarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="float-start me-5" style="overflow: ">
+		  <div><small>SubMarca</small></div>
+		  <div class="d-block"><strong>SubMarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="float-start me-5" style="overflow: ">
+		  <div><small>Clasificación</small></div>
+		  <div class="d-block"><strong>Lorem / Ipsum / Dolor sit amet consectetur.</strong></div>
+	  </div>
+
+	  <div class="float-start me-0" style="overflow: ">
+		  <div><small>Contenido</small></div>
+		  <div class="d-block"><strong>150 Gramos</strong></div>
+	  </div>
+</div>
+	  
+	</div>
+</div>
+
+</div>
+	
+	<div class="row">
+		<div class="col-6">
+		</div>
+					
+			<div class="col-6">
+					<div class="text-end mb-1">
+	
+<div class="dropup">
+  <a class="btn btn-primary btn-lg "  data-bs-toggle="dropdown" aria-expanded="false">
+			 Confirmar edición
+	</a>
+	
+  <div class="dropdown-menu p-3 text-end">
+	  <div class="form-text mb-3 text-end">La edición GTIN 14 (DUN 14) no es automática.
+	  </div>
+	  <a class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false" >
+			 Cancelar
+	 </a> 
+    <a class="btn btn-primary " onClick="confirmar()" >
+			 Aceptar
+	</a>
+  </div>
+</div>
+ 
+			</div>
+		</div>		
+	
+</div>
+</div>
+
+	
+
+	
+		
+
+	
+
+				
+
+
+				
+
+
+           		
+<!-- final -->				
+<div id="final" style="display: none; ">
+<div class="row">
+			
+			
+			<div class="col-6">
+					<div class="text-end mb-1">
+	
+<div class="dropup">
+  <a class="btn btn-primary btn-lg "  data-bs-toggle="dropdown" aria-expanded="false">
+			 Confirmar y dar de alta
+	</a>
+	
+  <div class="dropdown-menu p-3 text-end">
+	  <div class="form-text mb-3 text-end">Al dar de alta el producto se generará un código, <br>
+que no podra ser reutilizado por otro producto<br>
+		  El producto solo podrá ser modificado durante los próximos 30 días.
+	  </div>
+	  <a class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false" >
+			 Cancelar
+	 </a> 
+    <a class="btn btn-primary " onClick="confirmar()" >
+			 Aceptar
+	</a>
+  </div>
+</div>
+ 
+			</div>
+		</div>		
+	<div class="form-text mb-3 text-end">El producto solo podrá ser modificado durante los próximos 30 días.<br>
+Pasado ese período, deberá generar un código nuevo.</div>
+		
+</div>
+	
+</div>	
+  
+<div id="ficha-final" style="display: none; overflow: hidden;">
+  <div class="border-bottom pb-3 mb-3 mt-4">
+    <div class="h1 text-center">Felicitaciones</div>
+	<div class="h2 text-center">El GTIN 14 (DUN 14) fue editado con éxito</div>
+	<div class=" text-center mb-4">Proin lacinia mi tortor, non mattis magna posuere blandit. Suspendisse non consequat massa. </div>
+  </div>
+     
+ <div class="row g-3" >
+	
+<div class="col-4" id="ficha-contendor-imagen">
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/caja-2.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/caja-2.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+</div>
+	
+<div class="col-8" id="ficha-contendor-datos">
+	<div class="row g-3" >
+	  <div class="col-6 border-bottom pb-2">
+		  <div>GTIN 14 (DUN 14)</div>
+		  <div class="d-block fs-5"><strong><span class="badge text-bg-primary py-2 px-3 fs-5">27798385020016</span></strong></div>
+	  </div>
+	
+	  <div class="col-6 border-bottom pb-2">
+		  <div class="float-start">
+			  <div>GTIN Contenido</div>
+			  <div class="d-block fs-5"><strong>7798385020012</strong></div>
+		   </div>
+		  
+		  <div class="float-start ms-3">
+		  <img src="../assets/img/producto-1c.jpg" style="width: 60px">
+		  
+	  </div>
+	  </div>
+		
+	  
+		
+		
+
+	  <div class="col-12 border-bottom pb-2">
+		  <div>Descripción GTIN 14 (DUN 14)</div>
+		  <div class="d-block fs-5"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Unidades Contenidas</div>
+		  <div class="d-block fs-5"><strong>12,00</strong></div>
+	  </div>
+		
+		<div class="col-6 border-bottom pb-2">
+		  <div>Envase</div>
+		  <div class="d-block fs-5"><strong>Caja <span class="badge text-bg-light bg-body-secondary">CAS</span></strong></div>
+	  </div>
+
+	  <div class="col-4 border-bottom pb-2">
+		  <div>Fecha Alta</div>
+		  <div class="d-bloc fs-5"><strong>##/##/2026</strong></div>
+	  </div>
+		
+	  <div class="col-4 border-bottom pb-2">
+		  <div>Modificación</div>
+		  <div class="d-block fs-5"><strong>##/##/2026</strong></div>
+	  </div>
+
+	  <div class="col-4 border-bottom pb-2">
+		  <div>Estado</div>
+		  <div class="d-block fs-5"><strong><span class="badge text-bg-success py-2 px-3 fs-5">En revisión</span></strong></div>
+	  </div>
+	  
+		
+	 <div class="col-12  text-end">
+
+              <a class="btn btn-primary btn-lg" onClick="confirmar2()">
+					   Aceptar
+			  </a>
+	<div class="form-text mb-3">
+		Recibiras un e-mail con los datos del GTIN 14 (DUN 14) cuando sea aprobado el cambio, luego quedará visible en "listado de Productos GTIN 14 (DUN 14)"	
+	</div>
+		</div>
+	</div>
+</div>
+
+</div>	    
+	
+
+      
+    
+    
+  
+</div>   
+  
+      	
+				
+</form>
+	</div>
+	
+		  
+<div class="mt-3">
+	<hr>
+	<a class="btn btn-outline-primary btn-lg" href="gtin.html" >
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"></path>
+		</svg> 
+		Volver al listado de Productos GTIN 14 (DUN 14) 
+	</a>
+
+</div>
+
+
+
+
+
+        
+      </div>
+		  
+		  </div>
+			<div id="card-nuevo-producto2" style="display: none">
+				
+				
+<div class="alert alert alert-primary w-100" role="alert">
+  <h4 class="alert-heading">Edición de GTIN 14 (DUN 14)</h4>
+  
+  <hr>
+  <p class="mb-0">El GTIN 14 (DUN 14) <span class="badge text-bg-primary py-2 px-3">GTIN: 17798385020019</span> fue editado correctamente!</p>
+</div>
+			
+<div class="card m-2 mb-3 p-3" >
+
+<div class="row g-3" >
+	
+					
+			<div class="col-sm-4">
+
+				
+	<a class="btn btn-primary w-100 btn-lg" href="gtin.html">
+		 
+		Volver al listado de GTIN 14 (DUN 14) 
+	</a>
+                 
+            </div>
+           <div class="col-sm-4">
+			   <a href="gtin-nuevo.html"  class="btn btn-primary w-100 btn-lg" style="cursor: pointer">  
+				   Dar de  Alta un nuevo GTIN 14 (DUN 14)
+		</a>
+                
+            </div>
+	
+			<div class="col-sm-4">
+			   <a href="micuenta.html" class="btn btn-primary w-100 btn-lg" style="cursor: pointer">  
+				  Ir a Mi cuenta
+				</a>
+                
+            </div>
+
+</div>
+
+</div>
+			
+</div>
+		</div>
+
+
+  <div class="parent">
+    <div class="wrapper">
+      <div id="left-lovehandles" class="container">
+		  
+	
+		  
+     
+		
+      </div>
+ 
+		
+    </div>
+	  
+  </div>
+
+    </main>
+		   
+<div class="modal modal-lg fade" id="ModalVer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel2">Ficha del Producto <span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" >
+	
+<div class="col-4" id="ficha-contendor-imagen">
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/producto-1c.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/producto-1.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+</div>
+	
+<div class="col-8" id="ficha-contendor-datos">
+	<div class="row g-3" >
+	  <div class="col-12 border-bottom pb-2">
+		  <div><small>GTIN</small></div>
+		  <div class="d-block"><strong>7798336831071</strong></div>
+	  </div>
+	
+	  <div class="col-12 border-bottom pb-2">
+		  <div><small>Descripción</small></div>
+		  <div class="d-block"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Marca</small></div>
+		  <div class="d-block"><strong>MarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>SubMarca</small></div>
+		  <div class="d-block"><strong>SubMarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Clasificación</small></div>
+		  <div class="d-block"><strong>Lorem / Ipsum / Dolor sit amet consectetur.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Contenido</small></div>
+		  <div class="d-block"><strong>150 Gramos</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Mercados</small></div>
+		  <div class="d-block pb-2"><div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Argentina</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Paraguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Uruguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Chile</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Perú</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Bolivia</div></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Estado</small></div>
+		  <div class="d-block"><strong>Activo</strong></div>
+	  </div>
+	</div>
+</div>
+
+</div>	
+
+      </div>
+    
+    </div>
+  </div>
+</div>   
+  
+      	
+    
+	 
+	  </div>
+
+ 
+
+  
+  	
+<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/dragula.js"></script>
+<script src="../assets/js/example.min.js"></script>
+<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/subir-imagen.js"></script>
+		
+<script>
+
+	
+function sugerir_mas() {
+$("#sugerencia-1").slideDown(000);
+	$("#sugerencia-2").slideDown(000);
+	$("#sugerencia-3").slideDown(000);
+}
+
+function ampliar_producto_1() {
+	$("#producto-1").addClass("abierto");
+	$("#btn-cerrar-producto-1").slideDown(0);
+	$("#btn-abrir-producto-1").slideUp(0);
+	
+}
+	
+function cerrar_producto_1() {
+	$("#producto-1").removeClass("abierto");
+	$("#btn-cerrar-producto-1").slideUp(0);
+	$("#btn-abrir-producto-1").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_2() {
+	$("#producto-2").addClass("abierto");
+	$("#btn-cerrar-producto-2").slideDown(0);
+	$("#btn-abrir-producto-2").slideUp(0);
+	
+}
+	
+function cerrar_producto_2() {
+	$("#producto-2").removeClass("abierto");
+	$("#btn-cerrar-producto-2").slideUp(0);
+	$("#btn-abrir-producto-2").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_3() {
+	$("#producto-3").addClass("abierto");
+	$("#btn-cerrar-producto-3").slideDown(0);
+	$("#btn-abrir-producto-3").slideUp(0);
+	
+}
+	
+function cerrar_producto_3() {
+	$("#producto-3").removeClass("abierto");
+	$("#btn-cerrar-producto-3").slideUp(0);
+	$("#btn-abrir-producto-3").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_4() {
+	$("#producto-4").addClass("abierto");
+	$("#btn-cerrar-producto-4").slideDown(0);
+	$("#btn-abrir-producto-4").slideUp(0);
+	
+}
+	
+function cerrar_producto_4() {
+	$("#producto-4").removeClass("abierto");
+	$("#btn-cerrar-producto-4").slideUp(0);
+	$("#btn-abrir-producto-4").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_5() {
+	$("#producto-5").addClass("abierto");
+	$("#btn-cerrar-producto-5").slideDown(0);
+	$("#btn-abrir-producto-5").slideUp(0);
+	
+}
+	
+function cerrar_producto_5() {
+	$("#producto-5").removeClass("abierto");
+	$("#btn-cerrar-producto-5").slideUp(0);
+	$("#btn-abrir-producto-5").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_6() {
+	$("#producto-6").addClass("abierto");
+	$("#btn-cerrar-producto-6").slideDown(0);
+	$("#btn-abrir-producto-6").slideUp(0);
+	
+}
+	
+function cerrar_producto_6() {
+	$("#producto-6").removeClass("abierto");
+	$("#btn-cerrar-producto-6").slideUp(0);
+	$("#btn-abrir-producto-6").slideDown(0);
+	
+}
+	
+function ficha_ampliar_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-12");
+	$("#ficha-contendor-imagen").removeClass("col-4");
+	$("#ficha-contendor-datos").addClass("col-12");
+	$("#ficha-contendor-datos").removeClass("col-8");
+	$("#imagen-1").slideUp(000);
+	$("#imagen-2").slideDown(500);	
+}
+	
+function ficha_reducir_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-4");
+	$("#ficha-contendor-imagen").removeClass("col-12");
+	$("#ficha-contendor-datos").addClass("col-8");
+	$("#ficha-contendor-datos").removeClass("col-12");
+	$("#imagen-2").slideUp(000);
+	$("#imagen-1").slideDown(000);	
+}
+
+
+	
+</script>
+		
+
+	  
+	<script>
+
+function mostrar_paso0() {
+	$("#inscripcion").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").removeClass("btn-secondary");
+	$("#barra-superior-2").removeClass("btn-secondary");
+	$("#barra-superior-1").removeClass("disabled");
+	$("#barra-superior-2").removeClass("disabled");
+}
+	
+
+
+	
+function mostrar_inscripcion1() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#collapseExample").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+
+}
+	
+function mostrar_inscripcion2() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#collapseExample").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+	
+}
+		
+function mostrar_empresa_b() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso1() {
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	  
+function mostrar_paso2() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_paso2_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso3() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideDown(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+
+	
+function mostrar_representante_legal() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideDown(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#progreso").addClass("progreso-2");
+}
+	
+function mostrar_apoderado() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideDown(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#progreso").addClass("progreso-3");
+}
+	
+function mostrar_informacion_contable() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideDown(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#progreso").addClass("progreso-4");
+}
+	
+function mostrar_final() {
+	$("#inscripcion").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+	$("#ficha-final").slideUp(500);
+	$("#barra-superior").slideDown(500);
+	$("#inscripcion3").slideDown(500);
+	$("#progreso").addClass("progreso-5");
+}
+		
+function mostrar_final_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+	
+	
+function confirmar() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior").slideUp(500);	
+	$("#codigo-final").show(000);
+	$("#ficha-final").slideDown(500);
+	$("#progreso").addClass("progreso-6");
+}
+		
+function modificar() {
+	$("#titulo-nuevo-producto").slideUp(000);
+	$("#titulo-modificar-producto").show(000);
+	
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-2").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#barra-superior-2").addClass("disabled");
+}
+		
+function confirmar2() {
+	$("#card-nuevo-producto").slideUp(500);
+	$("#card-nuevo-producto2").slideDown(500);
+}
+	
+</script>
+ 
+<script>
+ feather.replace({ 'aria-hidden': 'true' });
+$(".togglePassword").click(function (e) {
+ e.preventDefault();
+ var type = $(this).parent().parent().find(".password").attr("type");
+ console.log(type);
+ if(type == "password"){
+ $("svg.feather.feather-eye").replaceWith(feather.icons["eye-off"].toSvg());
+ $(this).parent().parent().find(".password").attr("type","text");
+ }else if(type == "text"){
+ $("svg.feather.feather-eye-off").replaceWith(feather.icons["eye"].toSvg());
+ $(this).parent().parent().find(".password").attr("type","password");
+ }
+ });
+</script>
+	
+  </body>
+</html>

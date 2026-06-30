@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Servicio</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/b04/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="../assets/b04/css/pricing.css" rel="stylesheet" />
+    <style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+        
+    </style>
+  </head>
+  <body>
+    <div class="container py-3">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="pagina-web.html" class="d-flex align-items-center text-decoration-none" >
+            <img  class="mb-2" src="../assets/img/gs1.png" alt="" height="61" />
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Nosotros</a>
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Soluciones</a>
+            <a class="me-3 py-2 text-decoration-none"              href="servicios.html" >Servicios</a>
+ 
+            <a href="servicio-codificar.html" class="btn btn-success ms-1">Obtené tu código de barras</a>
+			<a href="ingresar.html" class=" btn btn-outline-success ms-1">Iniciá Sesión o Registrate</a>
+          </nav>
+        </div>
+      </header>
+      <main> 
+		  
+		<div class="p-5 text-center bg-body-tertiary rounded-3">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+  <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+</svg>
+        <h1 class="text-body-emphasis mt-3">Capacitación</h1>
+        <p class="col-lg-10 mx-auto fs-5 text-muted">
+			Capacitate con nosotros. Aprovechá los beneficios de ser socio.
+        </p>
+        
+      </div>
+		  
+		  
+		 
+		  
+		  
+		  <p class="fs-5 col-md-12 pt-3">
+	
+
+Los invitamos a participar de los cursos regulares y seminarios web. A continuación, se describen los temas de capacitación y la fecha de comienzo de cada uno. 
+ </p>
+		
+<div class="moduleCursoActivo"><div class="row">
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/gerencial_26.jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Programa Gerencial Cadena de Valor 2026</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  El participante tendrá exposición a las principales tendencias y realidad del mercado nacional e internacional en la gestión de cadena de valor, desarrollando nuevas competencias en base a estrategias y optimización de operación que impacten la calid<span style="font-weight:bold;color:#cd3c0d">...</span> </p><p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 26/02/2026 11:00 Hs</p> </div>
+ </a>
+</div>
+
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/Curso_ID.jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Identificación ¿Cómo codificar tus productos?</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  El objetivo del curso, tiene como base, adquirir conocimiento sobre los beneficios y las ventajas que esta herramienta brinda, comprender y conocer las diferentes maneras de codificar en diferentes niveles de empaque y eliminar errores comunes en cos<span style="font-weight:bold;color:#cd3c0d">...</span> </p><p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 18/03/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 08/04/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 13/05/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 10/06/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 08/07/2026 09:00 Hs</p>
+	</div>
+ </a>
+</div>
+
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/Curso_traza_alimentos (1).jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Trazabilidad: conceptos y estándares para la cadena comercial</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  Brindar conocimientos teóricos y prácticos para llevar adelante una correcta trazabilidad utilizando Soluciones Globales que permiten integrar y compartir información con toda la Cadena de Abastecimiento generando procesos eficientes.<span style="font-weight:bold;color:#cd3c0d">...</span> </p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 19/03/2026 10:00 Hs</p> 
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 21/05/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 16/07/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 24/09/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 19/11/2026 10:00 Hs</p>
+	</div>
+ </a>
+</div>
+
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/curso_visibilidad (1).jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Visibilidad de productos</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  ¿Es lo mismo la posición o magnitud del producto, con tal de tenerlo a la venta? ¿Cómo determinar el lugar que ocupa cada producto? ¿Quién se encarga de esto?Esta charla tendrá como objetivo analizar las distintas maneras de exhibir un producto y qué<span style="font-weight:bold;color:#cd3c0d">...</span> </p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 26/03/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 20/10/2026 10:00 Hs</p></div>
+ </a>
+</div>
+
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/curso_salud_traza.jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Trazabilidad de medicamentos e insumos médicos</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  El Ministerio de Salud de Nación conjunto con la ANMAT (Administración Nacional de Alimentos, Medicamentos y Tecnología) anunció la puesta en marcha de un programa nacional de trazabilidad de Productos Médicos, que deberán adoptar fabricantes, import<span style="font-weight:bold;color:#cd3c0d">...</span> </p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 31/03/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 26/05/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 28/07/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 29/09/2026 09:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 24/11/2026 09:00 Hs</p> </div>
+ </a>
+</div>
+
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/gerencial_26.jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Programa: Packaging Estratégico</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  El programa brinda herramientas para comprender el envase como un actor clave del consumo contemporáneo, integrando historia, materiales, tecnología, logística, sustentabilidad y comportamiento del consumidor, con una mirada actual y estratégica.¿Qué<span style="font-weight:bold;color:#cd3c0d">...</span> </p><p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 07/04/2026 16:00 Hs</p> </div>
+ </a>
+</div>
+
+
+<div class="col-12 col-md-6 col-lg-4 mb-4 mt-4  ">
+<a href="servicio-curso.html" class="card h-100 w-100 border-1" target="" style="text-decoration :none"><img src="../assets/externos/backoffice.gs1.org.ar/Archivos/CursoImagenes/2D_retailers.jpg" class="card-img-top ewww_webp_loaded" alt="" decoding="async" loading="lazy"> <div class="card-body"><h3 class="card-title tipoletra" style="font-size:18px;weight:bold">Potencia tus Productos con Código QR GS1 - Curso para Industrias &amp; Retailers</h3><p class="card-text text-left tipoletra" style="font-size :14px;color:#262626">  Se proporcionará una orientación teórica y práctica en la Identificación de productos, utilizando códigos QR aprovechando el lenguaje estándar de GS1 utilizando los Identificadores de Aplicación, como atributos que mejoren los datos del GTIN. Se dest<span style="font-weight:bold;color:#cd3c0d">...</span> </p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 16/04/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 18/06/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 20/08/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 22/10/2026 10:00 Hs</p>
+	<p class="card-text text-left tipoletra" style="font-weight:bold;font-size :14px;color:#002c6c">Fecha: 03/12/2026 10:00 Hs</p> </div>
+ </a>
+</div>
+
+</div>
+</div>
+		  
+		</main>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+		  <p class="float-end"><a href="#">Ir arriba</a></p>
+        <div class="row">
+          <div class="col-12 col-md">
+            <img              class="mb-2"              src="../assets/img/gs1.png"              alt=""              height="61"            />
+            <small class="d-block mb-3 text-body-secondary">
+    Fraga 1326<br>
+    C1427BUB, CABA<br>
+    Tel: (54-11) 4556 4700<br>
+    Email: info@gs1.org.ar<br>
+</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Nosotross</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Servicios</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Sectores</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="../assets/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>

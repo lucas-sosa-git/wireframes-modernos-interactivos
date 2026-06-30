@@ -1,0 +1,1176 @@
+﻿{
+    "b03":  [
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/ayuda.html",
+                    "file":  "b03/ayuda.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/editar-gln.html",
+                    "file":  "b03/editar-gln.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/empresa-detalle.html",
+                    "file":  "b03/empresa-detalle.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/empresas.html",
+                    "file":  "b03/empresas.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gln.html",
+                    "file":  "b03/gln.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias.html",
+                    "file":  "b03/gracias.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias1.html",
+                    "file":  "b03/gracias1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias2.html",
+                    "file":  "b03/gracias2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias3.html",
+                    "file":  "b03/gracias3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias4.html",
+                    "file":  "b03/gracias4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias5.html",
+                    "file":  "b03/gracias5.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gracias-transferencia.html",
+                    "file":  "b03/gracias-transferencia.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gtin.html",
+                    "file":  "b03/gtin.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gtin-editar.html",
+                    "file":  "b03/gtin-editar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gtin-nuevo.html",
+                    "file":  "b03/gtin-nuevo.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/gtin-nuevo-formulario.html",
+                    "file":  "b03/gtin-nuevo-formulario.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/historial.html",
+                    "file":  "b03/historial.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/home.html",
+                    "file":  "b03/home.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/home-logueado.html",
+                    "file":  "b03/home-logueado.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/ingresar.html",
+                    "file":  "b03/ingresar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/ingresar-edi.html",
+                    "file":  "b03/ingresar-edi.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/instructivo1.html",
+                    "file":  "b03/instructivo1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/instructivo2.html",
+                    "file":  "b03/instructivo2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/instructivo3.html",
+                    "file":  "b03/instructivo3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/instructivos.html",
+                    "file":  "b03/instructivos.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta.html",
+                    "file":  "b03/micuenta.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta-basico.html",
+                    "file":  "b03/micuenta-basico.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta-basico1.html",
+                    "file":  "b03/micuenta-basico1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta-basico2.html",
+                    "file":  "b03/micuenta-basico2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta-basico3.html",
+                    "file":  "b03/micuenta-basico3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta-basico4.html",
+                    "file":  "b03/micuenta-basico4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/micuenta-basico5.html",
+                    "file":  "b03/micuenta-basico5.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/notificaciones.html",
+                    "file":  "b03/notificaciones.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/novedad.html",
+                    "file":  "b03/novedad.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/novedades.html",
+                    "file":  "b03/novedades.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/pagina-web.html",
+                    "file":  "b03/pagina-web.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/preferencias.html",
+                    "file":  "b03/preferencias.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/producto-editar.html",
+                    "file":  "b03/producto-editar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/producto-nuevo.html",
+                    "file":  "b03/producto-nuevo.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/productos.html",
+                    "file":  "b03/productos.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro.html",
+                    "file":  "b03/registro.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2.html",
+                    "file":  "b03/registro2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2-con-servicio1.html",
+                    "file":  "b03/registro2-con-servicio1.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2-con-servicio2.html",
+                    "file":  "b03/registro2-con-servicio2.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2-con-servicio3.html",
+                    "file":  "b03/registro2-con-servicio3.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2-con-servicio4.html",
+                    "file":  "b03/registro2-con-servicio4.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2-con-servicio5.html",
+                    "file":  "b03/registro2-con-servicio5.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro2-con-servicio6.html",
+                    "file":  "b03/registro2-con-servicio6.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro3.html",
+                    "file":  "b03/registro3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-con-servicio1.html",
+                    "file":  "b03/registro-con-servicio1.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-con-servicio2.html",
+                    "file":  "b03/registro-con-servicio2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-con-servicio3.html",
+                    "file":  "b03/registro-con-servicio3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-con-servicio4.html",
+                    "file":  "b03/registro-con-servicio4.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-con-servicio5.html",
+                    "file":  "b03/registro-con-servicio5.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-con-servicio6.html",
+                    "file":  "b03/registro-con-servicio6.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/registro-exitoso.html",
+                    "file":  "b03/registro-exitoso.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicio-capacitaciones.html",
+                    "file":  "b03/servicio-capacitaciones.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicio-codificar.html",
+                    "file":  "b03/servicio-codificar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicio-curso.html",
+                    "file":  "b03/servicio-curso.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicio-edi.html",
+                    "file":  "b03/servicio-edi.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicio-negociar.html",
+                    "file":  "b03/servicio-negociar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicio-osa.html",
+                    "file":  "b03/servicio-osa.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/servicios.html",
+                    "file":  "b03/servicios.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/terminos.html",
+                    "file":  "b03/terminos.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/usuarios.html",
+                    "file":  "b03/usuarios.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b03/utilidades.html",
+                    "file":  "b03/utilidades.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                }
+            ],
+    "b04":  [
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/actualizar-membresia2.html",
+                    "file":  "b04/actualizar-membresia2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/actualizar-membresia3.html",
+                    "file":  "b04/actualizar-membresia3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/actualizar-membresia4.html",
+                    "file":  "b04/actualizar-membresia4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/ayuda.html",
+                    "file":  "b04/ayuda.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/editar-gln.html",
+                    "file":  "b04/editar-gln.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/empresa-detalle.html",
+                    "file":  "b04/empresa-detalle.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/empresas.html",
+                    "file":  "b04/empresas.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gln.html",
+                    "file":  "b04/gln.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias.html",
+                    "file":  "b04/gracias.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias1.html",
+                    "file":  "b04/gracias1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias2.html",
+                    "file":  "b04/gracias2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias3.html",
+                    "file":  "b04/gracias3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias4.html",
+                    "file":  "b04/gracias4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias5.html",
+                    "file":  "b04/gracias5.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias6.html",
+                    "file":  "b04/gracias6.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gracias-transferencia.html",
+                    "file":  "b04/gracias-transferencia.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gtin.html",
+                    "file":  "b04/gtin.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gtin-editar.html",
+                    "file":  "b04/gtin-editar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gtin-nuevo.html",
+                    "file":  "b04/gtin-nuevo.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/gtin-nuevo-formulario.html",
+                    "file":  "b04/gtin-nuevo-formulario.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/historial.html",
+                    "file":  "b04/historial.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/home.html",
+                    "file":  "b04/home.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/home-logueado.html",
+                    "file":  "b04/home-logueado.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/ingresar.html",
+                    "file":  "b04/ingresar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/ingresar-edi.html",
+                    "file":  "b04/ingresar-edi.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/instructivo1.html",
+                    "file":  "b04/instructivo1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/instructivo2.html",
+                    "file":  "b04/instructivo2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/instructivo3.html",
+                    "file":  "b04/instructivo3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/instructivos.html",
+                    "file":  "b04/instructivos.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta.html",
+                    "file":  "b04/micuenta.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta-basico1.html",
+                    "file":  "b04/micuenta-basico1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta-basico2.html",
+                    "file":  "b04/micuenta-basico2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta-basico3.html",
+                    "file":  "b04/micuenta-basico3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta-basico4.html",
+                    "file":  "b04/micuenta-basico4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta-basico5.html",
+                    "file":  "b04/micuenta-basico5.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/micuenta-basico6.html",
+                    "file":  "b04/micuenta-basico6.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/novedad.html",
+                    "file":  "b04/novedad.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/novedades.html",
+                    "file":  "b04/novedades.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/pagina-web.html",
+                    "file":  "b04/pagina-web.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/preferencias.html",
+                    "file":  "b04/preferencias.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/producto-editar.html",
+                    "file":  "b04/producto-editar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/producto-nuevo.html",
+                    "file":  "b04/producto-nuevo.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/productos.html",
+                    "file":  "b04/productos.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro.html",
+                    "file":  "b04/registro.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2.html",
+                    "file":  "b04/registro2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2-con-servicio1.html",
+                    "file":  "b04/registro2-con-servicio1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2-con-servicio2.html",
+                    "file":  "b04/registro2-con-servicio2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2-con-servicio3.html",
+                    "file":  "b04/registro2-con-servicio3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2-con-servicio4.html",
+                    "file":  "b04/registro2-con-servicio4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2-con-servicio5.html",
+                    "file":  "b04/registro2-con-servicio5.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro2-con-servicio6.html",
+                    "file":  "b04/registro2-con-servicio6.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro3.html",
+                    "file":  "b04/registro3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-con-servicio1.html",
+                    "file":  "b04/registro-con-servicio1.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-con-servicio2.html",
+                    "file":  "b04/registro-con-servicio2.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-con-servicio3.html",
+                    "file":  "b04/registro-con-servicio3.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-con-servicio4.html",
+                    "file":  "b04/registro-con-servicio4.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-con-servicio5.html",
+                    "file":  "b04/registro-con-servicio5.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-con-servicio6.html",
+                    "file":  "b04/registro-con-servicio6.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/registro-exitoso.html",
+                    "file":  "b04/registro-exitoso.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicio-capacitaciones.html",
+                    "file":  "b04/servicio-capacitaciones.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicio-codificar.html",
+                    "file":  "b04/servicio-codificar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicio-curso.html",
+                    "file":  "b04/servicio-curso.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicio-edi.html",
+                    "file":  "b04/servicio-edi.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicio-negociar.html",
+                    "file":  "b04/servicio-negociar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicio-osa.html",
+                    "file":  "b04/servicio-osa.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/servicios.html",
+                    "file":  "b04/servicios.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/terminos.html",
+                    "file":  "b04/terminos.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/usuarios.html",
+                    "file":  "b04/usuarios.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b04/utilidades.html",
+                    "file":  "b04/utilidades.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                }
+            ],
+    "b05":  [
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/micuenta.html",
+                    "file":  "b05/micuenta.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/pagar.html",
+                    "file":  "b05/pagar.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-copiar.html",
+                    "file":  "b05/producto-copiar.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-editar.html",
+                    "file":  "b05/producto-editar.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-ficha.html",
+                    "file":  "b05/producto-ficha.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo.html",
+                    "file":  "b05/producto-nuevo.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                    "file":  "b05/producto-nuevo-dun14.html",
+                    "source":  "navigation",
+                    "referenced_by":  [
+                                          "navigation"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos.html",
+                    "file":  "b05/productos.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos-carga-masiva.html",
+                    "file":  "b05/productos-carga-masiva.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos-listado.html",
+                    "file":  "b05/productos-listado.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                },
+                {
+                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos-listado-dun14.html",
+                    "file":  "b05/productos-listado-dun14.html",
+                    "source":  "xlsx",
+                    "referenced_by":  [
+                                          "xlsx"
+                                      ]
+                }
+            ]
+}

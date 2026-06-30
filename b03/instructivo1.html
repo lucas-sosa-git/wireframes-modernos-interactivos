@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Instructivo</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+	<link href="../assets/css/sidebars.css" rel="stylesheet" />
+	<link href="../assets/css/micuenta2.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/css/carousel-micuenta.css" rel="stylesheet" />
+    <link href="../assets/css/dropdowns.css" rel="stylesheet" />
+	<link href="../assets/css/features.css" rel="stylesheet" />
+	<script src="../assets/js/jquery.min.js"></script>
+	<script defer src="../assets/js/jquery.js"></script>	
+	<script src="../assets/js/feather.min.js" ></script>
+	<script src="../assets/js/feather.min.js" ></script>
+	<link href="../assets/css/list-groups.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/subir-imagen.css" />
+  </head>
+  <body>
+  	<nav class="navbar  navbar-light fixed-top bg-body-tertiary"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="home.html"><img class="mb-2" src="../assets/img/gs1.png" alt="" height="41"></a> 
+				
+
+<div class="dropdown ">
+
+
+<div class="btn-group float-end">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg> Menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+
+	<li class="border-bottom">
+		<a class="dropdown-item" href="micuenta.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+    <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+    <li><a class="dropdown-item" href="empresas.html">Empresas</a></li>
+    <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
+	<li><a class="dropdown-item" href="productos.html">Productos</a></li>
+	<li class="border-top"><a class="dropdown-item" href="home.html">Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+
+
+
+
+			</div> 
+	</nav>
+	   <div class="container py-3">
+	 <main >
+		 
+		 
+	
+    <div class="p-5 mt-5" >
+		
+		
+		<div class="mb-5 mt-6" >
+		<h1>¿En qué podemos ayudarte?</h1><br>
+		<div class="input-group input-group-lg mb-3">
+		  <input type="text" class="form-control" placeholder="En qué podemos ayudarte?" aria-label="En qué podemos ayudarte?" aria-describedby="button-addon2">
+		  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+		</div>
+		</div>
+		
+		<div class="panel-usuario">
+  <div class="parent">
+    <div class="wrapper">
+    
+		<div class="card m-3 mb-4 mt-4 shadow">
+			
+			<div class="titulo-ventana2">Instructivos: Tipos de Envases </div>
+			
+			
+			<div class="p-3">
+
+<style>
+
+#myUL, #myUL2 {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 1800px;
+  max-height: 418px;
+	min-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 0px !important;
+  border: 1px solid rgba(232,232,232,1.00);
+}
+
+.etiqueta a{
+		padding: 15px; 
+		padding-top: 13px;
+		padding-bottom: 13px;
+		font-size: 16px;
+		overflow: hidden;
+		display: block;
+		border: 1px solid rgba(232,232,232,1.00);
+		cursor: default;
+		min-height: 52px;
+  		height: auto;
+		transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	}
+	
+.etiqueta a:hover{
+		font-size: 18px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		color: #000000;
+		transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	}
+	
+.etiqueta a span{
+	text-transform:uppercase;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 80px;
+	transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	margin-right: 15px;
+}
+	
+.etiqueta a:hover span{
+	text-transform:uppercase;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 90px;
+	transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	background-color: #000000 !important;
+}
+	</style>
+				
+	<div class="list-group-item" style="padding: 0px; padding-bottom: 4px;">
+		<div class="form-floating rounded" style="width: 100%; border: 2px solid var(--bs-border-color);  border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; overflow: hidden" >
+		 <input style=" width: calc(100% - 350px) !important; float: left" type="text" class="form-control border-0 rounded-0" id="myInput" onkeyup="myFunction()" placeholder="Ejemplo: Mermelada, conservas, dulces, etc">
+		 <label for="buscarconf">Buscar / Filtrar</label>
+			
+
+
+<div class="btn-group m-2" role="group" aria-label="Button group with nested dropdown" style="float: right; margin: .59rem !important;">
+ 
+
+  <a href="../assets/archivos/ejemplo.xls" target="_blank" class="btn btn-primary">
+	  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xls" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM6.472 15.29a1.2 1.2 0 0 1-.111-.449h.765a.58.58 0 0 0 .254.384q.106.073.25.114.143.041.319.041.246 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.152-.12-.462-.193l-.619-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.527-.422.338-.15.777-.149.457 0 .78.152.324.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.247-.181.9.9 0 0 0-.369-.068q-.325 0-.513.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .405.175l.62.143q.326.075.566.211a1 1 0 0 1 .375.358q.135.222.135.56 0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375m-2.945-3.358h-.893L1.81 13.37h-.036l-.832-1.438h-.93l1.227 1.983L0 15.931h.861l.853-1.415h.035l.85 1.415h.908L2.253 13.94zm2.727 3.325H4.557v-3.325h-.79v4h2.487z"></path>
+</svg>
+	  Exportar XLS
+	</a>
+ <a href="../assets/archivos/ejemplo.pdf" target="_blank" class="btn btn-primary">
+	 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+</svg>
+	 Exportar PDF
+	</a>
+
+</div>
+
+
+	
+		</div>
+		
+	</div>
+
+<ul id="myUL" class="list-group" Style="padding: 0px;">
+	
+<li class="etiqueta" id="2"><a><span class="badge text-bg-secondary">Ae</span>  Aerosol</a></li>
+<li class="etiqueta" id="3"><a><span class="badge text-bg-secondary">Lug</span>  Agarraderas</a></li>
+<li class="etiqueta" id="4"><a><span class="badge text-bg-secondary">Amp</span>  Ampolla</a></li>
+<li class="etiqueta" id="5"><a><span class="badge text-bg-secondary">Am</span>  Ampolla no Protegida</a></li>
+<li class="etiqueta" id="6"><a><span class="badge text-bg-secondary">Ap</span>  Ampolla Protegida</a></li>
+<li class="etiqueta" id="7"><a><span class="badge text-bg-secondary">Bem</span>  Astil</a></li>
+<li class="etiqueta" id="8"><a><span class="badge text-bg-secondary">Cj</span>  Ataúd / Cajón</a></li>
+<li class="etiqueta" id="9"><a><span class="badge text-bg-secondary">Cq</span> Cq</a></li>
+<li class="etiqueta" id="10"><a><span class="badge text-bg-secondary">At</span>  Atomizador</a></li>
+<li class="etiqueta" id="11"><a><span class="badge text-bg-secondary">Bj</span>  Balde</a></li>
+<li class="etiqueta" id="12"><a><span class="badge text-bg-secondary">Try</span>  Bandeja</a></li>
+<li class="etiqueta" id="13"><a><span class="badge text-bg-secondary">Pwt</span>  Bandeja Cubierta de Plástico</a></li>
+<li class="etiqueta" id="14"><a><span class="badge text-bg-secondary">Dy</span>  Bandeja de Cartón, Dos Capas sin Envoltura</a></li>
+<li class="etiqueta" id="15"><a><span class="badge text-bg-secondary">Dv</span>  Bandeja de Cartón, Una Capa sin Envoltura</a></li>
+<li class="etiqueta" id="16"><a><span class="badge text-bg-secondary">Dx</span>  Bandeja de Madera, Dos Capas sin Envoltura</a></li>
+<li class="etiqueta" id="17"><a><span class="badge text-bg-secondary">Dt</span>  Bandeja de Madera, Una Capa, sin Envoltura</a></li>
+<li class="etiqueta" id="18"><a><span class="badge text-bg-secondary">Dw</span>  Bandeja de Plástico, Dos Capas sin Envoltura</a></li>
+<li class="etiqueta" id="19"><a><span class="badge text-bg-secondary">Ds</span>  Bandeja de Plástico, Una Capa sin Envoltura</a></li>
+<li class="etiqueta" id="20"><a><span class="badge text-bg-secondary">Du</span>  Bandeja de Poliestireno, Una Capa sin Envoltura</a></li>
+<li class="etiqueta" id="21"><a><span class="badge text-bg-secondary">Brg</span>  Barcaza</a></li>
+<li class="etiqueta" id="22"><a><span class="badge text-bg-secondary">Br</span>  Barra</a></li>
+<li class="etiqueta" id="23"><a><span class="badge text-bg-secondary">Bz</span>  Barras Entramadas</a></li>
+<li class="etiqueta" id="24"><a><span class="badge text-bg-secondary">Trc</span>  Barrica Pequeña</a></li>
+<li class="etiqueta" id="25"><a><span class="badge text-bg-secondary">Bbl</span>  Barril</a></li>
+<li class="etiqueta" id="26"><a><span class="badge text-bg-secondary">Csk</span>  Barril</a></li>
+<li class="etiqueta" id="27"><a><span class="badge text-bg-secondary">Hgh</span>  Barril / Tonel</a></li>
+<li class="etiqueta" id="28"><a><span class="badge text-bg-secondary">2C</span>  Barril de Madera</a></li>
+<li class="etiqueta" id="29"><a><span class="badge text-bg-secondary">Qj</span>  Barril de Madera con Tapa Removible</a></li>
+<li class="etiqueta" id="30"><a><span class="badge text-bg-secondary">Qh</span>  Barril de Madera con Tapón</a></li>
+<li class="etiqueta" id="31"><a><span class="badge text-bg-secondary">Chs</span>  Baul</a></li>
+<li class="etiqueta" id="32"><a><span class="badge text-bg-secondary">Tr</span>  Baúl</a></li>
+<li class="etiqueta" id="33"><a><span class="badge text-bg-secondary">Tss</span>  Baúl, Muestra del Vendedor</a></li>
+<li class="etiqueta" id="34"><a><span class="badge text-bg-secondary">Trk</span>  Baúl de Madera</a></li>
+<li class="etiqueta" id="35"><a><span class="badge text-bg-secondary">3A</span>  Bidón de Acero</a></li>
+<li class="etiqueta" id="36"><a><span class="badge text-bg-secondary">Qk</span>  Bidón de Acero con Tapa no Removible</a></li>
+<li class="etiqueta" id="37"><a><span class="badge text-bg-secondary">Ql</span>  Bidón de Acero con Tapa Removible</a></li>
+<li class="etiqueta" id="38"><a><span class="badge text-bg-secondary">3H</span>  Bidón de Plástico</a></li>
+<li class="etiqueta" id="39"><a><span class="badge text-bg-secondary">Qm</span>  Bidón de Plástico con Tapa no Removible</a></li>
+<li class="etiqueta" id="40"><a><span class="badge text-bg-secondary">Qn</span>  Bidón de Plástico con Tapa Removible</a></li>
+<li class="etiqueta" id="41"><a><span class="badge text-bg-secondary">Jy</span>  Bidón, Cilíndrico</a></li>
+<li class="etiqueta" id="42"><a><span class="badge text-bg-secondary">Jc</span>  Bidón, Rectangular</a></li>
+<li class="etiqueta" id="43"><a><span class="badge text-bg-secondary">Bic</span>  Bing Chest</a></li>
+<li class="etiqueta" id="44"><a><span class="badge text-bg-secondary">Bme</span>  Blister</a></li>
+<li class="etiqueta" id="45"><a><span class="badge text-bg-secondary">Bmb</span>  Blister en Caja</a></li>
+<li class="etiqueta" id="46"><a><span class="badge text-bg-secondary">Bob</span>  Bobina</a></li>
+<li class="etiqueta" id="47"><a><span class="badge text-bg-secondary">Bag</span>  Bolsa</a></li>
+<li class="etiqueta" id="48"><a><span class="badge text-bg-secondary">Xd</span>  Bolsa con Película de Plástico</a></li>
+<li class="etiqueta" id="49"><a><span class="badge text-bg-secondary">Duf</span>  Bolsa de Lona</a></li>
+<li class="etiqueta" id="50"><a><span class="badge text-bg-secondary">5M</span>  Bolsa de Papel</a></li>
+<li class="etiqueta" id="51"><a><span class="badge text-bg-secondary">Xj</span>  Bolsa de Papel, Varias Paredes</a></li>
+<li class="etiqueta" id="52"><a><span class="badge text-bg-secondary">Xk</span>  Bolsa de Papel, Varias Paredes, Resistente al Agua</a></li>
+<li class="etiqueta" id="53"><a><span class="badge text-bg-secondary">Ec</span>  Bolsa de Plástico</a></li>
+<li class="etiqueta" id="54"><a><span class="badge text-bg-secondary">5H</span>  Bolsa de Tejido de Plástico</a></li>
+<li class="etiqueta" id="55"><a><span class="badge text-bg-secondary">Xa</span>  Bolsa de Tejido de Plástico, no Recubierto y sin Forro</a></li>
+<li class="etiqueta" id="56"><a><span class="badge text-bg-secondary">Xc</span>  Bolsa de Tejido de Plástico, Resistente al Agua</a></li>
+<li class="etiqueta" id="57"><a><span class="badge text-bg-secondary">Xb</span>  Bolsa de Tejido de Plástico, Tamizada</a></li>
+<li class="etiqueta" id="58"><a><span class="badge text-bg-secondary">5L</span>  Bolsa de Textil</a></li>
+<li class="etiqueta" id="59"><a><span class="badge text-bg-secondary">Bec</span>  Bolsa en Caja</a></li>
+<li class="etiqueta" id="60"><a><span class="badge text-bg-secondary">Zb</span>  Bolsa Grande</a></li>
+<li class="etiqueta" id="61"><a><span class="badge text-bg-secondary">Mb</span>  Bolsa Multiusos</a></li>
+<li class="etiqueta" id="62"><a><span class="badge text-bg-secondary">Xf</span>  Bolsa Textil sin Cubierta/Forro</a></li>
+<li class="etiqueta" id="63"><a><span class="badge text-bg-secondary">Xg</span>  Bolsa Textil Tamizada</a></li>
+<li class="etiqueta" id="64"><a><span class="badge text-bg-secondary">Xh</span>  Bolsa Textil, Resistente al Agua</a></li>
+<li class="etiqueta" id="65"><a><span class="badge text-bg-secondary">Cby</span>  Bombona</a></li>
+<li class="etiqueta" id="66"><a><span class="badge text-bg-secondary">Bot</span>  Botella</a></li>
+<li class="etiqueta" id="67"><a><span class="badge text-bg-secondary">Bib</span>  Botella en Caja</a></li>
+<li class="etiqueta" id="68"><a><span class="badge text-bg-secondary">Bs</span>  Botella no Protegida Bulbosa</a></li>
+<li class="etiqueta" id="69"><a><span class="badge text-bg-secondary">Bo</span>  Botella no Protegida Cilindrica</a></li>
+<li class="etiqueta" id="70"><a><span class="badge text-bg-secondary">Gb</span>  Botella para Gas</a></li>
+<li class="etiqueta" id="71"><a><span class="badge text-bg-secondary">Bv</span>  Botella Protegida Bulbosa</a></li>
+<li class="etiqueta" id="72"><a><span class="badge text-bg-secondary">Bq</span>  Botella Protegida Cilindrica</a></li>
+<li class="etiqueta" id="73"><a><span class="badge text-bg-secondary">Blk</span>  Bulto</a></li>
+<li class="etiqueta" id="74"><a><span class="badge text-bg-secondary">Dbk</span>  Bulto Impermeable</a></li>
+<li class="etiqueta" id="75"><a><span class="badge text-bg-secondary">Vg</span>  Bulto para Gas (En 1031 Mbar y 15ºC)</a></li>
+<li class="etiqueta" id="76"><a><span class="badge text-bg-secondary">Vq</span>  Bulto para Gas Licuado (A Temperatura y Presión Normal)</a></li>
+<li class="etiqueta" id="77"><a><span class="badge text-bg-secondary">Lbk</span>  Bulto para Liquido</a></li>
+<li class="etiqueta" id="78"><a><span class="badge text-bg-secondary">Vy</span>  Bulto para Partículas Finas (Polvos)</a></li>
+<li class="etiqueta" id="79"><a><span class="badge text-bg-secondary">Vo</span>  Bulto para Partículas Grandes</a></li>
+<li class="etiqueta" id="80"><a><span class="badge text-bg-secondary">Vr</span>  Bulto para Partículas Granulares (Granos)</a></li>
+<li class="etiqueta" id="81"><a><span class="badge text-bg-secondary">Cas</span> Caja</a></li>
+<li class="etiqueta" id="82"><a><span class="badge text-bg-secondary">Crt</span> Caja</a></li>
+<li class="etiqueta" id="83"><a><span class="badge text-bg-secondary">Bxi</span> Caja con Contenedor Interior</a></li>
+<li class="etiqueta" id="84"><a><span class="badge text-bg-secondary">4A</span> Caja de Acero</a></li>
+<li class="etiqueta" id="85"><a><span class="badge text-bg-secondary">4B</span> Caja de Aluminio</a></li>
+<li class="etiqueta" id="86"><a><span class="badge text-bg-secondary">Ctn</span> Caja de Cartón</a></li>
+<li class="etiqueta" id="87"><a><span class="badge text-bg-secondary">Mx</span> Caja de Cerillas</a></li>
+<li class="etiqueta" id="88"><a><span class="badge text-bg-secondary">4G</span> Caja de Fibra de Madera</a></li>
+<li class="etiqueta" id="89"><a><span class="badge text-bg-secondary">Ccs</span> Caja de Latas</a></li>
+<li class="etiqueta" id="90"><a><span class="badge text-bg-secondary">4D</span> Caja de Madera Chapeada</a></li>
+<li class="etiqueta" id="91"><a><span class="badge text-bg-secondary">4C</span> Caja de Madera Natural</a></li>
+<li class="etiqueta" id="92"><a><span class="badge text-bg-secondary">Qp</span> Caja de Madera Natural</a></li>
+<li class="etiqueta" id="93"><a><span class="badge text-bg-secondary">Qq</span> Caja de Madera Natural Tamizada</a></li>
+<li class="etiqueta" id="94"><a><span class="badge text-bg-secondary">4F</span> Caja de Madera Reconstituida</a></li>
+<li class="etiqueta" id="95"><a><span class="badge text-bg-secondary">4H</span> Caja de Plástico</a></li>
+<li class="etiqueta" id="96"><a><span class="badge text-bg-secondary">Qr</span> Caja de Plástico Expandido</a></li>
+<li class="etiqueta" id="97"><a><span class="badge text-bg-secondary">Qs</span> Caja de Plástico Sólido</a></li>
+<li class="etiqueta" id="98"><a><span class="badge text-bg-secondary">Bw</span> Caja para Liquidos</a></li>
+<li class="etiqueta" id="99"><a><span class="badge text-bg-secondary">Box</span> Caja Pequeña</a></li>
+<li class="etiqueta" id="100"><a><span class="badge text-bg-secondary">Sc</span> Caja Poco Profunda</a></li>
+<li class="etiqueta" id="101"><a><span class="badge text-bg-secondary">Tru</span> Camión</a></li>
+<li class="etiqueta" id="102"><a><span class="badge text-bg-secondary">Hpr</span> Canasta</a></li>
+<li class="etiqueta" id="103"><a><span class="badge text-bg-secondary">Pun</span> Canastilla</a></li>
+<li class="etiqueta" id="104"><a><span class="badge text-bg-secondary">Cc</span> Cántara</a></li>
+<li class="etiqueta" id="105"><a><span class="badge text-bg-secondary">Sht</span> Capa</a></li>
+<li class="etiqueta" id="106"><a><span class="badge text-bg-secondary">Sz</span> Capas Entramadas</a></li>
+<li class="etiqueta" id="107"><a><span class="badge text-bg-secondary">Cg</span> Card</a></li>
+<li class="etiqueta" id="108"><a><span class="badge text-bg-secondary">Rel</span> Carrete</a></li>
+<li class="etiqueta" id="109"><a><span class="badge text-bg-secondary">Fwr</span> Carrete</a></li>
+<li class="etiqueta" id="110"><a><span class="badge text-bg-secondary">Rvr</span> Carrete Inverso</a></li>
+<li class="etiqueta" id="111"><a><span class="badge text-bg-secondary">Cld</span> Carro de Carga en Riel</a></li>
+<li class="etiqueta" id="112"><a><span class="badge text-bg-secondary">C14</span> Carton de Cigarrillos</a></li>
+<li class="etiqueta" id="113"><a><span class="badge text-bg-secondary">C12</span> Cartucho</a></li>
+<li class="etiqueta" id="114"><a><span class="badge text-bg-secondary">Rg</span> Cercado</a></li>
+<li class="etiqueta" id="115"><a><span class="badge text-bg-secondary">Bt</span> Cerrojo</a></li>
+<li class="etiqueta" id="116"><a><span class="badge text-bg-secondary">Ce</span> Cesta</a></li>
+<li class="etiqueta" id="117"><a><span class="badge text-bg-secondary">Bsk</span> Cesto</a></li>
+<li class="etiqueta" id="118"><a><span class="badge text-bg-secondary">Hc</span> Cesto de Cartón con Asa</a></li>
+<li class="etiqueta" id="119"><a><span class="badge text-bg-secondary">Hb</span> Cesto de Madera con Asa</a></li>
+<li class="etiqueta" id="120"><a><span class="badge text-bg-secondary">Ha</span> Cesto de Plástico con Asa</a></li>
+<li class="etiqueta" id="121"><a><span class="badge text-bg-secondary">Che</span> Cheeses</a></li>
+<li class="etiqueta" id="122"><a><span class="badge text-bg-secondary">Cyl</span> Cilindro</a></li>
+<li class="etiqueta" id="123"><a><span class="badge text-bg-secondary">Spi</span> Cilindros</a></li>
+<li class="etiqueta" id="124"><a><span class="badge text-bg-secondary">Cf</span> Cofre</a></li>
+<li class="etiqueta" id="125"><a><span class="badge text-bg-secondary">Epr</span> Con Borde de Protección</a></li>
+<li class="etiqueta" id="126"><a><span class="badge text-bg-secondary">Crf</span> Con Esquinar Reforzadas</a></li>
+<li class="etiqueta" id="127"><a><span class="badge text-bg-secondary">Cx2</span> Conex</a></li>
+<li class="etiqueta" id="128"><a><span class="badge text-bg-secondary">Con</span> Conos</a></li>
+<li class="etiqueta" id="129"><a><span class="badge text-bg-secondary">Cnt</span> Contenedor</a></li>
+<li class="etiqueta" id="130"><a><span class="badge text-bg-secondary">Bin</span> Contenedor</a></li>
+<li class="etiqueta" id="131"><a><span class="badge text-bg-secondary">Ws</span> Contenedor a Granel con Una Película de Plástico, Intermediario</a></li>
+<li class="etiqueta" id="132"><a><span class="badge text-bg-secondary">Wc</span> Contenedor a Granel de Acero, Intermediario</a></li>
+<li class="etiqueta" id="133"><a><span class="badge text-bg-secondary">Wg</span> Contenedor a Granel de Acero, Intermediario, Presurizado &Gt; 10 Kpa</a></li>
+<li class="etiqueta" id="134"><a><span class="badge text-bg-secondary">Wd</span> Contenedor a Granel de Aluminio, Intermediario</a></li>
+<li class="etiqueta" id="135"><a><span class="badge text-bg-secondary">Wh</span> Contenedor a Granel de Aluminio, Intermediario, Presurizado &Gt;10 Kpa</a></li>
+<li class="etiqueta" id="136"><a><span class="badge text-bg-secondary">Wy</span> Contenedor a Granel de Madera Chapeada con Forro, Intermediario</a></li>
+<li class="etiqueta" id="137"><a><span class="badge text-bg-secondary">Wu</span> Contenedor a Granel de Madera Natural con Forro, Intermediario</a></li>
+<li class="etiqueta" id="138"><a><span class="badge text-bg-secondary">Wz</span> Contenedor a Granel de Madera Reconstituida con Forro, Intermediario</a></li>
+<li class="etiqueta" id="139"><a><span class="badge text-bg-secondary">Wf</span> Contenedor a Granel de Metal, Intermediario</a></li>
+<li class="etiqueta" id="140"><a><span class="badge text-bg-secondary">Wj</span> Contenedor a Granel de Metal, Intermediario, Presurizado 10 Kpa</a></li>
+<li class="etiqueta" id="141"><a><span class="badge text-bg-secondary">Wq</span> Contenedor a Granel de Tejido de Plástico, Intermediario, con Forro</a></li>
+<li class="etiqueta" id="142"><a><span class="badge text-bg-secondary">Wp</span> Contenedor a Granel de Tejido de Plástico, Intermediario, Recubierto</a></li>
+<li class="etiqueta" id="143"><a><span class="badge text-bg-secondary">Wa</span> Contenedor a Granel, Intermediario</a></li>
+<li class="etiqueta" id="144"><a><span class="badge text-bg-secondary">Cnd</span> Contenedor Comercial</a></li>
+<li class="etiqueta" id="145"><a><span class="badge text-bg-secondary">Plc</span> Contenedor con Elevador Primario</a></li>
+<li class="etiqueta" id="146"><a><span class="badge text-bg-secondary">Wlc</span> Contenedor con Ruedas</a></li>
+<li class="etiqueta" id="147"><a><span class="badge text-bg-secondary">Wk</span> Contenedor de Acero, Intermediario, para Liquido</a></li>
+<li class="etiqueta" id="148"><a><span class="badge text-bg-secondary">Wl</span> Contenedor de Aluminio, Intermediario, para Liquido</a></li>
+<li class="etiqueta" id="149"><a><span class="badge text-bg-secondary">Sv2</span> Contenedor de Embarque Marítimo sin Ruedas</a></li>
+<li class="etiqueta" id="150"><a><span class="badge text-bg-secondary">Cna</span> Contenedor de Madera para Artículos con Hogar</a></li>
+<li class="etiqueta" id="151"><a><span class="badge text-bg-secondary">Cbc</span> Contenedor de Mercancia a Granel</a></li>
+<li class="etiqueta" id="152"><a><span class="badge text-bg-secondary">Wm</span> Contenedor de Metal, Intermediario para Liquido</a></li>
+<li class="etiqueta" id="153"><a><span class="badge text-bg-secondary">Cne</span> Contenedor de Motor</a></li>
+<li class="etiqueta" id="154"><a><span class="badge text-bg-secondary">Za</span> Contenedor de Papel Multipared, Intermediario</a></li>
+<li class="etiqueta" id="155"><a><span class="badge text-bg-secondary">Zc</span> Contenedor de Papel Multipared, Intermediario, Resistente al Agua</a></li>
+<li class="etiqueta" id="156"><a><span class="badge text-bg-secondary">Cnf</span> Contenedor de Paredes Múltiples</a></li>
+<li class="etiqueta" id="157"><a><span class="badge text-bg-secondary">Spl</span> Contenedor en Rollo</a></li>
+<li class="etiqueta" id="158"><a><span class="badge text-bg-secondary">Flo</span> Contenedor Flobin</a></li>
+<li class="etiqueta" id="159"><a><span class="badge text-bg-secondary">Int</span> Contenedor Intermediario</a></li>
+<li class="etiqueta" id="160"><a><span class="badge text-bg-secondary">Tld</span> Contenedor Intermodal</a></li>
+<li class="etiqueta" id="161"><a><span class="badge text-bg-secondary">Cnb</span> Contenedor Mac-Iso, Lt Wgt 8X8X20</a></li>
+<li class="etiqueta" id="162"><a><span class="badge text-bg-secondary">Mix</span> Contenedor Mixto Variado</a></li>
+<li class="etiqueta" id="163"><a><span class="badge text-bg-secondary">Cn</span> Contenedor no Especificado Como Equipo de Transporte</a></li>
+<li class="etiqueta" id="164"><a><span class="badge text-bg-secondary">Zr</span> Contenedor para Liquidos Compuesto de Plástico Flexible, Intermediario</a></li>
+<li class="etiqueta" id="165"><a><span class="badge text-bg-secondary">Zq</span> Contenedor para Liquidos Compuesto de Plástico Rígido, Intermediario</a></li>
+<li class="etiqueta" id="166"><a><span class="badge text-bg-secondary">Zk</span> Contenedor para Liquidos, Plástico Rígido, Aislado, Intermediario</a></li>
+<li class="etiqueta" id="167"><a><span class="badge text-bg-secondary">Zj</span> Contenedor para Liquidos, Plástico Rígido, Intermediario</a></li>
+<li class="etiqueta" id="168"><a><span class="badge text-bg-secondary">Zm</span> Contenedor para Solidos Compuesto de Plástico Flexible, Intermediario</a></li>
+<li class="etiqueta" id="169"><a><span class="badge text-bg-secondary">Zl</span> Contenedor para Solidos Compuesto de Plástico Rígido, Intermediario</a></li>
+<li class="etiqueta" id="170"><a><span class="badge text-bg-secondary">Zf</span> Contenedor para Solidos, Plástico Rígido, Aislado, Intermediario</a></li>
+<li class="etiqueta" id="171"><a><span class="badge text-bg-secondary">Zd</span> Contenedor para Solidos, Plástico Rígido, Intermediario</a></li>
+<li class="etiqueta" id="172"><a><span class="badge text-bg-secondary">Wt</span> Contenedor para Textiles no Recubierto y sin Forro, Intermediario</a></li>
+<li class="etiqueta" id="173"><a><span class="badge text-bg-secondary">Ww</span> Contenedor para Textiles, con Forro, Intermediario</a></li>
+<li class="etiqueta" id="174"><a><span class="badge text-bg-secondary">Wx</span> Contenedor para Textiles, Recubierto y con Forro, Intermediario</a></li>
+<li class="etiqueta" id="175"><a><span class="badge text-bg-secondary">Wv</span> Contenedor para Textiles, Recubierto, Intermediario</a></li>
+<li class="etiqueta" id="176"><a><span class="badge text-bg-secondary">Cnc</span> Contenedor Transporte Naval</a></li>
+<li class="etiqueta" id="177"><a><span class="badge text-bg-secondary">Cor</span> Core</a></li>
+<li class="etiqueta" id="178"><a><span class="badge text-bg-secondary">Blt</span> Correas</a></li>
+<li class="etiqueta" id="179"><a><span class="badge text-bg-secondary">Bxt</span> Cubeta</a></li>
+<li class="etiqueta" id="180"><a><span class="badge text-bg-secondary">Cms</span> Cubierta Reclinable</a></li>
+<li class="etiqueta" id="181"><a><span class="badge text-bg-secondary">Pal</span> Cubo</a></li>
+<li class="etiqueta" id="182"><a><span class="badge text-bg-secondary">Keg</span> Cuñete</a></li>
+<li class="etiqueta" id="183"><a><span class="badge text-bg-secondary">Fir</span> Cuñete</a></li>
+<li class="etiqueta" id="184"><a><span class="badge text-bg-secondary">Dn</span>  Dispensador</a></li>
+<li class="etiqueta" id="185"><a><span class="badge text-bg-secondary">Spr</span>  Divisor</a></li>
+<li class="etiqueta" id="186"><a><span class="badge text-bg-secondary">Dol</span>  Dolly</a></li>
+<li class="etiqueta" id="187"><a><span class="badge text-bg-secondary">C1</span>  Doypack</a></li>
+<li class="etiqueta" id="188"><a><span class="badge text-bg-secondary">Lvn</span>  Elevador de Camioneta</a></li>
+<li class="etiqueta" id="189"><a><span class="badge text-bg-secondary">Lif</span>  Elevadores</a></li>
+<li class="etiqueta" id="190"><a><span class="badge text-bg-secondary">Dpe</span>  Embalaje Expositor (Display)</a></li>
+<li class="etiqueta" id="191"><a><span class="badge text-bg-secondary">Lse</span>  Embalaje Suelto</a></li>
+<li class="etiqueta" id="192"><a><span class="badge text-bg-secondary">Vp</span>  Empacado al Vacío</a></li>
+<li class="etiqueta" id="193"><a><span class="badge text-bg-secondary">Pkg</span>  Empaque</a></li>
+<li class="etiqueta" id="194"><a><span class="badge text-bg-secondary">Pck</span>  Empaque sin Especificación</a></li>
+<li class="etiqueta" id="195"><a><span class="badge text-bg-secondary">Sw</span>  Empaquetado al Calor</a></li>
+<li class="etiqueta" id="196"><a><span class="badge text-bg-secondary">Hrb</span> en Hangar o Estante en Caja</a></li>
+<li class="etiqueta" id="197"><a><span class="badge text-bg-secondary">Pcs</span> en Varias Piezas</a></li>
+<li class="etiqueta" id="198"><a><span class="badge text-bg-secondary">Ts</span>  Entramado</a></li>
+<li class="etiqueta" id="199"><a><span class="badge text-bg-secondary">Ft</span>  Envasado de Alimentos</a></li>
+<li class="etiqueta" id="200"><a><span class="badge text-bg-secondary">Cv</span>  Envoltura</a></li>
+<li class="etiqueta" id="201"><a><span class="badge text-bg-secondary">Slv</span>  Envoltura</a></li>
+<li class="etiqueta" id="202"><a><span class="badge text-bg-secondary">Wrp</span>  Envoltura</a></li>
+<li class="etiqueta" id="203"><a><span class="badge text-bg-secondary">Uvq</span>  Envuelto en Plástico</a></li>
+<li class="etiqueta" id="204"><a><span class="badge text-bg-secondary">Rck</span>  Estante</a></li>
+<li class="etiqueta" id="205"><a><span class="badge text-bg-secondary">Drk</span>  Estante de Doble Longitud</a></li>
+<li class="etiqueta" id="206"><a><span class="badge text-bg-secondary">Krk</span>  Estante Desmontable</a></li>
+<li class="etiqueta" id="207"><a><span class="badge text-bg-secondary">Hrk</span>  Estante Medio-Estandar</a></li>
+<li class="etiqueta" id="208"><a><span class="badge text-bg-secondary">Rj</span>  Estante para Colgar Ropa</a></li>
+<li class="etiqueta" id="209"><a><span class="badge text-bg-secondary">Prk</span>  Estante para Tuberías</a></li>
+<li class="etiqueta" id="210"><a><span class="badge text-bg-secondary">Mt</span>  Estera</a></li>
+<li class="etiqueta" id="211"><a><span class="badge text-bg-secondary">Ed</span>  Estuche con Palet Como Base</a></li>
+<li class="etiqueta" id="212"><a><span class="badge text-bg-secondary">Ef</span>  Estuche de Cartón con Palet Como Base</a></li>
+<li class="etiqueta" id="213"><a><span class="badge text-bg-secondary">Ee</span>  Estuche de Madera con Palet Como Base</a></li>
+<li class="etiqueta" id="214"><a><span class="badge text-bg-secondary">Eh</span>  Estuche de Metal con Palet Como Base</a></li>
+<li class="etiqueta" id="215"><a><span class="badge text-bg-secondary">Eg</span>  Estuche de Plástico con Palet Como Base</a></li>
+<li class="etiqueta" id="216"><a><span class="badge text-bg-secondary">Ei</span>  Estuche Isotérmico</a></li>
+<li class="etiqueta" id="217"><a><span class="badge text-bg-secondary">Lab</span>  Etiqueta Colgante</a></li>
+<li class="etiqueta" id="218"><a><span class="badge text-bg-secondary">Shp</span>  Expedidor</a></li>
+<li class="etiqueta" id="219"><a><span class="badge text-bg-secondary">Bdl</span>  Fardo</a></li>
+<li class="etiqueta" id="220"><a><span class="badge text-bg-secondary">Fp</span>  Filmpack</a></li>
+<li class="etiqueta" id="221"><a><span class="badge text-bg-secondary">Fw</span>  Flow Pack</a></li>
+<li class="etiqueta" id="222"><a><span class="badge text-bg-secondary">Fo</span>  Footlocker</a></li>
+<li class="etiqueta" id="223"><a><span class="badge text-bg-secondary">Ci</span>  Frasco</a></li>
+<li class="etiqueta" id="224"><a><span class="badge text-bg-secondary">Vil</span>  Frasco</a></li>
+<li class="etiqueta" id="225"><a><span class="badge text-bg-secondary">Cab</span>  Gabinete</a></li>
+<li class="etiqueta" id="226"><a><span class="badge text-bg-secondary">Dj</span>  Garrafa no Protegida</a></li>
+<li class="etiqueta" id="227"><a><span class="badge text-bg-secondary">Dp</span>  Garrafa Protegida</a></li>
+<li class="etiqueta" id="228"><a><span class="badge text-bg-secondary">Co</span>  Garrafón no Protegido</a></li>
+<li class="etiqueta" id="229"><a><span class="badge text-bg-secondary">Cp</span>  Garrafón Protegido</a></li>
+<li class="etiqueta" id="230"><a><span class="badge text-bg-secondary">Bc</span>  Gavera</a></li>
+<li class="etiqueta" id="231"><a><span class="badge text-bg-secondary">Cb</span>  Gavera Cerveza</a></li>
+<li class="etiqueta" id="232"><a><span class="badge text-bg-secondary">Dc</span>  Gavera de Cartón con Múltiples Capas</a></li>
+<li class="etiqueta" id="233"><a><span class="badge text-bg-secondary">Fc</span>  Gavera de Frutas</a></li>
+<li class="etiqueta" id="234"><a><span class="badge text-bg-secondary">Mc</span>  Gavera de Leche</a></li>
+<li class="etiqueta" id="235"><a><span class="badge text-bg-secondary">Db</span>  Gavera de Madera con Múltiples Capas</a></li>
+<li class="etiqueta" id="236"><a><span class="badge text-bg-secondary">Da</span>  Gavera de Plastico con Múltiples Capas</a></li>
+<li class="etiqueta" id="237"><a><span class="badge text-bg-secondary">Fd</span>  Gavera Enmarcada</a></li>
+<li class="etiqueta" id="238"><a><span class="badge text-bg-secondary">Dk</span>  Gavera, Bulto de Cartón</a></li>
+<li class="etiqueta" id="239"><a><span class="badge text-bg-secondary">Dm</span>  Gavera, Bulto de Madera</a></li>
+<li class="etiqueta" id="240"><a><span class="badge text-bg-secondary">Dl</span>  Gavera, Bulto de Plástico</a></li>
+<li class="etiqueta" id="241"><a><span class="badge text-bg-secondary">Bf</span>  Globo no Protegido</a></li>
+<li class="etiqueta" id="242"><a><span class="badge text-bg-secondary">Bp</span>  Globo Protegido</a></li>
+<li class="etiqueta" id="243"><a><span class="badge text-bg-secondary">Gn</span>  Granel</a></li>
+<li class="etiqueta" id="244"><a><span class="badge text-bg-secondary">Slp</span>  Hoja Deslizante</a></li>
+<li class="etiqueta" id="245"><a><span class="badge text-bg-secondary">Tn</span>  Hojalata</a></li>
+<li class="etiqueta" id="246"><a><span class="badge text-bg-secondary">Sd</span>  Huso</a></li>
+<li class="etiqueta" id="247"><a><span class="badge text-bg-secondary">Zp</span>  Intmdte Bulk Contnr, Composite, Flxble Plastic, Presisd</a></li>
+<li class="etiqueta" id="248"><a><span class="badge text-bg-secondary">Zn</span>  Intmdte Bulk Contnr, Composite, Rigid Plastic, Presisd</a></li>
+<li class="etiqueta" id="249"><a><span class="badge text-bg-secondary">Zg</span>  Intmdte Bulk Contnr, Rgd Plstc + Strctrl Eqpmt, Presisd</a></li>
+<li class="etiqueta" id="250"><a><span class="badge text-bg-secondary">Zh</span>  Intmdte Bulk Contnr, Rigid Plstc, Freestanding, Presisd</a></li>
+<li class="etiqueta" id="251"><a><span class="badge text-bg-secondary">Jar</span>  Jarra</a></li>
+<li class="etiqueta" id="252"><a><span class="badge text-bg-secondary">Ph</span>  Jarra</a></li>
+<li class="etiqueta" id="253"><a><span class="badge text-bg-secondary">Jg</span>  Jarrón</a></li>
+<li class="etiqueta" id="254"><a><span class="badge text-bg-secondary">Cag</span>  Jaula</a></li>
+<li class="etiqueta" id="255"><a><span class="badge text-bg-secondary">Cw</span>  Jaula Encerrada</a></li>
+<li class="etiqueta" id="256"><a><span class="badge text-bg-secondary">Kit</span>  Juego</a></li>
+<li class="etiqueta" id="257"><a><span class="badge text-bg-secondary">Sx</span>  Juego / Estuche</a></li>
+<li class="etiqueta" id="258"><a><span class="badge text-bg-secondary">Pir</span>  Juncos</a></li>
+<li class="etiqueta" id="259"><a><span class="badge text-bg-secondary">Jt</span>  Jute Bag</a></li>
+<li class="etiqueta" id="260"><a><span class="badge text-bg-secondary">Sid</span>  Lado de la Carne de Vacuno</a></li>
+<li class="etiqueta" id="261"><a><span class="badge text-bg-secondary">Sl</span>  Lámina (Remplaza al Palet)</a></li>
+<li class="etiqueta" id="262"><a><span class="badge text-bg-secondary">Sp</span>  Lámina Envuelta de Plástico</a></li>
+<li class="etiqueta" id="263"><a><span class="badge text-bg-secondary">Sm</span>  Laminado Metálico</a></li>
+<li class="etiqueta" id="264"><a><span class="badge text-bg-secondary">Can</span>  Lata</a></li>
+<li class="etiqueta" id="265"><a><span class="badge text-bg-secondary">Cx</span>  Lata Cilindrica</a></li>
+<li class="etiqueta" id="266"><a><span class="badge text-bg-secondary">Cd</span>  Lata con Asa</a></li>
+<li class="etiqueta" id="267"><a><span class="badge text-bg-secondary">Ca</span>  Lata Rectangular</a></li>
+<li class="etiqueta" id="268"><a><span class="badge text-bg-secondary">In</span>  Lingote</a></li>
+<li class="etiqueta" id="269"><a><span class="badge text-bg-secondary">Iz</span>  Lingotes Entramados</a></li>
+<li class="etiqueta" id="270"><a><span class="badge text-bg-secondary">Cz</span>  Lona</a></li>
+<li class="etiqueta" id="271"><a><span class="badge text-bg-secondary">Lt</span>  Lote</a></li>
+<li class="etiqueta" id="272"><a><span class="badge text-bg-secondary">Nt</span>  Malla</a></li>
+<li class="etiqueta" id="273"><a><span class="badge text-bg-secondary">Mp</span>  Maple</a></li>
+<li class="etiqueta" id="274"><a><span class="badge text-bg-secondary">Frm</span>  Marco</a></li>
+<li class="etiqueta" id="275"><a><span class="badge text-bg-secondary">Fsk</span>  Matraz</a></li>
+<li class="etiqueta" id="276"><a><span class="badge text-bg-secondary">Ml2</span>  Milvan</a></li>
+<li class="etiqueta" id="277"><a><span class="badge text-bg-secondary">Wb</span>  Mimbre para Botellas</a></li>
+<li class="etiqueta" id="278"><a><span class="badge text-bg-secondary">Po</span>  Morral</a></li>
+<li class="etiqueta" id="279"><a><span class="badge text-bg-secondary">Ms2</span>  Mscvan A</a></li>
+<li class="etiqueta" id="280"><a><span class="badge text-bg-secondary">Mpe</span>  Multipack</a></li>
+<li class="etiqueta" id="281"><a><span class="badge text-bg-secondary">Zz</span>  Mutuamente Definido</a></li>
+<li class="etiqueta" id="282"><a><span class="badge text-bg-secondary">Ns</span>  Nido</a></li>
+<li class="etiqueta" id="283"><a><span class="badge text-bg-secondary">Na</span> no Disponible</a></li>
+<li class="etiqueta" id="284"><a><span class="badge text-bg-secondary">Ni</span> no Informado</a></li>
+<li class="etiqueta" id="285"><a><span class="badge text-bg-secondary">Nol</span>  Noil</a></li>
+<li class="etiqueta" id="286"><a><span class="badge text-bg-secondary">Bal</span>  Paca</a></li>
+<li class="etiqueta" id="287"><a><span class="badge text-bg-secondary">Bl</span>  Paca Comprimido</a></li>
+<li class="etiqueta" id="288"><a><span class="badge text-bg-secondary">Bn</span>  Paca no Comprimido</a></li>
+<li class="etiqueta" id="289"><a><span class="badge text-bg-secondary">Plt</span>  Palet</a></li>
+<li class="etiqueta" id="290"><a><span class="badge text-bg-secondary">Pat</span>  Palet - 2 Way</a></li>
+<li class="etiqueta" id="291"><a><span class="badge text-bg-secondary">Paf</span>  Palet - 4 Way</a></li>
+<li class="etiqueta" id="292"><a><span class="badge text-bg-secondary">Pb</span>  Palet Caja</a></li>
+<li class="etiqueta" id="293"><a><span class="badge text-bg-secondary">Dg</span>  Palet Chep</a></li>
+<li class="etiqueta" id="294"><a><span class="badge text-bg-secondary">Dh</span>  Palet Chep</a></li>
+<li class="etiqueta" id="295"><a><span class="badge text-bg-secondary">Aaa</span>  Palet Retornable</a></li>
+<li class="etiqueta" id="296"><a><span class="badge text-bg-secondary">Pd</span>  Pallet, Modular, Collars 80Cms * 100Cms</a></li>
+<li class="etiqueta" id="297"><a><span class="badge text-bg-secondary">Pe</span>  Pallet, Modular, Collars 80Cms * 120Cms</a></li>
+<li class="etiqueta" id="298"><a><span class="badge text-bg-secondary">Pc</span>  Paquete</a></li>
+<li class="etiqueta" id="299"><a><span class="badge text-bg-secondary">Pa</span>  Paquete</a></li>
+<li class="etiqueta" id="300"><a><span class="badge text-bg-secondary">Pu</span>  Paquete de Bandejas</a></li>
+<li class="etiqueta" id="301"><a><span class="badge text-bg-secondary">Amm</span>  Paquete de Municiones</a></li>
+<li class="etiqueta" id="302"><a><span class="badge text-bg-secondary">Stp</span>  Paquete de Varas</a></li>
+<li class="etiqueta" id="303"><a><span class="badge text-bg-secondary">Ib</span>  Paquete Display de Cartón</a></li>
+<li class="etiqueta" id="304"><a><span class="badge text-bg-secondary">Ia</span>  Paquete Display de Madera</a></li>
+<li class="etiqueta" id="305"><a><span class="badge text-bg-secondary">Id</span>  Paquete Display de Metal</a></li>
+<li class="etiqueta" id="306"><a><span class="badge text-bg-secondary">Ic</span>  Paquete Display de Plástico</a></li>
+<li class="etiqueta" id="307"><a><span class="badge text-bg-secondary">Ig</span>  Paquete Envuelto en Papel</a></li>
+<li class="etiqueta" id="308"><a><span class="badge text-bg-secondary">Mrp</span>  Paquete Multi Rollo</a></li>
+<li class="etiqueta" id="309"><a><span class="badge text-bg-secondary">If</span>  Paquete Que Fluye</a></li>
+<li class="etiqueta" id="310"><a><span class="badge text-bg-secondary">Ie</span>  Paquete Que Permite Observar el Contenido</a></li>
+<li class="etiqueta" id="311"><a><span class="badge text-bg-secondary">Stw</span>  Película Ajustada (Sin Calor)</a></li>
+<li class="etiqueta" id="312"><a><span class="badge text-bg-secondary">Srw</span>  Película Termoformada</a></li>
+<li class="etiqueta" id="313"><a><span class="badge text-bg-secondary">Prc</span>  Percha</a></li>
+<li class="etiqueta" id="314"><a><span class="badge text-bg-secondary">C7</span>  Pet</a></li>
+<li class="etiqueta" id="315"><a><span class="badge text-bg-secondary">Pce</span>  Piezas</a></li>
+<li class="etiqueta" id="316"><a><span class="badge text-bg-secondary">Tkt</span>  Pipa</a></li>
+<li class="etiqueta" id="317"><a><span class="badge text-bg-secondary">Pg</span>  Placa</a></li>
+<li class="etiqueta" id="318"><a><span class="badge text-bg-secondary">Py</span>  Placas Entramadas</a></li>
+<li class="etiqueta" id="319"><a><span class="badge text-bg-secondary">Plf</span>  Plataforma</a></li>
+<li class="etiqueta" id="320"><a><span class="badge text-bg-secondary">Crd</span>  Plataforma</a></li>
+<li class="etiqueta" id="321"><a><span class="badge text-bg-secondary">C3</span>  Pomo</a></li>
+<li class="etiqueta" id="322"><a><span class="badge text-bg-secondary">Car</span>  Portabultos</a></li>
+<li class="etiqueta" id="323"><a><span class="badge text-bg-secondary">Scs</span>  Portafolio</a></li>
+<li class="etiqueta" id="324"><a><span class="badge text-bg-secondary">Pt</span>  Pote / Tarro</a></li>
+<li class="etiqueta" id="325"><a><span class="badge text-bg-secondary">Xx</span>  Pouch</a></li>
+<li class="etiqueta" id="326"><a><span class="badge text-bg-secondary">Bh</span>  Racimo</a></li>
+<li class="etiqueta" id="327"><a><span class="badge text-bg-secondary">Skd</span>  Rampa</a></li>
+<li class="etiqueta" id="328"><a><span class="badge text-bg-secondary">Dsk</span>  Rampa de Doble Longitud</a></li>
+<li class="etiqueta" id="329"><a><span class="badge text-bg-secondary">Ske</span>  Rampa Elevadora</a></li>
+<li class="etiqueta" id="330"><a><span class="badge text-bg-secondary">Mr</span>  Recipiente de Metal</a></li>
+<li class="etiqueta" id="331"><a><span class="badge text-bg-secondary">Pr</span>  Recipiente de Plástico</a></li>
+<li class="etiqueta" id="332"><a><span class="badge text-bg-secondary">6H</span>  Recipiente de Plástico</a></li>
+<li class="etiqueta" id="333"><a><span class="badge text-bg-secondary">Yk</span>  Recipiente de Plástico en Caja de Cartón</a></li>
+<li class="etiqueta" id="334"><a><span class="badge text-bg-secondary">Yh</span>  Recipiente de Plástico en Caja de Madera</a></li>
+<li class="etiqueta" id="335"><a><span class="badge text-bg-secondary">Yf</span>  Recipiente de Plástico en Caja de Madera</a></li>
+<li class="etiqueta" id="336"><a><span class="badge text-bg-secondary">Ym</span>  Recipiente de Plástico en Caja de Plástico Sólido</a></li>
+<li class="etiqueta" id="337"><a><span class="badge text-bg-secondary">Yb</span>  Recipiente de Plástico en Gavera de Acero</a></li>
+<li class="etiqueta" id="338"><a><span class="badge text-bg-secondary">Yd</span>  Recipiente de Plástico en Gavera de Aluminio</a></li>
+<li class="etiqueta" id="339"><a><span class="badge text-bg-secondary">Ya</span>  Recipiente de Plástico en Tambor de Acero</a></li>
+<li class="etiqueta" id="340"><a><span class="badge text-bg-secondary">Yc</span>  Recipiente de Plástico en Tambor de Aluminio</a></li>
+<li class="etiqueta" id="341"><a><span class="badge text-bg-secondary">Yj</span>  Recipiente de Plástico en Tambor de Fibra</a></li>
+<li class="etiqueta" id="342"><a><span class="badge text-bg-secondary">Yg</span>  Recipiente de Plástico en Tambor de Madera</a></li>
+<li class="etiqueta" id="343"><a><span class="badge text-bg-secondary">Yl</span>  Recipiente de Plástico en Tambor de Plástico</a></li>
+<li class="etiqueta" id="344"><a><span class="badge text-bg-secondary">6P</span>  Recipiente de Vidrio</a></li>
+<li class="etiqueta" id="345"><a><span class="badge text-bg-secondary">Gr</span>  Recipiente de Vidrio</a></li>
+<li class="etiqueta" id="346"><a><span class="badge text-bg-secondary">Yx</span>  Recipiente de Vidrio en Caja de Cartón</a></li>
+<li class="etiqueta" id="347"><a><span class="badge text-bg-secondary">Ys</span>  Recipiente de Vidrio en Caja de Madera</a></li>
+<li class="etiqueta" id="348"><a><span class="badge text-bg-secondary">Yv</span>  Recipiente de Vidrio en Cesto de Mimbre</a></li>
+<li class="etiqueta" id="349"><a><span class="badge text-bg-secondary">Yp</span>  Recipiente de Vidrio en Gavera de Acero</a></li>
+<li class="etiqueta" id="350"><a><span class="badge text-bg-secondary">Yr</span>  Recipiente de Vidrio en Gavera de Aluminio</a></li>
+<li class="etiqueta" id="351"><a><span class="badge text-bg-secondary">Yy</span>  Recipiente de Vidrio en Paquete de Plástico Expandible</a></li>
+<li class="etiqueta" id="352"><a><span class="badge text-bg-secondary">Yz</span>  Recipiente de Vidrio en Paquete de Plástico Sólido</a></li>
+<li class="etiqueta" id="353"><a><span class="badge text-bg-secondary">Yn</span>  Recipiente de Vidrio en Tambor de Acero</a></li>
+<li class="etiqueta" id="354"><a><span class="badge text-bg-secondary">Yq</span>  Recipiente de Vidrio en Tambor de Aluminio</a></li>
+<li class="etiqueta" id="355"><a><span class="badge text-bg-secondary">Yw</span>  Recipiente de Vidrio en Tambor de Fibra</a></li>
+<li class="etiqueta" id="356"><a><span class="badge text-bg-secondary">Yt</span>  Recipiente de Vidrio en Tambor de Madera</a></li>
+<li class="etiqueta" id="357"><a><span class="badge text-bg-secondary">Mw</span>  Recipiente Envuelto en Plástico</a></li>
+<li class="etiqueta" id="358"><a><span class="badge text-bg-secondary">Rt</span>  Rednet</a></li>
+<li class="etiqueta" id="359"><a><span class="badge text-bg-secondary">Rft</span>  Refuerzo</a></li>
+<li class="etiqueta" id="360"><a><span class="badge text-bg-secondary">Ral</span>  Riel</a></li>
+<li class="etiqueta" id="361"><a><span class="badge text-bg-secondary">Rol</span>  Rollo</a></li>
+<li class="etiqueta" id="362"><a><span class="badge text-bg-secondary">Bdg</span>  Rollo</a></li>
+<li class="etiqueta" id="363"><a><span class="badge text-bg-secondary">Col</span>  Rollo Metálico</a></li>
+<li class="etiqueta" id="364"><a><span class="badge text-bg-secondary">Sh</span>  Sachet</a></li>
+<li class="etiqueta" id="365"><a><span class="badge text-bg-secondary">Sib</span>  Sachet en Caja</a></li>
+<li class="etiqueta" id="366"><a><span class="badge text-bg-secondary">Sak</span>  Saco</a></li>
+<li class="etiqueta" id="367"><a><span class="badge text-bg-secondary">Ms</span>  Saco Multipared</a></li>
+<li class="etiqueta" id="368"><a><span class="badge text-bg-secondary">Se</span>  Sea Chest</a></li>
+<li class="etiqueta" id="369"><a><span class="badge text-bg-secondary">Lnr</span>  Separador de Artículo - Empaque Interior</a></li>
+<li class="etiqueta" id="370"><a><span class="badge text-bg-secondary">Egg</span>  Separador de Artículos en el Interior</a></li>
+<li class="etiqueta" id="371"><a><span class="badge text-bg-secondary">Prt</span>  Separadores</a></li>
+<li class="etiqueta" id="372"><a><span class="badge text-bg-secondary">Shk</span>  Shook</a></li>
+<li class="etiqueta" id="373"><a><span class="badge text-bg-secondary">Unp</span> sin Empaque</a></li>
+<li class="etiqueta" id="374"><a><span class="badge text-bg-secondary">Ne</span> sin Empaque</a></li>
+<li class="etiqueta" id="375"><a><span class="badge text-bg-secondary">Env</span>  Sobre</a></li>
+<li class="etiqueta" id="376"><a><span class="badge text-bg-secondary">Whe</span>  Sobre sus Propias Ruedas</a></li>
+<li class="etiqueta" id="377"><a><span class="badge text-bg-secondary">Sk</span>  Soporte</a></li>
+<li class="etiqueta" id="378"><a><span class="badge text-bg-secondary">Brc</span>  Soporte de Seguridad</a></li>
+<li class="etiqueta" id="379"><a><span class="badge text-bg-secondary">Aab</span>  Splash Blend</a></li>
+<li class="etiqueta" id="380"><a><span class="badge text-bg-secondary">Pn</span>  Tabla</a></li>
+<li class="etiqueta" id="381"><a><span class="badge text-bg-secondary">Bd</span>  Tabla / Tablon</a></li>
+<li class="etiqueta" id="382"><a><span class="badge text-bg-secondary">By</span>  Tabla / Tablon Entramado</a></li>
+<li class="etiqueta" id="383"><a><span class="badge text-bg-secondary">Drm</span>  Tambor</a></li>
+<li class="etiqueta" id="384"><a><span class="badge text-bg-secondary">1A</span>  Tambor de Acero</a></li>
+<li class="etiqueta" id="385"><a><span class="badge text-bg-secondary">Qa</span>  Tambor de Acero con Tapa no Removible</a></li>
+<li class="etiqueta" id="386"><a><span class="badge text-bg-secondary">Qb</span>  Tambor de Acero con Tapa Removible</a></li>
+<li class="etiqueta" id="387"><a><span class="badge text-bg-secondary">1B</span>  Tambor de Aluminio</a></li>
+<li class="etiqueta" id="388"><a><span class="badge text-bg-secondary">Qc</span>  Tambor de Aluminio con Tapa no Removible</a></li>
+<li class="etiqueta" id="389"><a><span class="badge text-bg-secondary">Qd</span>  Tambor de Aluminio con Tapa Removible</a></li>
+<li class="etiqueta" id="390"><a><span class="badge text-bg-secondary">1G</span>  Tambor de Fibra</a></li>
+<li class="etiqueta" id="391"><a><span class="badge text-bg-secondary">Di</span>  Tambor de Hierro</a></li>
+<li class="etiqueta" id="392"><a><span class="badge text-bg-secondary">1D</span>  Tambor de Madera Chapeada</a></li>
+<li class="etiqueta" id="393"><a><span class="badge text-bg-secondary">Ih</span>  Tambor de Plástico</a></li>
+<li class="etiqueta" id="394"><a><span class="badge text-bg-secondary">Qf</span>  Tambor de Plástico con Tapa no Removible</a></li>
+<li class="etiqueta" id="395"><a><span class="badge text-bg-secondary">Qg</span>  Tambor de Plástico con Tapa Removible</a></li>
+<li class="etiqueta" id="396"><a><span class="badge text-bg-secondary">Tnk</span>  Tanque</a></li>
+<li class="etiqueta" id="397"><a><span class="badge text-bg-secondary">Ty</span>  Tanque Cilindrico</a></li>
+<li class="etiqueta" id="398"><a><span class="badge text-bg-secondary">Tk</span>  Tanque Rectangular</a></li>
+<li class="etiqueta" id="399"><a><span class="badge text-bg-secondary">Lid</span>  Tapa</a></li>
+<li class="etiqueta" id="400"><a><span class="badge text-bg-secondary">Cu</span>  Taza</a></li>
+<li class="etiqueta" id="401"><a><span class="badge text-bg-secondary">Bm</span>  Tazon</a></li>
+<li class="etiqueta" id="402"><a><span class="badge text-bg-secondary">Tc</span>  Tea-Chest</a></li>
+<li class="etiqueta" id="403"><a><span class="badge text-bg-secondary">C2</span>  Tetrabrick Carton Multilaminado</a></li>
+<li class="etiqueta" id="404"><a><span class="badge text-bg-secondary">Hpt</span>  Tolva de Camión</a></li>
+<li class="etiqueta" id="405"><a><span class="badge text-bg-secondary">Bu</span>  Tonel</a></li>
+<li class="etiqueta" id="406"><a><span class="badge text-bg-secondary">Va</span>  Tonel</a></li>
+<li class="etiqueta" id="407"><a><span class="badge text-bg-secondary">To</span>  Tonelada</a></li>
+<li class="etiqueta" id="408"><a><span class="badge text-bg-secondary">Tbn</span>  Tote Bin</a></li>
+<li class="etiqueta" id="409"><a><span class="badge text-bg-secondary">Dtb</span>  Tote Bin de Doble Longitud</a></li>
+<li class="etiqueta" id="410"><a><span class="badge text-bg-secondary">Ktb</span>  Tote Bin Desmontable</a></li>
+<li class="etiqueta" id="411"><a><span class="badge text-bg-secondary">Htb</span>  Tote Bin Medio-Estandar</a></li>
+<li class="etiqueta" id="412"><a><span class="badge text-bg-secondary">Log</span>  Tronco</a></li>
+<li class="etiqueta" id="413"><a><span class="badge text-bg-secondary">Lz</span>  Troncos Entramados</a></li>
+<li class="etiqueta" id="414"><a><span class="badge text-bg-secondary">Pln</span>  Tubería</a></li>
+<li class="etiqueta" id="415"><a><span class="badge text-bg-secondary">Pi</span>  Tubería</a></li>
+<li class="etiqueta" id="416"><a><span class="badge text-bg-secondary">Pv</span>  Tuberias Entramadas</a></li>
+<li class="etiqueta" id="417"><a><span class="badge text-bg-secondary">Tbe</span>  Tubo</a></li>
+<li class="etiqueta" id="418"><a><span class="badge text-bg-secondary">Tub</span>  Tubo</a></li>
+<li class="etiqueta" id="419"><a><span class="badge text-bg-secondary">Tv</span>  Tubo con Boquilla</a></li>
+<li class="etiqueta" id="420"><a><span class="badge text-bg-secondary">Tib</span>  Tubo en Caja</a></li>
+<li class="etiqueta" id="421"><a><span class="badge text-bg-secondary">Nu</span>  Tubo en Malla de Plástico</a></li>
+<li class="etiqueta" id="422"><a><span class="badge text-bg-secondary">Nv</span>  Tubo en Malla de Textil</a></li>
+<li class="etiqueta" id="423"><a><span class="badge text-bg-secondary">Td</span>  Tubo Plegable</a></li>
+<li class="etiqueta" id="424"><a><span class="badge text-bg-secondary">Tz</span>  Tubos Entramados</a></li>
+<li class="etiqueta" id="425"><a><span class="badge text-bg-secondary">Unt</span>  Unidad</a></li>
+<li class="etiqueta" id="426"><a><span class="badge text-bg-secondary">Tkr</span>  Vagón Cisterna</a></li>
+<li class="etiqueta" id="427"><a><span class="badge text-bg-secondary">Vpk</span>  Van Pack</a></li>
+<li class="etiqueta" id="428"><a><span class="badge text-bg-secondary">Rd</span>  Vara</a></li>
+<li class="etiqueta" id="429"><a><span class="badge text-bg-secondary">Rz</span>  Varas Entramadas</a></li>
+<li class="etiqueta" id="430"><a><span class="badge text-bg-secondary">Mxd</span>  Variado</a></li>
+<li class="etiqueta" id="431"><a><span class="badge text-bg-secondary">Voc</span>  Vehiculo en Condición Operativa</a></li>
+<li class="etiqueta" id="432"><a><span class="badge text-bg-secondary">Pov</span>  Vehículo Privado</a></li>
+<li class="etiqueta" id="433"><a><span class="badge text-bg-secondary">Veh</span>  Vehiculos</a></li>
+<li class="etiqueta" id="434"><a><span class="badge text-bg-secondary">Gi</span>  Viga</a></li>
+<li class="etiqueta" id="435"><a><span class="badge text-bg-secondary">Gz</span>  Vigas Entramadas</a></li>
+<li class="etiqueta" id="436"><a><span class="badge text-bg-secondary">Zi</span>  Zipper</a></li>
+</ul>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+         
+        
+				
+<div class="mt-3" > 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-1" href="instructivos.html">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg> Volver a Instructivos
+			</a>
+	
+</div>
+       
+			</div>
+
+
+
+
+      
+      </div>
+		  
+
+	
+      </div>
+		
+    </div>
+	  
+  </div>
+			
+</div>
+		
+
+		 
+
+</main>
+	  
+	  </div>
+
+
+  
+	
+<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/dragula.js"></script>
+<script src="../assets/js/example.min.js"></script>
+<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/subir-imagen.js"></script>
+
+  </body>
+</html>

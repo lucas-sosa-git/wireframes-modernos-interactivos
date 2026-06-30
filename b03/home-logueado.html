@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Home</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="../assets/css/pricing.css" rel="stylesheet" />
+    <style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+        
+    </style>
+	  
+	  <link href="../assets/css/carousel.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-3">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="pagina-web.html" class="d-flex align-items-center text-decoration-none" >
+            <img  class="mb-2" src="../assets/img/gs1.png" alt="" height="61" />
+            
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Nosotros</a>
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Soluciones</a>
+            <a class="me-3 py-2 text-decoration-none"              href="servicios.html" >Servicios</a>
+ 
+            <a href="servicio-codificar.html" class="btn btn-success ms-1">Obtené tu código de barras</a>
+			<div class="dropdown ms-1 border-success">
+<div class="btn-group " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <div  class="btn btn-success active bg-success border-success" >
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg>
+</div>
+  <a href="micuenta.html" class="btn btn-light border-success dropdown-toggle">nombre@dominio.com</a>
+ 
+</div>
+<ul class="dropdown-menu">
+	<li class="border-bottom">
+		<a class="dropdown-item" href="micuenta-basico.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+	
+	<li class="border-bottom"><a class="dropdown-item" href="registro2.html">Completá tu registro</a></li>
+	
+    <li><a class="dropdown-item btn-lg" href="home.html">Salir</a></li>
+  </ul>
+</div>
+          </nav>
+        </div>
+      </header>
+	  </div>
+      <main>
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        
+        <div class="carousel-inner">
+          
+          <div class="carousel-item active" style="background: #002c6b">
+			  <img  src="../assets/img/carrousel_web.jpg" style="height: 100%; float: right" />
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1>Códigos de Barras GS1 </h1>
+                <p class="opacity-75">
+                  Los únicos códigos autorizados y verificados
+                </p>
+                <p>
+					<div class="btn-group" style="margin: 0 auto;">
+                      <a class="btn btn-lg btn-outline-light px-3" href="servicio-codificar.html">Saber Más</a>
+                      <a class="btn btn-lg btn-light  px-3" href="servicio-codificar.html">Pedilo Ahora</a>
+                    </div>
+				  
+				  </p>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        
+      </div>
+      <!-- Marketing messaging and featurettes
+  ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+			  <div class="card shadow-sm">
+			  <a href="servicio-edi.html"><img src="../assets/img/Home_Banner_EDI.jpg" class="bd-placeholder-img card-img-top" alt="EDI"/></a>
+                <div class="card-body">
+                  <p class="card-text">
+                    Intercambiá documentos con tus socios comerciales de forma simple y accesible.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group" style="margin: 0 auto;">
+                      <a class="btn btn-outline-primary px-3" href="servicio-edi.html">Saber Más</a>
+                      <a class="btn btn-primary px-3"  href="registro.html">Pedilo Ahora</a>
+                    </div>       
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+			  <div class="card shadow-sm">
+			   <a href="servicio-negociar.html"><img src="../assets/img/Home_Banner_NegociAR.jpg" class="bd-placeholder-img card-img-top" alt="NegociAR"/></a>
+                <div class="card-body">
+                  <p class="card-text">
+                    Ofrecé tus productos y llegá a los supermercados de todo el país en pocos pasos.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group" style="margin: 0 auto;">
+                      <a class="btn btn-outline-primary px-3" href="servicio-negociar.html">Saber Más</a>
+                      <a class="btn btn-primary px-3" href="registro.html">Pedilo Ahora</a>
+                    </div>
+                  </div>
+                </div>
+              </div>		  
+          </div>
+          
+	    <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+			<div class="card shadow-sm">
+			  <a href="servicio-osa.html"><img src="../assets/img/Home_Banner_OSA.jpg" class="bd-placeholder-img card-img-top" alt="OSA"/></a>
+                <div class="card-body">
+                  <p class="card-text">
+                    Obtené información continua sobre la disponibilidad de tus productos en el punto de venta.
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group" style="margin: 0 auto;">
+                      <a class="btn btn-outline-primary px-3" href="servicio-osa.html">Saber Más</a>
+                      <a class="btn btn-primary px-3" href="registro.html">Pedilo Ahora</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			</div>
+			
+			<div class="col-lg-12">
+			
+			  
+                
+
+<div class="card shadow-sm">
+  <div class="card-header">
+    Cursos y eventos
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Capacitación</h5>
+    <p class="card-text">Capacitate con nosotros. Aprovechá los beneficios de ser socio. </p>
+    <div class="d-flex justify-content-between align-items-center">
+                    <a class="btn btn-outline-primary px-3" href="servicio-capacitaciones.html">Saber Más</a>
+                  </div>
+  </div>
+</div>
+
+
+             
+			</div>
+          <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+        <!-- START THE FEATURETTES -->
+  
+		  
+		
+<h3 class="pb-2 border-bottom mt-5">Más Servicios <a class="btn btn-outline-primary px-3" href="servicios.html">Ver todos</a></h3>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+
+ <!--<div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-codigo.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Codificación</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Ofrecé tus productos y llegá a los supermercados de todo el país. </div>
+ </div>
+ </div>
+ </div>-->
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-13.svg" alt="" width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Verified by GS1</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-23.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Consulta API GTIN</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Obtenga búsquedas y resultados ilimitados con GS1 US Data Hub. </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-24.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Consulta GLN</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Nueva herramienta de búsqueda GLN disponible </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-8.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Verificación de Simbologías</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-25.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Catálogo</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-9.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Trazabilidad</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Rastrear y hacer seguimiento a productos a lo largo de la cadena de abastecimiento. </div>
+ </div>
+ </div>
+ </div>
+<!--
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-edi.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Servicios EDI GS1</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Intercambiá documentos con tus socios comerciales de forma simple y accesible. </div>
+ </div>
+ </div>
+ </div>
+-->
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-26.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Pricat Máster</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+ <!--
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-3.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">NegociAR</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Llegó la manera más rápida de mostrar tus productos a los supermercados. </div>
+ </div>
+ </div>
+ </div>
+-->
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-7.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">FMG</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+
+	<!--
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-4.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">OSA</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+-->
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-27.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Cursos y capacitaciones</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="col d-flex align-items-start">
+ <img src="../assets/img/icono-servicio-12.svg" alt=""  width="28" height="28" class="m-1 flex-shrink-0"> 
+ <div class="ps-3"> 
+ <div> 
+	 <h3 class="fw-bold fs-6 text-body-emphasis mb-1">Consultorías</h3> 
+	 <div class="opacity-75 lh-sm mb-0 small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+ </div>
+ </div>
+ 
+ </div>
+ </div>
+
+
+        <hr class="featurette-divider" />
+   
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">
+              Lorem ipsum dolor sit amet. 
+              <span class="text-body-secondary">Consectetur adipiscing elit</span>
+            </h2>
+            <p class="lead">
+              Aenean placerat dolor id porttitor ornare. Maecenas tempor, leo eget pulvinar vulputate, ligula tortor condimentum arcu, fringilla maximus nulla est vel nibh.
+            </p>
+          </div>
+          <div class="col-md-5">
+            <svg
+              aria-label="Placeholder: 500x500"
+              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              height="500"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              width="500"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Placeholder</title>
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-bg)"
+              ></rect>
+              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                Foto 1
+              </text>
+            </svg>
+          </div>
+        </div>
+        <hr class="featurette-divider" />
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">
+              Lorem ipsum dolor sit amet. 
+              <span class="text-body-secondary">Consectetur adipiscing elit</span>
+            </h2>
+            <p class="lead">
+              Aenean placerat dolor id porttitor ornare. Maecenas tempor, leo eget pulvinar vulputate, ligula tortor condimentum arcu, fringilla maximus nulla est vel nibh.
+            </p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <svg
+              aria-label="Placeholder: 500x500"
+              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              height="500"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              width="500"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Placeholder</title>
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-bg)"
+              ></rect>
+              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                Foto 2
+              </text>
+            </svg>
+          </div>
+        </div>
+        <hr class="featurette-divider" />
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">
+              Lorem ipsum dolor sit amet. 
+              <span class="text-body-secondary">Consectetur adipiscing elit</span>
+            </h2>
+            <p class="lead">
+              Aenean placerat dolor id porttitor ornare. Maecenas tempor, leo eget pulvinar vulputate, ligula tortor condimentum arcu, fringilla maximus nulla est vel nibh.
+            </p>
+          </div>
+          <div class="col-md-5">
+            <svg
+              aria-label="Placeholder: 500x500"
+              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              height="500"
+              preserveAspectRatio="xMidYMid slice"
+              role="img"
+              width="500"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Placeholder</title>
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-bg)"
+              ></rect>
+              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                Foto 3
+              </text>
+            </svg>
+          </div>
+        </div>
+       
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <!-- /.container -->
+     
+    </main>
+	<div class="container">
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+		  <p class="float-end"><a href="#">Ir arriba</a></p>
+        <div class="row">
+          <div class="col-12 col-md">
+            <img              class="mb-2"              src="../assets/img/gs1.png"              alt=""              height="61"            />
+            <small class="d-block mb-3 text-body-secondary">
+    Fraga 1326<br>
+    C1427BUB, CABA<br>
+    Tel: (54-11) 4556 4700<br>
+    Email: info@gs1.org.ar<br>
+</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Nosotross</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Servicios</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Sectores</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+  </body>
+</html>

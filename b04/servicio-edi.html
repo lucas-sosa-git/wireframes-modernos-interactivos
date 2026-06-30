@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Servicio</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/b04/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="../assets/b04/css/pricing.css" rel="stylesheet" />
+    <style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+        
+    </style>
+  </head>
+  <body>
+    <div class="container py-3">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="pagina-web.html" class="d-flex align-items-center text-decoration-none" >
+            <img  class="mb-2" src="../assets/img/gs1.png" alt="" height="61" />
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Nosotros</a>
+            <a class="me-3 py-2 text-decoration-none"              href="#"              >Soluciones</a>
+            <a class="me-3 py-2 text-decoration-none"              href="servicios.html" >Servicios</a>
+ 
+            <a href="servicio-codificar.html" class="btn btn-success ms-1">Obtené tu código de barras</a>
+			<a href="ingresar.html" class=" btn btn-outline-success ms-1">Iniciá Sesión o Registrate</a>
+          </nav>
+        </div>
+      </header>
+      <main> 
+		  
+		<div class="p-5 text-center bg-body-tertiary rounded-3">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-file-binary" viewBox="0 0 16 16">
+			  <path d="M5.526 13.09c.976 0 1.524-.79 1.524-2.205 0-1.412-.548-2.203-1.524-2.203-.978 0-1.526.79-1.526 2.203 0 1.415.548 2.206 1.526 2.206zm-.832-2.205c0-1.05.29-1.612.832-1.612.358 0 .607.247.733.721L4.7 11.137a7 7 0 0 1-.006-.252m.832 1.614c-.36 0-.606-.246-.732-.718l1.556-1.145q.005.12.005.249c0 1.052-.29 1.614-.829 1.614m5.329.501v-.595H9.73V8.772h-.69l-1.19.786v.688L8.986 9.5h.05v2.906h-1.18V13h3z"/>
+			  <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
+			</svg>
+        <h1 class="text-body-emphasis mt-3">Servicios EDI GS1</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">
+			Simplificá la transferencia de documentos y mensajes con tus socios comerciales.
+        </p>
+        <div class="d-inline-flex gap-2 ">
+          <a class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" href="#planes">
+            Sumate a EDI            <span class="ms-3"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+</svg></span>
+          </a>
+         
+        </div>
+      </div>
+		  
+		  <h2 class="mt-5 mb-3">Obtené velocidad, precisión y confiabilidad en tus transacciones con EDI GS1</h2> 
+		  <p class="fs-5 col-md-12">
+	GS1 Argentina desarrolló una herramienta de tecnología de avanzada con el objetivo de brindar un mejor servicio a todos sus asociados. EDI GS1 te permite alcanzar importantes mejoras en tus operaciones logísticas y administrativas a través de la simplificación en la transferencia de documentos y mensajes entre socios comerciales.
+ </p>
+		
+<h2 class="mt-5 mb-3">Beneficios de usar EDI GS1</h2> 
+		  <p class="fs-5 col-md-12">
+		
+ 
+		
+
+<b>Ahorro</b><br>
+
+Disminución de gastos de procesos y transmisión de una transacción comercial.<br><br>
+<b>Optimización</b><br>
+
+Mayor productividad del personal antes dedicado a procesos manuales.<br><br>
+<b>Eficiencia</b><br>
+
+Eficiencia en la transmisión de datos, calidad de datos eliminando errores.<br><br>
+<b>Simplificación</b><br>
+
+Estandarización de documentos que simplifican las transacciones.<br><br>
+<b>Accesibilidad</b><br>
+
+Acceso web mobile. Navegación HTTP<br><br>
+<b>Sustentabilidad</b><br>
+
+Eliminación del papel haciendo el negocio más sustentable.<br><br>
+
+		  </p>	
+		  
+<a id="planes"> </a>	
+<h2 class="mb-3 mt-3">Plan EDI a contratar.</h2> 
+		  
+<div class="row mb-3 text-center">
+<div class="col-6">
+            <div class="card mb-4 rounded-3 shadow-sm border-success shadow-lg">
+              <div class="card-header py-3 bg-success text-bg-primary border-success">
+                <h4 class="my-0 fw-normal">Servicio EDI Web</h4>
+              </div>
+              <div class="card-body bg-light rounded-2">
+                 <a data-bs-toggle="collapse" href="#planeswdiweb" role="button" aria-expanded="false" aria-controls="planeswdiweb" class="w-100 btn btn-lg btn-success">
+                 Ver planes EDI Web
+                </a>
+              </div>
+            </div>
+          </div>
+	
+	<div class="col-6">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary shadow-lg">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">EDI integraciones</h4>
+              </div>
+              <div class="card-body">
+                <a href="registro-con-servicio6.html" class="w-100 btn btn-lg btn-primary">
+                  Quiero EDI integraciones
+                </a>
+              </div>
+            </div>
+          </div>
+	
+
+ 
+<div class="col-12">
+
+	<div class="collapse" id="planeswdiweb">
+<div class="table-responsive "> 
+	<table class="table text-center table-hover"> 
+<thead> 
+<tr> 
+<th class="text-start">Cantidad de Doc.</th> 
+<th >Abono Anual</th>
+<th >&nbsp;</th>
+<th >Abono semestral</th> 
+<th >&nbsp;</th>
+</tr> 
+</thead> 
+ 
+<tbody> 
+ 
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">20</span> <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td> 
+
+</tr>
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">50</span>  <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td> 
+	
+</tr>
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">100</span>  <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td> 
+	 
+</tr>
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">200</span>  <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td> 
+</tr>
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">300</span>  <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td>  
+	
+</tr>
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">500</span>  <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td> 
+	 
+</tr>
+<tr> 
+	<td scope="row" class="text-start"> WEB <span class="badge text-bg-secondary fs-5">FULL</span>  <span class="text-uppercase text-secondary" style="font-size: 14px;">Doc / Mes</span></td> 
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-success ms-3 px-3 text-uppercase">Quiero Anual</a></td>
+	<td>$##.###</td> 
+	<td><a href="registro-con-servicio5.html" class="btn btn-sm btn-outline-secondary ms-3 px-3 text-uppercase">Quiero Semestral</a></td> 
+	
+</tr>
+</tbody> 
+</table> 
+	
+	
+
+<div class="alert alert-light " role="alert">
+Abono de transacciones según cantidad de documentos
+</div>
+
+
+</div>
+	</div>
+</div>
+</div>
+
+
+
+		  
+
+
+		</main>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+		  <p class="float-end"><a href="#">Ir arriba</a></p>
+        <div class="row">
+          <div class="col-12 col-md">
+            <img              class="mb-2"              src="../assets/img/gs1.png"              alt=""              height="61"            />
+            <small class="d-block mb-3 text-body-secondary">
+    Fraga 1326<br>
+    C1427BUB, CABA<br>
+    Tel: (54-11) 4556 4700<br>
+    Email: info@gs1.org.ar<br>
+</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Nosotross</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Servicios</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Sectores</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem ipsum </a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Lorem amet</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Dolor sit t</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="../assets/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>

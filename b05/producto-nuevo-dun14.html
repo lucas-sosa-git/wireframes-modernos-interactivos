@@ -1,0 +1,3232 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Nuevo Producto</title>
+    <link href="../assets/b05/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+	
+	<link href="../assets/b05/css/sidebars.css" rel="stylesheet" />
+	<link href="../assets/b05/css/micuenta2.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/b05/css/carousel-micuenta.css" rel="stylesheet" /> 
+	<link href="../assets/b05/css/dropdowns.css" rel="stylesheet" />
+	<link href="../assets/b05/css/features.css" rel="stylesheet" />
+	<link href="../assets/b05/css/list-groups.css" rel="stylesheet" />
+	<link href="../assets/b05/css/dropdowns.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../assets/b05/css/subir-imagen.css" />
+	<script defer src="../assets/js/jquery.js"></script>	
+
+  </head>
+  <body>
+	 <main class="d-flex flex-nowrap" style="background: #ffffff">
+		 <div class=" p-3 bg-body-secondary position-fixed" style="width: 280px; height: 100vh; display: block;">
+        <a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+         <img class="mb-2" src="../assets/img/gs1.png" alt="" height="61">
+        </a>
+        <ul class="list-unstyled ps-0 nav nav-pills flex-column ">
+			
+			<li class="mb-2 pb-2 border-bottom">
+			  
+            <a  class="btn d-inline-flex align-items-center rounded border-0 collapsed p-2 text-success" href="micuenta.html"          >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-window-dock me-2" viewBox="0 0 16 16">
+  <path d="M3.5 11a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm4.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+  <path d="M14 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM2 14h12a1 1 0 0 0 1-1V5H1v8a1 1 0 0 0 1 1M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1z"/>
+</svg> Mi escritorio
+            </a>
+            
+          </li>
+          <li class="mb-2 pb-2 border-bottom">
+			  
+            <button
+              class="btn dropdown-toggle d-inline-flex align-items-center rounded border-0 collapsed p-2"              data-bs-toggle="collapse"              data-bs-target="#home-collapse"              aria-expanded="fasle"            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-people me-2" viewBox="0 0 16 16">
+				  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path>
+				</svg> Usuarios
+            </button>
+            <div class="collapse" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Mis Usuarios</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Alta de Usuarios</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded  p-2 px-3">Modificar Datos</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-2 pb-2 border-bottom">
+            <button
+              class="btn dropdown-toggle d-inline-flex align-items-center rounded border-0 collapsed p-2"
+              data-bs-toggle="collapse"
+              data-bs-target="#dashboard-collapse"
+              aria-expanded="false"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-building me-2" viewBox="0 0 16 16">
+				  <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"></path>
+				  <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"></path>
+				</svg> Empresas
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Lista de Empresas</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Asignación de GLN</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-2 pb-2 border-bottom">
+            <button
+              class="btn dropdown-toggle d-inline-flex align-items-center rounded border-0 collapsed p-2"
+              data-bs-toggle="collapse"
+              data-bs-target="#orders-collapse"
+              aria-expanded="false"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-seam me-2" viewBox="0 0 16 16">
+				  <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"></path>
+				</svg>
+				 Productos
+            </button>
+            <div class="collapse" id="orders-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Alta de productos</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Mis productos</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Carga Masiva</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-2 pb-2 border-bottom">
+            <button
+              class="btn dropdown-toggle d-inline-flex align-items-center rounded border-0 collapsed p-2"
+              data-bs-toggle="collapse"
+              data-bs-target="#account-collapse"
+              aria-expanded="false"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-file-earmark-medical me-2" viewBox="0 0 16 16">
+  <path d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"></path>
+  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"></path>
+</svg> Instructivos
+            </button>
+            <div class="collapse" id="account-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Tipos de envases</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Unidades de medida</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Clasificaciones</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Instructivo Senasa</a></li>
+				  <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded p-2 px-3">Instructivo GS1</a></li>
+              </ul>
+            </div>
+          </li>
+			
+        </ul>
+	 
+
+        
+      </div>
+		 
+	
+    <div class="d-flex flex-column flex-shrink-0 p-0 bg-body-tertiary" style="margin-left: 280px; width: calc(100% - 280px);">
+		<div class="mb-3" >
+			
+			
+<div  class="p-3 bg-body-secondary border-1 border-light text-end">
+
+	
+<div  class="fs-4 ms-1 me-2 float-start text-secondary">
+
+	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-upc-scan mb-1" viewBox="0 0 16 16">
+  <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"></path>
+</svg>
+	Nuevo Producto
+</div>
+	
+<!--<a href="producto-nuevo.html" class=" btn btn-outline-success ms-1 me-2">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+</svg> Producto Nuevo
+</a>-->	
+		
+<a class="btn btn-outline-secondary p-1 me-2 border-0" href="#">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+</svg>
+</a>
+<a  class="btn btn-outline-secondary p-1 position-relative me-2  border-0" data-bs-toggle="modal" data-bs-target="#ModalNotificaciones">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+</svg>
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="margin-left: -5px;">
+    2
+    <span class="visually-hidden">mensajes no leídos</span>
+  </span>
+</a>
+		
+
+<div class="modal fade" id="ModalNotificaciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Notificaciones</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <ul class="list-unstyled d-flex flex-column gap-2">
+            <li>
+              <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+				  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+				</svg>
+                <div>
+					<b>Nuevo Usuario NombreLargo ApellidoLargo</b> <br>
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
+						  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5"/>
+						</svg>
+						12/03/2026 
+					</span>  
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+					  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+					</svg> 
+						09:15
+					</span>
+					<span class="badge text-bg-primary py-1 px-2 me-1  text-opacity-75 small">Nuevo</span>
+				  </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-fingerprint" viewBox="0 0 16 16">
+  <path d="M8.06 6.5a.5.5 0 0 1 .5.5v.776a11.5 11.5 0 0 1-.552 3.519l-1.331 4.14a.5.5 0 0 1-.952-.305l1.33-4.141a10.5 10.5 0 0 0 .504-3.213V7a.5.5 0 0 1 .5-.5Z"></path>
+  <path d="M6.06 7a2 2 0 1 1 4 0 .5.5 0 1 1-1 0 1 1 0 1 0-2 0v.332q0 .613-.066 1.221A.5.5 0 0 1 6 8.447q.06-.555.06-1.115zm3.509 1a.5.5 0 0 1 .487.513 11.5 11.5 0 0 1-.587 3.339l-1.266 3.8a.5.5 0 0 1-.949-.317l1.267-3.8a10.5 10.5 0 0 0 .535-3.048A.5.5 0 0 1 9.569 8m-3.356 2.115a.5.5 0 0 1 .33.626L5.24 14.939a.5.5 0 1 1-.955-.296l1.303-4.199a.5.5 0 0 1 .625-.329"></path>
+  <path d="M4.759 5.833A3.501 3.501 0 0 1 11.559 7a.5.5 0 0 1-1 0 2.5 2.5 0 0 0-4.857-.833.5.5 0 1 1-.943-.334m.3 1.67a.5.5 0 0 1 .449.546 10.7 10.7 0 0 1-.4 2.031l-1.222 4.072a.5.5 0 1 1-.958-.287L4.15 9.793a9.7 9.7 0 0 0 .363-1.842.5.5 0 0 1 .546-.449Zm6 .647a.5.5 0 0 1 .5.5c0 1.28-.213 2.552-.632 3.762l-1.09 3.145a.5.5 0 0 1-.944-.327l1.089-3.145c.382-1.105.578-2.266.578-3.435a.5.5 0 0 1 .5-.5Z"></path>
+  <path d="M3.902 4.222a5 5 0 0 1 5.202-2.113.5.5 0 0 1-.208.979 4 4 0 0 0-4.163 1.69.5.5 0 0 1-.831-.556m6.72-.955a.5.5 0 0 1 .705-.052A4.99 4.99 0 0 1 13.059 7v1.5a.5.5 0 1 1-1 0V7a3.99 3.99 0 0 0-1.386-3.028.5.5 0 0 1-.051-.705M3.68 5.842a.5.5 0 0 1 .422.568q-.044.289-.044.59c0 .71-.1 1.417-.298 2.1l-1.14 3.923a.5.5 0 1 1-.96-.279L2.8 8.821A6.5 6.5 0 0 0 3.058 7q0-.375.054-.736a.5.5 0 0 1 .568-.422m8.882 3.66a.5.5 0 0 1 .456.54c-.084 1-.298 1.986-.64 2.934l-.744 2.068a.5.5 0 0 1-.941-.338l.745-2.07a10.5 10.5 0 0 0 .584-2.678.5.5 0 0 1 .54-.456"></path>
+  <path d="M4.81 1.37A6.5 6.5 0 0 1 14.56 7a.5.5 0 1 1-1 0 5.5 5.5 0 0 0-8.25-4.765.5.5 0 0 1-.5-.865m-.89 1.257a.5.5 0 0 1 .04.706A5.48 5.48 0 0 0 2.56 7a.5.5 0 0 1-1 0c0-1.664.626-3.184 1.655-4.333a.5.5 0 0 1 .706-.04ZM1.915 8.02a.5.5 0 0 1 .346.616l-.779 2.767a.5.5 0 1 1-.962-.27l.778-2.767a.5.5 0 0 1 .617-.346m12.15.481a.5.5 0 0 1 .49.51c-.03 1.499-.161 3.025-.727 4.533l-.07.187a.5.5 0 0 1-.936-.351l.07-.187c.506-1.35.634-2.74.663-4.202a.5.5 0 0 1 .51-.49"></path>
+</svg>
+                <div>
+                  <b>Lorem ipsum, consectetur: 235689745.</b><br>
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
+						  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5"/>
+						</svg>
+						11/03/2026 
+					</span>  
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+					  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+					</svg> 
+						09:15
+					</span>
+					<span class="badge text-bg-primary py-1 px-2 me-1  text-opacity-75 small">Nuevo</span>
+                  
+                </div>
+              </a>
+            </li>
+			  <li>
+              <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start opacity-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003zM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461z"/>
+</svg>
+                <div>
+                 Proin pulvinar nunc ac nibh diam imperdiet.<br>
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
+						  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5"/>
+						</svg>
+						12/12/2025 
+					</span>  
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+					  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+					</svg> 
+						10:55
+					</span>
+					
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">Leído</span>
+                 
+                </div>
+              </a>
+            </li>
+		  
+		  <li>
+              <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start opacity-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003zM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461z"/>
+</svg>
+                <div>
+                 Nibh diam imperdiet roin pulvinar nunc ac <br>
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
+						  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5"/>
+						</svg>
+						12/10/2025 
+					</span>  
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+					  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+					</svg> 
+						12:35
+					</span>
+					
+					<span class="bg-light py-1 px-2 me-1 text-primary text-opacity-75 small">Leído</span>
+                 
+                </div>
+              </a>
+            </li>
+			  
+          
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		
+<div class="btn-group ">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+</svg> NombreLargo ApellidoLargo
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end" style="overflow: hidden; width: 250px">
+	<li class=" bg-white  p-3">
+	<a href="micuenta.html">
+		<div class=" bg-white" >
+			<img src="../assets/img/usuario.jpg" width="45px" style="width: 45px" class="me-2 float-start" alt=""> 
+			<strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small>
+		</div>
+		</a>
+	</li>
+    <li class="border-top"><a class="dropdown-item p-3" data-bs-toggle="modal" data-bs-target="#ModalEditarMisDatos"> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pencil me-2" viewBox="0 0 16 16">
+  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"></path>
+</svg> Editar Mis datos</a></li>
+	<li class="border-top"><a class="dropdown-item  p-3" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right me-2" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+</svg> Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+   
+</div>
+
+
+			
+		
+		</div>
+		<div class="container">
+			<!--<div class="mb-5 mt-6 pt-3 px-3">
+			<div class="h2 mb-2">¿En qué podemos ayudarte?</div>
+<div class="input-group input-group-lg mb-3">
+  <input type="text" class="form-control" placeholder="En qué podemos ayudarte?" aria-label="En qué podemos ayudarte?" aria-describedby="button-addon2">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+</div>
+			
+		
+
+		</div>-->
+			
+
+  
+
+
+			<div class="collapse show px-2" id="contenedor-atajos" >
+			<a href="producto-nuevo.html" class="btn btn btn-success rounder-2 text-center m-2 p-3 border-3" style="min-width: 105px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-upc-scan" viewBox="0 0 16 16">
+  <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"/>
+</svg>
+				<div class="mt-1 small" style="font-size: .7em;">Genera tu código</div>
+              </a>
+				
+			<a href="#" class="btn btn btn btn-outline-success rounder-2 text-center m-2 p-3 border-3" style="min-width: 105px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"></path>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"></path>
+</svg>
+				<div class="mt-1 small" style="font-size: .7em;">Ajustes</div>
+              </a>
+				
+			<a href="#" class="btn btn btn btn-outline-success rounder-2 text-center m-2 p-3 border-3" style="min-width: 105px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+  <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+</svg>
+				<div class="mt-1 small" style="font-size: .7em;">Crear Usuario</div>
+              </a>
+				
+			  
+				
+			<a href="#" class="btn btn btn btn-outline-success rounder-2 text-center m-2 p-3 border-3" style="min-width: 105px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
+  <path d="M2 2h2v2H2z"/>
+  <path d="M6 0v6H0V0zM5 1H1v4h4zM4 12H2v2h2z"/>
+  <path d="M6 10v6H0v-6zm-5 1v4h4v-4zm11-9h2v2h-2z"/>
+  <path d="M10 0v6h6V0zm5 1v4h-4V1zM8 1V0h1v2H8v2H7V1zm0 5V4h1v2zM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8zm0 0v1H2V8H1v1H0V7h3v1zm10 1h-1V7h1zm-1 0h-1v2h2v-1h-1zm-4 0h2v1h-1v1h-1zm2 3v-1h-1v1h-1v1H9v1h3v-2zm0 0h3v1h-2v1h-1zm-4-1v1h1v-2H7v1z"/>
+  <path d="M7 12h1v3h4v1H7zm9 2v2h-3v-1h2v-1z"/>
+</svg>
+				<div class="mt-1 small" style="font-size: .7em;">Código QR</div>
+              </a>
+				
+				
+				<a href="#" class="btn btn btn btn-outline-success rounder-2 text-center m-2 p-3 border-3" style="min-width: 105px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"></path>
+</svg>
+				<div class="mt-1 small" style="font-size: .7em;">NegociAR</div>
+              </a>
+				
+				<a href="#" class="btn btn btn btn-outline-success rounder-2 text-center m-2 p-3 border-3" style="min-width: 105px;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+  <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+</svg>
+				<div class="mt-1 small" style="font-size: .7em;">Legibilidad</div>
+              </a>
+				
+			
+			<a  class="btn btn btn-outline-secondary rounder-2 text-center m-2 p-2 border-3 " data-bs-toggle="collapse" href="#contenedor-atajos" role="button" aria-expanded="false" aria-controls="contenedor-atajos" >
+					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+					</svg>
+				<span class="mt-1 small" style="font-size: .7em;">Ocultar Atajos</span>
+            </a>		
+
+			</div>
+			
+		<div class="panel-usuario mb-5 pb-5 px-3">
+
+			<div class="row">
+			<div class="col-12">
+				<div class="collapse show" id="contenedor-empresa">
+					
+				<div class="card mb-4 mt-3">
+					<div class="p-3 fs-5 ">
+						<button type="button" class="btn-close float-end" data-bs-toggle="collapse" href="#contenedor-empresa" role="button" aria-expanded="false" aria-controls="contenedor-empresa"></button>
+							<span class="text-secondary ">CUIT:</span> 
+						   <span class=" me-3 pe-3 border-end">32109874562</span>
+							<span class="text-secondary ">Razón Social:</span>
+							<span class="me-3 pe-3 border-end">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="text-secondary ">Membresía:</span>
+							<span class=""><span class="badge text-bg-secondary">Plan Estándar</span></span>
+					</div>
+				</div>
+				</div>
+				</div>
+				
+			 <div class="col-12">		 
+				 
+				 	<div class="card m-2 mb-3 " id="card-nuevo-producto" >
+			
+<style>
+	
+.form-control {
+			
+			font-size: 1.4rem;
+		}
+	
+
+		  .form-label {font-size: 18px;}
+	.progress { background: #fafafa; }
+.progreso-0 {  width: 0% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-1 {  width: 11% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-2 {  width: 22% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-3 {  width: 33% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-4 {  width: 44% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-5 {  width: 55% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-6 {  width: 66% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-7 {  width: 77% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-8 {  width: 88% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-9 {  width: 100% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+</style>
+				 
+<div class="progress mb-3" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 20px; border-radius: 20px 20px 0px 0px !important; border-bottom: 0px solid rgba(255,255,255,1.00);">
+  <div id="progreso" class="progress-bar progreso-0" ></div>
+</div>
+				 
+ 
+<style>
+	
+.productos{
+  font-size: 16px;
+  line-height: 1.3;
+}
+	
+.cortar-texto{
+  line-height: 1.3;
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}	
+	
+.abierto .cortar-texto{
+  font-size: 16px;
+  height: auto;
+  display:inline-block;
+  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}
+	
+.imagen-indicador{
+		width: 28px; vertical-align: text-bottom; margin-right: 16px;
+	}	
+
+			</style>
+<div class="p-3 pt-0">
+	
+<div>
+	
+<form class="needs-validation" novalidate>
+<div class="pasos" id="pasos">	
+	<div id="paso10a" style="display: none">
+		<h2 class="mb-3 pt-0">01 - Seleccione el Tipo de GTIN</h2> 
+		  <div class="row g-3 p-1" >	
+			<div class="col-4">
+				<a onClick="validar_paso10()" class="text-decoration-none" style="cursor: pointer">  
+					<div class="card mb-0 rounded-3 p-3 border-3"  >
+                        <img src="../assets/img/gtin-13.jpg" class="w-100">
+                        <div class="card-body tipoletra">
+                            <h4 class="card-title">GTIN-13</h4>
+							<p>El GTIN-13 es de 13 dígitos y se usa a nivel global para la mayoría de productos.</p>
+                        </div>
+					  </div> 
+				   </a>        
+            </div>
+           <div class="col-4">
+			   <a onClick="validar_paso11()" class="text-decoration-none" style="cursor: pointer">  
+				   <div class="card mb-0 rounded-3 p-3 border-3"  >
+                        <img src="../assets/img/gtin-8.jpg" class="w-100">
+                        <div class="card-body tipoletra">
+                            <h4 class="card-title">GTIN-8</h4>
+							<p>El GTIN-8 es usado para identificar artículos de tamaño muy reducido.</p>
+                        </div>
+					  </div> 
+				   </a>
+            </div>
+			<div class="col-4">
+			   <a onClick="validar_paso12()" class="text-decoration-none " style="cursor: pointer">  
+				   <div class="card mb-0 rounded-3 p-3 border-3"  >
+                        <img src="../assets/img/gtin-masivo.jpg" class="w-100">
+                        <div class="card-body tipoletra">
+                            <h4 class="card-title">GTIN-14 (DUN 14)</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+					  </div> 
+				   </a>
+            </div>
+		</div>
+		<hr class="mt-4">
+	</div>
+	<div id="paso10b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">01 - Tipo de GTIN: GTIN 13
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso10()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso11b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">01 - Tipo de GTIN: GTIN 8
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso10()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso12b"  ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">01 - Tipo de GTIN: GTIN 14 (DUN14)
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso10()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso10c" class="text-body-tertiary" style="display: none">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">01 - Tipo de GTIN</h4>
+		<hr>
+	</div>
+	
+	<!--  -->
+	
+	<div id="paso20a" >
+		<h2 class="mb-3 pt-0">02 - Seleccione Línea de Negocio</h2> 
+			<div class="row g-3 p-1">
+<div class="col-2">
+<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3"  onclick="validar_paso20()">
+	<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-egg-fried mb-2" viewBox="0 0 16 16">
+	  <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+	  <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+	</svg><br>
+		Alimentos
+</a>
+</div>
+			
+<div class="col-2">
+<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4  px-3"  onclick="validar_paso20()">
+	<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-capsule-pill mb-2" viewBox="0 0 16 16">
+  <path d="M11.02 5.364a3 3 0 0 0-4.242-4.243L1.121 6.778a3 3 0 1 0 4.243 4.243l5.657-5.657Zm-6.413-.657 2.878-2.879a2 2 0 1 1 2.829 2.829L7.435 7.536zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8m-.5 1.042a3 3 0 0 0 0 5.917zm1 5.917a3 3 0 0 0 0-5.917z"/>
+</svg><br>
+		Medicamentos
+</a>
+</div>
+			
+<div class="col-2">
+<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4  px-3"  onclick="validar_paso20()">
+	<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-music-player mb-2" viewBox="0 0 16 16">
+  <path d="M4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm1 0v3h6V3zm3 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+  <path d="M11 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-3 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+</svg><br>
+		Electro
+</a>
+</div>
+			
+<div class="col-2">
+<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3"  onclick="validar_paso20()">
+	<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-handbag mb-2" viewBox="0 0 16 16">
+  <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2m3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6z"/>
+</svg><br>
+		Textil
+</a>
+</div>
+			
+			<div class="col-2">
+<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3"  onclick="validar_paso20()">
+	<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-three-dots mb-2" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg><br>&nbsp;
+		
+</a>
+</div>
+			
+			<div class="col-2">
+<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3"  onclick="validar_paso20()">
+	<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-three-dots mb-2" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg><br>&nbsp;
+		
+</a>
+</div>
+  
+</div>  
+			
+		<hr class="mt-4">
+	</div>
+	<div id="paso20b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">02 - Línea de Negocio: Alimentos
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso20()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso20c" style="display: none" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">02 - Línea de Negocio</h4>
+		<hr>
+	</div>
+	
+	<div id="paso30a" style="display: none">
+		<h2 class="mb-3 pt-0">03 - Seleccione el Tipo de distribución</h2> 
+			<div class="row g-3 p-1">
+				<div class="col-6">
+				<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3"  onClick="validar_paso30()">
+					<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-globe-americas mb-2" viewBox="0 0 16 16">
+					  <path class="st0" d="M1,8c0,3.87,3.13,7,7,7s7-3.13,7-7S11.87,1,8,1,1,4.13,1,8M16,8c0,4.42-3.58,8-8,8S0,12.42,0,8,3.58,0,8,0s8,3.58,8,8"/>
+					  <path d="M14.5,12c0,.28-.22.5-.5.5H2c-.28,0-.5-.22-.5-.5s.22-.5.5-.5h12c.28,0,.5.22.5.5"/>
+					  <path d="M14.5,4c0,.28-.22.5-.5.5H2c-.28,0-.5-.22-.5-.5s.22-.5.5-.5h12c.28,0,.5.22.5.5"/>
+					  <path class="st0" d="M9.3,8c0,.72-.58,1.3-1.3,1.3s-1.3-.58-1.3-1.3.58-1.3,1.3-1.3,1.3.58,1.3,1.3Z"/>
+					  <path d="M8.5,5.5c0,.28-.22.5-.5.5s-.5-.22-.5-.5.22-.5.5-.5.5.22.5.5M8.5,10.5c0,.28-.22.5-.5.5s-.5-.22-.5-.5.22-.5.5-.5.5.22.5.5M10.5,8.5c-.28,0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5M5.5,8.5c-.28,0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5M10.24,6.46c-.19.2-.51.2-.71.01s-.2-.51-.01-.71c0,0,0,0,.01-.01.2-.19.52-.19.71.01.19.19.19.5,0,.69M6.46,10.24c-.19.2-.51.2-.71.01-.2-.19-.2-.51-.01-.71,0,0,0,0,.01-.01.2-.19.52-.19.71.01.19.19.19.5,0,.69M9.54,10.24c-.2-.19-.2-.51-.01-.71.19-.2.51-.2.71-.01,0,0,0,0,.01.01.19.2.19.52-.01.71-.19.19-.5.19-.69,0M5.76,6.46c-.2-.19-.2-.51-.01-.71.19-.2.51-.2.71-.01,0,0,0,0,.01.01.19.2.19.52-.01.71-.19.19-.5.19-.69,0"/>
+					</svg>
+					<br>
+						Nacional
+				</a>
+				</div>
+
+				<div class="col-6">
+				<a  class="btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3"   onClick="validar_paso30()">
+					<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-globe-americas mb-2" viewBox="0 0 16 16">
+					  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+					</svg>
+					<br>
+						Internacional
+				</a>
+				</div>
+	</div> 
+			
+		<hr class="mt-4">
+	</div>
+	<div id="paso30b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">03 - Tipo de distribución: Nacional
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso30()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso30c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">03 - Tipo de distribución</h4>
+		<hr >
+	</div>
+	
+	<div id="paso40a" style="display: none">
+		<h2 class="mb-3 pt-0">04 - Complete los detalles del Producto</h2> 
+			<div class="row g-3 p-1">
+
+			
+ <div class="col-sm-12">
+                  <label for="Producto" class="form-label">Producto  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="Producto" placeholder="Ejemplo: Mermelada" value=""  />
+</div>
+			
+<div class="col-6">
+	
+	 <div class="row p-0">
+		<div class="col-8"> 
+		<label for="marca" class="form-label">Marca <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="marca">
+	  <option selected disabled > - </option>
+	  <option value="1">Marca 1</option>
+	  <option value="2">Marca 2</option>
+		<option value="3">Marca 3</option> 
+		<option value="4">Marca 4</option> 
+	</select>
+	</div>
+
+	<div class="col-4">
+		<label for="marca" class="form-label">&nbsp;</label>
+		<div>
+		<a class="btn btn-outline-primary py-2 btn-lg btn-lg w-100" data-bs-toggle="collapse" href="#collapseNuevaMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaMarca" >
+				  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+	  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+	</svg> Nueva Marca
+		</a>
+		</div>
+	</div>
+
+	<div class="col-12">
+
+	<div class="collapse" id="collapseNuevaMarca">
+
+		  <div class="input-group input-group-lg mb-3 mt-2">
+			  <input type="text" class="form-control form-control-lg" id="nuevamarca" placeholder="Ejemplo: GS1" value=""  />
+			 <button class="btn btn-primary btn-lg" type="button" id="agregar1"  data-bs-toggle="collapse" href="#collapseNuevaMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaMarca">Agregar nueva marca</button>
+
+		</div>
+		</div></div>
+	</div>
+</div>
+			
+			
+<div class="col-6">
+	
+	 <div class="row p-0">
+		<div class="col-8"> 
+		<label for="sub marca" class="form-label">Sub Marca </label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="submarca">
+	  <option selected disabled > - </option>
+	  <option value="1">Sub Marca 1</option>
+	  <option value="2">Sub Marca 2</option>
+		<option value="3">Sub Marca 3</option> 
+		<option value="4">Sub Marca 4</option> 
+	</select>
+	</div>
+
+	<div class="col-4">
+		<label for="marca" class="form-label">&nbsp;</label>
+		<div>
+		<a class="btn btn-outline-primary py-2 btn-lg btn-lg w-100" data-bs-toggle="collapse" href="#collapseNuevaSubMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaSubMarca" >
+				  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+	  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+	</svg> Nueva
+		</a>
+		</div>
+	</div>
+
+	<div class="col-12">
+
+	<div class="collapse" id="collapseNuevaSubMarca">
+
+		  <div class="input-group input-group-lg mb-3 mt-2">
+			  <input type="text"  class="form-control form-control-lg" id="nuevasubmarca" placeholder="Ejemplo: GS1" value=""  />
+			  <button class="btn btn-primary" type="button" id="agregar2" data-bs-toggle="collapse" href="#collapseNuevaSubMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaSubMarca" >Agregar </button>
+
+		</div>
+		</div></div>
+	</div>
+</div>
+			
+<div class="col-sm-12">
+                  <label for="variedad" class="form-label">Variedad  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="variedad" placeholder="Ejemplo: Durazno" value=""  />
+</div>
+			
+<div class="col-3">
+	<label for="envase" class="form-label">Envase <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+  <option selected disabled > - </option>
+  <option value="1">Envase 1</option>
+  <option value="2">Envase 2</option> 
+  <option value="3">Envase 3</option> 
+  <option value="4">Envase 4</option> 
+</select>
+</div>
+			
+	<div class="col-sm-3">
+                  <label for="centenidoneto" class="form-label">Contenido Neto <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="contenidoneto" placeholder="Ejemplo: 150" value=""  />
+</div>
+			
+<div class="col-3">
+	<label for="envase" class="form-label">Unidad de medida <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+  <option selected disabled > - </option>
+  <option value="1">Unidades 1</option>
+  <option value="2">Unidades 2</option> 
+  <option value="3">Unidades 3</option> 
+  <option value="4">Unidades 4</option> 
+</select>
+</div>
+			
+<div class="col-3">
+	<label for="envase" class="form-label">País de fabricación <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+  <option selected disabled > - </option>
+  <option value="1">Argentina</option>
+  <option value="2">País 2</option> 
+  <option value="3">País 3</option> 
+  <option value="4">País 4</option> 
+</select>
+</div>
+			
+			
+<div class="col-6">
+	
+	 <div class="row p-0">
+		<div class="col-8"> 
+		<label for="codigo" class="form-label">Código de Artículo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<input type="text"  class="form-control  form-control-lg" id="codigo" placeholder="" value=""  />
+	</div>
+
+	<div class="col-4">
+		<label for="marca" class="form-label">&nbsp;</label>
+		<div>
+		<a class="btn btn-outline-primary py-2 btn-lg btn-lg w-100" >
+				  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
+  <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
+</svg> Sugerir
+		</a>
+		</div>
+	</div>
+
+	</div>
+</div>
+			
+<div class="col-sm-6">
+                  <label for="codigointerno" class="form-label">Código Interno </label>
+                  <input type="text"  class="form-control  form-control-lg" id="codigointerno" placeholder="Ejemplo: SKU" value=""  />
+</div>
+			
+
+       </div>  
+		<div class="text-end">
+			<a class="btn btn-outline-primary px-5 btn-lg mb-2 mt-4" onclick="validar_paso40()">
+			  Validar Datos
+			</a>
+		</div>
+		<hr class="mt-4">
+	</div>
+	<div id="paso40b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">04 - Detalles del Producto
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso40()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso40c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">04 - Detalles del Producto</h4>
+		<hr>
+	</div>
+	
+	<div id="paso50a" style="display: none">
+		<h2 class="mb-3 pt-0">05 - Seleccione Atributos</h2> 
+			<div class="row g-3 p-1">
+
+			
+<div class="col-6">
+ <label for="atributo-a" class="form-label">Atributo A <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="atributo-a">
+	  <option selected disabled > - </option>
+	  <option value="1">Atributo 1</option>
+	  <option value="2">Atributo 2</option>
+	  <option value="3">Atributo 3</option> 
+	  <option value="4">Atributo 4</option> 
+	</select>
+</div>
+			
+
+<div class="col-6">
+ <label for="atributo-b" class="form-label">Atributo B <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="atributo-b">
+	  <option selected disabled > - </option>
+	  <option value="1">Atributo 1</option>
+	  <option value="2">Atributo 2</option>
+	  <option value="3">Atributo 3</option> 
+	  <option value="4">Atributo 4</option> 
+	</select>
+</div>
+				
+				<div class="col-6">
+ <label for="atributo-c" class="form-label">Atributo C <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="atributo-c">
+	  <option selected disabled > - </option>
+	  <option value="1">Atributo 1</option>
+	  <option value="2">Atributo 2</option>
+	  <option value="3">Atributo 3</option> 
+	  <option value="4">Atributo 4</option> 
+	</select>
+</div>
+				
+			<div class="col-6">
+ <label for="atributo-d" class="form-label">Atributo D <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="atributo-d">
+	  <option selected disabled > - </option>
+	  <option value="1">Atributo 1</option>
+	  <option value="2">Atributo 2</option>
+	  <option value="3">Atributo 3</option> 
+	  <option value="4">Atributo 4</option> 
+	</select>
+</div>
+			
+
+			
+
+       </div>  
+		<div class="text-end">
+			<a class="btn btn-outline-primary px-5 btn-lg mb-2 mt-4" onclick="validar_paso50()">
+			  Validar Datos
+			</a>
+		</div>
+		<hr class="mt-4">
+	
+	</div>
+	<div id="paso50b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">05 - Atributos
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso50()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso50c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">05 - Atributos</h4>
+		<hr>
+	</div>
+	
+	<div id="paso60a" style="display: none">
+		<h2 class="mb-3 pt-0">06 - Seleccione Categoría</h2> 
+			<div class="row g-3 p-1">
+<div class="col-12">
+	<h4 class="mb-3">Sugerencias</h4>
+	<div class="row align-items-md-stretch">
+          
+		<div class="col-md-4 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Mermeladas (en conserva)</h4>
+			  <p> Jaleas /  </p>
+              <p> Código: 10000217 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-4 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Pastas de frutas </h4>
+			  <p> Jaleas / Mermeladas / Perecederos /</p>
+              <p> Código: 10056565 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		<div class="col-md-4 mb-3" id="sugerencia-1" style="display: none;">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3 ">
+              <h4 class="mb-0">Confituras</h4>
+			  <p>&nbsp; </p>
+              <p> Código: 100032323 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-4 mb-3" id="sugerencia-2" style="display: none;">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Dulces </h4>
+			  <p>&nbsp; </p>
+              <p> Código: 10056583 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		
+		 <div class="col-md-4 mb-3" id="sugerencia-3" style="display: none;">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Jaleas </h4>
+			  <p>&nbsp; </p>
+              <p> Código: 10075757 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		
+		<div class="col-md-4 mb-3" id="sugerencia-5" >
+            <div class="h-100 p-4 text-bg-dark rounded-3">
+              <h4 class="mb-0">&nbsp;</h4>
+			   <p>&nbsp; </p>
+               <p>&nbsp; </p>
+              <button class="btn btn-outline-light btn-lg" type="button" onClick="sugerir_mas()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
+  <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"></path>
+</svg> Sugerir más
+              </button>
+            </div>
+          </div>
+        </div>
+	
+	</div>
+<div class="col-sm-12">	
+<div class="list-group">
+	<div class="list-group-item" style="padding: 0px; padding-bottom: 4px;">
+		<div class="form-floating">
+		 <input style="border: 0px !important; border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px; !important" type="text" class="form-control" id="buscarconf" placeholder="Ejemplo: Mermelada, conservas, dulces, etc"/>
+		 <label for="buscarconf">Buscar / filtrar</label>
+		</div>
+	</div>
+<div style="max-height: 300px; border: 0px solid rgba(202,22,25,1.00); overflow: hidden; overflow-y: scroll;">
+  <a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000256</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000817</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Tristique</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10523263</div>
+		<div class="col-9"><h5 class="mb-0">Vestibulum elit ipsu <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Vitae</span> </h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000217</div>
+		<div class="col-9"><h5 class="mb-0">Blandit molestie <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Ligula</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10450217</div>
+		<div class="col-9"><h5 class="mb-0">Quisque <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">1000896</div>
+		<div class="col-9"><h5 class="mb-0">Etiam luctus <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Honcus</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10040256</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000815</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Tristique</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10528263</div>
+		<div class="col-9"><h5 class="mb-0">Vestibulum elit ipsu <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Vitae</span> </h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10500217</div>
+		<div class="col-9"><h5 class="mb-0">Blandit molestie <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Ligula</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10450201</div>
+		<div class="col-9"><h5 class="mb-0">Quisque <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="validar_paso60()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">1085896</div>
+		<div class="col-9"><h5 class="mb-0">Etiam luctus <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Honcus</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+
+
+</div>
+</div>
+	 </div>
+	
+	<div class="col-12">
+	<h4 class="mb-3">Últimos seleccionados</h4>
+	<div class="row align-items-md-stretch">
+          
+		<div class="col-md-3 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h5 class="mb-0">Mermeladas</h5>
+              <p> Código: 10000217 </p>
+              <button class="btn btn-outline-secondary" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-3 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h5 class="mb-0">Pastas de frutas </h5>
+              <p> Código: 10056565 </p>
+              <button class="btn btn-outline-secondary" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		<div class="col-md-3 mb-3" i>
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3 ">
+              <h5 class="mb-0">Confituras</h5>
+              <p> Código: 100032323 </p>
+              <button class="btn btn-outline-secondary" type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-3 mb-3" >
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h5 class="mb-0">Dulces </h5>
+              <p> Código: 10056583 </p>
+              <button class="btn btn-outline-secondary " type="button" onClick="validar_paso60()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		 
+        </div>
+	
+	</div>
+		
+		</div>
+			
+		<hr class="mt-4">
+	</div>
+	<div id="paso60b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">06 - Categoría
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso60()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso60c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">06 - Categoría</h4>
+		<hr>
+	</div>
+	
+	<div id="paso70a" style="display: none">
+		<h2 class="mb-3 pt-0">07 - Seleccione Imagen</h2> 
+		<div class="row g-3 p-1">
+<div class="col-5">
+	
+	<div class="profile-picture rounded-2 mb-2">
+      <h1 class="upload-icon">
+      </h1>
+      <input id="imagen-producto" name="imagen-producto" class="file-uploader" type="file" onchange="upload()" accept="image/*"   />
+    </div>
+	<div class="mb-4">
+		<label class="btn btn-dark" for="imagen-producto">Seleccione la imagen del producto</label>
+	</div>
+	
+	<div class="mb-2">
+	
+		<label for="url-imagen">Puedes agregar la URL de la imagen </label>
+	<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="http://www.dominio.com/imagenes/producto1.jpg" aria-label="http://www.dominio.com/imagenes/producto1.jpg" aria-describedby="button-addon2" id="url-imagen" name="url-imagen">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon4">Agregar</button>
+</div></div>
+</div>
+	
+<div class="col-7">
+	<div class="mb-3 border-bottom pb-3"><b>Recomendaciones:</b><br>
+		<p class="mb-1">- No uses imágenes descargadas de Internet, pueden tener derechos de autor.</p>
+		<p class="mb-1">- Sólo subí fotos que sean de tu propiedad y sean nítidas.</p>
+	</div>
+	
+    <div class="mb-3 border-bottom pb-3">Tipos de archivos permitodos:<br>
+		<span class="badge text-bg-secondary fs-5">.JPG</span> <span class="badge text-bg-secondary fs-5">.PNG</span> <span class="badge text-bg-secondary fs-5">.GIF</span>
+	</div>
+	
+	<div class="mb-3 border-bottom pb-3">
+		<div class="row g-3">
+		<div class="col-sm-6">
+			Tamaño mínimo:<br>
+		<span class="badge text-bg-secondary fs-5">300 x 300 px</span>
+			</div>
+			<div class="col-sm-6">
+				Tamaño recomendado:<br>
+		<span class="badge text-bg-secondary fs-5">1600 x 1600 px</span>
+			</div>
+		</div>
+			
+	</div>
+<div class="mb-3 border-bottom pb-3">
+	<p class="mb-1"><b>Tener buenas fotos es clave para el buen funcionamiento de la plataforma.</b></p>
+	<div class="small">
+<p class="mb-1">Tu foto debe tener fondo blanco puro creado digitalmente con un editor de imágenes para que tu producto se luzca.</p>
+<p class="mb-1">Las fotos sacadas delante de una pared podrían hacer que tu publicación pierda presencia.</p>
+<p class="mb-1">Tu foto no debe mostrar el producto dentro del empaque.</p>
+<p class="mb-1">No agregues elementos extras a tus imágenes que distraen la atención de tu producto.
+(Sin logos o marcas de agua; sin bordes o banners, sin códigos QR, ni textos)</p>
+<p class="mb-1">No incluyas condiciones de venta.</p>
+<p class="mb-1">No uses información adicional como promociones, forma de envío.</p>
+<p class="mb-1">Toda los datos extras agregalos en la descripción del producto.</p>
+<p class="mb-1">Un sólo producto por foto.</p>
+<p class="mb-1">Usá fotos del producto que estás publicando solo, no muestres varios productos juntos.</p>
+<p class="mb-1">Si querés ofrecer otros variedades deberás hacerlo en forma individua.</p>
+		</div>
+	</div>	
+	
+	
+</div>	
+
+			
+</div>
+	<div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="validar_paso70()">
+			  Validar Datos
+			</a>
+		</div>		
+		<hr class="mt-4">
+	</div>
+	<div id="paso70b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">07 - Imagen
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso70()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso70c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">07 - Imagen</h4>
+		<hr>
+	</div>
+	
+	<div id="paso80a" style="display: none">
+		<h2 class="mb-3 pt-0">08 - Seleccione Campos Extras (si corresponde)</h2> 
+			<div class="row g-3 p-1">
+				
+<style>
+					
+			
+.leyendas img {
+	max-width: 200px;
+	margin: 0 auto;
+	margin-bottom: 8px;
+}
+					
+.leyendas .btn {
+	opacity: .50 !important;
+	background-color: #ffffff;
+    border-color: #E1E1E1;
+    box-shadow: 0 0 0 0px #f0f0f0;
+	padding: 20px !important;
+	font-size: 0.85rem;
+	line-height: 1;
+}
+	
+.leyendas .btn-check:checked + .btn,
+.octogonos .btn-check:checked + .btn {
+	opacity: .99 !important;
+	background: #000000;
+}
+					
+
+					
+.octogonos img {
+	max-width: 64px;
+	margin: 0 auto;
+	margin-bottom: 8px;
+}
+					
+.octogonos .btn {
+	opacity: .50 !important;
+	
+    box-shadow: 0 0 0 0px #f0f0f0;
+	padding: 12px !important;
+	max-width: 160px;
+	min-width: 130px;
+	font-size: 0.85rem;
+	line-height: 1;
+}
+					
+.octogonos .btn:checked {
+	opacity: .99 !important;
+	padding: 12px !important;
+}
+	
+</style>
+			
+<div class="g-3 leyendas" style="overflow: hidden">
+	<h5 class="mb-2">Leyendas</h5>
+	<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  <input type="checkbox" class="btn-check" id="btnchecka1" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnchecka1"><img src="../assets/img/sellos_sueltos_leyenda_edulcorantes.png" class="w-100"  alt=""/><br>
+			  Contiene edulcorante</label>
+
+  <input type="checkbox" class="btn-check" id="btnchecka2" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnchecka2"><img src="../assets/img/sellos_sueltos_leyenda_cafeina.png" class="w-100" alt=""/><br>
+			  Contiene cafeína</label>
+
+ 
+</div>
+	
+</div>
+				
+<div class="g-3 octogonos" style="overflow: hidden">
+	<h5 class="mb-2 mt-3">Sellos octogonales</h5>
+	<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btncheck1"><img src="../assets/img/sellos_sueltos_exceso_en_sodio.png" class="w-100" alt=""/><br>
+			  Exceso en<br>sodio</label>
+
+  <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btncheck2"><img src="../assets/img/sellos_sueltos_exceso_en_azucares.png" class="w-100" alt=""/><br>
+			  Exceso en azúcares</label>
+
+  <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btncheck3"><img src="../assets/img/sellos_sueltos_exceso_en_grasas_saturadas.png" class="w-100" alt=""/><br>
+			  Exceso en grasas saturadas</label>
+		
+		<input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btncheck4"><img src="../assets/img/sellos_sueltos_exceso_en_grasas_totales.png" class="w-100" alt=""/><br>
+			  Exceso en grasas totales</label>
+		
+		<input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btncheck5"><img src="../assets/img/sellos_sueltos_exceso_en_calorias.png" class="w-100" alt=""/><br>
+			  Exceso en calorías</label>
+</div>
+		
+</div>
+				
+<div class="g-3 octogonos" style="overflow: hidden">
+	<h5 class="mb-2 mt-3">Microsellos octogonales (con descriptor "sellos")</h5>
+	
+	
+	
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradioa1" autocomplete="off" >
+  <label class="btn btn-outline-secondary" for="btnradioa1"><img src="../assets/img/sellos_microsello_01.png" class="w-100" alt=""/><br>1 sellos</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradioa2" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradioa2"><img src="../assets/img/sellos_microsello_02.png" class="w-100" alt=""/><br>2 sellos</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradioa3" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradioa3"><img src="../assets/img/sellos_microsello_03.png" class="w-100" alt=""/><br>3 sellos</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradioa4" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradioa4"><img src="../assets/img/sellos_microsello_04.png" class="w-100" alt=""/><br>4 sellos</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradioa5" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradioa5"><img src="../assets/img/sellos_microsello_05.png" class="w-100" alt=""/><br>5 sellos</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradioa6" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradioa6"><img src="../assets/img/sellos_microsello_06.png" class="w-100" alt=""/><br>6 sellos</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradioa7" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradioa7"><img src="../assets/img/sellos_microsello_07.png" class="w-100" alt=""/><br>7 sellos</label>
+</div>
+	
+	
+		
+</div>
+				
+<div class="g-3 octogonos" style="overflow: hidden">
+	<h5 class="mb-2 mt-3">Microsellos octogonales (con número)</h5>
+	
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" >
+  <label class="btn btn-outline-secondary" for="btnradio1"><img src="../assets/img/sellos_sueltos_microsello_1.png" class="w-100" alt=""/><br>1</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradio2"><img src="../assets/img/sellos_sueltos_microsello_2.png" class="w-100" alt=""/><br>2</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradio3"><img src="../assets/img/sellos_sueltos_microsello_3.png" class="w-100" alt=""/><br>3</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradio4"><img src="../assets/img/sellos_sueltos_microsello_4.png" class="w-100" alt=""/><br>4</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradio5"><img src="../assets/img/sellos_sueltos_microsello_5.png" class="w-100" alt=""/><br>5</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradio6"><img src="../assets/img/sellos_sueltos_microsello_6.png" class="w-100" alt=""/><br>6</label>
+	
+	<input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
+  <label class="btn btn-outline-secondary" for="btnradio7"><img src="../assets/img/sellos_sueltos_microsello_7.png" class="w-100" alt=""/><br>7</label>
+</div>
+	
+
+</div>
+
+</div>
+
+	<div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="validar_paso80()">
+			  Validar Datos
+			</a>
+		</div>		
+		<hr class="mt-4">			
+
+	</div>
+	<div id="paso80b" style="display: none" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">08 - Campos Extras
+	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso80()" >CAMBIAR</a></h4>
+		<hr>
+	</div>	
+	<div id="paso80c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">08 - Campos Extras</h4>
+		<hr>
+	</div>
+	
+	<div id="paso90a" style="display: none">
+		<h2 class="mb-3 pt-0">09 - Final</h2> 
+			
+		 <div class="row">
+			<div class="col-6">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input me-2 " id="endesarrollo" style="width: 2.5em;  height: 2.5em;" />
+                <label class="form-check-label fs-6" for="endesarrollo" >Producto en desarrollo <br><div class="form-text mt-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></label >
+              </div>
+			</div>
+			
+			<div class="col-6">
+				<div class="text-end mb-1">
+					<div class="dropup">
+					  <a class="btn btn-primary btn-lg "  data-bs-toggle="dropdown" aria-expanded="false">
+								 Confirmar y dar de alta
+						</a>
+					  <div class="dropdown-menu p-3 text-end">
+						  <div class="form-text mb-3 text-end">Al dar de alta el producto se generará un código, <br>que no podra ser reutilizado por otro producto<br>
+							  El producto solo podrá ser modificado durante los próximos <span class="badge text-bg-secondary">30 días</span>.
+						  </div>
+						  <a class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false" >
+								 Cancelar
+						 </a> 
+						<a class="btn btn-primary" onclick="validar_paso90()" >
+								 Aceptar
+						</a>
+					  </div>
+					</div>
+			     </div>
+			</div>		
+				<div class="form-text mb-3 text-end">El producto solo podrá ser modificado durante los próximos 30 días.<br>
+						Pasado ese período, deberá generar un código nuevo.</div>
+		</div>
+	
+		
+	</div>
+	
+	<div id="paso90c" class="text-body-tertiary">
+		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">09 - Final</h4>
+	</div>
+	
+</div>	
+	
+<script>
+function validar_paso10() {
+	$("#paso10a").slideUp(500);
+	$("#paso10b").slideDown(500);
+	$("#paso10c").slideUp(500);
+	$("#paso20a").slideDown(500);
+	$("#paso20b").slideUp(500);
+	$("#paso20c").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+	
+}
+	
+function validar_paso11() {
+	$("#paso10a").slideUp(500);
+	$("#paso11b").slideDown(500);
+	$("#paso10c").slideUp(500);
+	$("#paso20a").slideDown(500);
+	$("#paso20b").slideUp(500);
+	$("#paso20c").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+	
+}
+	
+function validar_paso12() {
+	$("#paso10a").slideUp(500);
+	$("#paso12b").slideDown(500);
+	$("#paso10c").slideUp(500);
+	$("#paso20a").slideDown(500);
+	$("#paso20b").slideUp(500);
+	$("#paso20c").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+	
+}
+function editar_paso10() {
+	$("#paso10a").slideDown(500);
+	$("#paso10b").slideUp(500);
+	$("#paso11b").slideUp(500);
+	$("#paso12b").slideUp(500);
+	$("#paso10c").slideUp(500);
+	$("#progreso").removeClass("progreso-1");
+	$("#progreso").removeClass("progreso-2");
+	$("#progreso").removeClass("progreso-3");
+	$("#progreso").removeClass("progreso-4");
+	$("#progreso").removeClass("progreso-5");
+	$("#progreso").removeClass("progreso-6");
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+	
+function validar_paso20() {
+	$("#paso20a").slideUp(500);
+	$("#paso20b").slideDown(500);
+	$("#paso20c").slideUp(500);
+	$("#paso30a").slideDown(500);
+	$("#paso30b").slideUp(500);
+	$("#paso30c").slideUp(500);
+	$("#progreso").addClass("progreso-2");
+}
+function editar_paso20() {
+	$("#paso20a").slideDown(500);
+	$("#paso20b").slideUp(500);
+	$("#paso20c").slideUp(500);
+	$("#progreso").removeClass("progreso-2");
+	$("#progreso").removeClass("progreso-3");
+	$("#progreso").removeClass("progreso-4");
+	$("#progreso").removeClass("progreso-5");
+	$("#progreso").removeClass("progreso-6");
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+	
+function validar_paso30() {
+	$("#paso30a").slideUp(500);
+	$("#paso30b").slideDown(500);
+	$("#paso30c").slideUp(500);
+	$("#paso40a").slideDown(500);
+	$("#paso40b").slideUp(500);
+	$("#paso40c").slideUp(500);
+	$("#progreso").addClass("progreso-3");
+}
+function editar_paso30() {
+	$("#paso30a").slideDown(500);
+	$("#paso30b").slideUp(500);
+	$("#paso30c").slideUp(500);
+	$("#progreso").removeClass("progreso-3");
+	$("#progreso").removeClass("progreso-4");
+	$("#progreso").removeClass("progreso-5");
+	$("#progreso").removeClass("progreso-6");
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+	
+function validar_paso40() {
+	$("#paso40a").slideUp(500);
+	$("#paso40b").slideDown(500);
+	$("#paso40c").slideUp(500);
+	$("#paso50a").slideDown(500);
+	$("#paso50b").slideUp(500);
+	$("#paso50c").slideUp(500);
+	$("#progreso").addClass("progreso-4");
+}
+function editar_paso40() {
+	$("#paso40a").slideDown(500);
+	$("#paso40b").slideUp(500);
+	$("#paso40c").slideUp(500);
+	$("#progreso").removeClass("progreso-4");
+	$("#progreso").removeClass("progreso-5");
+	$("#progreso").removeClass("progreso-6");
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+	
+function validar_paso50() {
+	$("#paso50a").slideUp(500);
+	$("#paso50b").slideDown(500);
+	$("#paso50c").slideUp(500);
+	$("#paso60a").slideDown(500);
+	$("#paso60b").slideUp(500);
+	$("#paso60c").slideUp(500);
+	$("#progreso").addClass("progreso-5");
+}
+function editar_paso50() {
+	$("#paso50a").slideDown(500);
+	$("#paso50b").slideUp(500);
+	$("#paso50c").slideUp(500);
+	$("#progreso").removeClass("progreso-5");
+	$("#progreso").removeClass("progreso-6");
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+		
+	
+function validar_paso60() {
+	$("#paso60a").slideUp(500);
+	$("#paso60b").slideDown(500);
+	$("#paso60c").slideUp(500);
+	$("#paso70a").slideDown(500);
+	$("#paso70b").slideUp(500);
+	$("#paso70c").slideUp(500);
+	$("#progreso").addClass("progreso-6");
+}
+function editar_paso60() {
+	$("#paso60a").slideDown(500);
+	$("#paso60b").slideUp(500);
+	$("#paso60c").slideUp(500);
+	$("#progreso").removeClass("progreso-6");
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+function validar_paso70() {
+	$("#paso70a").slideUp(500);
+	$("#paso70b").slideDown(500);
+	$("#paso70c").slideUp(500);
+	$("#paso80a").slideDown(500);
+	$("#paso80b").slideUp(500);
+	$("#paso80c").slideUp(500);
+	$("#progreso").addClass("progreso-7");
+}
+function editar_paso70() {
+	$("#paso70a").slideDown(500);
+	$("#paso70b").slideUp(500);
+	$("#paso70c").slideUp(500);
+	$("#progreso").removeClass("progreso-7");
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+function validar_paso80() {
+	$("#paso80a").slideUp(500);
+	$("#paso80b").slideDown(500);
+	$("#paso80c").slideUp(500);
+	$("#paso90a").slideDown(500);
+	$("#paso90b").slideUp(500);
+	$("#paso90c").slideUp(500);
+	$("#progreso").addClass("progreso-8");
+}
+function editar_paso80() {
+	$("#paso80a").slideDown(500);
+	$("#paso80b").slideUp(500);
+	$("#paso80c").slideUp(500);
+	$("#progreso").removeClass("progreso-8");
+	$("#progreso").removeClass("progreso-9");
+}
+	
+function validar_paso90() {
+	$("#paso90a").slideUp(500);
+	$("#paso90b").slideDown(500);
+	$("#paso90c").slideUp(500);
+	$("#pasos").slideUp(900);
+	$("#ficha-final").slideDown(100);
+	$("#progreso").addClass("progreso-9");	
+}
+	
+function editar_paso90() {
+	$("#paso90a").slideDown(500);
+	$("#paso90b").slideUp(500);
+	$("#paso90c").slideUp(500);
+	$("#progreso").removeClass("progreso-9");
+}
+
+	</script>	
+	   <div id="ficha-final" style="display: none; overflow: hidden;">
+  <div class="border-bottom pb-3 mb-3 mt-4">
+    <div class="h1 text-center">Felicitaciones</div>
+	<div class="h2 text-center">El producto fue creado con éxito</div>
+	<div class="mb-1 text-center">El producto solo podrá ser modificado durante los próximos 30 días.</div>
+	<div class="mb-3 text-center">Pasado ese período, deberá generar un código nuevo.</div>
+  </div>
+     
+     
+<div class="row g-3" >
+	
+<div class="col-4" id="ficha-contendor-imagen">
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/producto-1c.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/producto-1.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+</div>
+	
+<div class="col-8" id="ficha-contendor-datos">
+	<div class="row g-3" >
+	  <div class="col-6 border-bottom pb-2">
+		  <div>GTIN</div>
+		  <div class="d-block"><span class="badge text-bg-primary py-2 px-3 fs-5">GTIN: 7798336831071</span></div>
+	  </div>
+		
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Estado</div>
+		  <div class="d-block fs-5"><strong>Nuevo</strong></div>
+	  </div>
+	
+	  <div class="col-12 border-bottom pb-2">
+		  <div>Descripción</div>
+		  <div class="d-block fs-5"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Marca</div>
+		  <div class="d-block fs-5"><strong>MarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>SubMarca</div>
+		  <div class="d-block fs-5"><strong>SubMarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Clasificación</div>
+		  <div class="d-block fs-5"><strong>Lorem / Ipsum / Dolor sit amet consectetur.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Contenido</div>
+		  <div class="d-block fs-5"><strong>150 Gramos</strong></div>
+	  </div>
+
+	  <div class="col-12 border-bottom pb-2">
+		  <div>Mercados</div>
+		  <div class="d-block fs-5 pb-2"><div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Argentina</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Paraguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Uruguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Chile</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Perú</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Bolivia</div></div>
+	  </div>
+ <div class="col-12  text-end">
+
+			  <a class="btn btn-primary " href="producto-editar.html">
+					   Modificar este producto
+			  </a>
+              <a class="btn btn-primary " href="productos-listado.html">
+					  Ir al listado de productos
+			  </a>
+	 <a class="btn btn-primary " href="producto-nuevo.html">
+					   Dar de Alta un nuevo producto
+			  </a>
+	<div class="form-text mb-3">Recibiras un e-mail con los datos del producto y quedará visible en "Productos"</div>
+		</div>
+	</div>
+</div>
+
+</div>	
+
+      
+    
+    
+  
+</div>   
+  
+      	
+</form>
+	</div>
+	
+<div class="mt-3">
+	<hr>
+	<a class="btn btn-outline-secondary btn-sm" href="productos.html" >
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+						  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"></path>
+						</svg> 
+			Volver a Productos 
+	</a>
+
+
+	
+</div>		  
+ </div>
+		  
+</div>
+<div id="card-nuevo-producto2" style="display: none">
+				
+				
+<div class="alert alert-success w-100" role="alert">
+  <h4 class="alert-heading">Alta de Producto</h4>
+  
+  <hr>
+  <p class="mb-0">El producto <span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span> fue dado de alta correctamente!</p>
+</div>
+			
+<div class="card m-2 mb-3 p-3" >
+
+<div class="row g-3" >
+	
+					
+			<div class="col-sm-4">
+
+				<a href="productos.html" class="btn btn-primary w-100 btn-lg" style="cursor: pointer"> 
+                       Ver todos Mis Productos 
+				</a>
+                 
+            </div>
+           <div class="col-sm-4">
+			   <a href="producto-nuevo.html"  class="btn btn-primary w-100 btn-lg" style="cursor: pointer">  
+                   Crear un Nuevo Producto     
+				</a>
+                
+            </div>
+	
+			<div class="col-sm-4">
+			   <a href="micuenta.html" class="btn btn-primary w-100 btn-lg" style="cursor: pointer">  
+				  Ir a Mi cuenta
+				</a>
+                
+            </div>
+
+</div>
+
+</div>
+			
+</div>
+			</div>
+
+			</div>
+
+	</div>
+</div>			  
+  
+
+
+<div class="modal  modal-xl fade" id="ModalEditarMisDatos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel2">Editar Mis Datos <span class="badge text-bg-primary py-2 px-3">email1@dominio.com</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" > 
+<div class="col-sm-3">
+	<label for="formFile" class="btn btn-outline-primary p-2" title="Editar " style="line-height: 1; width: 36px; height: 36px; position: absolute"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+	  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+	</svg></label>
+	
+  <input class="form-control" type="file" id="formFile" style="display: none;">
+	<img src="../assets/img/usuario.jpg" width="100%" style="width: 100%;" class="mb-2" alt=""/>
+	
+</div>
+	
+<div class="col-sm-9">
+	<div class="row g-3" > 
+		
+		
+	
+	
+   <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value="Nombrelargo"
+                    required
+                  />
+               
+                </div>
+   <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName"
+                    placeholder=""
+                    value="ApellidoLargo"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>	
+	
+   <div class="col-sm-6">
+		
+	 <div style="position: relative" >
+		 <label for="lastName" class="form-label">Contraseña <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<span class="togglePassword" id="" style="position: absolute; right: 14px; top: 41px;">
+ <i data-feather="eye" style="cursor: pointer"></i>
+ </span>
+ <input type="password" class="form-control form-control-lg password" id="password-gs1" name="password-gs1" placeholder="contraseña" style="padding-right: 50px;" required />
+
+ </div>
+						  
+
+</div>
+	<div class="col-sm-6">
+		
+	 <div style="position: relative" >
+		 <label for="lastName" class="form-label">Repetir Contraseña <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<span class="togglePassword" id="" style="position: absolute; right: 14px; top: 41px;">
+ <i data-feather="eye" style="cursor: pointer"></i>
+ </span>
+ <input type="password" class="form-control form-control-lg password" id="password-gs1" name="password-gs1" placeholder="contraseña" style="padding-right: 50px;" required />
+
+ </div>
+						  
+
+</div>
+	
+		
+	
+	
+	 <div class="col-12">
+		 <label  class="form-label">Teléfono móvil <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	</div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input type="text" class="form-control form-control-lg" id="pais" value="123" placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input type="text" class="form-control form-control-lg" id="area" value="456" placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input type="text" class="form-control form-control-lg" id="numero" placeholder=""  value="789012" required />
+                </div>
+		
+		
+		<div class="col-12">
+	<label for="actividad" class="form-label">Servicios  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+		
+<div>
+	
+	<div class="g-3" style="overflow: hidden">
+	
+<div style="float: left;display: inherit;" class="m-1">
+	<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="checkbox"  name="servicio-1" id="servicio-1" value="Servicio-1" checked  />
+			<label class="list-group-item list-group-item-action d-flex gap-2 py-2 ps-2 pe-5" for="servicio-1">
+			   <img src="../assets/img/icono-codigo.svg" alt="" width="26" height="26" class="m-0 flex-shrink-0"> 
+				<div class="d-flex gap-2 w-100 justify-content-between"> 
+					<div> 
+						<div class="mb-0 fs-6">Codificación</div> 
+			 
+					</div>
+
+				</div>
+			 </label>
+		</div>
+	</div>
+</div>
+
+
+	
+<div style="float: left;display: inherit;" class="m-1">
+	<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="checkbox"  name="servicio-52" id="servicio-52" value="Servicio-52"  />
+			<label class="list-group-item list-group-item-action d-flex gap-2 py-2 ps-2 pe-5" for="servicio-52">
+			   <img src="../assets/img/icono-edi.svg" alt="" width="26" height="26" class="m-0 flex-shrink-0"> 
+				<div class="d-flex gap-2 w-100 justify-content-between"> 
+					<div> 
+						<div class="mb-0 fs-6">Servicios EDI GS1</div> 
+						
+					</div>
+
+				</div>
+			 </label>
+		</div>
+	</div>
+</div>
+	
+
+	
+<div style="float: left;display: inherit;" class="m-1">
+	<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="checkbox"  name="servicio-3" id="servicio-3" value="Servicio-3"  />
+				<label class="list-group-item list-group-item-action d-flex gap-2 py-2 ps-2 pe-5" for="servicio-3">
+				   <img src="../assets/img/icono-servicio-3.svg" alt="" width="26" height="26" class="m-0 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-6">NegociAR</div> 
+							 
+						</div>
+
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+
+	
+<div style="float: left;display: inherit;" class="m-1">
+	<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="checkbox"  name="servicio-4" id="servicio-4" value="Servicio-4"  />
+				<label class="list-group-item list-group-item-action d-flex gap-2 py-2 ps-2 pe-5" for="servicio-4">
+				   <img src="../assets/img/icono-servicio-4.svg" alt="" width="26" height="26" class="m-0 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-6">OSA</div> 
+							
+						</div>
+
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+
+
+</div>
+</div>
+
+
+</div>
+		
+		</div>	
+	
+</div>
+	
+               
+			
+			</div>	
+
+      </div>
+      <div class="modal-footer">
+		  <small><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></small>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="modal  modal-lg fade" id="ModalAtajos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel3">Atajos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+
+	
+ <div class="g-3 aplicativos" style="overflow: hidden">
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-18" id="aplicativo-18" value="aplicativo-18" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0" for="aplicativo-18">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+				  <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"></path>
+				</svg> 
+			 </div>	
+		<div>
+			<small>
+				Productos
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+	
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-17" id="aplicativo-17" value="aplicativo-17" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-17">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
+  <path d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
+  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+</svg> 
+			 </div>	
+		<div>
+			<small>
+				Instructivos
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+	
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-16" id="aplicativo-16" value="aplicativo-16" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-16">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+				  <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"></path>
+				</svg> 
+			 </div>	
+		<div>
+			<small>
+				Utilidades
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+	
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-15" id="aplicativo-15" value="aplicativo-15" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-15">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+			 </div>	
+		<div>
+			<small>
+				Preferencias
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				 
+<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-14" id="aplicativo-14" value="aplicativo-14" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-14">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+				  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path>
+				</svg>
+			 </div>	
+		<div>
+			<small>
+				Usuarios
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+		
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-13" id="aplicativo-13" value="aplicativo-13" checked />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-13">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+				  <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"></path>
+				  <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"></path>
+				</svg>
+			 </div>	
+		<div>
+			<small>
+				Empresas
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+
+<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-413" id="aplicativo-413" value="aplicativo-413"   />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-413">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">
+	  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-upc" viewBox="0 0 16 16">
+  <path d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"/>
+</svg>
+				  
+			 </div>	
+		<div>
+			<small>GTIN</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				  
+<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-313" id="aplicativo-313" value="aplicativo-313"  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-313">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-fingerprint" viewBox="0 0 16 16">
+  <path d="M8.06 6.5a.5.5 0 0 1 .5.5v.776a11.5 11.5 0 0 1-.552 3.519l-1.331 4.14a.5.5 0 0 1-.952-.305l1.33-4.141a10.5 10.5 0 0 0 .504-3.213V7a.5.5 0 0 1 .5-.5Z"/>
+  <path d="M6.06 7a2 2 0 1 1 4 0 .5.5 0 1 1-1 0 1 1 0 1 0-2 0v.332q0 .613-.066 1.221A.5.5 0 0 1 6 8.447q.06-.555.06-1.115zm3.509 1a.5.5 0 0 1 .487.513 11.5 11.5 0 0 1-.587 3.339l-1.266 3.8a.5.5 0 0 1-.949-.317l1.267-3.8a10.5 10.5 0 0 0 .535-3.048A.5.5 0 0 1 9.569 8m-3.356 2.115a.5.5 0 0 1 .33.626L5.24 14.939a.5.5 0 1 1-.955-.296l1.303-4.199a.5.5 0 0 1 .625-.329"/>
+  <path d="M4.759 5.833A3.501 3.501 0 0 1 11.559 7a.5.5 0 0 1-1 0 2.5 2.5 0 0 0-4.857-.833.5.5 0 1 1-.943-.334m.3 1.67a.5.5 0 0 1 .449.546 10.7 10.7 0 0 1-.4 2.031l-1.222 4.072a.5.5 0 1 1-.958-.287L4.15 9.793a9.7 9.7 0 0 0 .363-1.842.5.5 0 0 1 .546-.449Zm6 .647a.5.5 0 0 1 .5.5c0 1.28-.213 2.552-.632 3.762l-1.09 3.145a.5.5 0 0 1-.944-.327l1.089-3.145c.382-1.105.578-2.266.578-3.435a.5.5 0 0 1 .5-.5Z"/>
+  <path d="M3.902 4.222a5 5 0 0 1 5.202-2.113.5.5 0 0 1-.208.979 4 4 0 0 0-4.163 1.69.5.5 0 0 1-.831-.556m6.72-.955a.5.5 0 0 1 .705-.052A4.99 4.99 0 0 1 13.059 7v1.5a.5.5 0 1 1-1 0V7a3.99 3.99 0 0 0-1.386-3.028.5.5 0 0 1-.051-.705M3.68 5.842a.5.5 0 0 1 .422.568q-.044.289-.044.59c0 .71-.1 1.417-.298 2.1l-1.14 3.923a.5.5 0 1 1-.96-.279L2.8 8.821A6.5 6.5 0 0 0 3.058 7q0-.375.054-.736a.5.5 0 0 1 .568-.422m8.882 3.66a.5.5 0 0 1 .456.54c-.084 1-.298 1.986-.64 2.934l-.744 2.068a.5.5 0 0 1-.941-.338l.745-2.07a10.5 10.5 0 0 0 .584-2.678.5.5 0 0 1 .54-.456"/>
+  <path d="M4.81 1.37A6.5 6.5 0 0 1 14.56 7a.5.5 0 1 1-1 0 5.5 5.5 0 0 0-8.25-4.765.5.5 0 0 1-.5-.865m-.89 1.257a.5.5 0 0 1 .04.706A5.48 5.48 0 0 0 2.56 7a.5.5 0 0 1-1 0c0-1.664.626-3.184 1.655-4.333a.5.5 0 0 1 .706-.04ZM1.915 8.02a.5.5 0 0 1 .346.616l-.779 2.767a.5.5 0 1 1-.962-.27l.778-2.767a.5.5 0 0 1 .617-.346m12.15.481a.5.5 0 0 1 .49.51c-.03 1.499-.161 3.025-.727 4.533l-.07.187a.5.5 0 0 1-.936-.351l.07-.187c.506-1.35.634-2.74.663-4.202a.5.5 0 0 1 .51-.49"/>
+</svg>
+                
+			 </div>	
+		<div>
+			<small>Simbología</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				  
+              <div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-113" id="aplicativo-113" value="aplicativo-113"  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-113">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-regex" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 1 1 .707.707m9.9-.707a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.314.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707M6 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m5-6.5a.5.5 0 0 0-1 0v2.117L8.257 5.57a.5.5 0 0 0-.514.858L9.528 7.5 7.743 8.571a.5.5 0 1 0 .514.858L10 8.383V10.5a.5.5 0 1 0 1 0V8.383l1.743 1.046a.5.5 0 0 0 .514-.858L11.472 7.5l1.785-1.071a.5.5 0 1 0-.514-.858L11 6.617z"/>
+</svg>
+                
+			 </div>	
+		<div>
+			<small>Verificador</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				  
+				  
+              <div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-213" id="aplicativo-213" value="aplicativo-213"  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-213">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+  <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
+</svg>
+                
+			 </div>	
+		<div>
+			<small>Verified</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+<style>
+
+
+.aplicativos .list-group-radio .form-check-input + .list-group-item {
+	opacity: .50 !important;
+	background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    box-shadow: 0 0 0 0px #f0f0f0;
+	padding: 8px !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input + .list-group-item .feature-icon {
+   background: #818486 !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input:checked + .list-group-item .feature-icon {
+  background-image: var(--bs-gradient) !important;
+  background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1)) !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input:checked + .list-group-item {
+  background-color: #FFffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 0px #ffffff;
+  opacity: .99 !important;
+}
+		
+</style>
+	
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+		  <small><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></small>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="modal  modal-lg fade" id="ModalAplicativos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel3">Aplicativos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+
+	
+ <div class="g-3 aplicativos" style="overflow: hidden">
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-18" id="aplicativo-18" value="aplicativo-18" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0" for="aplicativo-18">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+				  <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"></path>
+				</svg> 
+			 </div>	
+		<div>
+			<small>
+				Productos
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+	
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-17" id="aplicativo-17" value="aplicativo-17" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-17">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
+  <path d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
+  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+</svg> 
+			 </div>	
+		<div>
+			<small>
+				Instructivos
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+	
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-16" id="aplicativo-16" value="aplicativo-16" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-16">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+				  <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"></path>
+				</svg> 
+			 </div>	
+		<div>
+			<small>
+				Utilidades
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+	
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-15" id="aplicativo-15" value="aplicativo-15" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-15">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+</svg>
+			 </div>	
+		<div>
+			<small>
+				Preferencias
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				 
+<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-14" id="aplicativo-14" value="aplicativo-14" checked  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-14">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+				  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path>
+				</svg>
+			 </div>	
+		<div>
+			<small>
+				Usuarios
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+		
+	<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-13" id="aplicativo-13" value="aplicativo-13" checked />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-13">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1"> 
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+				  <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"></path>
+				  <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"></path>
+				</svg>
+			 </div>	
+		<div>
+			<small>
+				Empresas
+			</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+
+<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-413" id="aplicativo-413" value="aplicativo-413"   />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-413">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">
+	  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-upc" viewBox="0 0 16 16">
+  <path d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"/>
+</svg>
+				  
+			 </div>	
+		<div>
+			<small>GTIN</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				  
+<div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-313" id="aplicativo-313" value="aplicativo-313"  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-313">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-fingerprint" viewBox="0 0 16 16">
+  <path d="M8.06 6.5a.5.5 0 0 1 .5.5v.776a11.5 11.5 0 0 1-.552 3.519l-1.331 4.14a.5.5 0 0 1-.952-.305l1.33-4.141a10.5 10.5 0 0 0 .504-3.213V7a.5.5 0 0 1 .5-.5Z"/>
+  <path d="M6.06 7a2 2 0 1 1 4 0 .5.5 0 1 1-1 0 1 1 0 1 0-2 0v.332q0 .613-.066 1.221A.5.5 0 0 1 6 8.447q.06-.555.06-1.115zm3.509 1a.5.5 0 0 1 .487.513 11.5 11.5 0 0 1-.587 3.339l-1.266 3.8a.5.5 0 0 1-.949-.317l1.267-3.8a10.5 10.5 0 0 0 .535-3.048A.5.5 0 0 1 9.569 8m-3.356 2.115a.5.5 0 0 1 .33.626L5.24 14.939a.5.5 0 1 1-.955-.296l1.303-4.199a.5.5 0 0 1 .625-.329"/>
+  <path d="M4.759 5.833A3.501 3.501 0 0 1 11.559 7a.5.5 0 0 1-1 0 2.5 2.5 0 0 0-4.857-.833.5.5 0 1 1-.943-.334m.3 1.67a.5.5 0 0 1 .449.546 10.7 10.7 0 0 1-.4 2.031l-1.222 4.072a.5.5 0 1 1-.958-.287L4.15 9.793a9.7 9.7 0 0 0 .363-1.842.5.5 0 0 1 .546-.449Zm6 .647a.5.5 0 0 1 .5.5c0 1.28-.213 2.552-.632 3.762l-1.09 3.145a.5.5 0 0 1-.944-.327l1.089-3.145c.382-1.105.578-2.266.578-3.435a.5.5 0 0 1 .5-.5Z"/>
+  <path d="M3.902 4.222a5 5 0 0 1 5.202-2.113.5.5 0 0 1-.208.979 4 4 0 0 0-4.163 1.69.5.5 0 0 1-.831-.556m6.72-.955a.5.5 0 0 1 .705-.052A4.99 4.99 0 0 1 13.059 7v1.5a.5.5 0 1 1-1 0V7a3.99 3.99 0 0 0-1.386-3.028.5.5 0 0 1-.051-.705M3.68 5.842a.5.5 0 0 1 .422.568q-.044.289-.044.59c0 .71-.1 1.417-.298 2.1l-1.14 3.923a.5.5 0 1 1-.96-.279L2.8 8.821A6.5 6.5 0 0 0 3.058 7q0-.375.054-.736a.5.5 0 0 1 .568-.422m8.882 3.66a.5.5 0 0 1 .456.54c-.084 1-.298 1.986-.64 2.934l-.744 2.068a.5.5 0 0 1-.941-.338l.745-2.07a10.5 10.5 0 0 0 .584-2.678.5.5 0 0 1 .54-.456"/>
+  <path d="M4.81 1.37A6.5 6.5 0 0 1 14.56 7a.5.5 0 1 1-1 0 5.5 5.5 0 0 0-8.25-4.765.5.5 0 0 1-.5-.865m-.89 1.257a.5.5 0 0 1 .04.706A5.48 5.48 0 0 0 2.56 7a.5.5 0 0 1-1 0c0-1.664.626-3.184 1.655-4.333a.5.5 0 0 1 .706-.04ZM1.915 8.02a.5.5 0 0 1 .346.616l-.779 2.767a.5.5 0 1 1-.962-.27l.778-2.767a.5.5 0 0 1 .617-.346m12.15.481a.5.5 0 0 1 .49.51c-.03 1.499-.161 3.025-.727 4.533l-.07.187a.5.5 0 0 1-.936-.351l.07-.187c.506-1.35.634-2.74.663-4.202a.5.5 0 0 1 .51-.49"/>
+</svg>
+                
+			 </div>	
+		<div>
+			<small>Simbología</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				  
+              <div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-113" id="aplicativo-113" value="aplicativo-113"  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-113">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-regex" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 1 1 .707.707m9.9-.707a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.314.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707M6 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m5-6.5a.5.5 0 0 0-1 0v2.117L8.257 5.57a.5.5 0 0 0-.514.858L9.528 7.5 7.743 8.571a.5.5 0 1 0 .514.858L10 8.383V10.5a.5.5 0 1 0 1 0V8.383l1.743 1.046a.5.5 0 0 0 .514-.858L11.472 7.5l1.785-1.071a.5.5 0 1 0-.514-.858L11 6.617z"/>
+</svg>
+                
+			 </div>	
+		<div>
+			<small>Verificador</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+				  
+				  
+              <div style="float: left;display: inherit;" class="m-0">
+		<div class="list-group list-group-radio d-grid gap-2 border-0">
+		<div class="position-relative">
+			<input  class="form-check-input position-absolute end-0 m-1 fs-4" type="checkbox"  name="aplicativo-213" id="aplicativo-213" value="aplicativo-213"  />
+			<label class="list-group-item list-group-item-action d-flex p-0 rounded-0 " for="aplicativo-213">
+				<div class="text-center">
+			<div class="feature-icon feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-1">  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-patch-check" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+  <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
+</svg>
+                
+			 </div>	
+		<div>
+			<small>Verified</small>
+		</div>
+		</div>
+			 </label>
+		</div>
+	</div>
+	</div>
+<style>
+
+
+.aplicativos .list-group-radio .form-check-input + .list-group-item {
+	opacity: .50 !important;
+	background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    box-shadow: 0 0 0 0px #f0f0f0;
+	padding: 8px !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input + .list-group-item .feature-icon {
+   background: #818486 !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input:checked + .list-group-item .feature-icon {
+  background-image: var(--bs-gradient) !important;
+  background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1)) !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input:checked + .list-group-item {
+  background-color: #FFffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 0px #ffffff;
+  opacity: .99 !important;
+}
+		
+</style>
+</div>
+      </div>
+      <div class="modal-footer">
+		  <small><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></small>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 	
+ <!-- Navbar Fijo con Bootstrap -->
+<nav id="barra-codificar" class="   transition-effect">
+  <div >
+ <a href="productos.html" class="btn btn-success ms-1 me-2 ">
+	<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"></path>
+</svg> Productos
+</a>
+	  
+<a href="#" class="btn btn-outline-secondary ms-1 p-2 float-end shadow lh-1">
+	<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+  		<path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
+	</svg>
+</a> 
+	  
+ <!--<a href="producto-nuevo.html" class="btn btn-success ms-1 me-2 float-end ">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+</svg> Producto Nuevo
+</a>-->
+
+  </div>
+</nav>
+
+<script>
+  window.onscroll = function() {
+    var nav = document.getElementById('barra-codificar');
+    // Al hacer scroll, cambia de transparente a oscuro
+    if (window.scrollY > 100) {
+      nav.classList.remove('bg-transparent');
+      nav.classList.add('mostrar');
+    } else {
+      nav.classList.remove('mostrar');
+      nav.classList.add('bg-transparent');
+    }
+  };
+</script>
+	  
+
+
+
+<style>
+	#barra-codificar {
+		background: rgba(10,10,10,0.00); 
+		bottom: -100px; 
+		right: 0px;
+		position: fixed;
+		width: 100%;
+		padding: 10px;
+	}
+	
+	#barra-codificar.mostrar {
+		bottom: 10px; 
+		background: rgba(210,210,210,0.00)
+	}
+	
+  /* Efecto suave */
+  .transition-effect {
+    transition: all 0.5s ease-in-out;
+  }
+	.modal-lg .modal-dialog {max-width: 600px;}
+</style>
+	<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+	<script src="../assets/js/dragula.js"></script>
+	<script src="../assets/js/example.min.js"></script>
+	<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
+		<script src="../assets/js/subir-imagen.js"></script>
+	
+
+
+	
+<script>
+  window.onscroll = function() {
+    var nav = document.getElementById('barra-codificar');
+    // Al hacer scroll, cambia de transparente a oscuro
+    if (window.scrollY > 100) {
+      nav.classList.remove('bg-transparent');
+      nav.classList.add('mostrar');
+    } else {
+      nav.classList.remove('mostrar');
+      nav.classList.add('bg-transparent');
+    }
+  };
+</script>
+		
+<script>
+
+	
+function sugerir_mas() {
+$("#sugerencia-1").slideDown(000);
+	$("#sugerencia-2").slideDown(000);
+	$("#sugerencia-3").slideDown(000);
+}
+
+function ampliar_producto_1() {
+	$("#producto-1").addClass("abierto");
+	$("#btn-cerrar-producto-1").slideDown(0);
+	$("#btn-abrir-producto-1").slideUp(0);
+	
+}
+	
+function cerrar_producto_1() {
+	$("#producto-1").removeClass("abierto");
+	$("#btn-cerrar-producto-1").slideUp(0);
+	$("#btn-abrir-producto-1").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_2() {
+	$("#producto-2").addClass("abierto");
+	$("#btn-cerrar-producto-2").slideDown(0);
+	$("#btn-abrir-producto-2").slideUp(0);
+	
+}
+	
+function cerrar_producto_2() {
+	$("#producto-2").removeClass("abierto");
+	$("#btn-cerrar-producto-2").slideUp(0);
+	$("#btn-abrir-producto-2").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_3() {
+	$("#producto-3").addClass("abierto");
+	$("#btn-cerrar-producto-3").slideDown(0);
+	$("#btn-abrir-producto-3").slideUp(0);
+	
+}
+	
+function cerrar_producto_3() {
+	$("#producto-3").removeClass("abierto");
+	$("#btn-cerrar-producto-3").slideUp(0);
+	$("#btn-abrir-producto-3").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_4() {
+	$("#producto-4").addClass("abierto");
+	$("#btn-cerrar-producto-4").slideDown(0);
+	$("#btn-abrir-producto-4").slideUp(0);
+	
+}
+	
+function cerrar_producto_4() {
+	$("#producto-4").removeClass("abierto");
+	$("#btn-cerrar-producto-4").slideUp(0);
+	$("#btn-abrir-producto-4").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_5() {
+	$("#producto-5").addClass("abierto");
+	$("#btn-cerrar-producto-5").slideDown(0);
+	$("#btn-abrir-producto-5").slideUp(0);
+	
+}
+	
+function cerrar_producto_5() {
+	$("#producto-5").removeClass("abierto");
+	$("#btn-cerrar-producto-5").slideUp(0);
+	$("#btn-abrir-producto-5").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_6() {
+	$("#producto-6").addClass("abierto");
+	$("#btn-cerrar-producto-6").slideDown(0);
+	$("#btn-abrir-producto-6").slideUp(0);
+	
+}
+	
+function cerrar_producto_6() {
+	$("#producto-6").removeClass("abierto");
+	$("#btn-cerrar-producto-6").slideUp(0);
+	$("#btn-abrir-producto-6").slideDown(0);
+	
+}
+	
+function ficha_ampliar_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-12");
+	$("#ficha-contendor-imagen").removeClass("col-4");
+	$("#ficha-contendor-datos").addClass("col-12");
+	$("#ficha-contendor-datos").removeClass("col-8");
+	$("#imagen-1").slideUp(000);
+	$("#imagen-2").slideDown(500);	
+}
+	
+function ficha_reducir_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-4");
+	$("#ficha-contendor-imagen").removeClass("col-12");
+	$("#ficha-contendor-datos").addClass("col-8");
+	$("#ficha-contendor-datos").removeClass("col-12");
+	$("#imagen-2").slideUp(000);
+	$("#imagen-1").slideDown(000);	
+}
+
+
+	
+</script>
+		
+<script>
+		
+
+
+function mostrar_paso0() {
+	$("#inscripcion").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").removeClass("btn-secondary");
+	$("#barra-superior-2").removeClass("btn-secondary");
+	$("#barra-superior-1").removeClass("disabled");
+	$("#barra-superior-2").removeClass("disabled");
+}
+	
+
+
+	
+function mostrar_inscripcion1() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#collapseExample").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+
+}
+	
+function mostrar_inscripcion2() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#collapseExample").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+	
+}
+		
+function mostrar_empresa_b() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso1() {
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	  
+function mostrar_paso2() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_paso2_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso3() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideDown(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+
+	
+function mostrar_representante_legal() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideDown(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#progreso").addClass("progreso-2");
+}
+	
+function mostrar_apoderado() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideDown(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#progreso").addClass("progreso-3");
+}
+	
+function mostrar_informacion_contable() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideDown(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#progreso").addClass("progreso-4");
+}
+	
+function mostrar_final() {
+	$("#inscripcion").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+	$("#ficha-final").slideUp(500);
+	$("#barra-superior").slideDown(500);
+	$("#inscripcion3").slideDown(500);
+	$("#progreso").addClass("progreso-5");
+}
+		
+function mostrar_final_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+	
+	
+function confirmar() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior").slideUp(500);	
+	$("#codigo-final").show(000);
+	$("#ficha-final").slideDown(500);
+	$("#progreso").addClass("progreso-6");
+}
+		
+function modificar() {
+	$("#titulo-nuevo-producto").slideUp(000);
+	$("#titulo-modificar-producto").show(000);
+	
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-2").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#barra-superior-2").addClass("disabled");
+}
+		
+function confirmar2() {
+	$("#card-nuevo-producto").slideUp(500);
+	$("#card-nuevo-producto2").slideDown(500);
+}
+	
+</script>		
+<style>
+.aplicativos .list-group-radio .form-check-input + .list-group-item {
+	opacity: .50 !important;
+	background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    box-shadow: 0 0 0 0px #f0f0f0;
+	padding: 8px !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input + .list-group-item .feature-icon {
+   background: #818486 !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input:checked + .list-group-item .feature-icon {
+  background-image: var(--bs-gradient) !important;
+  background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1)) !important;
+}
+	
+.aplicativos .list-group-radio .form-check-input:checked + .list-group-item {
+  background-color: #FFffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 0px #ffffff;
+  opacity: .99 !important;
+}
+	
+</style>
+		
+<div class="boton-ayuda shadow-lg rounded-2" id="boton-ayuda">
+		  <div onClick="abrir_ayuda()" id="btn_abrir_ayuda">
+		  <div  class="list-group-item list-group-item-action d-flex gap-3" >
+			   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-roborounded-circle flex-shrink-0" viewBox="0 0 16 16">
+  <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
+  <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
+			  </svg>
+			  <div class="d-flex gap-2 w-100 justify-content-between">¿En qué podemos ayudarte?</div> 		  
+		  </div>
+		</div>
+		<div  id="btn_cerrar_ayuda" style="display: none">
+			
+		  <div  class="list-group-item list-group-item-action d-flex gap-3 mb-2" >
+			   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-roborounded-circle flex-shrink-0" viewBox="0 0 16 16">
+  <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
+  <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
+			  </svg>
+			  <div class="d-flex gap-2 w-100 justify-content-between pt-0">¿En qué podemos ayudarte?</div> 	
+			  <button type="button" class="btn-close"  onClick="cerrar_ayuda()"></button>
+		  </div>
+		</div>
+		  <div id="contenido-ayuda" style="display: none">
+			  <div class="contenedor_ayuda">
+		    
+<div class="mb-3">
+
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ejemplo: agregar un usuario nuevo"></textarea>
+</div>
+				  
+<div class="collapse" id="respuesta">
+  <div class="text-bg-light p-3 rounded-1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus diam metus, imperdiet et tempor at,
+	 <a  class="btn btn-outline-primary btn-sm mt-1" href="#"> Asignar nuevo GLNs </a>
+	   <a  class="btn btn-outline-primary btn-sm mt-1" href="#"> Empresas </a>
+	  
+  </div>
+</div>
+			
+<div> <button class="btn btn-success  float-end" type="button" id="button-addon26" data-bs-toggle="collapse" href="#respuesta" role="button" aria-expanded="false" aria-controls="respuesta">Preguntar</button></div>
+			
+				  </div>
+		  </div>
+	  </div> 
+<script>
+function abrir_ayuda() {
+	$("#contenido-ayuda").slideDown(100);
+	$("#btn_abrir_ayuda").hide(00);
+	$("#btn_cerrar_ayuda").show(00);
+	$("#contenido-ayuda").addClass("abierto");
+	$("#boton-ayuda").addClass("abierto");
+
+}
+	
+function cerrar_ayuda() {
+	$("#contenido-ayuda").slideUp(200);
+	$("#btn_abrir_ayuda").show(00);
+	$("#btn_cerrar_ayuda").hide(00);
+	$("#contenido-ayuda").removeClass("abierto");
+	$("#boton-ayuda").removeClass("abierto");
+
+}
+</script>
+<style>
+.boton-ayuda {
+			color: #ffffff;
+			padding: 20px;
+			background: #cd3c0d;
+			position: fixed;
+			left: 10px;
+			bottom: 70px;
+			width: 259px;
+			z-index: 20;
+			cursor: pointer;
+			font-size: 17px;
+			line-height: 1.3;
+			opacity: 0.85;
+			transition: all 1.35s;
+			-ms-transition: all 1.35s;
+			-moz-transition: all 1.35s;
+			 -webkit-transition: all 1.35s;	
+	border: 6px solid #cd3c0d;
+		}
+	
+				
+.boton-ayuda:hover {
+			opacity: 1;
+			  transition: all .35s;
+			  -ms-transition: all .35s;
+			  -moz-transition: all .35s;
+			  -webkit-transition: all .35s;
+}
+	
+	
+.abierto #contenido-ayuda {
+			opacity: 1;
+			  transition: all .15s;
+			  -ms-transition: all .15s;
+			  -moz-transition: all .15s;
+			  -webkit-transition: all .15s;
+		}
+	 
+.boton-ayuda.abierto {
+	width: 259px;
+	transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	color: #6c757d;
+	padding: 20px;
+	background: #ffffff;
+	opacity: 1;
+	z-index: 30;
+	font-size: 14px;
+	font-weight: bold;
+	border: 6px solid #cd3c0d;
+}
+	
+#contenido-ayuda {
+	transition: all .05s;
+	-ms-transition: all .05s;
+	-moz-transition: all .05s;
+	-webkit-transition: all .05s;
+
+}
+	
+#btn_cerrar_ayuda,
+#btn_abrir_ayuda{
+	height: 48px;
+	transition: all .05s;
+	-ms-transition: all .05s;
+	-moz-transition: all .05s;
+	-webkit-transition: all .05s;
+
+}
+</style>		
+		</div>
+	  </main>		 
+  </body>
+</html>

@@ -1,0 +1,181 @@
+
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+.gu-hide {
+  display: none !important;
+}
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+.gu-transit {	
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+
+.card.gu-transit {	
+	border: 2px dashed;
+
+}
+
+h3 {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 5px solid #A13462;
+  text-align: center;
+  padding: 10px;
+}
+
+h3 div {
+  margin-bottom: 10px;
+}
+
+.tagline {
+  position: relative;
+  margin-top: 0;
+}
+.tagline-text {
+  vertical-align: middle;
+}
+
+.promo {
+  margin-bottom: 0;
+  font-style: italic;
+  padding: 10px;
+  background-color: #ff4020;
+  border-bottom: 5px solid #c00;
+}
+
+
+main {
+  overflow-y: hidden;
+ 
+}
+
+
+
+@keyframes superSUPERSecret {
+  0%{transform: rotate(3deg)}
+  50%{transform: rotate(-3deg)}
+  100%{transform: rotate(3deg)}
+}
+
+
+.parent {
+
+}
+
+.titulo-ventana {
+	font-size: 18px; 
+	padding: 15px;
+	background: rgba(231,231,231,1.00);
+	border-bottom: 1px solid rgba(203,203,203,1.00);
+	border-radius: 1.375rem 1.375rem 0px 0px;
+	font-weight: bold;
+}
+
+
+.cuerpo-ventana {
+	font-size: 14px !important; 
+	padding: 15px;
+}
+
+
+.panel-usuario .handle {
+	width: 53px;
+	height: 53px;
+    padding: 15px;
+	text-align: center;
+    cursor: move;
+	float: right;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	background-image:url(../img/icono-mover.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 20px;
+	border-radius: 50px;
+}
+
+.panel-usuario .handle:hover {
+	background-color: rgba(255,255,255,0.80);
+}
+
+
+.gh-fork {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+/* dragula-specific example page styles */
+.panel-usuario .wrapper {
+  display: table;
+	width: 100%;
+}
+.panel-usuario .container {
+  display: table-cell;
+  width: 50%;
+	padding: 0px !important;
+}
+
+.panel-usuario .container:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.panel-usuario .container > div,
+.panel-usuario .gu-mirror {
+  
+  transition: opacity 0.4s ease-in-out;
+}
+.panel-usuario .container > div {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+}
+
+.panel-usuario .container  div.card {
+	min-height: 150px;
+}
+.panel-usuario .gu-mirror {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.panel-usuario .container .ex-moved {
+  background-color: #e74c3c;
+}
+.panel-usuario .container.ex-over {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.panel-usuario #left-lovehandles > div,
+.panel-usuario #right-lovehandles > div {
+  cursor: initial;
+}
+
+.image-thing {
+  margin: 20px 0;
+  display: block;
+  text-align: center;
+}
+.slack-join {
+  position: absolute;
+  font-weight: normal;
+  font-size: 14px;
+  right: 10px;
+  top: 50%;
+  margin-top: -8px;
+  line-height: 16px;
+}

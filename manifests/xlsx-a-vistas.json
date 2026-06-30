@@ -1,0 +1,37 @@
+﻿{
+    "Wireframes_Membresia_Tradicional.xlsx":  [
+                                                  "b03/pagina-web.html",
+                                                  "b03/registro2-con-servicio1.html",
+                                                  "b03/registro2-con-servicio2.html",
+                                                  "b03/registro2-con-servicio3.html",
+                                                  "b03/registro2-con-servicio4.html",
+                                                  "b03/registro-con-servicio1.html",
+                                                  "b03/registro-con-servicio4.html"
+                                              ],
+    "Wireframes_Plan_Starter.xlsx":  [
+                                         "b03/pagina-web.html",
+                                         "b03/registro2-con-servicio1.html",
+                                         "b03/registro-con-servicio1.html"
+                                     ],
+    "Wireframes_MiCuenta.xlsx":  [
+                                     "b03/micuenta.html"
+                                 ],
+    "Wireframes_Alta_Servicio_EDI.xlsx":  [
+                                              "b04/micuenta-basico5.html",
+                                              "b04/registro2-con-servicio5.html",
+                                              "b04/registro2-con-servicio6.html",
+                                              "b04/registro-con-servicio5.html",
+                                              "b04/registro-con-servicio6.html",
+                                              "b04/servicio-edi.html"
+                                          ],
+    "Wireframes_Productos_Socios.xlsx":  [
+                                             "b05/producto-copiar.html",
+                                             "b05/producto-editar.html",
+                                             "b05/producto-ficha.html",
+                                             "b05/producto-nuevo.html",
+                                             "b05/productos.html",
+                                             "b05/productos-carga-masiva.html",
+                                             "b05/productos-listado.html",
+                                             "b05/productos-listado-dun14.html"
+                                         ]
+}

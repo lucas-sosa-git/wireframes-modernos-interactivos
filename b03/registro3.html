@@ -1,0 +1,1659 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta  name="author"content="e-trade-consult"  />
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Completar registro</title>
+   
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+	  <script defer src="../assets/js/jquery.js"></script>	
+    <meta name="theme-color" content="#712cf9" />
+    <link href="../assets/css/checkout.css" rel="stylesheet" />
+	  <link href="../assets/css/list-groups.css" rel="stylesheet" />
+    <style>
+		
+		.form-control {
+			margin-left: 4px !important;
+			margin-right: 4px !important;
+			width: 100%;
+			width: calc(100% - 8px) !important;
+			font-size: 1.4rem;
+		}
+		
+		
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+	  
+	<script>
+
+function mostrar_paso0() {
+	$("#inscripcion").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa2-on").slideDown(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-representante-legal2-on").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#datos-apoderado2-on").slideDown(500);
+	$("#datos-apoderado2-on").slideDown(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#informacion-contable2-on").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#final-on").slideDown(500);
+}
+	
+
+
+	
+function mostrar_inscripcion1() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_inscripcion2() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion21() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion31").slideDown(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion22() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion32").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion23() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion33").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion24() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion34").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion25() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion35").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion26() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion36").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion27() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion37").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion28() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion38").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_inscripcion29() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion39").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion40").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+	function mostrar_inscripcion30() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion40").slideDown(500);
+	$("#inscripcion31").slideUp(500);
+	$("#inscripcion32").slideUp(500);
+	$("#inscripcion33").slideUp(500);
+	$("#inscripcion34").slideUp(500);
+	$("#inscripcion35").slideUp(500);
+	$("#inscripcion36").slideUp(500);
+	$("#inscripcion37").slideUp(500);
+	$("#inscripcion38").slideUp(500);
+	$("#inscripcion39").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_empresa_b() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso1() {
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	  
+function mostrar_paso2() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideDown(500);
+$("#datos-de-la-empresa2-on").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+		
+function mostrar_paso2_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso3() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideDown(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+
+	
+function mostrar_representante_legal() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideDown(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-representante-legal2-on").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_apoderado() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-representante-legal2-on").slideUp(500);
+	$("#datos-apoderado").slideDown(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#datos-apoderado2-on").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_informacion_contable() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-representante-legal2-on").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#datos-apoderado2-on").slideUp(500);
+	$("#informacion-contable").slideDown(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#informacion-contable2-on").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_final() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-representante-legal2-on").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideDown(500);
+	$("#informacion-contable2-on").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+	$("#final-on").slideUp(500);
+}
+		
+function mostrar_final_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-representante-legal2-on").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#datos-apoderado2-on").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#informacion-contable2-on").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+	$("#final-on").slideUp(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+	
+
+	
+</script>
+  </head>
+  <body class="bg-body-tertiary">
+   
+	  <style>
+		  .form-label {font-size: 18px;}
+	  </style>
+
+
+
+   
+    <div class="container py-3 mb-5">
+     <header>
+		 
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="home-logueado.html" class="d-flex align-items-center text-decoration-none" >
+            <img  class="mb-2" src="../assets/img/gs1.png" alt="" height="61" />
+            
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+           
+<div class="dropdown ">
+<div class="btn-group" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <div  class="btn btn-light active  border-secondary-subtle" >
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg></div>
+  <a href="micuenta.html" class="btn btn-light border-secondary-subtle dropdown-toggle">nombre@dominio.com</a>
+ 
+</div>
+<ul class="dropdown-menu">
+	<li class="border-bottom"><a class="dropdown-item" href="registro2.html">Completá tu registro</a></li>
+	
+    <li><a class="dropdown-item btn-lg" href="home.html">Salir</a></li>
+  </ul>
+</div>
+			
+          </nav>
+        </div>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h2 class="display-5 fw-normal text-body-emphasis">Completá tu Registro <span class="badge text-bg-secondary fs-3" style="font-weight: lighter">Paso 3 de 4</span></h2>
+        </div>
+      </header>
+      <main>
+         
+<form class="needs-validation" novalidate>
+	
+<!-- tipo de inscripcion -->	
+<div id="inscripcion">
+	<h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Tipo de Inscripción </h3>
+	
+				<div class="row g-3 mb-3" >
+			
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion21()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-sa-argentina.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">S.A. Argentina</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion22()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-srl-argentina0.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">S.R.L Argentina</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion23()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-sociedad.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Sociedad de hecho (Ar)</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion24()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-monotributista.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Monotributista</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion25()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-monotributista-a.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Monotributista A</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion26()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-monotributista-b.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Monotributista B</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion27()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-dni.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">DNI Argentino</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion28()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-profesional-extrangero.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Profesional Extranjero</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion29()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-empresa-extrangera.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Empresa Extranjera</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>
+	
+<div class="col-6">
+	<div class="list-group list-group-radio d-grid gap-2 border-0" onClick="mostrar_inscripcion30()" style="cursor: pointer">
+		<div class="position-relative">
+				<label class="list-group-item list-group-item-action d-flex gap-3 py-3 pe-5" for="servicio-7">
+				   <img src="../assets/img/icono-persona-fisica.svg" alt="" width="42" height="42" class="m-2 flex-shrink-0"> 
+					<div class="d-flex gap-2 w-100 justify-content-between"> 
+						<div> 
+							<div class="mb-0 fs-3 pt-1">Responsable inscripto</div> 
+						</div>
+					</div>
+				 </label>
+		</div>
+	</div>
+</div>				
+
+</div>	
+	<hr class="my-4">
+</div>
+
+<div id="inscripcion2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Persona Física	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+				
+<div id="inscripcion3" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Personas Jurídica	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+
+<div id="inscripcion31" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como S.A. Argentina	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+		
+<div id="inscripcion32" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como S.R.L. Argentina	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion33" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Sociedad de hecho (Ar)	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion34" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Monotributista	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion35" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Monotributista A
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion36" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Monotributista B
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion37" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como DNI Argentino	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion38" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Profesional Extrangero
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion39" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Empresa Extrangera	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="inscripcion40" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Inscripción como Responsable Inscripto	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+				
+<!-- datos del usuario -->				
+<div id="datos-del-usuario" style="display: none; overflow: hidden;">
+<h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Completa los Datos de Usuario</h3>
+<div class="row g-3" > 
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                
+
+                <div class="col-12"><label  class="form-label">Teléfono móvil <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero" placeholder=""   required />
+                </div>
+		<div class="text-end"> 
+	    <a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_empresa_b()">
+          Validar Datos
+        </a>
+		</div>	
+</div>	
+</div>				
+<div id="datos-del-usuario2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Datos de Usuario	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_inscripcion1()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+
+				
+<!--datos-de-la-empresa-->				
+<div id="datos-de-la-empresa" style="display: none; overflow: hidden;" >
+	  
+        <h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Completa los datos de la empresa</h3>
+	    <div class="row g-3">
+			<div class="col-12">
+                      <label  class="form-label">CUIT <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  </div>
+                <div class="col-md-1 mt-0">
+                  <input type="text" class="form-control form-control-lg" id="cuit1"  placeholder="--" required  />
+                </div>
+                <div class="col-md-10 mt-0">
+                  <input type="text" class="form-control form-control-lg" id="cuit2"  placeholder="--------" required  />
+                </div>
+                <div class="col-md-1 mt-0">               
+                  <input type="text" class="form-control form-control-lg" id="cuit3" placeholder="-"   required />
+             	</div>
+			
+                <div class="col-sm-12">
+                  <label for="firstName" class="form-label">Razón Social <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+			
+			<div class="col-sm-12">
+                  <label for="firstName" class="form-label">Nombre Fantasía <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+			
+			<div class="col-12"><label  class="form-label">Teléfono de la empresa <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero" placeholder=""   required />
+                </div>
+			
+			
+                <div class="col-sm-12">
+                  <label for="lastName" class="form-label">Dirección <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <label for="email" class="form-label">Email de facturación (de la empresa) <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input  type="email"      class="form-control  form-control-lg" id="email" placeholder="facturacion@ejemplo.com"
+                  />
+                  
+                </div>
+               
+<div class="col-12">
+	<label for="actividad" class="form-label">Actividad  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="Actividad">
+  <option selected disabled > - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+	<option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>
+                 
+   <div class="col-12">
+	<label for="rubro" class="form-label">Rubro Secundario  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>             
+                
+
+        <div class="text-end"> 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_representante_legal()">
+			  Validar Datos
+			</a>
+		</div>
+       </div>  
+ 
+</div>
+<div id="datos-de-la-empresa2" style="display: none; overflow: hidden;"> 
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Datos de la Empresa
+	    <a class="btn btn-outline-primary btn-sm" onClick="mostrar_paso2()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" />  
+</div>
+	
+<div id="datos-de-la-empresa2-on" style="overflow: hidden;"> 
+	<h4 class="mb-0 text-body-tertiary">
+		<img src="../assets/img/sin-check.png" style="width: 38px;  margin-right: 6px;" > Datos de la Empresa
+	</h4>
+	<hr class="my-4" />  
+</div>
+<!--fin datos-de-la-empresa-->	
+	
+<!--datos-de-la-empresa B-->				
+<div id="datos-de-la-empresa3" style="display: none; overflow: hidden;" >
+	  
+        <h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Completa los datos de la empresa</h3>
+	    <div class="row g-3">
+			<div class="col-12">
+                      <label  class="form-label">CUIT <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  </div>
+                <div class="col-md-3 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit14"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit24"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">               
+                  <input  type="text"  class="form-control  form-control-lg" id="cuit34" placeholder=""   required />
+             	</div>
+			
+                <div class="col-sm-12">
+                  <label for="firstName" class="form-label">Razón Social <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName4"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+			
+			<div class="col-sm-12">
+                  <label for="firstName" class="form-label">Nombre Fantasía <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName45"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+			
+			<div class="col-12"><label  class="form-label">Teléfono de la empresa <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais2"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area2"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero2" placeholder=""   required />
+                </div>
+			
+			
+                <div class="col-sm-12">
+                  <label for="lastName" class="form-label">Dirección <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName6"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <label for="email" class="form-label">Email de facturación (de la empresa) <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input  type="email"      class="form-control  form-control-lg" id="email6" placeholder="facturacion@ejemplo.com"
+                  />
+                  
+                </div>
+    <style>
+			.form-select option:disabled {
+  
+  color: red;
+			</style>              
+<div class="col-12">
+	<label for="actividad" class="form-label">Actividad  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="Actividad">
+  <option selected disabled > - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+	<option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>
+                 
+   <div class="col-12">
+	<label for="rubro" class="form-label">Rubro Secundario  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>             
+                
+
+        <div class="text-end"> 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_final_b()">
+			  Validar Datos
+			</a>
+		</div>
+       </div>  
+ 
+</div>
+<div id="datos-de-la-empresa4" style="display: none; overflow: hidden;"> 
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Datos de la Empresa
+	    <a class="btn btn-outline-primary btn-sm" onClick="mostrar_paso2_b()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" />  
+</div>
+<!--fin datos-de-la-empresa-->	
+
+<!--datos-drepresentate legal-->					
+<div id="datos-representante-legal" class="row g-3"  style="display: none; overflow: hidden;">
+	 
+	<h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Completa los Datos del Representante Legal</h3>
+	<div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName7"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+	
+	<div class="col-12"><label  class="form-label">Teléfono móvil del Representante Legal <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais8"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area8"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero8" placeholder=""   required />
+                </div>
+	
+	<div class="col-12">
+                  <label for="email" class="form-label">Email del Representante Legal <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input  type="email"      class="form-control  form-control-lg" id="email9" placeholder="tunombre@ejemplo.com"
+                  />
+                  
+                </div>
+	
+				<div class="col-12">
+                      <label  class="form-label">CUIL del Representante Legal <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                </div>
+                <div class="col-md-3 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit12"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit22"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">               
+                  <input  type="text"  class="form-control  form-control-lg" id="cuit32" placeholder=""   required />
+             	</div>
+<div class="col-12">
+<label for="rubro" class="form-label">Cargo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">Director</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>
+	
+		<div class="text-end"> 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_apoderado()">
+			  Validar Datos
+			</a>
+		</div>	
+</div>				
+<div id="datos-representante-legal2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Datos del Representante Legal	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_representante_legal()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="datos-representante-legal2-on" style="overflow: hidden;">
+	<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" style="width: 38px;  margin-right: 6px;" > Datos del Representante Legal	</h4>
+	<hr class="my-4" /> 
+</div>
+<!--fin datos-drepresentate legal-->
+				
+<!--datos-Apoderado -->					
+<div id="datos-apoderado" class="row g-3"  style="display: none; overflow: hidden;">
+	
+				<h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Completa los Datos del Apoderado</h3>
+	<div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre del Apoderado  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName23"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido del Apoderado  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName24"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+	
+	<div class="col-12"><label  class="form-label">Teléfono móvil del Apoderado <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais9"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area9"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero9" placeholder=""   required />
+                </div>
+	
+	<div class="col-12">
+                  <label for="email" class="form-label">Email del Apoderado <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input  type="email"      class="form-control  form-control-lg" id="email" placeholder="tunombre@ejemplo.com"
+                  />
+                  
+                </div>
+	
+				<div class="col-12">
+                      <label  class="form-label">CUIL del Apoderado <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                </div>
+                <div class="col-md-3 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit10"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit20"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">               
+                  <input  type="text"  class="form-control  form-control-lg" id="cuit30" placeholder=""   required />
+             	</div>
+	
+		<div class="text-end"> 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_informacion_contable()">
+			  Validar Datos
+			</a>
+		</div>	
+</div>				
+<div id="datos-apoderado2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Datos del Apoderado 	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_apoderado()">
+          EDITAR
+        </a>
+	</h4>
+	 <hr class="my-4" /> 
+</div>
+	
+<div id="datos-apoderado2-on" style=" overflow: hidden;">
+	<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" style="width: 38px;  margin-right: 6px;" > Datos del Apoderado 	
+	    
+	</h4>
+	 <hr class="my-4" /> 
+</div>
+<!--fin datos-drepresentate legal-->
+			
+<!--informacion contable-->					
+<div id="informacion-contable" class="row g-3"  style="display: none; overflow: hidden;">
+	 
+				<h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Completa los Datos de Información Contable</h3>
+	<div class="col-sm-12">
+                  <label for="actividad" class="form-label">Tratamiento impositivo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+	<option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+</select>
+                </div>
+<div class="col-sm-6">
+                  <label for="lastName" class="form-label"> Cantidad de Personal <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+ <select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">1 a 10</option>
+  <option value="2">11 a 20</option>
+  <option value="3">21 a 50</option>
+	<option value="1">51 a 100</option>
+  <option value="2">100 a 1000</option>
+  <option value="3">Más de 1000</option>
+</select>
+</div>
+	
+<div class="col-sm-6">
+                  <label for="lastName" class="form-label">Artículos a codificar <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+ <select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">6 a 10</option>
+  <option value="2">11 a 20</option>
+  <option value="3">21 a 50</option>
+	<option value="1">51 a 100</option>
+  <option value="2">101 a 1000</option>
+  <option value="3">Más de 1000</option>
+</select>
+</div>	
+	
+<div class="col-sm-6">
+  <label for="lastName" class="form-label">Información de Balance <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+ <select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">No</option>
+  <option value="2">Sí</option>
+</select>
+</div>
+	
+<div class="col-sm-6">
+  <label for="lastName" class="form-label">Fecha del Balance <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+ <input  type="date"  class="form-control  form-control-lg" id="ingresos" placeholder="--/--/----"/>
+</div>
+	
+<div class="col-12">
+                  <div class="form-check ">
+                <input type="checkbox" class="form-check-input" id="acuerdo"  />
+                <label class="form-check-label" for="acuerdo" >Tengo un acuerdo comercial</label >
+              </div>       
+     </div>
+	
+	<div class="col-12">
+                  <label for="ingresosl" class="form-label">Observaciones <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  
+		<textarea class="form-control  form-control-lg"></textarea>
+                  
+     </div>
+
+		<div class="text-end"> 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_final()">
+			  Validar Datos
+			</a>
+		</div>	
+</div>				
+<div id="informacion-contable2" style="display: none; overflow: hidden;">
+ 
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Información Contable	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_informacion_contable()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+<div id="informacion-contable2-on" style=" overflow: hidden;">
+ 
+	<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" style="width: 38px;  margin-right: 6px;" > Información Contable	
+	    
+	</h4>
+	<hr class="my-4" /> 
+</div>
+<!--fin datos-drepresentate legal-->
+
+<!-- formas de pago -->
+<div id="formas-de-pago" style="display: none; overflow: hidden;">
+
+    
+                      
+<h3 class="mb-3"><img src="../assets/img/sin-check-verde.png" style="width: 38px;  margin-right: 6px;" > Forma de Pago <span class="text-body-secondary">(Requerido)</span></h3>
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    checked
+                    required
+                  />
+                  <label class="form-check-label" for="credit"
+                    >Tarjeta de Crédito</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="debit">Tarjeta de Débito</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Titular de la tarjeta</label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-name"
+                    placeholder=""
+                    required
+                  />
+                  
+                  
+                </div>
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label"
+                    >Número</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-number"
+                    placeholder=""
+                    required
+                  />
+                  
+                </div>
+                <div class="col-md-4">
+                  <label for="cc-expiration" class="form-label"
+                    >Fecha de Expiración</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-expiration"
+                    placeholder=""
+                    required
+                  />
+                  
+                </div>
+                <div class="col-md-4">
+                  <label for="cc-cvv" class="form-label">Código de seguridad</label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-cvv"
+                    placeholder=""
+                    required
+                  />
+                  
+                </div>
+              </div>
+	<div class="text-end"> 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-5" onClick="mostrar_paso4()">
+			  Validar Datos
+			</a>
+		</div>
+</div>			
+<div id="formas-de-pago2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 38px;  margin-right: 6px;" > Forma de Pago	
+	    <a class="btn btn-outline-primary btn-sm" onClick="mostrar_paso3()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+<!-- fin formas de pago -->	
+           		
+<!-- final -->				
+<div id="final" style="display: none; overflow: hidden;">
+
+                      
+              <div class="form-check ">
+                <input type="checkbox" class="form-check-input me-2" id="terminos" style="width: 1.3em;  height: 1.3em;" checked />
+                <label class="form-check-label fs-5" for="terminos" >Acepto los términos y condiciones del Servicio.</label >
+              </div>
+              <div class="form-check pt-2">
+                <input type="checkbox" class="form-check-input me-2" id="same-address" style="width: 1.3em;  height: 1.3em;"  checked />
+                <label class="form-check-label fs-5" for="same-address" >Quiero recibir todas las novedades de GS1 Argentina.</label >
+              </div>
+
+              <hr class="my-4" />
+              <a class="w-100 btn btn-primary btn-lg" href="gracias.html">
+       Completar Registro
+</a>
+	<div class="form-text mb-3">Recibiras un e-mail con la cotización</div>
+</div>
+<div id="final-on" style=" overflow: hidden;">
+	<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" style="width: 38px;  margin-right: 6px;" > Completar Registro	
+	    
+	</h4>
+	<hr class="my-4" /> 
+</div>			
+</form>
+
+        
+       
+      </main>
+      
+    </div>
+	  
+	  
+	 
+	  
+    <script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+    <script src="../assets/js/checkout.js" class="astro-vvvwv3sm"></script>
+  </body>
+</html>

@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - GTIN</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/b04/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+	  
+   
+	  <link href="../assets/b04/css/sidebars.css" rel="stylesheet" />
+	  
+	  <link href="../assets/b04/css/micuenta.css" rel="stylesheet" type="text/css" />
+   
+  		<link href="../assets/b04/css/dropdowns.css" rel="stylesheet" />
+	<script src="../assets/js/jquery.min.js"></script>
+<script defer src="../assets/js/jquery.js"></script>	
+<script src="../assets/js/feather.min.js" ></script>
+  </head>
+  <body>
+  	<nav class="navbar  navbar-light fixed-top bg-body-tertiary"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="micuenta.html"><img class="mb-2" src="../assets/img/gs1.png" alt="" height="41"></a> 
+<div class="dropdown ">
+<div class="btn-group float-end">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg> Menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+
+	<li >
+		<a class="dropdown-item" href="micuenta.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+	  <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+    <li><a class="dropdown-item" href="empresas.html">Empresas</a></li>
+    <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
+	<li><a class="dropdown-item " href="productos.html">Productos</a></li>
+	  <li><hr class="dropdown-divider"></li>
+	<li><a class="dropdown-item" href="home.html">Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+</div> 
+				
+	</nav>
+	   <div class="container py-3">
+	 <main >
+		 
+		 
+	
+    <div class="p-5 mt-5" >
+		
+		
+		<div class="mb-5 mt-6" >
+			<h1>¿En qué podemos ayudarte?</h1><br>
+<div class="input-group input-group-lg mb-3">
+  <input type="text" class="form-control" placeholder="En qué podemos ayudarte?" aria-label="En qué podemos ayudarte?" aria-describedby="button-addon2">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+</div>
+			
+		
+
+		</div>
+		
+		
+		
+		<div class="panel-usuario">
+  <div class="parent">
+    <div class="wrapper">
+      <div id="left-lovehandles" class="container">
+		  
+	
+		  
+        <div class="card m-2 mb-3">
+				<div class="titulo-ventana">Generador de Codigo GTIN 14 (DUN 14) by GS1</div> 
+
+ <div class="text-end p-3 pb-0">
+
+
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
+		  >
+	  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg> Buscar
+	</button>
+
+  <a href="../assets/archivos/ejemplo.xls"  class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xls" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM6.472 15.29a1.2 1.2 0 0 1-.111-.449h.765a.58.58 0 0 0 .254.384q.106.073.25.114.143.041.319.041.246 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.152-.12-.462-.193l-.619-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.527-.422.338-.15.777-.149.457 0 .78.152.324.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.247-.181.9.9 0 0 0-.369-.068q-.325 0-.513.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .405.175l.62.143q.326.075.566.211a1 1 0 0 1 .375.358q.135.222.135.56 0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375m-2.945-3.358h-.893L1.81 13.37h-.036l-.832-1.438h-.93l1.227 1.983L0 15.931h.861l.853-1.415h.035l.85 1.415h.908L2.253 13.94zm2.727 3.325H4.557v-3.325h-.79v4h2.487z"/>
+</svg> Exportar</a>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Ordenar
+    </button>
+    <ul class="dropdown-menu">
+	  <li><a class="dropdown-item" href="#">GTIN Contenido</a></li>
+      <li><a class="dropdown-item" href="#">Descripción GTIN Contenido</a></li>
+	  <li><a class="dropdown-item" href="#">Estado</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="collapse" id="collapseExample">
+	<div class="p-2">
+  <div class="input-group input-group-lg mb-3">
+  <input type="text" class="form-control" placeholder="GTIN Contenido, Descripción GTIN Contenido, etc" aria-label="GTIN Contenido, Descripción GTIN Contenido, etc" aria-describedby="button-addon2">
+  <button class="btn btn-primary" type="button" id="button-addon3">Buscar Producto</button>
+</div>
+</div>
+	
+</div>
+
+	</div>	
+<style>
+	
+.productos{
+  font-size: 16px;
+  line-height: 1.3;
+}
+	
+.cortar-texto{
+  line-height: 1.3;
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}	
+	
+.abierto .cortar-texto{
+  font-size: 16px;
+  height: auto;
+  display:inline-block;
+  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}
+
+			</style>
+<div class="p-3 pt-0">
+
+<table class="table table-striped productos">
+  <thead>
+    <tr>
+   	  <th scope="col"> </th>
+      <th scope="col">GTIN Contenido</th>
+      <th scope="col">Descripción GTIN Contenido</th>
+	  <th scope="col">Estado</th>
+	  <th scope="col" style="width: 260px;"></th>
+	
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="producto-1">
+ 	  <td scope="col">
+		  #1
+		</td>
+      <td scope="col">7798336831071</td>
+      <td ><div class="cortar-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</div></td>
+	 
+		<td>Activo</td>
+	  <td class="text-end">
+		<a class="btn btn-outline-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalVer">
+          		Ver Producto
+        </a>
+		<a class="btn btn-primary btn-sm mb-1" href="gtin-nuevo-formulario.html">
+          		Alta GTIN 14
+        </a>
+		</td>
+    </tr>
+<style>.alert {
+  float: left;
+}</style>	  
+<tr id="producto-2">
+ 	  <td scope="col">
+		  #2
+		</td>
+      <td scope="col">7798336222322</td>
+      <td ><div class="cortar-texto">Maecenas vitae ullamcorper ligula.</div></td>
+	  
+      
+		<td>Activo</td>
+	  <td class="text-end">
+		  <a class="btn btn-outline-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalVer">
+          		Ver Producto
+        </a>
+		<a class="btn btn-primary btn-sm mb-1" href="gtin-nuevo-formulario.html">
+          		Alta GTIN 14
+        </a>
+	  </td>
+    </tr>
+	  
+<tr id="producto-3">
+ 	  <td scope="col">
+		  #3
+		</td>
+      <td scope="col">7798222833373</td>
+      <td ><div class="cortar-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</div></td>
+	  
+		<td>Activo</td>
+	  <td class="text-end">
+		  <a class="btn btn-outline-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalVer">
+          		Ver Producto
+        </a>
+		<a class="btn btn-primary btn-sm mb-1" href="gtin-nuevo-formulario.html">
+          		Alta GTIN 14
+        </a>
+		</td>
+    </tr>
+	  
+<tr id="producto-4">
+ 	  <td scope="col">
+		  #4
+		</td>
+      <td scope="col">7798336444074</td>
+      <td ><div class="cortar-texto">Maecenas vitae ullamcorper ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div></td>
+	  <td>Activo</td>
+	  <td class="text-end">
+		  <a class="btn btn-outline-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalVer">
+          		Ver Producto
+        </a>
+		<a class="btn btn-primary btn-sm mb-1" href="gtin-nuevo-formulario.html">
+          		Alta GTIN 14
+        </a>
+		</td>
+    </tr>
+	  
+	<tr id="producto-5">
+ 	  <td scope="col">
+		  #5
+		</td>
+      <td scope="col">7795556831075</td>
+      <td ><div class="cortar-texto">Consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</div></td>
+	  
+		<td>
+          Activo
+		</td>
+	  <td class="text-end">
+		  <a class="btn btn-outline-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalVer">
+          		Ver Producto
+        </a>
+		<a class="btn btn-primary btn-sm mb-1" href="gtin-nuevo-formulario.html">
+          		Alta GTIN 14
+        </a>
+		</td>
+    </tr>
+	  
+	  
+	  <tr id="producto-6">
+ 	  <td scope="col">
+		  #6
+		</td>
+      <td class="opacity-50" scope="col">7798335831666</td>
+      <td class="opacity-50" ><div class="cortar-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</div></td>
+	  <td>Borrador</td>
+	  <td class="text-end">
+		  <a class="btn btn-outline-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalVer">
+          		Ver Producto
+        </a>
+		<a class="btn btn-outline-primary btn-sm mb-1" href="producto-editar.html">
+          		EDITAR
+        </a>
+		</td>
+    </tr>
+    
+  </tbody>
+</table>
+		  
+<div class="modal modal-lg fade" id="ModalImagen1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel11"><span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"><img src="../assets/img/producto-1.jpg" style="width: 100%; height: auto;" /></div>
+    </div>
+  </div>
+</div>
+		  
+<div class="modal modal-lg fade" id="ModalImagen2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel22"><span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"><img src="../assets/img/producto-2.jpg" style="width: 100%; height: auto;" /></div>
+    </div>
+  </div>
+</div>
+
+		  
+<div class="modal modal-lg fade" id="ModalImagen3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel33"><span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"><img src="../assets/img/producto-3.jpg" style="width: 100%; height: auto;" /></div>
+    </div>
+  </div>
+</div>
+
+		  
+<div class="modal modal-lg fade" id="ModalImagen4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel44"><span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"><img src="../assets/img/producto-4.jpg" style="width: 100%; height: auto;" /></div>
+    </div>
+  </div>
+</div>
+
+		  
+<div class="modal modal-lg fade" id="ModalImagen5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel55"><span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"><img src="../assets/img/producto-5.jpg" style="width: 100%; height: auto;" /></div>
+    </div>
+  </div>
+</div>
+
+		  
+<div class="modal modal-lg fade" id="ModalImagen6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel66"><span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"><img src="../assets/img/producto-6.jpg" style="width: 100%; height: auto;" /></div>
+    </div>
+  </div>
+</div>
+	
+		  
+
+
+
+ <style>
+			  
+			 .imagen 
+			  {width: 40px; 
+			  height: 40px;
+				  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+				  border: 1px solid #dadee2;
+				  border-radius: 3px;
+				  background: #dadee2;
+				
+
+			  }
+			  
+			 .abierto .imagen 
+			  {width: 57px; 
+			  height: 57px; 
+				  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+
+			  }
+			  
+		   .imagen img
+			  {width: 100%; 
+				height: auto; 
+				  border-radius: 2px;
+				  
+			  }
+
+			  
+		  </style>
+
+<div>
+	<a class="btn btn-outline-primary btn-lg" href="micuenta.html" >
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+						  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"></path>
+						</svg> 
+						Volver a Mi cuenta
+					</a>
+
+<a  class="btn btn-primary btn-lg float-end" href="producto-nuevo.html">
+  Nuevo Producto
+</a>
+	
+</div>
+
+        
+      </div>
+		  
+		  </div>
+		  
+
+
+	
+		  
+
+		
+      </div>
+ 
+		
+    </div>
+	  
+  </div>
+			
+</div>
+		
+
+		 
+	</div>
+
+
+    </main>
+	 
+	  </div>
+
+ 
+
+    
+  
+<div class="modal modal-lg fade" id="ModalVer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel2">Ficha del Producto <span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" >
+	
+<div class="col-4" id="ficha-contendor-imagen">
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/producto-1c.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/producto-1.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+</div>
+	
+<div class="col-8" id="ficha-contendor-datos">
+	<div class="row g-3" >
+	  <div class="col-12 border-bottom pb-2">
+		  <div><small>GTIN</small></div>
+		  <div class="d-block"><strong>7798336831071</strong></div>
+	  </div>
+	
+	  <div class="col-12 border-bottom pb-2">
+		  <div><small>Descripción</small></div>
+		  <div class="d-block"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Marca</small></div>
+		  <div class="d-block"><strong>MarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>SubMarca</small></div>
+		  <div class="d-block"><strong>SubMarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Clasificación</small></div>
+		  <div class="d-block"><strong>Lorem / Ipsum / Dolor sit amet consectetur.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Contenido</small></div>
+		  <div class="d-block"><strong>150 Gramos</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Mercados</small></div>
+		  <div class="d-block pb-2"><div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Argentina</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Paraguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Uruguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Chile</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Perú</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Bolivia</div></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Estado</small></div>
+		  <div class="d-block"><strong>Activo</strong></div>
+	  </div>
+	</div>
+</div>
+
+</div>	
+
+      </div>
+    
+    </div>
+  </div>
+</div>   
+  
+      	
+    
+  
+<div class="modal modal-lg fade" id="ModalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+       <h1 class="modal-title fs-5" id="exampleModalLabel2">Nuevo Producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+     
+<div class="row g-3" >
+	
+<div class="col-4" id="ficha-contendor-imagen">
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/producto-1c.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/producto-1.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+</div>
+	
+<div class="col-8" id="ficha-contendor-datos">
+	<div class="row g-3" >
+	  <div class="col-12 border-bottom pb-2">
+		  <div><small>GTIN</small></div>
+		  <div class="d-block"><strong>7798336831071</strong></div>
+	  </div>
+	
+	  <div class="col-12 border-bottom pb-2">
+		  <div><small>Descripción</small></div>
+		  <div class="d-block"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Marca</small></div>
+		  <div class="d-block"><strong>MarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>SubMarca</small></div>
+		  <div class="d-block"><strong>SubMarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Clasificación</small></div>
+		  <div class="d-block"><strong>Lorem / Ipsum / Dolor sit amet consectetur.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Contenido</small></div>
+		  <div class="d-block"><strong>150 Gramos</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Mercados</small></div>
+		  <div class="d-block pb-2"><small><div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Argentina</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Paraguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Uruguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Chile</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Perú</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Bolivia</div></small></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div><small>Estado</small></div>
+		  <div class="d-block"><strong>Activo</strong></div>
+	  </div>
+	</div>
+</div>
+
+</div>	
+
+      </div>
+		<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCreado">Crear Producto</button>
+      </div>
+    
+    </div>
+  </div>
+</div>   
+  	
+<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/dragula.js"></script>
+<script src="../assets/js/example.min.js"></script>
+<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
+		
+<script>
+
+function ampliar_producto_1() {
+	$("#producto-1").addClass("abierto");
+	$("#btn-cerrar-producto-1").slideDown(0);
+	$("#btn-abrir-producto-1").slideUp(0);
+	
+}
+	
+function cerrar_producto_1() {
+	$("#producto-1").removeClass("abierto");
+	$("#btn-cerrar-producto-1").slideUp(0);
+	$("#btn-abrir-producto-1").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_2() {
+	$("#producto-2").addClass("abierto");
+	$("#btn-cerrar-producto-2").slideDown(0);
+	$("#btn-abrir-producto-2").slideUp(0);
+	
+}
+	
+function cerrar_producto_2() {
+	$("#producto-2").removeClass("abierto");
+	$("#btn-cerrar-producto-2").slideUp(0);
+	$("#btn-abrir-producto-2").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_3() {
+	$("#producto-3").addClass("abierto");
+	$("#btn-cerrar-producto-3").slideDown(0);
+	$("#btn-abrir-producto-3").slideUp(0);
+	
+}
+	
+function cerrar_producto_3() {
+	$("#producto-3").removeClass("abierto");
+	$("#btn-cerrar-producto-3").slideUp(0);
+	$("#btn-abrir-producto-3").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_4() {
+	$("#producto-4").addClass("abierto");
+	$("#btn-cerrar-producto-4").slideDown(0);
+	$("#btn-abrir-producto-4").slideUp(0);
+	
+}
+	
+function cerrar_producto_4() {
+	$("#producto-4").removeClass("abierto");
+	$("#btn-cerrar-producto-4").slideUp(0);
+	$("#btn-abrir-producto-4").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_5() {
+	$("#producto-5").addClass("abierto");
+	$("#btn-cerrar-producto-5").slideDown(0);
+	$("#btn-abrir-producto-5").slideUp(0);
+	
+}
+	
+function cerrar_producto_5() {
+	$("#producto-5").removeClass("abierto");
+	$("#btn-cerrar-producto-5").slideUp(0);
+	$("#btn-abrir-producto-5").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_6() {
+	$("#producto-6").addClass("abierto");
+	$("#btn-cerrar-producto-6").slideDown(0);
+	$("#btn-abrir-producto-6").slideUp(0);
+	
+}
+	
+function cerrar_producto_6() {
+	$("#producto-6").removeClass("abierto");
+	$("#btn-cerrar-producto-6").slideUp(0);
+	$("#btn-abrir-producto-6").slideDown(0);
+	
+}
+	
+function ficha_ampliar_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-12");
+	$("#ficha-contendor-imagen").removeClass("col-4");
+	$("#ficha-contendor-datos").addClass("col-12");
+	$("#ficha-contendor-datos").removeClass("col-8");
+	$("#imagen-1").slideUp(000);
+	$("#imagen-2").slideDown(500);	
+}
+	
+function ficha_reducir_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-4");
+	$("#ficha-contendor-imagen").removeClass("col-12");
+	$("#ficha-contendor-datos").addClass("col-8");
+	$("#ficha-contendor-datos").removeClass("col-12");
+	$("#imagen-2").slideUp(000);
+	$("#imagen-1").slideDown(000);	
+}
+
+ficha_reducir_imagen
+	
+</script>	
+ 
+<script>
+ feather.replace({ 'aria-hidden': 'true' });
+$(".togglePassword").click(function (e) {
+ e.preventDefault();
+ var type = $(this).parent().parent().find(".password").attr("type");
+ console.log(type);
+ if(type == "password"){
+ $("svg.feather.feather-eye").replaceWith(feather.icons["eye-off"].toSvg());
+ $(this).parent().parent().find(".password").attr("type","text");
+ }else if(type == "text"){
+ $("svg.feather.feather-eye-off").replaceWith(feather.icons["eye"].toSvg());
+ $(this).parent().parent().find(".password").attr("type","password");
+ }
+ });
+</script>
+	
+  </body>
+</html>

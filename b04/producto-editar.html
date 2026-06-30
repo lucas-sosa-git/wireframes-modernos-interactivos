@@ -1,0 +1,3068 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Home</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/b04/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+	  
+   
+<link href="../assets/b04/css/sidebars.css" rel="stylesheet" />	  
+<link href="../assets/b04/css/micuenta.css" rel="stylesheet" type="text/css" />
+<link href="../assets/b04/css/sign-in.css" rel="stylesheet" />
+<link href="../assets/b04/css/dropdowns.css" rel="stylesheet" />
+<script src="../assets/js/jquery.min.js"></script>
+<script defer src="../assets/js/jquery.js"></script>	
+<script src="../assets/js/feather.min.js" ></script>
+<link href="../assets/b04/css/list-groups.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../assets/b04/css/subir-imagen.css" />
+
+  </head>
+  <body>
+  	<nav class="navbar  navbar-light fixed-top bg-body-tertiary"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="micuenta.html"><img class="mb-2" src="../assets/img/gs1.png" alt="" height="41"></a> 
+<div class="dropdown ">
+<div class="btn-group float-end">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg> Menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+
+	<li >
+		<a class="dropdown-item" href="micuenta.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+	  <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+    <li><a class="dropdown-item" href="empresas.html">Empresas</a></li>
+    <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
+	<li><a class="dropdown-item " href="productos.html">Productos</a></li>
+	  <li><hr class="dropdown-divider"></li>
+	<li><a class="dropdown-item" href="home.html">Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+</div> 
+				
+	</nav>
+		
+		 
+	   <div class="container py-3">
+	 <main >
+		 
+		 
+	
+<div class="p-5 mt-5" >
+
+	<div class="mb-5 mt-6" >
+
+	</div>
+		
+</div>
+		
+		<div class="panel-usuario p-2">
+			<div class="card m-2 mb-3" id="card-nuevo-producto" >
+				<div class="titulo-ventana" id="titulo-nuevo-producto" style="display: none" style="border-bottom: 0px;">Nuevo Producto <span class=" py-2 px-3">&nbsp;</span>
+				 </div>
+				<div class="titulo-ventana" id="titulo-modificar-producto" >Modificar Producto <div class="float-end"> <span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span></div></div>
+<style>
+	
+.form-control {
+			
+			font-size: 1.4rem;
+		}
+	
+
+		  .form-label {font-size: 18px;}
+	 
+.progreso-0 {  width: 0% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-1 {  width: 17% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-2 {  width: 34% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-3 {  width: 51% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-4 {  width: 68% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-5 {  width: 85% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+.progreso-6 {  width: 100% !important; transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;}
+</style>
+				 
+<div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 6px; border-radius: 0px !important; border-bottom: 1px solid rgba(203,203,203,1.00);">
+  <div id="progreso" class="progress-bar progreso-0 progreso-1 progreso-2 progreso-3 progreso-4 progreso-5 progreso-6" ></div>
+</div>
+				 
+ <div class="text-end p-3 pb-0" id="barra-superior">
+
+
+<div class="collapse" id="collapseExample">
+	<div class="p-2">
+	  <div class="input-group input-group-lg mb-3">
+
+<select class="form-select" aria-label="Default select example">
+  <option selected disabled> - </option>
+
+
+  <option value="2">7798336831071 | 	
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</option>
+
+  <option value="3">7798336222322 | 	
+Maecenas vitae ullamcorper ligula.</option>
+	
+  <option value="4">7798222833373 | 	
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</option>
+		
+  <option value="5">7798336444074 | 	
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</option>
+	
+  <option value="6">7795556831075 | 	
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</option>
+</select>
+
+<button class="btn btn-primary" type="button" id="button-addon2" onClick="mostrar_final()">Cargar Datos</button>
+	</div>
+	</div>
+</div>
+
+	</div>	
+<style>
+	
+.productos{
+  font-size: 16px;
+  line-height: 1.3;
+}
+	
+.cortar-texto{
+  line-height: 1.3;
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}	
+	
+.abierto .cortar-texto{
+  font-size: 16px;
+  height: auto;
+  display:inline-block;
+  transition: all .35s;
+  -ms-transition: all .35s;
+  -moz-transition: all .35s;
+  -webkit-transition: all .35s;
+		}
+
+			</style>
+<div class="p-3 pt-0">
+	
+<div>
+	
+<form class="needs-validation" novalidate>
+	
+<!-- tipo de inscripcion -->	
+<div id="inscripcion" style="display: none; overflow: hidden;">
+	<h2 class="mb-3">Tipo de código</h2>
+				<div class="row g-3 mb-3" style="--bs-gutter-y:0px" >
+					
+			<div class="col-sm-4">
+
+				<a onClick="mostrar_inscripcion2()" class="text-decoration-none" style="cursor: pointer">  <div class="card mb-0 rounded-3 p-3"  >
+                        <img src="../assets/img/gtin-13.jpg" class="w-100">
+                        <div class="card-body tipoletra">
+                            <h4 class="card-title">GTIN-13</h4>
+							<p>El GTIN-13 es de 13 dígitos y se usa a nivel global para la mayoría de productos.</p>
+                        </div>
+					  </div> 
+				   </a>
+                 
+            </div>
+           <div class="col-sm-4">
+			   <a onClick="mostrar_inscripcion1()" class="text-decoration-none" style="cursor: pointer">  <div class="card mb-0 rounded-3 p-3"  >
+                        <img src="../assets/img/gtin-8.jpg" class="w-100">
+                        <div class="card-body tipoletra">
+                            <h4 class="card-title">GTIN-8</h4>
+							<p>El GTIN-8 es usado para identificar artículos de tamaño muy reducido.</p>
+                        </div>
+					  </div> 
+				   </a>
+                
+            </div>
+			<div class="col-sm-4">
+			   <a onClick="mostrar_inscripcion3()" class="text-decoration-none" style="cursor: pointer">  <div class="card mb-0 rounded-3 p-3"  >
+                        <img src="../assets/img/gtin-masivo.jpg" class="w-100">
+                        <div class="card-body tipoletra">
+                            <h4 class="card-title">Carga Masiva</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+					  </div> 
+				   </a>
+                
+            </div>
+					
+<div class="col-sm-4">
+
+<div >
+
+
+    
+</div>
+
+</div>
+</div>				
+</div>
+
+<div id="inscripcion2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Tipo de Código: GTIN	8	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+				
+<div id="inscripcion3" style=" overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Tipo de Código: GTIN	13
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_paso0()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+	
+		
+
+	
+
+				
+<!-- datos del usuario -->				
+<div id="datos-del-usuario" style="display: none; overflow: hidden;">
+<h2 class="mb-3">Completa los Datos de Usuario</h2>
+<div class="row g-3" > 
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                
+
+                <div class="col-12"><label  class="form-label">Teléfono móvil <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero" placeholder=""   required />
+                </div>
+		<div class="text-end"> 
+	    <a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_empresa_b()">
+          Validar Datos
+        </a>
+		</div>	
+</div>	
+</div>				
+<div id="datos-del-usuario2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Datos de Usuario	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_inscripcion1()">
+          CAMBIAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+
+				
+<!--datos-de-la-empresa-->				
+<div id="datos-de-la-empresa" style="display: none; overflow: hidden;" >
+	  
+        <h2 class="mb-3">Completa los detalles del producto</h2>
+	    <div class="row g-3 p-1">
+<div class="col-6">
+	<label for="actividad" class="form-label">Origen del código <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="Actividad">
+  <option selected disabled > - </option>
+  <option value="1">Código Nacional</option>
+  <option value="2">Código Importado</option> 
+</select>
+</div>
+			
+ <div class="col-sm-6">
+                  <label for="Producto" class="form-label">Producto  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="Producto" placeholder="Ejemplo: Mermelada" value=""  />
+</div>
+			
+<div class="col-6">
+	
+	 <div class="row p-0">
+		<div class="col-8"> 
+		<label for="marca" class="form-label">Marca <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="marca">
+	  <option selected disabled > - </option>
+	  <option value="1">Marca 1</option>
+	  <option value="2">Marca 2</option>
+		<option value="3">Marca 3</option> 
+		<option value="4">Marca 4</option> 
+	</select>
+	</div>
+
+	<div class="col-4">
+		<label for="marca" class="form-label">&nbsp;</label>
+		<div>
+		<a class="btn btn-outline-primary py-2 btn-lg btn-lg w-100" data-bs-toggle="collapse" href="#collapseNuevaMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaMarca" >
+				  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+	  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+	</svg> Nueva Marca
+		</a>
+		</div>
+	</div>
+
+	<div class="col-12">
+
+	<div class="collapse" id="collapseNuevaMarca">
+
+		  <div class="input-group input-group-lg mb-3 mt-2">
+			  <input type="text" class="form-control form-control-lg" id="nuevamarca" placeholder="Ejemplo: GS1" value=""  />
+			 <button class="btn btn-primary btn-lg" type="button" id="agregar1"  data-bs-toggle="collapse" href="#collapseNuevaMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaMarca">Agregar nueva marca</button>
+
+		</div>
+		</div></div>
+	</div>
+</div>
+			
+			
+<div class="col-6">
+	
+	 <div class="row p-0">
+		<div class="col-8"> 
+		<label for="sub marca" class="form-label">Sub Marca </label>
+	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="submarca">
+	  <option selected disabled > - </option>
+	  <option value="1">Sub Marca 1</option>
+	  <option value="2">Sub Marca 2</option>
+		<option value="3">Sub Marca 3</option> 
+		<option value="4">Sub Marca 4</option> 
+	</select>
+	</div>
+
+	<div class="col-4">
+		<label for="marca" class="form-label">&nbsp;</label>
+		<div>
+		<a class="btn btn-outline-primary py-2 btn-lg btn-lg w-100" data-bs-toggle="collapse" href="#collapseNuevaSubMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaSubMarca" >
+				  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+	  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+	</svg> Nueva
+		</a>
+		</div>
+	</div>
+
+	<div class="col-12">
+
+	<div class="collapse" id="collapseNuevaSubMarca">
+
+		  <div class="input-group input-group-lg mb-3 mt-2">
+			  <input type="text"  class="form-control form-control-lg" id="nuevasubmarca" placeholder="Ejemplo: GS1" value=""  />
+			  <button class="btn btn-primary" type="button" id="agregar2" data-bs-toggle="collapse" href="#collapseNuevaSubMarca" role="button" aria-expanded="false" aria-controls="collapseNuevaSubMarca" >Agregar </button>
+
+		</div>
+		</div></div>
+	</div>
+</div>
+			
+<div class="col-sm-12">
+                  <label for="variedad" class="form-label">Variedad  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="variedad" placeholder="Ejemplo: Durazno" value=""  />
+</div>
+			
+<div class="col-3">
+	<label for="envase" class="form-label">Envase <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+  <option selected disabled > - </option>
+  <option value="1">Envase 1</option>
+  <option value="2">Envase 2</option> 
+  <option value="3">Envase 3</option> 
+  <option value="4">Envase 4</option> 
+</select>
+</div>
+			
+	<div class="col-sm-3">
+                  <label for="centenidoneto" class="form-label">Contenido Neto <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input type="text"  class="form-control  form-control-lg" id="contenidoneto" placeholder="Ejemplo: 150" value=""  />
+</div>
+			
+<div class="col-3">
+	<label for="envase" class="form-label">Unidad de medida <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+  <option selected disabled > - </option>
+  <option value="1">Unidades 1</option>
+  <option value="2">Unidades 2</option> 
+  <option value="3">Unidades 3</option> 
+  <option value="4">Unidades 4</option> 
+</select>
+</div>
+			
+<div class="col-3">
+	<label for="envase" class="form-label">País de fabricación <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+  <option selected disabled > - </option>
+  <option value="1">Argentina</option>
+  <option value="2">País 2</option> 
+  <option value="3">País 3</option> 
+  <option value="4">País 4</option> 
+</select>
+</div>
+			
+			
+<div class="col-6">
+	
+	 <div class="row p-0">
+		<div class="col-8"> 
+		<label for="codigo" class="form-label">Código de Artículo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+	<input type="text"  class="form-control  form-control-lg" id="codigo" placeholder="" value=""  />
+	</div>
+
+	<div class="col-4">
+		<label for="marca" class="form-label">&nbsp;</label>
+		<div>
+		<a class="btn btn-outline-primary py-2 btn-lg btn-lg w-100" >
+				  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
+  <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
+</svg> Sugerir
+		</a>
+		</div>
+	</div>
+
+	</div>
+</div>
+			
+<div class="col-sm-6">
+                  <label for="codigointerno" class="form-label">Código Interno </label>
+                  <input type="text"  class="form-control  form-control-lg" id="codigointerno" placeholder="Ejemplo: SKU" value=""  />
+</div>
+			
+	        
+                
+
+        <div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_representante_legal()">
+			  Validar Datos
+			</a>
+		</div>
+       </div>  
+ 
+</div>
+<div id="datos-de-la-empresa2" style=" overflow: hidden;"> 
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Detalles del producto
+	    <a class="btn btn-outline-primary btn-sm" onClick="mostrar_paso2()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" />  
+</div>
+<!--fin datos-de-la-empresa-->	
+	
+<!--datos-de-la-empresa B-->				
+<div id="datos-de-la-empresa3" style="display: none; overflow: hidden;" >
+	  
+        <h2 class="mb-3">Completa los detalles del producto</h2>
+	    <div class="row g-3">
+			<div class="col-12">
+                      <label  class="form-label">CUIT <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  </div>
+                <div class="col-md-3 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit1"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <input   type="text"   class="form-control  form-control-lg" id="cuit2"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">               
+                  <input  type="text"  class="form-control  form-control-lg" id="cuit3" placeholder=""   required />
+             	</div>
+			
+                <div class="col-sm-12">
+                  <label for="firstName" class="form-label">Razón Social <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+			
+			<div class="col-sm-12">
+                  <label for="firstName" class="form-label">Nombre Fantasía <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+			
+			<div class="col-12"><label  class="form-label">Teléfono de la empresa <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label></div>
+                  
+                 
+                <div class="col-md-3 mt-0">
+                  <label for="pais" class="form-label">Código País</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="pais"  placeholder="" required  />
+                </div>
+                <div class="col-md-3 mt-0">
+                  <label for="area" class="form-label">Código Área</label>
+                  <input   type="text"   class="form-control  form-control-lg" id="area"  placeholder="" required  />
+                </div>
+                <div class="col-md-6 mt-0">
+                  <label for="numero" class="form-label">Número</label>
+                  <input  type="text"  class="form-control  form-control-lg" id="numero" placeholder=""   required />
+                </div>
+			
+			
+                <div class="col-sm-12">
+                  <label for="lastName" class="form-label">Dirección <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="lastName"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    error
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <label for="email" class="form-label">Email de facturación (de la empresa) <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+                  <input  type="email"      class="form-control  form-control-lg" id="email" placeholder="facturacion@ejemplo.com"
+                  />
+                  
+                </div>
+    <style>
+			.form-select option:disabled {
+  
+  color: red;
+			</style>              
+<div class="col-12">
+	<label for="actividad" class="form-label">Actividad  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="Actividad">
+  <option selected disabled > - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+	<option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>
+                 
+   <div class="col-12">
+	<label for="rubro" class="form-label">Rubro Secundario  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
+<select class="form-select form-select-lg mb-0" aria-label="Large select example">
+  <option selected> - </option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Consectetur</option>
+  <option value="1">Lorem ipsum</option>
+  <option value="2">Dolor sit amet</option>
+  <option value="3">Aliquam</option>
+	 
+</select>
+</div>             
+                
+
+        <div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_final_b()">
+			  Validar Datos
+			</a>
+		</div>
+       </div>  
+ 
+</div>
+<div id="datos-de-la-empresa4" style="display: none; overflow: hidden;"> 
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Detalles del producto
+	    <a class="btn btn-outline-primary btn-sm" onClick="mostrar_paso2_b()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" />  
+</div>
+<!--fin datos-de-la-empresa-->	
+
+<!--datos-drepresentate legal-->					
+<div id="datos-representante-legal" class="row g-3"  style="display: none; overflow: hidden;">
+	 
+	<h2 class="mb-3">Completa la clasificación del producto</h2>
+
+<div class="col-12">
+	<h4 class="mb-3">Sugerencias</h4>
+	<div class="row align-items-md-stretch">
+          
+		<div class="col-md-4 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Mermeladas (en conserva)</h4>
+			  <p> Jaleas /  </p>
+              <p> Código: 10000217 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-4 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Pastas de frutas </h4>
+			  <p> Jaleas / Mermeladas / Perecederos /</p>
+              <p> Código: 10056565 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		<div class="col-md-4 mb-3" id="sugerencia-1" style="display: none;">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3 ">
+              <h4 class="mb-0">Confituras</h4>
+			  <p>&nbsp; </p>
+              <p> Código: 100032323 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-4 mb-3" id="sugerencia-2" style="display: none;">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Dulces </h4>
+			  <p>&nbsp; </p>
+              <p> Código: 10056583 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		 <div class="col-md-4 mb-3" id="sugerencia-3" style="display: none;">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h4 class="mb-0">Jaleas </h4>
+			  <p>&nbsp; </p>
+              <p> Código: 10075757 </p>
+              <button class="btn btn-outline-secondary btn-lg" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		
+		<div class="col-md-4 mb-3" id="sugerencia-5" >
+            <div class="h-100 p-4 text-bg-dark rounded-3">
+              <h4 class="mb-0">&nbsp;</h4>
+			   <p>&nbsp; </p>
+               <p>&nbsp; </p>
+              <button class="btn btn-outline-light btn-lg" type="button" onClick="sugerir_mas()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
+  <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"></path>
+</svg> Sugerir más
+              </button>
+            </div>
+          </div>
+        </div>
+	
+	</div>
+<div class="col-sm-12">
+	
+	
+	
+
+ 
+	
+<div class="list-group">
+	<div class="list-group-item" style="padding: 0px; padding-bottom: 4px;">
+		<div class="form-floating">
+		 <input style="border: 0px !important; border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px; !important" type="text" class="form-control" id="buscarconf" placeholder="Ejemplo: Mermelada, conservas, dulces, etc"/>
+		 <label for="buscarconf">Buscar / filtrar</label>
+		</div>
+	</div>
+<div style="max-height: 300px; border: 0px solid rgba(202,22,25,1.00); overflow: hidden; overflow-y: scroll;">
+  <a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000256</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000817</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Tristique</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10523263</div>
+		<div class="col-9"><h5 class="mb-0">Vestibulum elit ipsu <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Vitae</span> </h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000217</div>
+		<div class="col-9"><h5 class="mb-0">Blandit molestie <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Ligula</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10450217</div>
+		<div class="col-9"><h5 class="mb-0">Quisque <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">1000896</div>
+		<div class="col-9"><h5 class="mb-0">Etiam luctus <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Honcus</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10040256</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10000815</div>
+		<div class="col-9"><h5 class="mb-0">Lorem ipsum <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Tristique</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10528263</div>
+		<div class="col-9"><h5 class="mb-0">Vestibulum elit ipsu <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Vitae</span> </h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10500217</div>
+		<div class="col-9"><h5 class="mb-0">Blandit molestie <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Ligula</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">10450201</div>
+		<div class="col-9"><h5 class="mb-0">Quisque <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Maecenas vitae</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">Ullamcorper</span></h5></div>
+	 </div>
+  </a>
+	
+	<a href="#" onClick="mostrar_apoderado()" class="list-group-item list-group-item-action">
+	<div class="row g-3">
+		<div class="col-2">1085896</div>
+		<div class="col-9"><h5 class="mb-0">Etiam luctus <span class="bg-body-secondary py-1 px-2  rounded-1 fs-6">Honcus</span> <span class="bg-body-secondary py-1 px-2 rounded-1 fs-6">consectetur</span></h5></div>
+	 </div>
+  </a>
+
+
+</div>
+</div>
+
+
+	 </div>
+	
+	
+	<div class="col-12">
+	<h4 class="mb-3">Últimos seleccionados</h4>
+	<div class="row align-items-md-stretch">
+          
+		<div class="col-md-3 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h5 class="mb-0">Mermeladas</h5>
+              <p> Código: 10000217 </p>
+              <button class="btn btn-outline-secondary" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-3 mb-3">
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h5 class="mb-0">Pastas de frutas </h5>
+              <p> Código: 10056565 </p>
+              <button class="btn btn-outline-secondary" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		<div class="col-md-3 mb-3" i>
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3 ">
+              <h5 class="mb-0">Confituras</h5>
+              <p> Código: 100032323 </p>
+              <button class="btn btn-outline-secondary" type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+        <div class="col-md-3 mb-3" >
+            <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+              <h5 class="mb-0">Dulces </h5>
+              <p> Código: 10056583 </p>
+              <button class="btn btn-outline-secondary " type="button" onClick="mostrar_apoderado()">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+		 
+        </div>
+	
+	</div>
+		<div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_apoderado()">
+			  Validar Datos
+			</a>
+		</div>	
+</div>				
+<div id="datos-representante-legal2" style=" overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Clasificación del producto	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_representante_legal()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+<!--fin datos-drepresentate legal-->
+				
+<!--datos-Apoderado -->					
+<div id="datos-apoderado" class="row g-3"  style="display: none; overflow: hidden;">
+	
+<h2 class="mb-3">Mercado destino del producto</h2>
+	
+<div class="col-sm-4">
+                
+ 
+<style>
+
+#myInput {
+
+}
+
+#myUL, #myUL2 {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  max-width: 800px;
+max-height: 400px;
+overflow: hidden;
+overflow-y: scroll;
+border-radius: 0px !important;
+}
+
+#myUL li a {
+  
+}
+
+#myUL li a:hover:not(.header) {
+ 
+}
+	.etiqueta a{
+		padding: 15px; 
+		font-size: 16px;
+		overflow: hidden;
+		display: block;
+		border: 1px solid rgba(232,232,232,1.00);
+		cursor: pointer;
+	}
+
+	</style>
+	<div class="list-group-item" style="padding: 0px; padding-bottom: 4px;">
+		<div class="form-floating">
+		 <input style=" border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px; !important" type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Ejemplo: Mermelada, conservas, dulces, etc">
+		 <label for="buscarconf">Buscar / Filtrar por País</label>
+		</div>
+	</div>
+
+
+<ul id="myUL" class="list-group" style="padding: 0px;">
+<li class="etiqueta" id="AR2"><a onClick="agregarAR()"><b>Argentina</b> <span class="badge text-bg-secondary">AR</span></a></li>
+<li class="etiqueta" id="AX2"><a onClick="agregarAX()">Islas Åland <span class="badge text-bg-secondary">AX</span></a></li>
+<li class="etiqueta" id="AL2"><a onClick="agregarAL()">Albania <span class="badge text-bg-secondary">AL</span></a></li>
+<li class="etiqueta" id="DZ2"><a onClick="agregarDZ()">Argelia <span class="badge text-bg-secondary">DZ</span></a></li>
+<li class="etiqueta" id="AS2"><a onClick="agregarAS()">Samoa Americana <span class="badge text-bg-secondary">AS</span></a></li>
+<li class="etiqueta" id="AD2"><a onClick="agregarAD()">Andorra <span class="badge text-bg-secondary">AD</span></a></li>
+<li class="etiqueta" id="AO2"><a onClick="agregarAO()">Angola <span class="badge text-bg-secondary">AO</span></a></li>
+<li class="etiqueta" id="AI2"><a onClick="agregarAI()">Anguila <span class="badge text-bg-secondary">AI</span></a></li>
+<li class="etiqueta" id="AG2"><a onClick="agregarAG()">Antigua y Barbuda <span class="badge text-bg-secondary">AG</span></a></li>
+
+<li class="etiqueta" id="AM2"><a onClick="agregarAM()">Armenia <span class="badge text-bg-secondary">AM</span></a></li>
+<li class="etiqueta" id="AW2"><a onClick="agregarAW()">Aruba <span class="badge text-bg-secondary">AW</span></a></li>
+<li class="etiqueta" id="AU2"><a onClick="agregarAU()">Australia <span class="badge text-bg-secondary">AU</span></a></li>
+<li class="etiqueta" id="AT2"><a onClick="agregarAT()">Austria <span class="badge text-bg-secondary">AT</span></a></li>
+<li class="etiqueta" id="AZ2"><a onClick="agregarAZ()">Azerbaiyán <span class="badge text-bg-secondary">AZ</span></a></li>
+<li class="etiqueta" id="BS2"><a onClick="agregarBS()">Bahamas <span class="badge text-bg-secondary">BS</span></a></li>
+<li class="etiqueta" id="BH2"><a onClick="agregarBH()">Baréin <span class="badge text-bg-secondary">BH</span></a></li>
+<li class="etiqueta" id="BD2"><a onClick="agregarBD()">Bangladesh <span class="badge text-bg-secondary">BD</span></a></li>
+<li class="etiqueta" id="BB2"><a onClick="agregarBB()">Barbados <span class="badge text-bg-secondary">BB</span></a></li>
+<li class="etiqueta" id="BY2"><a onClick="agregarBY()">Bielorrusia <span class="badge text-bg-secondary">BY</span></a></li>
+<li class="etiqueta" id="BE2"><a onClick="agregarBE()">Bélgica <span class="badge text-bg-secondary">BE</span></a></li>
+<li class="etiqueta" id="BZ2"><a onClick="agregarBZ()">Belice <span class="badge text-bg-secondary">BZ</span></a></li>
+<li class="etiqueta" id="BJ2"><a onClick="agregarBJ()">Benín <span class="badge text-bg-secondary">BJ</span></a></li>
+<li class="etiqueta" id="BM2"><a onClick="agregarBM()">Bermudas <span class="badge text-bg-secondary">BM</span></a></li>
+<li class="etiqueta" id="BT2"><a onClick="agregarBT()">Bután <span class="badge text-bg-secondary">BT</span></a></li>
+<li class="etiqueta" id="BO2"><a onClick="agregarBO()">Bolivia <span class="badge text-bg-secondary">BO</span></a></li>
+<li class="etiqueta" id="BQ2"><a onClick="agregarBQ()">Bonaire, San Eustaquio y Saba <span class="badge text-bg-secondary">BQ</span></a></li>
+<li class="etiqueta" id="BA2"><a onClick="agregarBA()">Bosnia y Herzegovina <span class="badge text-bg-secondary">BA</span></a></li>
+<li class="etiqueta" id="BW2"><a onClick="agregarBW()">Botsuana <span class="badge text-bg-secondary">BW</span></a></li>
+<li class="etiqueta" id="BR2"><a onClick="agregarBR()">Brasil <span class="badge text-bg-secondary">BR</span></a></li>
+<li class="etiqueta" id="BN2"><a onClick="agregarBN()">Brunéi Darussalam <span class="badge text-bg-secondary">BN</span></a></li>
+<li class="etiqueta" id="BG2"><a onClick="agregarBG()">Bulgaria <span class="badge text-bg-secondary">BG</span></a></li>
+<li class="etiqueta" id="BF2"><a onClick="agregarBF()">Burkina Faso <span class="badge text-bg-secondary">BF</span></a></li>
+<li class="etiqueta" id="BI2"><a onClick="agregarBI()">Burundi <span class="badge text-bg-secondary">BI</span></a></li>
+<li class="etiqueta" id="KH2"><a onClick="agregarKH()">Camboya <span class="badge text-bg-secondary">KH</span></a></li>
+<li class="etiqueta" id="CM2"><a onClick="agregarCM()">Camerún <span class="badge text-bg-secondary">CM</span></a></li>
+<li class="etiqueta" id="CA2"><a onClick="agregarCA()">Canadá <span class="badge text-bg-secondary">CA</span></a></li>
+<li class="etiqueta" id="IC2"><a onClick="agregarIC()">Islas Canarias, España <span class="badge text-bg-secondary">IC</span></a></li>
+<li class="etiqueta" id="CV2"><a onClick="agregarCV()">Cabo Verde <span class="badge text-bg-secondary">CV</span></a></li>
+<li class="etiqueta" id="KY2"><a onClick="agregarKY()">Islas Caimán <span class="badge text-bg-secondary">KY</span></a></li>
+<li class="etiqueta" id="CF2"><a onClick="agregarCF()">República Centroafricana <span class="badge text-bg-secondary">CF</span></a></li>
+<li class="etiqueta" id="TD2"><a onClick="agregarTD()">Chad <span class="badge text-bg-secondary">TD</span></a></li>
+<li class="etiqueta" id="CL2"><a onClick="agregarCL()">Chile <span class="badge text-bg-secondary">CL</span></a></li>
+<li class="etiqueta" id="CN2"><a onClick="agregarCN()">China, República Popular de <span class="badge text-bg-secondary">CN</span></a></li>
+<li class="etiqueta" id="CO2"><a onClick="agregarCO()">Colombia <span class="badge text-bg-secondary">CO</span></a></li>
+<li class="etiqueta" id="KM2"><a onClick="agregarKM()">Comoras <span class="badge text-bg-secondary">KM</span></a></li>
+<li class="etiqueta" id="CG2"><a onClick="agregarCG()">Congo <span class="badge text-bg-secondary">CG</span></a></li>
+<li class="etiqueta" id="CK2"><a onClick="agregarCK()">Islas Cook <span class="badge text-bg-secondary">CK</span></a></li>
+<li class="etiqueta" id="CR2"><a onClick="agregarCR()">Costa Rica <span class="badge text-bg-secondary">CR</span></a></li>
+<li class="etiqueta" id="HR2"><a onClick="agregarHR()">Croacia <span class="badge text-bg-secondary">HR</span></a></li>
+<li class="etiqueta" id="CW2"><a onClick="agregarCW()">Curazao <span class="badge text-bg-secondary">CW</span></a></li>
+<li class="etiqueta" id="CY2"><a onClick="agregarCY()">Chipre <span class="badge text-bg-secondary">CY</span></a></li>
+<li class="etiqueta" id="CZ2"><a onClick="agregarCZ()">República Checa <span class="badge text-bg-secondary">CZ</span></a></li>
+<li class="etiqueta" id="DK2"><a onClick="agregarDK()">Dinamarca <span class="badge text-bg-secondary">DK</span></a></li>
+<li class="etiqueta" id="DJ2"><a onClick="agregarDJ()">Yibuti <span class="badge text-bg-secondary">DJ</span></a></li>
+<li class="etiqueta" id="DM2"><a onClick="agregarDM()">Dominica <span class="badge text-bg-secondary">DM</span></a></li>
+<li class="etiqueta" id="DO2"><a onClick="agregarDO()">República Dominicana <span class="badge text-bg-secondary">DO</span></a></li>
+<li class="etiqueta" id="EC2"><a onClick="agregarEC()">Ecuador <span class="badge text-bg-secondary">EC</span></a></li>
+<li class="etiqueta" id="EG2"><a onClick="agregarEG()">Egipto <span class="badge text-bg-secondary">EG</span></a></li>
+<li class="etiqueta" id="SV2"><a onClick="agregarSV()">El Salvador <span class="badge text-bg-secondary">SV</span></a></li>
+<li class="etiqueta" id="GQ2"><a onClick="agregarGQ()">Guinea Ecuatorial <span class="badge text-bg-secondary">GQ</span></a></li>
+<li class="etiqueta" id="ER2"><a onClick="agregarER()">Eritrea <span class="badge text-bg-secondary">ER</span></a></li>
+<li class="etiqueta" id="EE2"><a onClick="agregarEE()">Estonia <span class="badge text-bg-secondary">EE</span></a></li>
+<li class="etiqueta" id="ET2"><a onClick="agregarET()">Etiopía <span class="badge text-bg-secondary">ET</span></a></li>
+<li class="etiqueta" id="FK2"><a onClick="agregarFK()">Islas Malvinas (Falkland) <span class="badge text-bg-secondary">FK</span></a></li>
+<li class="etiqueta" id="FO2"><a onClick="agregarFO()">Islas Feroe (Dinamarca) <span class="badge text-bg-secondary">FO</span></a></li>
+<li class="etiqueta" id="FJ2"><a onClick="agregarFJ()">Fiyi <span class="badge text-bg-secondary">FJ</span></a></li>
+<li class="etiqueta" id="FI2"><a onClick="agregarFI()">Finlandia <span class="badge text-bg-secondary">FI</span></a></li>
+<li class="etiqueta" id="FR2"><a onClick="agregarFR()">Francia <span class="badge text-bg-secondary">FR</span></a></li>
+<li class="etiqueta" id="GF2"><a onClick="agregarGF()">Guayana Francesa <span class="badge text-bg-secondary">GF</span></a></li>
+<li class="etiqueta" id="PF2"><a onClick="agregarPF()">Polinesia Francesa (Tahití) <span class="badge text-bg-secondary">PF</span></a></li>
+<li class="etiqueta" id="TF2"><a onClick="agregarTF()">Territorios Australes Franceses <span class="badge text-bg-secondary">TF</span></a></li>
+<li class="etiqueta" id="GA2"><a onClick="agregarGA()">Gabón <span class="badge text-bg-secondary">GA</span></a></li>
+<li class="etiqueta" id="GM2"><a onClick="agregarGM()">Gambia <span class="badge text-bg-secondary">GM</span></a></li>
+<li class="etiqueta" id="GE2"><a onClick="agregarGE()">Georgia <span class="badge text-bg-secondary">GE</span></a></li>
+<li class="etiqueta" id="DE2"><a onClick="agregarDE()">Alemania <span class="badge text-bg-secondary">DE</span></a></li>
+<li class="etiqueta" id="GH2"><a onClick="agregarGH()">Ghana <span class="badge text-bg-secondary">GH</span></a></li>
+<li class="etiqueta" id="GI2"><a onClick="agregarGI()">Gibraltar <span class="badge text-bg-secondary">GI</span></a></li>
+<li class="etiqueta" id="GR2"><a onClick="agregarGR()">Grecia <span class="badge text-bg-secondary">GR</span></a></li>
+<li class="etiqueta" id="GL2"><a onClick="agregarGL()">Groenlandia (Dinamarca) <span class="badge text-bg-secondary">GL</span></a></li>
+<li class="etiqueta" id="GD2"><a onClick="agregarGD()">Granada <span class="badge text-bg-secondary">GD</span></a></li>
+<li class="etiqueta" id="GP2"><a onClick="agregarGP()">Guadalupe <span class="badge text-bg-secondary">GP</span></a></li>
+<li class="etiqueta" id="GU2"><a onClick="agregarGU()">Guam <span class="badge text-bg-secondary">GU</span></a></li>
+<li class="etiqueta" id="GT2"><a onClick="agregarGT()">Guatemala <span class="badge text-bg-secondary">GT</span></a></li>
+<li class="etiqueta" id="GG2"><a onClick="agregarGG()">Guernsey <span class="badge text-bg-secondary">GG</span></a></li>
+<li class="etiqueta" id="GN2"><a onClick="agregarGN()">Guinea <span class="badge text-bg-secondary">GN</span></a></li>
+<li class="etiqueta" id="GW2"><a onClick="agregarGW()">Guinea-Bissau <span class="badge text-bg-secondary">GW</span></a></li>
+<li class="etiqueta" id="GY2"><a onClick="agregarGY()">Guyana <span class="badge text-bg-secondary">GY</span></a></li>
+<li class="etiqueta" id="HT2"><a onClick="agregarHT()">Haití <span class="badge text-bg-secondary">HT</span></a></li>
+<li class="etiqueta" id="HM2"><a onClick="agregarHM()">Islas Heard y McDonald <span class="badge text-bg-secondary">HM</span></a></li>
+<li class="etiqueta" id="HN2"><a onClick="agregarHN()">Honduras <span class="badge text-bg-secondary">HN</span></a></li>
+<li class="etiqueta" id="HK2"><a onClick="agregarHK()">Hong Kong <span class="badge text-bg-secondary">HK</span></a></li>
+<li class="etiqueta" id="HU2"><a onClick="agregarHU()">Hungría <span class="badge text-bg-secondary">HU</span></a></li>
+<li class="etiqueta" id="IS2"><a onClick="agregarIS()">Islandia <span class="badge text-bg-secondary">IS</span></a></li>
+<li class="etiqueta" id="IN2"><a onClick="agregarIN()">India <span class="badge text-bg-secondary">IN</span></a></li>
+<li class="etiqueta" id="ID2"><a onClick="agregarID()">Indonesia <span class="badge text-bg-secondary">ID</span></a></li>
+<li class="etiqueta" id="IQ2"><a onClick="agregarIQ()">Irak <span class="badge text-bg-secondary">IQ</span></a></li>
+<li class="etiqueta" id="IE2"><a onClick="agregarIE()">Irlanda <span class="badge text-bg-secondary">IE</span></a></li>
+<li class="etiqueta" id="IM2"><a onClick="agregarIM()">Isla de Man <span class="badge text-bg-secondary">IM</span></a></li>
+<li class="etiqueta" id="IL2"><a onClick="agregarIL()">Israel <span class="badge text-bg-secondary">IL</span></a></li>
+<li class="etiqueta" id="IT2"><a onClick="agregarIT()">Italia <span class="badge text-bg-secondary">IT</span></a></li>
+<li class="etiqueta" id="CI2"><a onClick="agregarCI()">Costa de Marfil <span class="badge text-bg-secondary">CI</span></a></li>
+<li class="etiqueta" id="JM2"><a onClick="agregarJM()">Jamaica <span class="badge text-bg-secondary">JM</span></a></li>
+<li class="etiqueta" id="JP2"><a onClick="agregarJP()">Japón <span class="badge text-bg-secondary">JP</span></a></li>
+<li class="etiqueta" id="JE2"><a onClick="agregarJE()">Jersey <span class="badge text-bg-secondary">JE</span></a></li>
+<li class="etiqueta" id="JO2"><a onClick="agregarJO()">Jordania <span class="badge text-bg-secondary">JO</span></a></li>
+<li class="etiqueta" id="KZ2"><a onClick="agregarKZ()">Kazajistán <span class="badge text-bg-secondary">KZ</span></a></li>
+<li class="etiqueta" id="KE2"><a onClick="agregarKE()">Kenia <span class="badge text-bg-secondary">KE</span></a></li>
+<li class="etiqueta" id="KI2"><a onClick="agregarKI()">Kiribati <span class="badge text-bg-secondary">KI</span></a></li>
+<li class="etiqueta" id="KR2"><a onClick="agregarKR()">Corea, República de <span class="badge text-bg-secondary">KR</span></a></li>
+<li class="etiqueta" id="KW2"><a onClick="agregarKW()">Kuwait <span class="badge text-bg-secondary">KW</span></a></li>
+<li class="etiqueta" id="KG2"><a onClick="agregarKG()">Kirguistán <span class="badge text-bg-secondary">KG</span></a></li>
+<li class="etiqueta" id="LA2"><a onClick="agregarLA()">Laos <span class="badge text-bg-secondary">LA</span></a></li>
+<li class="etiqueta" id="LV2"><a onClick="agregarLV()">Letonia <span class="badge text-bg-secondary">LV</span></a></li>
+<li class="etiqueta" id="LB2"><a onClick="agregarLB()">Líbano <span class="badge text-bg-secondary">LB</span></a></li>
+<li class="etiqueta" id="LS2"><a onClick="agregarLS()">Lesoto <span class="badge text-bg-secondary">LS</span></a></li>
+<li class="etiqueta" id="LR2"><a onClick="agregarLR()">Liberia <span class="badge text-bg-secondary">LR</span></a></li>
+<li class="etiqueta" id="LI2"><a onClick="agregarLI()">Liechtenstein <span class="badge text-bg-secondary">LI</span></a></li>
+<li class="etiqueta" id="LT2"><a onClick="agregarLT()">Lituania <span class="badge text-bg-secondary">LT</span></a></li>
+<li class="etiqueta" id="LU2"><a onClick="agregarLU()">Luxemburgo <span class="badge text-bg-secondary">LU</span></a></li>
+<li class="etiqueta" id="MO2"><a onClick="agregarMO()">Macao <span class="badge text-bg-secondary">MO</span></a></li>
+<li class="etiqueta" id="MK2"><a onClick="agregarMK()">Macedonia <span class="badge text-bg-secondary">MK</span></a></li>
+<li class="etiqueta" id="MG2"><a onClick="agregarMG()">Madagascar <span class="badge text-bg-secondary">MG</span></a></li>
+<li class="etiqueta" id="MW2"><a onClick="agregarMW()">Malaui <span class="badge text-bg-secondary">MW</span></a></li>
+<li class="etiqueta" id="MY2"><a onClick="agregarMY()">Malasia <span class="badge text-bg-secondary">MY</span></a></li>
+<li class="etiqueta" id="MV2"><a onClick="agregarMV()">Maldivas <span class="badge text-bg-secondary">MV</span></a></li>
+<li class="etiqueta" id="ML2"><a onClick="agregarML()">Malí <span class="badge text-bg-secondary">ML</span></a></li>
+<li class="etiqueta" id="MT2"><a onClick="agregarMT()">Malta <span class="badge text-bg-secondary">MT</span></a></li>
+<li class="etiqueta" id="MH2"><a onClick="agregarMH()">Islas Marshall <span class="badge text-bg-secondary">MH</span></a></li>
+<li class="etiqueta" id="MQ2"><a onClick="agregarMQ()">Martinica <span class="badge text-bg-secondary">MQ</span></a></li>
+<li class="etiqueta" id="MR2"><a onClick="agregarMR()">Mauritania <span class="badge text-bg-secondary">MR</span></a></li>
+<li class="etiqueta" id="MU2"><a onClick="agregarMU()">Mauricio <span class="badge text-bg-secondary">MU</span></a></li>
+<li class="etiqueta" id="YT2"><a onClick="agregarYT()">Mayotte <span class="badge text-bg-secondary">YT</span></a></li>
+<li class="etiqueta" id="MX2"><a onClick="agregarMX()">México <span class="badge text-bg-secondary">MX</span></a></li>
+<li class="etiqueta" id="FM2"><a onClick="agregarFM()">Micronesia, Estados Federados de <span class="badge text-bg-secondary">FM</span></a></li>
+<li class="etiqueta" id="MD2"><a onClick="agregarMD()">Moldavia <span class="badge text-bg-secondary">MD</span></a></li>
+<li class="etiqueta" id="MC2"><a onClick="agregarMC()">Mónaco <span class="badge text-bg-secondary">MC</span></a></li>
+<li class="etiqueta" id="MN2"><a onClick="agregarMN()">Mongolia <span class="badge text-bg-secondary">MN</span></a></li>
+<li class="etiqueta" id="ME2"><a onClick="agregarME()">Montenegro <span class="badge text-bg-secondary">ME</span></a></li>
+<li class="etiqueta" id="MS2"><a onClick="agregarMS()">Montserrat <span class="badge text-bg-secondary">MS</span></a></li>
+<li class="etiqueta" id="MA2"><a onClick="agregarMA()">Marruecos <span class="badge text-bg-secondary">MA</span></a></li>
+<li class="etiqueta" id="MZ2"><a onClick="agregarMZ()">Mozambique <span class="badge text-bg-secondary">MZ</span></a></li>
+<li class="etiqueta" id="MM2"><a onClick="agregarMM()">Myanmar <span class="badge text-bg-secondary">MM</span></a></li>
+<li class="etiqueta" id="NA2"><a onClick="agregarNA()">Namibia <span class="badge text-bg-secondary">NA</span></a></li>
+<li class="etiqueta" id="NR2"><a onClick="agregarNR()">Nauru, República de <span class="badge text-bg-secondary">NR</span></a></li>
+<li class="etiqueta" id="NP2"><a onClick="agregarNP()">Nepal <span class="badge text-bg-secondary">NP</span></a></li>
+<li class="etiqueta" id="NL2"><a onClick="agregarNL()">Países Bajos <span class="badge text-bg-secondary">NL</span></a></li>
+<li class="etiqueta" id="NC2"><a onClick="agregarNC()">Nueva Caledonia <span class="badge text-bg-secondary">NC</span></a></li>
+<li class="etiqueta" id="NZ2"><a onClick="agregarNZ()">Nueva Zelanda <span class="badge text-bg-secondary">NZ</span></a></li>
+<li class="etiqueta" id="NI2"><a onClick="agregarNI()">Nicaragua <span class="badge text-bg-secondary">NI</span></a></li>
+<li class="etiqueta" id="NE2"><a onClick="agregarNE()">Níger <span class="badge text-bg-secondary">NE</span></a></li>
+<li class="etiqueta" id="NG2"><a onClick="agregarNG()">Nigeria <span class="badge text-bg-secondary">NG</span></a></li>
+<li class="etiqueta" id="NU2"><a onClick="agregarNU()">Isla Niue <span class="badge text-bg-secondary">NU</span></a></li>
+<li class="etiqueta" id="NF2"><a onClick="agregarNF()">Isla Norfolk <span class="badge text-bg-secondary">NF</span></a></li>
+<li class="etiqueta" id="MP2"><a onClick="agregarMP()">Islas Marianas del Norte <span class="badge text-bg-secondary">MP</span></a></li>
+<li class="etiqueta" id="NO2"><a onClick="agregarNO()">Noruega <span class="badge text-bg-secondary">NO</span></a></li>
+<li class="etiqueta" id="OM2"><a onClick="agregarOM()">Omán <span class="badge text-bg-secondary">OM</span></a></li>
+<li class="etiqueta" id="PK2"><a onClick="agregarPK()">Pakistán <span class="badge text-bg-secondary">PK</span></a></li>
+<li class="etiqueta" id="PW2"><a onClick="agregarPW()">Palaos <span class="badge text-bg-secondary">PW</span></a></li>
+<li class="etiqueta" id="PS2"><a onClick="agregarPS()">Palestina <span class="badge text-bg-secondary">PS</span></a></li>
+<li class="etiqueta" id="PA2"><a onClick="agregarPA()">Panamá <span class="badge text-bg-secondary">PA</span></a></li>
+<li class="etiqueta" id="PG2"><a onClick="agregarPG()">Papúa Nueva Guinea <span class="badge text-bg-secondary">PG</span></a></li>
+<li class="etiqueta" id="PY2"><a onClick="agregarPY()">Paraguay <span class="badge text-bg-secondary">PY</span></a></li>
+<li class="etiqueta" id="PE2"><a onClick="agregarPE()">Perú <span class="badge text-bg-secondary">PE</span></a></li>
+<li class="etiqueta" id="PH2"><a onClick="agregarPH()">Filipinas <span class="badge text-bg-secondary">PH</span></a></li>
+<li class="etiqueta" id="PN2"><a onClick="agregarPN()">Pitcairn <span class="badge text-bg-secondary">PN</span></a></li>
+<li class="etiqueta" id="PL2"><a onClick="agregarPL()">Polonia <span class="badge text-bg-secondary">PL</span></a></li>
+<li class="etiqueta" id="PT2"><a onClick="agregarPT()">Portugal <span class="badge text-bg-secondary">PT</span></a></li>
+<li class="etiqueta" id="PR2"><a onClick="agregarPR()">Puerto Rico <span class="badge text-bg-secondary">PR</span></a></li>
+<li class="etiqueta" id="QA2"><a onClick="agregarQA()">Catar <span class="badge text-bg-secondary">QA</span></a></li>
+<li class="etiqueta" id="RE2"><a onClick="agregarRE()">Reunión <span class="badge text-bg-secondary">RE</span></a></li>
+<li class="etiqueta" id="RO2"><a onClick="agregarRO()">Rumania <span class="badge text-bg-secondary">RO</span></a></li>
+<li class="etiqueta" id="RU2"><a onClick="agregarRU()">Rusia <span class="badge text-bg-secondary">RU</span></a></li>
+<li class="etiqueta" id="RW2"><a onClick="agregarRW()">Ruanda <span class="badge text-bg-secondary">RW</span></a></li>
+<li class="etiqueta" id="SH2"><a onClick="agregarSH()">Santa Elena <span class="badge text-bg-secondary">SH</span></a></li>
+<li class="etiqueta" id="PM2"><a onClick="agregarPM()">San Pedro y Miquelón <span class="badge text-bg-secondary">PM</span></a></li>
+<li class="etiqueta" id="WS2"><a onClick="agregarWS()">Samoa <span class="badge text-bg-secondary">WS</span></a></li>
+<li class="etiqueta" id="SM2"><a onClick="agregarSM()">San Marino <span class="badge text-bg-secondary">SM</span></a></li>
+<li class="etiqueta" id="ST2"><a onClick="agregarST()">Santo Tomé y Príncipe <span class="badge text-bg-secondary">ST</span></a></li>
+<li class="etiqueta" id="SA2"><a onClick="agregarSA()">Arabia Saudita <span class="badge text-bg-secondary">SA</span></a></li>
+<li class="etiqueta" id="SN2"><a onClick="agregarSN()">Senegal <span class="badge text-bg-secondary">SN</span></a></li>
+<li class="etiqueta" id="RS2"><a onClick="agregarRS()">Serbia <span class="badge text-bg-secondary">RS</span></a></li>
+<li class="etiqueta" id="SC2"><a onClick="agregarSC()">Seychelles <span class="badge text-bg-secondary">SC</span></a></li>
+<li class="etiqueta" id="SL2"><a onClick="agregarSL()">Sierra Leona <span class="badge text-bg-secondary">SL</span></a></li>
+<li class="etiqueta" id="SG2"><a onClick="agregarSG()">Singapur <span class="badge text-bg-secondary">SG</span></a></li>
+<li class="etiqueta" id="SK2"><a onClick="agregarSK()">Eslovaquia <span class="badge text-bg-secondary">SK</span></a></li>
+<li class="etiqueta" id="SI2"><a onClick="agregarSI()">Eslovenia <span class="badge text-bg-secondary">SI</span></a></li>
+<li class="etiqueta" id="SB2"><a onClick="agregarSB()">Islas Salomón <span class="badge text-bg-secondary">SB</span></a></li>
+<li class="etiqueta" id="ZA2"><a onClick="agregarZA()">Sudáfrica <span class="badge text-bg-secondary">ZA</span></a></li>
+<li class="etiqueta" id="SS2"><a onClick="agregarSS()">Sudán del Sur <span class="badge text-bg-secondary">SS</span></a></li>
+<li class="etiqueta" id="ES2"><a onClick="agregarES()">España <span class="badge text-bg-secondary">ES</span></a></li>
+<li class="etiqueta" id="LK2"><a onClick="agregarLK()">Sri Lanka <span class="badge text-bg-secondary">LK</span></a></li>
+<li class="etiqueta" id="BL2"><a onClick="agregarBL()">San Bartolomé <span class="badge text-bg-secondary">BL</span></a></li>
+<li class="etiqueta" id="KN2"><a onClick="agregarKN()">San Cristóbal y Nieves <span class="badge text-bg-secondary">KN</span></a></li>
+<li class="etiqueta" id="LC2"><a onClick="agregarLC()">Santa Lucía <span class="badge text-bg-secondary">LC</span></a></li>
+<li class="etiqueta" id="MF2"><a onClick="agregarMF()">San Martín <span class="badge text-bg-secondary">MF</span></a></li>
+<li class="etiqueta" id="VC2"><a onClick="agregarVC()">San Vicente <span class="badge text-bg-secondary">VC</span></a></li>
+<li class="etiqueta" id="SD2"><a onClick="agregarSD()">Sudán <span class="badge text-bg-secondary">SD</span></a></li>
+<li class="etiqueta" id="SR2"><a onClick="agregarSR()">Surinam <span class="badge text-bg-secondary">SR</span></a></li>
+<li class="etiqueta" id="SJ2"><a onClick="agregarSJ()">Svaldbard <span class="badge text-bg-secondary">SJ</span></a></li>
+<li class="etiqueta" id="SZ2"><a onClick="agregarSZ()">Suazilandia <span class="badge text-bg-secondary">SZ</span></a></li>
+<li class="etiqueta" id="SE2"><a onClick="agregarSE()">Suecia <span class="badge text-bg-secondary">SE</span></a></li>
+<li class="etiqueta" id="CH2"><a onClick="agregarCH()">Suiza <span class="badge text-bg-secondary">CH</span></a></li>
+<li class="etiqueta" id="TW2"><a onClick="agregarTW()">Taiwán <span class="badge text-bg-secondary">TW</span></a></li>
+<li class="etiqueta" id="TJ2"><a onClick="agregarTJ()">Tayikistán <span class="badge text-bg-secondary">TJ</span></a></li>
+<li class="etiqueta" id="TZ2"><a onClick="agregarTZ()">Tanzania <span class="badge text-bg-secondary">TZ</span></a></li>
+<li class="etiqueta" id="TH2"><a onClick="agregarTH()">Tailandia <span class="badge text-bg-secondary">TH</span></a></li>
+<li class="etiqueta" id="TL2"><a onClick="agregarTL()">Timor-Leste <span class="badge text-bg-secondary">TL</span></a></li>
+<li class="etiqueta" id="TG2"><a onClick="agregarTG()">Togo <span class="badge text-bg-secondary">TG</span></a></li>
+<li class="etiqueta" id="TK2"><a onClick="agregarTK()">Tokelau <span class="badge text-bg-secondary">TK</span></a></li>
+<li class="etiqueta" id="TO2"><a onClick="agregarTO()">Tonga <span class="badge text-bg-secondary">TO</span></a></li>
+<li class="etiqueta" id="TT2"><a onClick="agregarTT()">Trinidad y Tobago <span class="badge text-bg-secondary">TT</span></a></li>
+<li class="etiqueta" id="TN2"><a onClick="agregarTN()">Túnez <span class="badge text-bg-secondary">TN</span></a></li>
+<li class="etiqueta" id="TR2"><a onClick="agregarTR()">Turquía <span class="badge text-bg-secondary">TR</span></a></li>
+<li class="etiqueta" id="TM2"><a onClick="agregarTM()">Turkmenistán <span class="badge text-bg-secondary">TM</span></a></li>
+<li class="etiqueta" id="TC2"><a onClick="agregarTC()">Islas Turcas y Caicos <span class="badge text-bg-secondary">TC</span></a></li>
+<li class="etiqueta" id="TV2"><a onClick="agregarTV()">Tuvalu <span class="badge text-bg-secondary">TV</span></a></li>
+<li class="etiqueta" id="UG2"><a onClick="agregarUG()">Uganda <span class="badge text-bg-secondary">UG</span></a></li>
+<li class="etiqueta" id="UA2"><a onClick="agregarUA()">Ucrania <span class="badge text-bg-secondary">UA</span></a></li>
+<li class="etiqueta" id="AE2"><a onClick="agregarAE()">Emiratos Árabes Unidos <span class="badge text-bg-secondary">AE</span></a></li>
+<li class="etiqueta" id="GB2"><a onClick="agregarGB()">Reino Unido <span class="badge text-bg-secondary">GB</span></a></li>
+<li class="etiqueta" id="US2"><a onClick="agregarUS()">Estados Unidos <span class="badge text-bg-secondary">US</span></a></li>
+<li class="etiqueta" id="UM2"><a onClick="agregarUM()">Islas Ultramarinas Menores de Estados Unidos <span class="badge text-bg-secondary">UM</span></a></li>
+<li class="etiqueta" id="UY2"><a onClick="agregarUY()">Uruguay <span class="badge text-bg-secondary">UY</span></a></li>
+<li class="etiqueta" id="UZ2"><a onClick="agregarUZ()">Uzbekistán <span class="badge text-bg-secondary">UZ</span></a></li>
+<li class="etiqueta" id="VU2"><a onClick="agregarVU()">Vanuatu <span class="badge text-bg-secondary">VU</span></a></li>
+<li class="etiqueta" id="VA2"><a onClick="agregarVA()">Ciudad del Vaticano <span class="badge text-bg-secondary">VA</span></a></li>
+<li class="etiqueta" id="VE2"><a onClick="agregarVE()">Venezuela <span class="badge text-bg-secondary">VE</span></a></li>
+<li class="etiqueta" id="VN2"><a onClick="agregarVN()">Vietnam <span class="badge text-bg-secondary">VN</span></a></li>
+<li class="etiqueta" id="VG2"><a onClick="agregarVG()">Islas Vírgenes (Británicas) <span class="badge text-bg-secondary">VG</span></a></li>
+<li class="etiqueta" id="VI2"><a onClick="agregarVI()">Islas Vírgenes (EE.UU.) <span class="badge text-bg-secondary">VI</span></a></li>
+<li class="etiqueta" id="WF2"><a onClick="agregarWF()">Wallis y Futuna <span class="badge text-bg-secondary">WF</span></a></li>
+<li class="etiqueta" id="EH2"><a onClick="agregarEH()">Sahara Occidental <span class="badge text-bg-secondary">EH</span></a></li>
+<li class="etiqueta" id="YE2"><a onClick="agregarYE()">Yemen <span class="badge text-bg-secondary">YE</span></a></li>
+<li class="etiqueta" id="ZM2"><a onClick="agregarZM()">Zambia <span class="badge text-bg-secondary">ZM</span></a></li>
+<li class="etiqueta" id="ZW2"><a onClick="agregarZW()">Zimbabue <span class="badge text-bg-secondary">ZW</span></a></li>	
+	</ul>	
+
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</div>
+<div class="col-sm-4">
+                
+ 
+	<div class="list-group-item" style="padding: 0px; padding-bottom: 4px;">
+		<div class="form-floating">
+		 <input style=" border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px; !important" type="text" class="form-control" id="myInput2" onkeyup="myFunction2()" placeholder="">
+		 <label for="buscarconf">Buscar / Filtrar por Zona</label>
+		</div>
+	</div>
+
+
+<ul id="myUL2" class="list-group" style="padding: 0px;">
+<li class="etiqueta" id="AmericaS"><a onClick="
+	agregarAR();
+	agregarBO();
+	agregarBR();
+	agregarCO();
+	agregarEC();
+	agregarCL();
+	agregarPE();
+	agregarPY();
+	agregarUY();
+	agregarVE();"><b>América del sur</b></a>
+	</li>
+	
+<li class="etiqueta" id="AmericaN"><a onClick="
+	agregarUS();
+	agregarCA();
+	agregarMX();"><b>América del Norte</b></a>
+	</li>
+<li class="etiqueta" id="AmericaC"><a onClick="
+	agregarBZ();
+	agregarCR();
+	agregarSV();
+	agregarGT();
+	agregarHN();
+	agregarNI();
+	agregarPA();"><b>América del Central</b></a>
+	</li>
+	
+<li class="etiqueta" id="caribe"><a onClick="
+	agregarAG();
+agregarAW();
+agregarBS();
+agregarBB();
+agregarCU();
+agregarCW();
+agregarDM();
+agregarGD();
+agregarHT();
+agregarJM();
+agregarDO();
+agregarKN();
+agregarVC();
+agregarLC();
+agregarTT();"><b>Islas del Caribe</b></a>
+	</li>
+</ul>	
+
+
+<script>
+function myFunction2() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput2');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL2");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</div>	
+<div class="col-4">
+	<script>
+	
+function agregarAX() {$("#AX1").slideDown(100);$("#AX2").slideUp(100);}
+ function borrarAX() {$("#AX1").slideUp(100);$("#AX").slideDown(100);}
+
+function agregarAL() {$("#AL1").slideDown(100);$("#AL2").slideUp(100);}
+ function borrarAL() {$("#AL1").slideUp(100);$("#AL").slideDown(100);}
+
+function agregarDZ() {$("#DZ1").slideDown(100);$("#DZ2").slideUp(100);}
+ function borrarDZ() {$("#DZ1").slideUp(100);$("#DZ").slideDown(100);}
+
+function agregarAS() {$("#AS1").slideDown(100);$("#AS2").slideUp(100);}
+ function borrarAS() {$("#AS1").slideUp(100);$("#AS").slideDown(100);}
+
+function agregarAD() {$("#AD1").slideDown(100);$("#AD2").slideUp(100);}
+ function borrarAD() {$("#AD1").slideUp(100);$("#AD").slideDown(100);}
+
+function agregarAO() {$("#AO1").slideDown(100);$("#AO2").slideUp(100);}
+ function borrarAO() {$("#AO1").slideUp(100);$("#AO").slideDown(100);}
+
+function agregarAI() {$("#AI1").slideDown(100);$("#AI2").slideUp(100);}
+ function borrarAI() {$("#AI1").slideUp(100);$("#AI").slideDown(100);}
+
+function agregarAG() {$("#AG1").slideDown(100);$("#AG2").slideUp(100);}
+ function borrarAG() {$("#AG1").slideUp(100);$("#AG").slideDown(100);}
+
+function agregarAR() {$("#AR1").slideDown(100);$("#AR2").slideUp(100);}
+ function borrarAR() {$("#AR1").slideUp(100);$("#AR").slideDown(100);}
+
+function agregarAM() {$("#AM1").slideDown(100);$("#AM2").slideUp(100);}
+ function borrarAM() {$("#AM1").slideUp(100);$("#AM").slideDown(100);}
+
+function agregarAW() {$("#AW1").slideDown(100);$("#AW2").slideUp(100);}
+ function borrarAW() {$("#AW1").slideUp(100);$("#AW").slideDown(100);}
+
+function agregarAU() {$("#AU1").slideDown(100);$("#AU2").slideUp(100);}
+ function borrarAU() {$("#AU1").slideUp(100);$("#AU").slideDown(100);}
+
+function agregarAT() {$("#AT1").slideDown(100);$("#AT2").slideUp(100);}
+ function borrarAT() {$("#AT1").slideUp(100);$("#AT").slideDown(100);}
+
+function agregarAZ() {$("#AZ1").slideDown(100);$("#AZ2").slideUp(100);}
+ function borrarAZ() {$("#AZ1").slideUp(100);$("#AZ").slideDown(100);}
+
+function agregarBS() {$("#BS1").slideDown(100);$("#BS2").slideUp(100);}
+ function borrarBS() {$("#BS1").slideUp(100);$("#BS").slideDown(100);}
+
+function agregarBH() {$("#BH1").slideDown(100);$("#BH2").slideUp(100);}
+ function borrarBH() {$("#BH1").slideUp(100);$("#BH").slideDown(100);}
+
+function agregarBD() {$("#BD1").slideDown(100);$("#BD2").slideUp(100);}
+ function borrarBD() {$("#BD1").slideUp(100);$("#BD").slideDown(100);}
+
+function agregarBB() {$("#BB1").slideDown(100);$("#BB2").slideUp(100);}
+ function borrarBB() {$("#BB1").slideUp(100);$("#BB").slideDown(100);}
+
+function agregarBY() {$("#BY1").slideDown(100);$("#BY2").slideUp(100);}
+ function borrarBY() {$("#BY1").slideUp(100);$("#BY").slideDown(100);}
+
+function agregarBE() {$("#BE1").slideDown(100);$("#BE2").slideUp(100);}
+ function borrarBE() {$("#BE1").slideUp(100);$("#BE").slideDown(100);}
+
+function agregarBZ() {$("#BZ1").slideDown(100);$("#BZ2").slideUp(100);}
+ function borrarBZ() {$("#BZ1").slideUp(100);$("#BZ").slideDown(100);}
+
+function agregarBJ() {$("#BJ1").slideDown(100);$("#BJ2").slideUp(100);}
+ function borrarBJ() {$("#BJ1").slideUp(100);$("#BJ").slideDown(100);}
+
+function agregarBM() {$("#BM1").slideDown(100);$("#BM2").slideUp(100);}
+ function borrarBM() {$("#BM1").slideUp(100);$("#BM").slideDown(100);}
+
+function agregarBT() {$("#BT1").slideDown(100);$("#BT2").slideUp(100);}
+ function borrarBT() {$("#BT1").slideUp(100);$("#BT").slideDown(100);}
+
+function agregarBO() {$("#BO1").slideDown(100);$("#BO2").slideUp(100);}
+ function borrarBO() {$("#BO1").slideUp(100);$("#BO").slideDown(100);}
+
+function agregarBQ() {$("#BQ1").slideDown(100);$("#BQ2").slideUp(100);}
+ function borrarBQ() {$("#BQ1").slideUp(100);$("#BQ").slideDown(100);}
+
+function agregarBA() {$("#BA1").slideDown(100);$("#BA2").slideUp(100);}
+ function borrarBA() {$("#BA1").slideUp(100);$("#BA").slideDown(100);}
+
+function agregarBW() {$("#BW1").slideDown(100);$("#BW2").slideUp(100);}
+ function borrarBW() {$("#BW1").slideUp(100);$("#BW").slideDown(100);}
+
+function agregarBR() {$("#BR1").slideDown(100);$("#BR2").slideUp(100);}
+ function borrarBR() {$("#BR1").slideUp(100);$("#BR").slideDown(100);}
+
+function agregarBN() {$("#BN1").slideDown(100);$("#BN2").slideUp(100);}
+ function borrarBN() {$("#BN1").slideUp(100);$("#BN").slideDown(100);}
+
+function agregarBG() {$("#BG1").slideDown(100);$("#BG2").slideUp(100);}
+ function borrarBG() {$("#BG1").slideUp(100);$("#BG").slideDown(100);}
+
+function agregarBF() {$("#BF1").slideDown(100);$("#BF2").slideUp(100);}
+ function borrarBF() {$("#BF1").slideUp(100);$("#BF").slideDown(100);}
+
+function agregarBI() {$("#BI1").slideDown(100);$("#BI2").slideUp(100);}
+ function borrarBI() {$("#BI1").slideUp(100);$("#BI").slideDown(100);}
+
+function agregarKH() {$("#KH1").slideDown(100);$("#KH2").slideUp(100);}
+ function borrarKH() {$("#KH1").slideUp(100);$("#KH").slideDown(100);}
+
+function agregarCM() {$("#CM1").slideDown(100);$("#CM2").slideUp(100);}
+ function borrarCM() {$("#CM1").slideUp(100);$("#CM").slideDown(100);}
+
+function agregarCA() {$("#CA1").slideDown(100);$("#CA2").slideUp(100);}
+ function borrarCA() {$("#CA1").slideUp(100);$("#CA").slideDown(100);}
+
+function agregarIC() {$("#IC1").slideDown(100);$("#IC2").slideUp(100);}
+ function borrarIC() {$("#IC1").slideUp(100);$("#IC").slideDown(100);}
+
+function agregarCV() {$("#CV1").slideDown(100);$("#CV2").slideUp(100);}
+ function borrarCV() {$("#CV1").slideUp(100);$("#CV").slideDown(100);}
+
+function agregarKY() {$("#KY1").slideDown(100);$("#KY2").slideUp(100);}
+ function borrarKY() {$("#KY1").slideUp(100);$("#KY").slideDown(100);}
+
+function agregarCF() {$("#CF1").slideDown(100);$("#CF2").slideUp(100);}
+ function borrarCF() {$("#CF1").slideUp(100);$("#CF").slideDown(100);}
+
+function agregarTD() {$("#TD1").slideDown(100);$("#TD2").slideUp(100);}
+ function borrarTD() {$("#TD1").slideUp(100);$("#TD").slideDown(100);}
+
+function agregarCL() {$("#CL1").slideDown(100);$("#CL2").slideUp(100);}
+ function borrarCL() {$("#CL1").slideUp(100);$("#CL").slideDown(100);}
+
+function agregarCN() {$("#CN1").slideDown(100);$("#CN2").slideUp(100);}
+ function borrarCN() {$("#CN1").slideUp(100);$("#CN").slideDown(100);}
+
+function agregarCO() {$("#CO1").slideDown(100);$("#CO2").slideUp(100);}
+ function borrarCO() {$("#CO1").slideUp(100);$("#CO").slideDown(100);}
+
+function agregarKM() {$("#KM1").slideDown(100);$("#KM2").slideUp(100);}
+ function borrarKM() {$("#KM1").slideUp(100);$("#KM").slideDown(100);}
+
+function agregarCG() {$("#CG1").slideDown(100);$("#CG2").slideUp(100);}
+ function borrarCG() {$("#CG1").slideUp(100);$("#CG").slideDown(100);}
+
+function agregarCK() {$("#CK1").slideDown(100);$("#CK2").slideUp(100);}
+ function borrarCK() {$("#CK1").slideUp(100);$("#CK").slideDown(100);}
+
+function agregarCR() {$("#CR1").slideDown(100);$("#CR2").slideUp(100);}
+ function borrarCR() {$("#CR1").slideUp(100);$("#CR").slideDown(100);}
+
+function agregarHR() {$("#HR1").slideDown(100);$("#HR2").slideUp(100);}
+ function borrarHR() {$("#HR1").slideUp(100);$("#HR").slideDown(100);}
+
+function agregarCW() {$("#CW1").slideDown(100);$("#CW2").slideUp(100);}
+ function borrarCW() {$("#CW1").slideUp(100);$("#CW").slideDown(100);}
+
+function agregarCY() {$("#CY1").slideDown(100);$("#CY2").slideUp(100);}
+ function borrarCY() {$("#CY1").slideUp(100);$("#CY").slideDown(100);}
+
+function agregarCZ() {$("#CZ1").slideDown(100);$("#CZ2").slideUp(100);}
+ function borrarCZ() {$("#CZ1").slideUp(100);$("#CZ").slideDown(100);}
+
+function agregarDK() {$("#DK1").slideDown(100);$("#DK2").slideUp(100);}
+ function borrarDK() {$("#DK1").slideUp(100);$("#DK").slideDown(100);}
+
+function agregarDJ() {$("#DJ1").slideDown(100);$("#DJ2").slideUp(100);}
+ function borrarDJ() {$("#DJ1").slideUp(100);$("#DJ").slideDown(100);}
+
+function agregarDM() {$("#DM1").slideDown(100);$("#DM2").slideUp(100);}
+ function borrarDM() {$("#DM1").slideUp(100);$("#DM").slideDown(100);}
+
+function agregarDO() {$("#DO1").slideDown(100);$("#DO2").slideUp(100);}
+ function borrarDO() {$("#DO1").slideUp(100);$("#DO").slideDown(100);}
+
+function agregarEC() {$("#EC1").slideDown(100);$("#EC2").slideUp(100);}
+ function borrarEC() {$("#EC1").slideUp(100);$("#EC").slideDown(100);}
+
+function agregarEG() {$("#EG1").slideDown(100);$("#EG2").slideUp(100);}
+ function borrarEG() {$("#EG1").slideUp(100);$("#EG").slideDown(100);}
+
+function agregarSV() {$("#SV1").slideDown(100);$("#SV2").slideUp(100);}
+ function borrarSV() {$("#SV1").slideUp(100);$("#SV").slideDown(100);}
+
+function agregarGQ() {$("#GQ1").slideDown(100);$("#GQ2").slideUp(100);}
+ function borrarGQ() {$("#GQ1").slideUp(100);$("#GQ").slideDown(100);}
+
+function agregarER() {$("#ER1").slideDown(100);$("#ER2").slideUp(100);}
+ function borrarER() {$("#ER1").slideUp(100);$("#ER").slideDown(100);}
+
+function agregarEE() {$("#EE1").slideDown(100);$("#EE2").slideUp(100);}
+ function borrarEE() {$("#EE1").slideUp(100);$("#EE").slideDown(100);}
+
+function agregarET() {$("#ET1").slideDown(100);$("#ET2").slideUp(100);}
+ function borrarET() {$("#ET1").slideUp(100);$("#ET").slideDown(100);}
+
+function agregarFK() {$("#FK1").slideDown(100);$("#FK2").slideUp(100);}
+ function borrarFK() {$("#FK1").slideUp(100);$("#FK").slideDown(100);}
+
+function agregarFO() {$("#FO1").slideDown(100);$("#FO2").slideUp(100);}
+ function borrarFO() {$("#FO1").slideUp(100);$("#FO").slideDown(100);}
+
+function agregarFJ() {$("#FJ1").slideDown(100);$("#FJ2").slideUp(100);}
+ function borrarFJ() {$("#FJ1").slideUp(100);$("#FJ").slideDown(100);}
+
+function agregarFI() {$("#FI1").slideDown(100);$("#FI2").slideUp(100);}
+ function borrarFI() {$("#FI1").slideUp(100);$("#FI").slideDown(100);}
+
+function agregarFR() {$("#FR1").slideDown(100);$("#FR2").slideUp(100);}
+ function borrarFR() {$("#FR1").slideUp(100);$("#FR").slideDown(100);}
+
+function agregarGF() {$("#GF1").slideDown(100);$("#GF2").slideUp(100);}
+ function borrarGF() {$("#GF1").slideUp(100);$("#GF").slideDown(100);}
+
+function agregarPF() {$("#PF1").slideDown(100);$("#PF2").slideUp(100);}
+ function borrarPF() {$("#PF1").slideUp(100);$("#PF").slideDown(100);}
+
+function agregarTF() {$("#TF1").slideDown(100);$("#TF2").slideUp(100);}
+ function borrarTF() {$("#TF1").slideUp(100);$("#TF").slideDown(100);}
+
+function agregarGA() {$("#GA1").slideDown(100);$("#GA2").slideUp(100);}
+ function borrarGA() {$("#GA1").slideUp(100);$("#GA").slideDown(100);}
+
+function agregarGM() {$("#GM1").slideDown(100);$("#GM2").slideUp(100);}
+ function borrarGM() {$("#GM1").slideUp(100);$("#GM").slideDown(100);}
+
+function agregarGE() {$("#GE1").slideDown(100);$("#GE2").slideUp(100);}
+ function borrarGE() {$("#GE1").slideUp(100);$("#GE").slideDown(100);}
+
+function agregarDE() {$("#DE1").slideDown(100);$("#DE2").slideUp(100);}
+ function borrarDE() {$("#DE1").slideUp(100);$("#DE").slideDown(100);}
+
+function agregarGH() {$("#GH1").slideDown(100);$("#GH2").slideUp(100);}
+ function borrarGH() {$("#GH1").slideUp(100);$("#GH").slideDown(100);}
+
+function agregarGI() {$("#GI1").slideDown(100);$("#GI2").slideUp(100);}
+ function borrarGI() {$("#GI1").slideUp(100);$("#GI").slideDown(100);}
+
+function agregarGR() {$("#GR1").slideDown(100);$("#GR2").slideUp(100);}
+ function borrarGR() {$("#GR1").slideUp(100);$("#GR").slideDown(100);}
+
+function agregarGL() {$("#GL1").slideDown(100);$("#GL2").slideUp(100);}
+ function borrarGL() {$("#GL1").slideUp(100);$("#GL").slideDown(100);}
+
+function agregarGD() {$("#GD1").slideDown(100);$("#GD2").slideUp(100);}
+ function borrarGD() {$("#GD1").slideUp(100);$("#GD").slideDown(100);}
+
+function agregarGP() {$("#GP1").slideDown(100);$("#GP2").slideUp(100);}
+ function borrarGP() {$("#GP1").slideUp(100);$("#GP").slideDown(100);}
+
+function agregarGU() {$("#GU1").slideDown(100);$("#GU2").slideUp(100);}
+ function borrarGU() {$("#GU1").slideUp(100);$("#GU").slideDown(100);}
+
+function agregarGT() {$("#GT1").slideDown(100);$("#GT2").slideUp(100);}
+ function borrarGT() {$("#GT1").slideUp(100);$("#GT").slideDown(100);}
+
+function agregarGG() {$("#GG1").slideDown(100);$("#GG2").slideUp(100);}
+ function borrarGG() {$("#GG1").slideUp(100);$("#GG").slideDown(100);}
+
+function agregarGN() {$("#GN1").slideDown(100);$("#GN2").slideUp(100);}
+ function borrarGN() {$("#GN1").slideUp(100);$("#GN").slideDown(100);}
+
+function agregarGW() {$("#GW1").slideDown(100);$("#GW2").slideUp(100);}
+ function borrarGW() {$("#GW1").slideUp(100);$("#GW").slideDown(100);}
+
+function agregarGY() {$("#GY1").slideDown(100);$("#GY2").slideUp(100);}
+ function borrarGY() {$("#GY1").slideUp(100);$("#GY").slideDown(100);}
+
+function agregarHT() {$("#HT1").slideDown(100);$("#HT2").slideUp(100);}
+ function borrarHT() {$("#HT1").slideUp(100);$("#HT").slideDown(100);}
+
+function agregarHM() {$("#HM1").slideDown(100);$("#HM2").slideUp(100);}
+ function borrarHM() {$("#HM1").slideUp(100);$("#HM").slideDown(100);}
+
+function agregarHN() {$("#HN1").slideDown(100);$("#HN2").slideUp(100);}
+ function borrarHN() {$("#HN1").slideUp(100);$("#HN").slideDown(100);}
+
+function agregarHK() {$("#HK1").slideDown(100);$("#HK2").slideUp(100);}
+ function borrarHK() {$("#HK1").slideUp(100);$("#HK").slideDown(100);}
+
+function agregarHU() {$("#HU1").slideDown(100);$("#HU2").slideUp(100);}
+ function borrarHU() {$("#HU1").slideUp(100);$("#HU").slideDown(100);}
+
+function agregarIS() {$("#IS1").slideDown(100);$("#IS2").slideUp(100);}
+ function borrarIS() {$("#IS1").slideUp(100);$("#IS").slideDown(100);}
+
+function agregarIN() {$("#IN1").slideDown(100);$("#IN2").slideUp(100);}
+ function borrarIN() {$("#IN1").slideUp(100);$("#IN").slideDown(100);}
+
+function agregarID() {$("#ID1").slideDown(100);$("#ID2").slideUp(100);}
+ function borrarID() {$("#ID1").slideUp(100);$("#ID").slideDown(100);}
+
+function agregarIQ() {$("#IQ1").slideDown(100);$("#IQ2").slideUp(100);}
+ function borrarIQ() {$("#IQ1").slideUp(100);$("#IQ").slideDown(100);}
+
+function agregarIE() {$("#IE1").slideDown(100);$("#IE2").slideUp(100);}
+ function borrarIE() {$("#IE1").slideUp(100);$("#IE").slideDown(100);}
+
+function agregarIM() {$("#IM1").slideDown(100);$("#IM2").slideUp(100);}
+ function borrarIM() {$("#IM1").slideUp(100);$("#IM").slideDown(100);}
+
+function agregarIL() {$("#IL1").slideDown(100);$("#IL2").slideUp(100);}
+ function borrarIL() {$("#IL1").slideUp(100);$("#IL").slideDown(100);}
+
+function agregarIT() {$("#IT1").slideDown(100);$("#IT2").slideUp(100);}
+ function borrarIT() {$("#IT1").slideUp(100);$("#IT").slideDown(100);}
+
+function agregarCI() {$("#CI1").slideDown(100);$("#CI2").slideUp(100);}
+ function borrarCI() {$("#CI1").slideUp(100);$("#CI").slideDown(100);}
+
+function agregarJM() {$("#JM1").slideDown(100);$("#JM2").slideUp(100);}
+ function borrarJM() {$("#JM1").slideUp(100);$("#JM").slideDown(100);}
+
+function agregarJP() {$("#JP1").slideDown(100);$("#JP2").slideUp(100);}
+ function borrarJP() {$("#JP1").slideUp(100);$("#JP").slideDown(100);}
+
+function agregarJE() {$("#JE1").slideDown(100);$("#JE2").slideUp(100);}
+ function borrarJE() {$("#JE1").slideUp(100);$("#JE").slideDown(100);}
+
+function agregarJO() {$("#JO1").slideDown(100);$("#JO2").slideUp(100);}
+ function borrarJO() {$("#JO1").slideUp(100);$("#JO").slideDown(100);}
+
+function agregarKZ() {$("#KZ1").slideDown(100);$("#KZ2").slideUp(100);}
+ function borrarKZ() {$("#KZ1").slideUp(100);$("#KZ").slideDown(100);}
+
+function agregarKE() {$("#KE1").slideDown(100);$("#KE2").slideUp(100);}
+ function borrarKE() {$("#KE1").slideUp(100);$("#KE").slideDown(100);}
+
+function agregarKI() {$("#KI1").slideDown(100);$("#KI2").slideUp(100);}
+ function borrarKI() {$("#KI1").slideUp(100);$("#KI").slideDown(100);}
+
+function agregarKR() {$("#KR1").slideDown(100);$("#KR2").slideUp(100);}
+ function borrarKR() {$("#KR1").slideUp(100);$("#KR").slideDown(100);}
+
+function agregarKW() {$("#KW1").slideDown(100);$("#KW2").slideUp(100);}
+ function borrarKW() {$("#KW1").slideUp(100);$("#KW").slideDown(100);}
+
+function agregarKG() {$("#KG1").slideDown(100);$("#KG2").slideUp(100);}
+ function borrarKG() {$("#KG1").slideUp(100);$("#KG").slideDown(100);}
+
+function agregarLA() {$("#LA1").slideDown(100);$("#LA2").slideUp(100);}
+ function borrarLA() {$("#LA1").slideUp(100);$("#LA").slideDown(100);}
+
+function agregarLV() {$("#LV1").slideDown(100);$("#LV2").slideUp(100);}
+ function borrarLV() {$("#LV1").slideUp(100);$("#LV").slideDown(100);}
+
+function agregarLB() {$("#LB1").slideDown(100);$("#LB2").slideUp(100);}
+ function borrarLB() {$("#LB1").slideUp(100);$("#LB").slideDown(100);}
+
+function agregarLS() {$("#LS1").slideDown(100);$("#LS2").slideUp(100);}
+ function borrarLS() {$("#LS1").slideUp(100);$("#LS").slideDown(100);}
+
+function agregarLR() {$("#LR1").slideDown(100);$("#LR2").slideUp(100);}
+ function borrarLR() {$("#LR1").slideUp(100);$("#LR").slideDown(100);}
+
+function agregarLI() {$("#LI1").slideDown(100);$("#LI2").slideUp(100);}
+ function borrarLI() {$("#LI1").slideUp(100);$("#LI").slideDown(100);}
+
+function agregarLT() {$("#LT1").slideDown(100);$("#LT2").slideUp(100);}
+ function borrarLT() {$("#LT1").slideUp(100);$("#LT").slideDown(100);}
+
+function agregarLU() {$("#LU1").slideDown(100);$("#LU2").slideUp(100);}
+ function borrarLU() {$("#LU1").slideUp(100);$("#LU").slideDown(100);}
+
+function agregarMO() {$("#MO1").slideDown(100);$("#MO2").slideUp(100);}
+ function borrarMO() {$("#MO1").slideUp(100);$("#MO").slideDown(100);}
+
+function agregarMK() {$("#MK1").slideDown(100);$("#MK2").slideUp(100);}
+ function borrarMK() {$("#MK1").slideUp(100);$("#MK").slideDown(100);}
+
+function agregarMG() {$("#MG1").slideDown(100);$("#MG2").slideUp(100);}
+ function borrarMG() {$("#MG1").slideUp(100);$("#MG").slideDown(100);}
+
+function agregarMW() {$("#MW1").slideDown(100);$("#MW2").slideUp(100);}
+ function borrarMW() {$("#MW1").slideUp(100);$("#MW").slideDown(100);}
+
+function agregarMY() {$("#MY1").slideDown(100);$("#MY2").slideUp(100);}
+ function borrarMY() {$("#MY1").slideUp(100);$("#MY").slideDown(100);}
+
+function agregarMV() {$("#MV1").slideDown(100);$("#MV2").slideUp(100);}
+ function borrarMV() {$("#MV1").slideUp(100);$("#MV").slideDown(100);}
+
+function agregarML() {$("#ML1").slideDown(100);$("#ML2").slideUp(100);}
+ function borrarML() {$("#ML1").slideUp(100);$("#ML").slideDown(100);}
+
+function agregarMT() {$("#MT1").slideDown(100);$("#MT2").slideUp(100);}
+ function borrarMT() {$("#MT1").slideUp(100);$("#MT").slideDown(100);}
+
+function agregarMH() {$("#MH1").slideDown(100);$("#MH2").slideUp(100);}
+ function borrarMH() {$("#MH1").slideUp(100);$("#MH").slideDown(100);}
+
+function agregarMQ() {$("#MQ1").slideDown(100);$("#MQ2").slideUp(100);}
+ function borrarMQ() {$("#MQ1").slideUp(100);$("#MQ").slideDown(100);}
+
+function agregarMR() {$("#MR1").slideDown(100);$("#MR2").slideUp(100);}
+ function borrarMR() {$("#MR1").slideUp(100);$("#MR").slideDown(100);}
+
+function agregarMU() {$("#MU1").slideDown(100);$("#MU2").slideUp(100);}
+ function borrarMU() {$("#MU1").slideUp(100);$("#MU").slideDown(100);}
+
+function agregarYT() {$("#YT1").slideDown(100);$("#YT2").slideUp(100);}
+ function borrarYT() {$("#YT1").slideUp(100);$("#YT").slideDown(100);}
+
+function agregarMX() {$("#MX1").slideDown(100);$("#MX2").slideUp(100);}
+ function borrarMX() {$("#MX1").slideUp(100);$("#MX").slideDown(100);}
+
+function agregarFM() {$("#FM1").slideDown(100);$("#FM2").slideUp(100);}
+ function borrarFM() {$("#FM1").slideUp(100);$("#FM").slideDown(100);}
+
+function agregarMD() {$("#MD1").slideDown(100);$("#MD2").slideUp(100);}
+ function borrarMD() {$("#MD1").slideUp(100);$("#MD").slideDown(100);}
+
+function agregarMC() {$("#MC1").slideDown(100);$("#MC2").slideUp(100);}
+ function borrarMC() {$("#MC1").slideUp(100);$("#MC").slideDown(100);}
+
+function agregarMN() {$("#MN1").slideDown(100);$("#MN2").slideUp(100);}
+ function borrarMN() {$("#MN1").slideUp(100);$("#MN").slideDown(100);}
+
+function agregarME() {$("#ME1").slideDown(100);$("#ME2").slideUp(100);}
+ function borrarME() {$("#ME1").slideUp(100);$("#ME").slideDown(100);}
+
+function agregarMS() {$("#MS1").slideDown(100);$("#MS2").slideUp(100);}
+ function borrarMS() {$("#MS1").slideUp(100);$("#MS").slideDown(100);}
+
+function agregarMA() {$("#MA1").slideDown(100);$("#MA2").slideUp(100);}
+ function borrarMA() {$("#MA1").slideUp(100);$("#MA").slideDown(100);}
+
+function agregarMZ() {$("#MZ1").slideDown(100);$("#MZ2").slideUp(100);}
+ function borrarMZ() {$("#MZ1").slideUp(100);$("#MZ").slideDown(100);}
+
+function agregarMM() {$("#MM1").slideDown(100);$("#MM2").slideUp(100);}
+ function borrarMM() {$("#MM1").slideUp(100);$("#MM").slideDown(100);}
+
+function agregarNA() {$("#NA1").slideDown(100);$("#NA2").slideUp(100);}
+ function borrarNA() {$("#NA1").slideUp(100);$("#NA").slideDown(100);}
+
+function agregarNR() {$("#NR1").slideDown(100);$("#NR2").slideUp(100);}
+ function borrarNR() {$("#NR1").slideUp(100);$("#NR").slideDown(100);}
+
+function agregarNP() {$("#NP1").slideDown(100);$("#NP2").slideUp(100);}
+ function borrarNP() {$("#NP1").slideUp(100);$("#NP").slideDown(100);}
+
+function agregarNL() {$("#NL1").slideDown(100);$("#NL2").slideUp(100);}
+ function borrarNL() {$("#NL1").slideUp(100);$("#NL").slideDown(100);}
+
+function agregarNC() {$("#NC1").slideDown(100);$("#NC2").slideUp(100);}
+ function borrarNC() {$("#NC1").slideUp(100);$("#NC").slideDown(100);}
+
+function agregarNZ() {$("#NZ1").slideDown(100);$("#NZ2").slideUp(100);}
+ function borrarNZ() {$("#NZ1").slideUp(100);$("#NZ").slideDown(100);}
+
+function agregarNI() {$("#NI1").slideDown(100);$("#NI2").slideUp(100);}
+ function borrarNI() {$("#NI1").slideUp(100);$("#NI").slideDown(100);}
+
+function agregarNE() {$("#NE1").slideDown(100);$("#NE2").slideUp(100);}
+ function borrarNE() {$("#NE1").slideUp(100);$("#NE").slideDown(100);}
+
+function agregarNG() {$("#NG1").slideDown(100);$("#NG2").slideUp(100);}
+ function borrarNG() {$("#NG1").slideUp(100);$("#NG").slideDown(100);}
+
+function agregarNU() {$("#NU1").slideDown(100);$("#NU2").slideUp(100);}
+ function borrarNU() {$("#NU1").slideUp(100);$("#NU").slideDown(100);}
+
+function agregarNF() {$("#NF1").slideDown(100);$("#NF2").slideUp(100);}
+ function borrarNF() {$("#NF1").slideUp(100);$("#NF").slideDown(100);}
+
+function agregarMP() {$("#MP1").slideDown(100);$("#MP2").slideUp(100);}
+ function borrarMP() {$("#MP1").slideUp(100);$("#MP").slideDown(100);}
+
+function agregarNO() {$("#NO1").slideDown(100);$("#NO2").slideUp(100);}
+ function borrarNO() {$("#NO1").slideUp(100);$("#NO").slideDown(100);}
+
+function agregarOM() {$("#OM1").slideDown(100);$("#OM2").slideUp(100);}
+ function borrarOM() {$("#OM1").slideUp(100);$("#OM").slideDown(100);}
+
+function agregarPK() {$("#PK1").slideDown(100);$("#PK2").slideUp(100);}
+ function borrarPK() {$("#PK1").slideUp(100);$("#PK").slideDown(100);}
+
+function agregarPW() {$("#PW1").slideDown(100);$("#PW2").slideUp(100);}
+ function borrarPW() {$("#PW1").slideUp(100);$("#PW").slideDown(100);}
+
+function agregarPS() {$("#PS1").slideDown(100);$("#PS2").slideUp(100);}
+ function borrarPS() {$("#PS1").slideUp(100);$("#PS").slideDown(100);}
+
+function agregarPA() {$("#PA1").slideDown(100);$("#PA2").slideUp(100);}
+ function borrarPA() {$("#PA1").slideUp(100);$("#PA").slideDown(100);}
+
+function agregarPG() {$("#PG1").slideDown(100);$("#PG2").slideUp(100);}
+ function borrarPG() {$("#PG1").slideUp(100);$("#PG").slideDown(100);}
+
+function agregarPY() {$("#PY1").slideDown(100);$("#PY2").slideUp(100);}
+ function borrarPY() {$("#PY1").slideUp(100);$("#PY").slideDown(100);}
+
+function agregarPE() {$("#PE1").slideDown(100);$("#PE2").slideUp(100);}
+ function borrarPE() {$("#PE1").slideUp(100);$("#PE").slideDown(100);}
+
+function agregarPH() {$("#PH1").slideDown(100);$("#PH2").slideUp(100);}
+ function borrarPH() {$("#PH1").slideUp(100);$("#PH").slideDown(100);}
+
+function agregarPN() {$("#PN1").slideDown(100);$("#PN2").slideUp(100);}
+ function borrarPN() {$("#PN1").slideUp(100);$("#PN").slideDown(100);}
+
+function agregarPL() {$("#PL1").slideDown(100);$("#PL2").slideUp(100);}
+ function borrarPL() {$("#PL1").slideUp(100);$("#PL").slideDown(100);}
+
+function agregarPT() {$("#PT1").slideDown(100);$("#PT2").slideUp(100);}
+ function borrarPT() {$("#PT1").slideUp(100);$("#PT").slideDown(100);}
+
+function agregarPR() {$("#PR1").slideDown(100);$("#PR2").slideUp(100);}
+ function borrarPR() {$("#PR1").slideUp(100);$("#PR").slideDown(100);}
+
+function agregarQA() {$("#QA1").slideDown(100);$("#QA2").slideUp(100);}
+ function borrarQA() {$("#QA1").slideUp(100);$("#QA").slideDown(100);}
+
+function agregarRE() {$("#RE1").slideDown(100);$("#RE2").slideUp(100);}
+ function borrarRE() {$("#RE1").slideUp(100);$("#RE").slideDown(100);}
+
+function agregarRO() {$("#RO1").slideDown(100);$("#RO2").slideUp(100);}
+ function borrarRO() {$("#RO1").slideUp(100);$("#RO").slideDown(100);}
+
+function agregarRU() {$("#RU1").slideDown(100);$("#RU2").slideUp(100);}
+ function borrarRU() {$("#RU1").slideUp(100);$("#RU").slideDown(100);}
+
+function agregarRW() {$("#RW1").slideDown(100);$("#RW2").slideUp(100);}
+ function borrarRW() {$("#RW1").slideUp(100);$("#RW").slideDown(100);}
+
+function agregarSH() {$("#SH1").slideDown(100);$("#SH2").slideUp(100);}
+ function borrarSH() {$("#SH1").slideUp(100);$("#SH").slideDown(100);}
+
+function agregarPM() {$("#PM1").slideDown(100);$("#PM2").slideUp(100);}
+ function borrarPM() {$("#PM1").slideUp(100);$("#PM").slideDown(100);}
+
+function agregarWS() {$("#WS1").slideDown(100);$("#WS2").slideUp(100);}
+ function borrarWS() {$("#WS1").slideUp(100);$("#WS").slideDown(100);}
+
+function agregarSM() {$("#SM1").slideDown(100);$("#SM2").slideUp(100);}
+ function borrarSM() {$("#SM1").slideUp(100);$("#SM").slideDown(100);}
+
+function agregarST() {$("#ST1").slideDown(100);$("#ST2").slideUp(100);}
+ function borrarST() {$("#ST1").slideUp(100);$("#ST").slideDown(100);}
+
+function agregarSA() {$("#SA1").slideDown(100);$("#SA2").slideUp(100);}
+ function borrarSA() {$("#SA1").slideUp(100);$("#SA").slideDown(100);}
+
+function agregarSN() {$("#SN1").slideDown(100);$("#SN2").slideUp(100);}
+ function borrarSN() {$("#SN1").slideUp(100);$("#SN").slideDown(100);}
+
+function agregarRS() {$("#RS1").slideDown(100);$("#RS2").slideUp(100);}
+ function borrarRS() {$("#RS1").slideUp(100);$("#RS").slideDown(100);}
+
+function agregarSC() {$("#SC1").slideDown(100);$("#SC2").slideUp(100);}
+ function borrarSC() {$("#SC1").slideUp(100);$("#SC").slideDown(100);}
+
+function agregarSL() {$("#SL1").slideDown(100);$("#SL2").slideUp(100);}
+ function borrarSL() {$("#SL1").slideUp(100);$("#SL").slideDown(100);}
+
+function agregarSG() {$("#SG1").slideDown(100);$("#SG2").slideUp(100);}
+ function borrarSG() {$("#SG1").slideUp(100);$("#SG").slideDown(100);}
+
+function agregarSK() {$("#SK1").slideDown(100);$("#SK2").slideUp(100);}
+ function borrarSK() {$("#SK1").slideUp(100);$("#SK").slideDown(100);}
+
+function agregarSI() {$("#SI1").slideDown(100);$("#SI2").slideUp(100);}
+ function borrarSI() {$("#SI1").slideUp(100);$("#SI").slideDown(100);}
+
+function agregarSB() {$("#SB1").slideDown(100);$("#SB2").slideUp(100);}
+ function borrarSB() {$("#SB1").slideUp(100);$("#SB").slideDown(100);}
+
+function agregarZA() {$("#ZA1").slideDown(100);$("#ZA2").slideUp(100);}
+ function borrarZA() {$("#ZA1").slideUp(100);$("#ZA").slideDown(100);}
+
+function agregarSS() {$("#SS1").slideDown(100);$("#SS2").slideUp(100);}
+ function borrarSS() {$("#SS1").slideUp(100);$("#SS").slideDown(100);}
+
+function agregarES() {$("#ES1").slideDown(100);$("#ES2").slideUp(100);}
+ function borrarES() {$("#ES1").slideUp(100);$("#ES").slideDown(100);}
+
+function agregarLK() {$("#LK1").slideDown(100);$("#LK2").slideUp(100);}
+ function borrarLK() {$("#LK1").slideUp(100);$("#LK").slideDown(100);}
+
+function agregarBL() {$("#BL1").slideDown(100);$("#BL2").slideUp(100);}
+ function borrarBL() {$("#BL1").slideUp(100);$("#BL").slideDown(100);}
+
+function agregarKN() {$("#KN1").slideDown(100);$("#KN2").slideUp(100);}
+ function borrarKN() {$("#KN1").slideUp(100);$("#KN").slideDown(100);}
+
+function agregarLC() {$("#LC1").slideDown(100);$("#LC2").slideUp(100);}
+ function borrarLC() {$("#LC1").slideUp(100);$("#LC").slideDown(100);}
+
+function agregarMF() {$("#MF1").slideDown(100);$("#MF2").slideUp(100);}
+ function borrarMF() {$("#MF1").slideUp(100);$("#MF").slideDown(100);}
+
+function agregarVC() {$("#VC1").slideDown(100);$("#VC2").slideUp(100);}
+ function borrarVC() {$("#VC1").slideUp(100);$("#VC").slideDown(100);}
+
+function agregarSD() {$("#SD1").slideDown(100);$("#SD2").slideUp(100);}
+ function borrarSD() {$("#SD1").slideUp(100);$("#SD").slideDown(100);}
+
+function agregarSR() {$("#SR1").slideDown(100);$("#SR2").slideUp(100);}
+ function borrarSR() {$("#SR1").slideUp(100);$("#SR").slideDown(100);}
+
+function agregarSJ() {$("#SJ1").slideDown(100);$("#SJ2").slideUp(100);}
+ function borrarSJ() {$("#SJ1").slideUp(100);$("#SJ").slideDown(100);}
+
+function agregarSZ() {$("#SZ1").slideDown(100);$("#SZ2").slideUp(100);}
+ function borrarSZ() {$("#SZ1").slideUp(100);$("#SZ").slideDown(100);}
+
+function agregarSE() {$("#SE1").slideDown(100);$("#SE2").slideUp(100);}
+ function borrarSE() {$("#SE1").slideUp(100);$("#SE").slideDown(100);}
+
+function agregarCH() {$("#CH1").slideDown(100);$("#CH2").slideUp(100);}
+ function borrarCH() {$("#CH1").slideUp(100);$("#CH").slideDown(100);}
+
+function agregarTW() {$("#TW1").slideDown(100);$("#TW2").slideUp(100);}
+ function borrarTW() {$("#TW1").slideUp(100);$("#TW").slideDown(100);}
+
+function agregarTJ() {$("#TJ1").slideDown(100);$("#TJ2").slideUp(100);}
+ function borrarTJ() {$("#TJ1").slideUp(100);$("#TJ").slideDown(100);}
+
+function agregarTZ() {$("#TZ1").slideDown(100);$("#TZ2").slideUp(100);}
+ function borrarTZ() {$("#TZ1").slideUp(100);$("#TZ").slideDown(100);}
+
+function agregarTH() {$("#TH1").slideDown(100);$("#TH2").slideUp(100);}
+ function borrarTH() {$("#TH1").slideUp(100);$("#TH").slideDown(100);}
+
+function agregarTL() {$("#TL1").slideDown(100);$("#TL2").slideUp(100);}
+ function borrarTL() {$("#TL1").slideUp(100);$("#TL").slideDown(100);}
+
+function agregarTG() {$("#TG1").slideDown(100);$("#TG2").slideUp(100);}
+ function borrarTG() {$("#TG1").slideUp(100);$("#TG").slideDown(100);}
+
+function agregarTK() {$("#TK1").slideDown(100);$("#TK2").slideUp(100);}
+ function borrarTK() {$("#TK1").slideUp(100);$("#TK").slideDown(100);}
+
+function agregarTO() {$("#TO1").slideDown(100);$("#TO2").slideUp(100);}
+ function borrarTO() {$("#TO1").slideUp(100);$("#TO").slideDown(100);}
+
+function agregarTT() {$("#TT1").slideDown(100);$("#TT2").slideUp(100);}
+ function borrarTT() {$("#TT1").slideUp(100);$("#TT").slideDown(100);}
+
+function agregarTN() {$("#TN1").slideDown(100);$("#TN2").slideUp(100);}
+ function borrarTN() {$("#TN1").slideUp(100);$("#TN").slideDown(100);}
+
+function agregarTR() {$("#TR1").slideDown(100);$("#TR2").slideUp(100);}
+ function borrarTR() {$("#TR1").slideUp(100);$("#TR").slideDown(100);}
+
+function agregarTM() {$("#TM1").slideDown(100);$("#TM2").slideUp(100);}
+ function borrarTM() {$("#TM1").slideUp(100);$("#TM").slideDown(100);}
+
+function agregarTC() {$("#TC1").slideDown(100);$("#TC2").slideUp(100);}
+ function borrarTC() {$("#TC1").slideUp(100);$("#TC").slideDown(100);}
+
+function agregarTV() {$("#TV1").slideDown(100);$("#TV2").slideUp(100);}
+ function borrarTV() {$("#TV1").slideUp(100);$("#TV").slideDown(100);}
+
+function agregarUG() {$("#UG1").slideDown(100);$("#UG2").slideUp(100);}
+ function borrarUG() {$("#UG1").slideUp(100);$("#UG").slideDown(100);}
+
+function agregarUA() {$("#UA1").slideDown(100);$("#UA2").slideUp(100);}
+ function borrarUA() {$("#UA1").slideUp(100);$("#UA").slideDown(100);}
+
+function agregarAE() {$("#AE1").slideDown(100);$("#AE2").slideUp(100);}
+ function borrarAE() {$("#AE1").slideUp(100);$("#AE").slideDown(100);}
+
+function agregarGB() {$("#GB1").slideDown(100);$("#GB2").slideUp(100);}
+ function borrarGB() {$("#GB1").slideUp(100);$("#GB").slideDown(100);}
+
+function agregarUS() {$("#US1").slideDown(100);$("#US2").slideUp(100);}
+ function borrarUS() {$("#US1").slideUp(100);$("#US").slideDown(100);}
+
+function agregarUM() {$("#UM1").slideDown(100);$("#UM2").slideUp(100);}
+ function borrarUM() {$("#UM1").slideUp(100);$("#UM").slideDown(100);}
+
+function agregarUY() {$("#UY1").slideDown(100);$("#UY2").slideUp(100);}
+ function borrarUY() {$("#UY1").slideUp(100);$("#UY").slideDown(100);}
+
+function agregarUZ() {$("#UZ1").slideDown(100);$("#UZ2").slideUp(100);}
+ function borrarUZ() {$("#UZ1").slideUp(100);$("#UZ").slideDown(100);}
+
+function agregarVU() {$("#VU1").slideDown(100);$("#VU2").slideUp(100);}
+ function borrarVU() {$("#VU1").slideUp(100);$("#VU").slideDown(100);}
+
+function agregarVA() {$("#VA1").slideDown(100);$("#VA2").slideUp(100);}
+ function borrarVA() {$("#VA1").slideUp(100);$("#VA").slideDown(100);}
+
+function agregarVE() {$("#VE1").slideDown(100);$("#VE2").slideUp(100);}
+ function borrarVE() {$("#VE1").slideUp(100);$("#VE").slideDown(100);}
+
+function agregarVN() {$("#VN1").slideDown(100);$("#VN2").slideUp(100);}
+ function borrarVN() {$("#VN1").slideUp(100);$("#VN").slideDown(100);}
+
+function agregarVG() {$("#VG1").slideDown(100);$("#VG2").slideUp(100);}
+ function borrarVG() {$("#VG1").slideUp(100);$("#VG").slideDown(100);}
+
+function agregarVI() {$("#VI1").slideDown(100);$("#VI2").slideUp(100);}
+ function borrarVI() {$("#VI1").slideUp(100);$("#VI").slideDown(100);}
+
+function agregarWF() {$("#WF1").slideDown(100);$("#WF2").slideUp(100);}
+ function borrarWF() {$("#WF1").slideUp(100);$("#WF").slideDown(100);}
+
+function agregarEH() {$("#EH1").slideDown(100);$("#EH2").slideUp(100);}
+ function borrarEH() {$("#EH1").slideUp(100);$("#EH").slideDown(100);}
+
+function agregarYE() {$("#YE1").slideDown(100);$("#YE2").slideUp(100);}
+ function borrarYE() {$("#YE1").slideUp(100);$("#YE").slideDown(100);}
+
+function agregarZM() {$("#ZM1").slideDown(100);$("#ZM2").slideUp(100);}
+ function borrarZM() {$("#ZM1").slideUp(100);$("#ZM").slideDown(100);}
+
+function agregarZW() {$("#ZW1").slideDown(100);$("#ZW2").slideUp(100);}
+ function borrarZW() {$("#ZW1").slideUp(100);$("#ZW").slideDown(100);}
+
+		
+		</script>
+		<style>
+			.alert{float: left;}
+			.borrar{ display: inline-block; 
+				
+			background-image: url("../assets/img/icono-borrar.svg");
+        	width: 24px;
+        	height: 24px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 24px 24px;
+				vertical-align: middle;
+				cursor: pointer;
+			}
+		</style>
+		
+		
+
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AR1" style="display: none">Argentina <a class="borrar" onClick="borrarAR()"></a></div>
+		
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AX1" style="display: none">Islas Åland <a class="borrar" onClick="borrarAX()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AL1" style="display: none">Albania <a class="borrar" onClick="borrarAL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="DZ1" style="display: none">Argelia <a class="borrar" onClick="borrarDZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AS1" style="display: none">Samoa Americana <a class="borrar" onClick="borrarAS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AD1" style="display: none">Andorra <a class="borrar" onClick="borrarAD()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AO1" style="display: none">Angola <a class="borrar" onClick="borrarAO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AI1" style="display: none">Anguila <a class="borrar" onClick="borrarAI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AG1" style="display: none">Antigua y Barbuda <a class="borrar" onClick="borrarAG()"></a></div>
+
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AM1" style="display: none">Armenia <a class="borrar" onClick="borrarAM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AW1" style="display: none">Aruba <a class="borrar" onClick="borrarAW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AU1" style="display: none">Australia <a class="borrar" onClick="borrarAU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AT1" style="display: none">Austria <a class="borrar" onClick="borrarAT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AZ1" style="display: none">Azerbaiyán <a class="borrar" onClick="borrarAZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BS1" style="display: none">Bahamas <a class="borrar" onClick="borrarBS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BH1" style="display: none">Baréin <a class="borrar" onClick="borrarBH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BD1" style="display: none">Bangladesh <a class="borrar" onClick="borrarBD()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BB1" style="display: none">Barbados <a class="borrar" onClick="borrarBB()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BY1" style="display: none">Bielorrusia <a class="borrar" onClick="borrarBY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BE1" style="display: none">Bélgica <a class="borrar" onClick="borrarBE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BZ1" style="display: none">Belice <a class="borrar" onClick="borrarBZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BJ1" style="display: none">Benín <a class="borrar" onClick="borrarBJ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BM1" style="display: none">Bermudas <a class="borrar" onClick="borrarBM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BT1" style="display: none">Bután <a class="borrar" onClick="borrarBT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BO1" style="display: none">Bolivia <a class="borrar" onClick="borrarBO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BQ1" style="display: none">Bonaire, San Eustaquio y Saba <a class="borrar" onClick="borrarBQ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BA1" style="display: none">Bosnia y Herzegovina <a class="borrar" onClick="borrarBA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BW1" style="display: none">Botsuana <a class="borrar" onClick="borrarBW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BR1" style="display: none">Brasil <a class="borrar" onClick="borrarBR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BN1" style="display: none">Brunéi Darussalam <a class="borrar" onClick="borrarBN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BG1" style="display: none">Bulgaria <a class="borrar" onClick="borrarBG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BF1" style="display: none">Burkina Faso <a class="borrar" onClick="borrarBF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BI1" style="display: none">Burundi <a class="borrar" onClick="borrarBI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KH1" style="display: none">Camboya <a class="borrar" onClick="borrarKH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CM1" style="display: none">Camerún <a class="borrar" onClick="borrarCM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CA1" style="display: none">Canadá <a class="borrar" onClick="borrarCA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IC1" style="display: none">Islas Canarias, España <a class="borrar" onClick="borrarIC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CV1" style="display: none">Cabo Verde <a class="borrar" onClick="borrarCV()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KY1" style="display: none">Islas Caimán <a class="borrar" onClick="borrarKY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CF1" style="display: none">República Centroafricana <a class="borrar" onClick="borrarCF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TD1" style="display: none">Chad <a class="borrar" onClick="borrarTD()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CL1" style="display: none">Chile <a class="borrar" onClick="borrarCL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CN1" style="display: none">China, República Popular de <a class="borrar" onClick="borrarCN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CO1" style="display: none">Colombia <a class="borrar" onClick="borrarCO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KM1" style="display: none">Comoras <a class="borrar" onClick="borrarKM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CG1" style="display: none">Congo <a class="borrar" onClick="borrarCG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CK1" style="display: none">Islas Cook <a class="borrar" onClick="borrarCK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CR1" style="display: none">Costa Rica <a class="borrar" onClick="borrarCR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="HR1" style="display: none">Croacia <a class="borrar" onClick="borrarHR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CW1" style="display: none">Curazao <a class="borrar" onClick="borrarCW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CY1" style="display: none">Chipre <a class="borrar" onClick="borrarCY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CZ1" style="display: none">República Checa <a class="borrar" onClick="borrarCZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="DK1" style="display: none">Dinamarca <a class="borrar" onClick="borrarDK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="DJ1" style="display: none">Yibuti <a class="borrar" onClick="borrarDJ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="DM1" style="display: none">Dominica <a class="borrar" onClick="borrarDM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="DO1" style="display: none">República Dominicana <a class="borrar" onClick="borrarDO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="EC1" style="display: none">Ecuador <a class="borrar" onClick="borrarEC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="EG1" style="display: none">Egipto <a class="borrar" onClick="borrarEG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SV1" style="display: none">El Salvador <a class="borrar" onClick="borrarSV()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GQ1" style="display: none">Guinea Ecuatorial <a class="borrar" onClick="borrarGQ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ER1" style="display: none">Eritrea <a class="borrar" onClick="borrarER()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="EE1" style="display: none">Estonia <a class="borrar" onClick="borrarEE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ET1" style="display: none">Etiopía <a class="borrar" onClick="borrarET()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="FK1" style="display: none">Islas Malvinas (Falkland) <a class="borrar" onClick="borrarFK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="FO1" style="display: none">Islas Feroe (Dinamarca) <a class="borrar" onClick="borrarFO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="FJ1" style="display: none">Fiyi <a class="borrar" onClick="borrarFJ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="FI1" style="display: none">Finlandia <a class="borrar" onClick="borrarFI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="FR1" style="display: none">Francia <a class="borrar" onClick="borrarFR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GF1" style="display: none">Guayana Francesa <a class="borrar" onClick="borrarGF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PF1" style="display: none">Polinesia Francesa (Tahití) <a class="borrar" onClick="borrarPF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TF1" style="display: none">Territorios Australes Franceses <a class="borrar" onClick="borrarTF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GA1" style="display: none">Gabón <a class="borrar" onClick="borrarGA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GM1" style="display: none">Gambia <a class="borrar" onClick="borrarGM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GE1" style="display: none">Georgia <a class="borrar" onClick="borrarGE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="DE1" style="display: none">Alemania <a class="borrar" onClick="borrarDE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GH1" style="display: none">Ghana <a class="borrar" onClick="borrarGH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GI1" style="display: none">Gibraltar <a class="borrar" onClick="borrarGI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GR1" style="display: none">Grecia <a class="borrar" onClick="borrarGR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GL1" style="display: none">Groenlandia (Dinamarca) <a class="borrar" onClick="borrarGL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GD1" style="display: none">Granada <a class="borrar" onClick="borrarGD()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GP1" style="display: none">Guadalupe <a class="borrar" onClick="borrarGP()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GU1" style="display: none">Guam <a class="borrar" onClick="borrarGU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GT1" style="display: none">Guatemala <a class="borrar" onClick="borrarGT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GG1" style="display: none">Guernsey <a class="borrar" onClick="borrarGG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GN1" style="display: none">Guinea <a class="borrar" onClick="borrarGN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GW1" style="display: none">Guinea-Bissau <a class="borrar" onClick="borrarGW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GY1" style="display: none">Guyana <a class="borrar" onClick="borrarGY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="HT1" style="display: none">Haití <a class="borrar" onClick="borrarHT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="HM1" style="display: none">Islas Heard y McDonald <a class="borrar" onClick="borrarHM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="HN1" style="display: none">Honduras <a class="borrar" onClick="borrarHN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="HK1" style="display: none">Hong Kong <a class="borrar" onClick="borrarHK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="HU1" style="display: none">Hungría <a class="borrar" onClick="borrarHU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IS1" style="display: none">Islandia <a class="borrar" onClick="borrarIS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IN1" style="display: none">India <a class="borrar" onClick="borrarIN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ID1" style="display: none">Indonesia <a class="borrar" onClick="borrarID()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IQ1" style="display: none">Irak <a class="borrar" onClick="borrarIQ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IE1" style="display: none">Irlanda <a class="borrar" onClick="borrarIE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IM1" style="display: none">Isla de Man <a class="borrar" onClick="borrarIM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IL1" style="display: none">Israel <a class="borrar" onClick="borrarIL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="IT1" style="display: none">Italia <a class="borrar" onClick="borrarIT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CI1" style="display: none">Costa de Marfil <a class="borrar" onClick="borrarCI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="JM1" style="display: none">Jamaica <a class="borrar" onClick="borrarJM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="JP1" style="display: none">Japón <a class="borrar" onClick="borrarJP()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="JE1" style="display: none">Jersey <a class="borrar" onClick="borrarJE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="JO1" style="display: none">Jordania <a class="borrar" onClick="borrarJO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KZ1" style="display: none">Kazajistán <a class="borrar" onClick="borrarKZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KE1" style="display: none">Kenia <a class="borrar" onClick="borrarKE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KI1" style="display: none">Kiribati <a class="borrar" onClick="borrarKI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KR1" style="display: none">Corea, República de <a class="borrar" onClick="borrarKR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KW1" style="display: none">Kuwait <a class="borrar" onClick="borrarKW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KG1" style="display: none">Kirguistán <a class="borrar" onClick="borrarKG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LA1" style="display: none">Laos <a class="borrar" onClick="borrarLA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LV1" style="display: none">Letonia <a class="borrar" onClick="borrarLV()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LB1" style="display: none">Líbano <a class="borrar" onClick="borrarLB()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LS1" style="display: none">Lesoto <a class="borrar" onClick="borrarLS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LR1" style="display: none">Liberia <a class="borrar" onClick="borrarLR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LI1" style="display: none">Liechtenstein <a class="borrar" onClick="borrarLI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LT1" style="display: none">Lituania <a class="borrar" onClick="borrarLT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LU1" style="display: none">Luxemburgo <a class="borrar" onClick="borrarLU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MO1" style="display: none">Macao <a class="borrar" onClick="borrarMO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MK1" style="display: none">Macedonia <a class="borrar" onClick="borrarMK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MG1" style="display: none">Madagascar <a class="borrar" onClick="borrarMG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MW1" style="display: none">Malaui <a class="borrar" onClick="borrarMW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MY1" style="display: none">Malasia <a class="borrar" onClick="borrarMY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MV1" style="display: none">Maldivas <a class="borrar" onClick="borrarMV()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ML1" style="display: none">Malí <a class="borrar" onClick="borrarML()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MT1" style="display: none">Malta <a class="borrar" onClick="borrarMT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MH1" style="display: none">Islas Marshall <a class="borrar" onClick="borrarMH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MQ1" style="display: none">Martinica <a class="borrar" onClick="borrarMQ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MR1" style="display: none">Mauritania <a class="borrar" onClick="borrarMR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MU1" style="display: none">Mauricio <a class="borrar" onClick="borrarMU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="YT1" style="display: none">Mayotte <a class="borrar" onClick="borrarYT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MX1" style="display: none">México <a class="borrar" onClick="borrarMX()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="FM1" style="display: none">Micronesia, Estados Federados de <a class="borrar" onClick="borrarFM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MD1" style="display: none">Moldavia <a class="borrar" onClick="borrarMD()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MC1" style="display: none">Mónaco <a class="borrar" onClick="borrarMC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MN1" style="display: none">Mongolia <a class="borrar" onClick="borrarMN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ME1" style="display: none">Montenegro <a class="borrar" onClick="borrarME()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MS1" style="display: none">Montserrat <a class="borrar" onClick="borrarMS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MA1" style="display: none">Marruecos <a class="borrar" onClick="borrarMA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MZ1" style="display: none">Mozambique <a class="borrar" onClick="borrarMZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MM1" style="display: none">Myanmar <a class="borrar" onClick="borrarMM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NA1" style="display: none">Namibia <a class="borrar" onClick="borrarNA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NR1" style="display: none">Nauru, República de <a class="borrar" onClick="borrarNR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NP1" style="display: none">Nepal <a class="borrar" onClick="borrarNP()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NL1" style="display: none">Países Bajos <a class="borrar" onClick="borrarNL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NC1" style="display: none">Nueva Caledonia <a class="borrar" onClick="borrarNC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NZ1" style="display: none">Nueva Zelanda <a class="borrar" onClick="borrarNZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NI1" style="display: none">Nicaragua <a class="borrar" onClick="borrarNI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NE1" style="display: none">Níger <a class="borrar" onClick="borrarNE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NG1" style="display: none">Nigeria <a class="borrar" onClick="borrarNG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NU1" style="display: none">Isla Niue <a class="borrar" onClick="borrarNU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NF1" style="display: none">Isla Norfolk <a class="borrar" onClick="borrarNF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MP1" style="display: none">Islas Marianas del Norte <a class="borrar" onClick="borrarMP()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="NO1" style="display: none">Noruega <a class="borrar" onClick="borrarNO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="OM1" style="display: none">Omán <a class="borrar" onClick="borrarOM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PK1" style="display: none">Pakistán <a class="borrar" onClick="borrarPK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PW1" style="display: none">Palaos <a class="borrar" onClick="borrarPW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PS1" style="display: none">Palestina <a class="borrar" onClick="borrarPS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PA1" style="display: none">Panamá <a class="borrar" onClick="borrarPA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PG1" style="display: none">Papúa Nueva Guinea <a class="borrar" onClick="borrarPG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PY1" style="display: none">Paraguay <a class="borrar" onClick="borrarPY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PE1" style="display: none">Perú <a class="borrar" onClick="borrarPE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PH1" style="display: none">Filipinas <a class="borrar" onClick="borrarPH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PN1" style="display: none">Pitcairn <a class="borrar" onClick="borrarPN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PL1" style="display: none">Polonia <a class="borrar" onClick="borrarPL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PT1" style="display: none">Portugal <a class="borrar" onClick="borrarPT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PR1" style="display: none">Puerto Rico <a class="borrar" onClick="borrarPR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="QA1" style="display: none">Catar <a class="borrar" onClick="borrarQA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="RE1" style="display: none">Reunión <a class="borrar" onClick="borrarRE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="RO1" style="display: none">Rumania <a class="borrar" onClick="borrarRO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="RU1" style="display: none">Rusia <a class="borrar" onClick="borrarRU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="RW1" style="display: none">Ruanda <a class="borrar" onClick="borrarRW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SH1" style="display: none">Santa Elena <a class="borrar" onClick="borrarSH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="PM1" style="display: none">San Pedro y Miquelón <a class="borrar" onClick="borrarPM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="WS1" style="display: none">Samoa <a class="borrar" onClick="borrarWS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SM1" style="display: none">San Marino <a class="borrar" onClick="borrarSM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ST1" style="display: none">Santo Tomé y Príncipe <a class="borrar" onClick="borrarST()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SA1" style="display: none">Arabia Saudita <a class="borrar" onClick="borrarSA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SN1" style="display: none">Senegal <a class="borrar" onClick="borrarSN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="RS1" style="display: none">Serbia <a class="borrar" onClick="borrarRS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SC1" style="display: none">Seychelles <a class="borrar" onClick="borrarSC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SL1" style="display: none">Sierra Leona <a class="borrar" onClick="borrarSL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SG1" style="display: none">Singapur <a class="borrar" onClick="borrarSG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SK1" style="display: none">Eslovaquia <a class="borrar" onClick="borrarSK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SI1" style="display: none">Eslovenia <a class="borrar" onClick="borrarSI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SB1" style="display: none">Islas Salomón <a class="borrar" onClick="borrarSB()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ZA1" style="display: none">Sudáfrica <a class="borrar" onClick="borrarZA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SS1" style="display: none">Sudán del Sur <a class="borrar" onClick="borrarSS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ES1" style="display: none">España <a class="borrar" onClick="borrarES()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LK1" style="display: none">Sri Lanka <a class="borrar" onClick="borrarLK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="BL1" style="display: none">San Bartolomé <a class="borrar" onClick="borrarBL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="KN1" style="display: none">San Cristóbal y Nieves <a class="borrar" onClick="borrarKN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="LC1" style="display: none">Santa Lucía <a class="borrar" onClick="borrarLC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="MF1" style="display: none">San Martín <a class="borrar" onClick="borrarMF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VC1" style="display: none">San Vicente <a class="borrar" onClick="borrarVC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SD1" style="display: none">Sudán <a class="borrar" onClick="borrarSD()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SR1" style="display: none">Surinam <a class="borrar" onClick="borrarSR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SJ1" style="display: none">Svaldbard <a class="borrar" onClick="borrarSJ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SZ1" style="display: none">Suazilandia <a class="borrar" onClick="borrarSZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="SE1" style="display: none">Suecia <a class="borrar" onClick="borrarSE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="CH1" style="display: none">Suiza <a class="borrar" onClick="borrarCH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TW1" style="display: none">Taiwán <a class="borrar" onClick="borrarTW()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TJ1" style="display: none">Tayikistán <a class="borrar" onClick="borrarTJ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TZ1" style="display: none">Tanzania <a class="borrar" onClick="borrarTZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TH1" style="display: none">Tailandia <a class="borrar" onClick="borrarTH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TL1" style="display: none">Timor-Leste <a class="borrar" onClick="borrarTL()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TG1" style="display: none">Togo <a class="borrar" onClick="borrarTG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TK1" style="display: none">Tokelau <a class="borrar" onClick="borrarTK()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TO1" style="display: none">Tonga <a class="borrar" onClick="borrarTO()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TT1" style="display: none">Trinidad y Tobago <a class="borrar" onClick="borrarTT()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TN1" style="display: none">Túnez <a class="borrar" onClick="borrarTN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TR1" style="display: none">Turquía <a class="borrar" onClick="borrarTR()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TM1" style="display: none">Turkmenistán <a class="borrar" onClick="borrarTM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TC1" style="display: none">Islas Turcas y Caicos <a class="borrar" onClick="borrarTC()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="TV1" style="display: none">Tuvalu <a class="borrar" onClick="borrarTV()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="UG1" style="display: none">Uganda <a class="borrar" onClick="borrarUG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="UA1" style="display: none">Ucrania <a class="borrar" onClick="borrarUA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="AE1" style="display: none">Emiratos Árabes Unidos <a class="borrar" onClick="borrarAE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="GB1" style="display: none">Reino Unido <a class="borrar" onClick="borrarGB()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="US1" style="display: none">Estados Unidos <a class="borrar" onClick="borrarUS()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="UM1" style="display: none">Islas Ultramarinas Menores de Estados Unidos <a class="borrar" onClick="borrarUM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="UY1" style="display: none">Uruguay <a class="borrar" onClick="borrarUY()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="UZ1" style="display: none">Uzbekistán <a class="borrar" onClick="borrarUZ()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VU1" style="display: none">Vanuatu <a class="borrar" onClick="borrarVU()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VA1" style="display: none">Ciudad del Vaticano <a class="borrar" onClick="borrarVA()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VE1" style="display: none">Venezuela <a class="borrar" onClick="borrarVE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VN1" style="display: none">Vietnam <a class="borrar" onClick="borrarVN()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VG1" style="display: none">Islas Vírgenes (Británicas) <a class="borrar" onClick="borrarVG()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="VI1" style="display: none">Islas Vírgenes (EE.UU.) <a class="borrar" onClick="borrarVI()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="WF1" style="display: none">Wallis y Futuna <a class="borrar" onClick="borrarWF()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="EH1" style="display: none">Sahara Occidental <a class="borrar" onClick="borrarEH()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="YE1" style="display: none">Yemen <a class="borrar" onClick="borrarYE()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ZM1" style="display: none">Zambia <a class="borrar" onClick="borrarZM()"></a></div>
+<div class="alert border p-2 ps-3 m-1 lh-1" id="ZW1" style="display: none">Zimbabue <a class="borrar" onClick="borrarZW()"></a></div>
+
+
+
+	
+	</div>
+	
+<div class="text-end"> 
+	<a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_informacion_contable()">
+		Validar Datos
+	</a>
+</div>	
+</div>				
+<div id="datos-apoderado2" style="overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Mercado destino del producto 	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_apoderado()">
+          EDITAR
+        </a>
+	</h4>
+	 <hr class="my-4" /> 
+</div>
+<!--fin datos-drepresentate legal-->
+			
+<!--informacion contable-->					
+<div id="informacion-contable" class="row g-3"  style="display: none; overflow: hidden;">
+	 
+				<h2 class="mb-3">Imagen o URL</h2>
+	
+<div class="col-sm-5">
+	
+	<div class="profile-picture rounded-2 mb-2">
+      <h1 class="upload-icon">
+      </h1>
+      <input id="imagen-producto" name="imagen-producto" class="file-uploader" type="file" onchange="upload()" accept="image/*"   />
+    </div>
+	<div class="mb-4">
+		<label class="btn btn-dark" for="imagen-producto">Seleccione la imagen del producto</label>
+	</div>
+	
+	<div class="mb-2">
+	
+		<label for="url-imagen">Puedes agregar la URL de la imagen </label>
+	<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="http://www.dominio.com/imagenes/producto1.jpg" aria-label="http://www.dominio.com/imagenes/producto1.jpg" aria-describedby="button-addon2" id="url-imagen" name="url-imagen">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Agregar</button>
+</div></div>
+</div>
+	
+<div class="col-sm-7">
+	<div class="mb-3 border-bottom pb-3"><b>Recomendaciones:</b><br>
+		<p class="mb-1">- No uses imágenes descargadas de Internet, pueden tener derechos de autor.</p>
+		<p class="mb-1">- Sólo subí fotos que sean de tu propiedad y sean nítidas.</p>
+	</div>
+	
+    <div class="mb-3 border-bottom pb-3">Tipos de archivos permitodos:<br>
+		<span class="badge text-bg-secondary fs-5">.JPG</span> <span class="badge text-bg-secondary fs-5">.PNG</span> <span class="badge text-bg-secondary fs-5">.GIF</span>
+	</div>
+	
+	<div class="mb-3 border-bottom pb-3">
+		<div class="row g-3">
+		<div class="col-sm-6">
+			Tamaño mínimo:<br>
+		<span class="badge text-bg-secondary fs-5">300 x 300 px</span>
+			</div>
+			<div class="col-sm-6">
+				Tamaño recomendado:<br>
+		<span class="badge text-bg-secondary fs-5">1600 x 1600 px</span>
+			</div>
+		</div>
+			
+	</div>
+<div class="mb-3 border-bottom pb-3">
+	<p class="mb-1"><b>Tener buenas fotos es clave para el buen funcionamiento de la plataforma.</b></p>
+	<div class="small">
+<p class="mb-1">Tu foto debe tener fondo blanco puro creado digitalmente con un editor de imágenes para que tu producto se luzca.</p>
+<p class="mb-1">Las fotos sacadas delante de una pared podrían hacer que tu publicación pierda presencia.</p>
+<p class="mb-1">Tu foto no debe mostrar el producto dentro del empaque.</p>
+<p class="mb-1">No agregues elementos extras a tus imágenes que distraen la atención de tu producto.
+(Sin logos o marcas de agua; sin bordes o banners, sin códigos QR, ni textos)</p>
+<p class="mb-1">No incluyas condiciones de venta.</p>
+<p class="mb-1">No uses información adicional como promociones, forma de envío.</p>
+<p class="mb-1">Toda los datos extras agregalos en la descripción del producto.</p>
+<p class="mb-1">Un sólo producto por foto.</p>
+<p class="mb-1">Usá fotos del producto que estás publicando solo, no muestres varios productos juntos.</p>
+<p class="mb-1">Si querés ofrecer otros variedades deberás hacerlo en forma individua.</p>
+		</div>
+	</div>	
+	
+	
+</div>	
+
+		<div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_final()">
+			  Validar Datos
+			</a>
+		</div>	
+</div>				
+<div id="informacion-contable2" style=" overflow: hidden;">
+ 
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Imagen o URL	
+	    <a class="btn btn-outline-dark btn-sm" onClick="mostrar_informacion_contable()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+<!--fin datos-drepresentate legal-->
+
+<!-- formas de pago -->
+<div id="formas-de-pago" style="display: none; overflow: hidden;">
+
+    
+                      
+<h2 class="mb-3">Forma de Pago <span class="text-body-secondary">(Requerido)</span></h2>
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    checked
+                    required
+                  />
+                  <label class="form-check-label" for="credit"
+                    >Tarjeta de Crédito</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="debit">Tarjeta de Débito</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Titular de la tarjeta</label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-name"
+                    placeholder=""
+                    required
+                  />
+                  
+                  
+                </div>
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label"
+                    >Número</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-number"
+                    placeholder=""
+                    required
+                  />
+                  
+                </div>
+                <div class="col-md-4">
+                  <label for="cc-expiration" class="form-label"
+                    >Fecha de Expiración</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-expiration"
+                    placeholder=""
+                    required
+                  />
+                  
+                </div>
+                <div class="col-md-4">
+                  <label for="cc-cvv" class="form-label">Código de seguridad</label>
+                  <input
+                    type="text"
+                    class="form-control  form-control-lg"
+                    id="cc-cvv"
+                    placeholder=""
+                    required
+                  />
+                  
+                </div>
+              </div>
+	<div class="text-end"> 
+			<a class="btn btn-outline-primary py-2 btn-lg" onClick="mostrar_paso4()">
+			  Validar Datos
+			</a>
+		</div>
+</div>			
+<div id="formas-de-pago2" style="display: none; overflow: hidden;">
+	<h4 class="mb-0"><img src="../assets/img/check-verde.png" style="width: 28px; vertical-align: text-bottom; margin-right: 6px;" > Forma de Pago	
+	    <a class="btn btn-outline-primary btn-sm" onClick="mostrar_paso3()">
+          EDITAR
+        </a>
+	</h4>
+	<hr class="my-4" /> 
+</div>
+<!-- fin formas de pago -->	
+           		
+<!-- final -->				
+<div id="final" style="e; ">
+<div class="row">
+			<div class="col-6">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input me-2 " id="endesarrollo" style="width: 2.5em;  height: 2.5em;" />
+                <label class="form-check-label fs-6" for="endesarrollo" >Producto en desarrollo <br><div class="form-text mt-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></label >
+				
+              </div>
+				
+			</div>
+			
+			<div class="col-6">
+					<div class="text-end mb-1">
+	
+<div class="dropup">
+  <a class="btn btn-primary btn-lg "  data-bs-toggle="dropdown" aria-expanded="false">
+			 Confirmar modificaciones
+	</a>
+	
+  <div class="dropdown-menu p-3 text-end">
+	  <div class="form-text mb-3 text-end">
+		  El producto podrá ser modificado durante 30 días desde su creación.
+	  </div>
+	  <a class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false" >
+			 Cancelar
+	 </a> 
+    <a class="btn btn-primary " onClick="confirmar()" >
+			 Aceptar
+	</a>
+  </div>
+</div>
+ 
+			</div>
+		</div>		
+	<div class="form-text mb-3 text-end">El producto podrá ser modificado durante 30 días desde su creación.<br>
+Pasado ese período, deberá generar un código nuevo.</div>
+		
+</div>
+	
+</div>	
+  
+<div id="ficha-final" style="display: none; overflow: hidden;">
+  <div class="border-bottom pb-3 mb-3 mt-4">
+    <div class="h1 text-center">Felicitaciones</div>
+	<div class="h2 text-center">El producto fue modificado con éxito</div>
+	<div class="mb-1 text-center">El producto podrá ser modificado durante 30 días desde su creación.</div>
+	<div class="mb-3 text-center">Pasado ese período, deberá generar un código nuevo.</div>
+  </div>
+     
+     
+<div class="row g-3" >
+	
+<div class="col-4" id="ficha-contendor-imagen">
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/producto-1c.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/producto-1.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+</div>
+	
+<div class="col-8" id="ficha-contendor-datos">
+	<div class="row g-3" >
+	  <div class="col-6 border-bottom pb-2">
+		  <div>GTIN</div>
+		  <div class="d-block"><span class="badge text-bg-primary py-2 px-3 fs-5">GTIN: 7798336831071</span></div>
+	  </div>
+		
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Estado</div>
+		  <div class="d-block fs-5"><strong>Nuevo</strong></div>
+	  </div>
+	
+	  <div class="col-12 border-bottom pb-2">
+		  <div>Descripción</div>
+		  <div class="d-block fs-5"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Marca</div>
+		  <div class="d-block fs-5"><strong>MarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>SubMarca</div>
+		  <div class="d-block fs-5"><strong>SubMarcaEjemplo</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Clasificación</div>
+		  <div class="d-block fs-5"><strong>Lorem / Ipsum / Dolor sit amet consectetur.</strong></div>
+	  </div>
+
+	  <div class="col-6 border-bottom pb-2">
+		  <div>Contenido</div>
+		  <div class="d-block fs-5"><strong>150 Gramos</strong></div>
+	  </div>
+
+	  <div class="col-12 border-bottom pb-2">
+		  <div>Mercados</div>
+		  <div class="d-block fs-5 pb-2"><div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Argentina</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Paraguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Uruguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Chile</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Perú</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Bolivia</div></div>
+	  </div>
+ <div class="col-12  text-end">
+
+			  <a class="btn btn-primary btn-lg" onClick="mostrar_final();modificar()">
+					   Modificar
+			  </a>
+              <a class="btn btn-primary btn-lg" onClick="confirmar2()">
+					   Aceptar
+			  </a>
+	<div class="form-text mb-3">Recibiras un e-mail con los datos del producto y quedará visible en "Mis Productos"</div>
+		</div>
+	</div>
+</div>
+
+</div>	
+
+      
+    
+    
+  
+</div>   
+  
+      	
+				
+</form>
+	</div>
+	
+		  
+
+
+
+
+
+
+        
+      </div>
+		  
+		  </div>
+			<div id="card-nuevo-producto2" style="display: none">
+				
+				
+<div class="alert alert-success w-100" role="alert">
+  <h4 class="alert-heading">Alta de Producto</h4>
+  
+  <hr>
+  <p class="mb-0">El producto <span class="badge text-bg-primary py-2 px-3">GTIN: 7798336831071</span> fue dado de alta correctamente!</p>
+</div>
+			
+<div class="card m-2 mb-3 p-3" >
+
+<div class="row g-3" >
+	
+					
+			<div class="col-sm-4">
+
+				<a href="productos.html" class="btn btn-primary w-100 btn-lg" style="cursor: pointer"> 
+                       Ver todos Mis Productos 
+				</a>
+                 
+            </div>
+           <div class="col-sm-4">
+			   <a href="producto-nuevo.html"  class="btn btn-primary w-100 btn-lg" style="cursor: pointer">  
+                   Crear un Nuevo Producto     
+				</a>
+                
+            </div>
+	
+			<div class="col-sm-4">
+			   <a href="micuenta.html" class="btn btn-primary w-100 btn-lg" style="cursor: pointer">  
+				  Ir a Mi cuenta
+				</a>
+                
+            </div>
+
+</div>
+
+</div>
+			
+</div>
+		</div>
+
+
+  <div class="parent">
+    <div class="wrapper">
+      <div id="left-lovehandles" class="container">
+		  
+	
+		  
+     
+		
+      </div>
+ 
+		
+    </div>
+	  
+  </div>
+
+    </main>
+	 
+	  </div>
+
+ 
+
+  
+  	
+<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/dragula.js"></script>
+<script src="../assets/js/example.min.js"></script>
+<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/subir-imagen.js"></script>
+		
+<script>
+
+	
+function sugerir_mas() {
+$("#sugerencia-1").slideDown(000);
+	$("#sugerencia-2").slideDown(000);
+	$("#sugerencia-3").slideDown(000);
+}
+
+function ampliar_producto_1() {
+	$("#producto-1").addClass("abierto");
+	$("#btn-cerrar-producto-1").slideDown(0);
+	$("#btn-abrir-producto-1").slideUp(0);
+	
+}
+	
+function cerrar_producto_1() {
+	$("#producto-1").removeClass("abierto");
+	$("#btn-cerrar-producto-1").slideUp(0);
+	$("#btn-abrir-producto-1").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_2() {
+	$("#producto-2").addClass("abierto");
+	$("#btn-cerrar-producto-2").slideDown(0);
+	$("#btn-abrir-producto-2").slideUp(0);
+	
+}
+	
+function cerrar_producto_2() {
+	$("#producto-2").removeClass("abierto");
+	$("#btn-cerrar-producto-2").slideUp(0);
+	$("#btn-abrir-producto-2").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_3() {
+	$("#producto-3").addClass("abierto");
+	$("#btn-cerrar-producto-3").slideDown(0);
+	$("#btn-abrir-producto-3").slideUp(0);
+	
+}
+	
+function cerrar_producto_3() {
+	$("#producto-3").removeClass("abierto");
+	$("#btn-cerrar-producto-3").slideUp(0);
+	$("#btn-abrir-producto-3").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_4() {
+	$("#producto-4").addClass("abierto");
+	$("#btn-cerrar-producto-4").slideDown(0);
+	$("#btn-abrir-producto-4").slideUp(0);
+	
+}
+	
+function cerrar_producto_4() {
+	$("#producto-4").removeClass("abierto");
+	$("#btn-cerrar-producto-4").slideUp(0);
+	$("#btn-abrir-producto-4").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_5() {
+	$("#producto-5").addClass("abierto");
+	$("#btn-cerrar-producto-5").slideDown(0);
+	$("#btn-abrir-producto-5").slideUp(0);
+	
+}
+	
+function cerrar_producto_5() {
+	$("#producto-5").removeClass("abierto");
+	$("#btn-cerrar-producto-5").slideUp(0);
+	$("#btn-abrir-producto-5").slideDown(0);
+	
+}
+	
+	
+function ampliar_producto_6() {
+	$("#producto-6").addClass("abierto");
+	$("#btn-cerrar-producto-6").slideDown(0);
+	$("#btn-abrir-producto-6").slideUp(0);
+	
+}
+	
+function cerrar_producto_6() {
+	$("#producto-6").removeClass("abierto");
+	$("#btn-cerrar-producto-6").slideUp(0);
+	$("#btn-abrir-producto-6").slideDown(0);
+	
+}
+	
+function ficha_ampliar_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-12");
+	$("#ficha-contendor-imagen").removeClass("col-4");
+	$("#ficha-contendor-datos").addClass("col-12");
+	$("#ficha-contendor-datos").removeClass("col-8");
+	$("#imagen-1").slideUp(000);
+	$("#imagen-2").slideDown(500);	
+}
+	
+function ficha_reducir_imagen(){
+	$("#ficha-contendor-imagen").addClass("col-4");
+	$("#ficha-contendor-imagen").removeClass("col-12");
+	$("#ficha-contendor-datos").addClass("col-8");
+	$("#ficha-contendor-datos").removeClass("col-12");
+	$("#imagen-2").slideUp(000);
+	$("#imagen-1").slideDown(000);	
+}
+
+
+	
+</script>
+		
+
+	  
+	<script>
+
+function mostrar_paso0() {
+	$("#inscripcion").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+
+}
+	
+
+
+	
+function mostrar_inscripcion1() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#collapseExample").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+
+}
+	
+function mostrar_inscripcion2() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideDown(500);
+	$("#inscripcion2").slideUp(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#collapseExample").slideUp(500);
+	$("#progreso").addClass("progreso-1");
+	
+}
+		
+function mostrar_empresa_b() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#inscripcion2").slideDown(500);
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	
+function mostrar_paso1() {
+	$("#datos-del-usuario").slideDown(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+}
+	  
+function mostrar_paso2() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideDown(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+}
+		
+function mostrar_paso2_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa3").slideDown(500);
+	$("#datos-de-la-empresa4").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+
+}
+	
+function mostrar_paso3() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideDown(500);
+	$("#formas-de-pago2").slideUp(500);
+	
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+
+	
+function mostrar_representante_legal() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideDown(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+
+	$("#progreso").addClass("progreso-2");
+}
+	
+function mostrar_apoderado() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideDown(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+
+	$("#progreso").addClass("progreso-3");
+}
+	
+function mostrar_informacion_contable() {
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideDown(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+
+	$("#progreso").addClass("progreso-4");
+}
+	
+function mostrar_final() {
+	$("#inscripcion").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideDown(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideDown(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+	$("#ficha-final").slideUp(500);
+	$("#barra-superior").slideDown(500);
+	$("#inscripcion3").slideDown(500);
+	$("#progreso").addClass("progreso-5");
+}
+		
+function mostrar_final_b() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-de-la-empresa3").slideUp(500);
+	$("#datos-de-la-empresa4").slideDown(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideDown(500);
+}
+	
+function mostrar_paso4() {
+	$("#datos-del-usuario").slideUp(500);
+	$("#datos-del-usuario2").slideDown(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideDown(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideDown(500);
+	$("#final").slideDown(500);
+}
+	
+	
+function confirmar() {
+	$("#inscripcion").slideUp(500);
+	$("#inscripcion2").slideUp(500);
+	$("#inscripcion3").slideUp(500);
+	$("#datos-de-la-empresa").slideUp(500);
+	$("#datos-de-la-empresa2").slideUp(500);
+	$("#datos-representante-legal").slideUp(500);
+	$("#datos-representante-legal2").slideUp(500);
+	$("#datos-apoderado").slideUp(500);
+	$("#datos-apoderado2").slideUp(500);
+	$("#informacion-contable").slideUp(500);
+	$("#informacion-contable2").slideUp(500);
+	$("#formas-de-pago").slideUp(500);
+	$("#formas-de-pago2").slideUp(500);
+	$("#final").slideUp(500);
+	$("#barra-superior").slideUp(500);	
+	$("#codigo-final").show(000);
+	$("#ficha-final").slideDown(500);
+	$("#progreso").addClass("progreso-6");
+}
+		
+function modificar() {
+	$("#titulo-nuevo-producto").slideUp(000);
+	$("#titulo-modificar-producto").show(000);
+	
+	$("#barra-superior-1").addClass("btn-secondary");
+	$("#barra-superior-2").addClass("btn-secondary");
+	$("#barra-superior-1").addClass("disabled");
+	$("#barra-superior-2").addClass("disabled");
+}
+		
+function confirmar2() {
+	$("#card-nuevo-producto").slideUp(500);
+	$("#card-nuevo-producto2").slideDown(500);
+}
+	
+</script>
+ 
+<script>
+ feather.replace({ 'aria-hidden': 'true' });
+$(".togglePassword").click(function (e) {
+ e.preventDefault();
+ var type = $(this).parent().parent().find(".password").attr("type");
+ console.log(type);
+ if(type == "password"){
+ $("svg.feather.feather-eye").replaceWith(feather.icons["eye-off"].toSvg());
+ $(this).parent().parent().find(".password").attr("type","text");
+ }else if(type == "text"){
+ $("svg.feather.feather-eye-off").replaceWith(feather.icons["eye"].toSvg());
+ $(this).parent().parent().find(".password").attr("type","password");
+ }
+ });
+</script>
+	
+  </body>
+</html>

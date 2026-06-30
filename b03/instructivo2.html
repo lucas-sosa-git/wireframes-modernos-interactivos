@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>GS1 Demo - Instructivo</title>
+    
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+	<link href="../assets/css/sidebars.css" rel="stylesheet" />
+	<link href="../assets/css/micuenta2.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/css/carousel-micuenta.css" rel="stylesheet" />
+    <link href="../assets/css/dropdowns.css" rel="stylesheet" />
+	<link href="../assets/css/features.css" rel="stylesheet" />
+	<script src="../assets/js/jquery.min.js"></script>
+	<script defer src="../assets/js/jquery.js"></script>	
+	<script src="../assets/js/feather.min.js" ></script>
+	<script src="../assets/js/feather.min.js" ></script>
+	<link href="../assets/css/list-groups.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/subir-imagen.css" />
+  </head>
+  <body>
+  	<nav class="navbar  navbar-light fixed-top bg-body-tertiary"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="home.html"><img class="mb-2" src="../assets/img/gs1.png" alt="" height="41"></a> 
+				
+
+<div class="dropdown ">
+
+
+<div class="btn-group float-end">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg> Menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+
+	<li class="border-bottom">
+		<a class="dropdown-item" href="micuenta.html"><strong>Mi Cuenta</strong><br>
+		<small>email@dominio.com</small></a>
+	</li>
+    <li><a class="dropdown-item" href="usuarios.html">Usuarios</a></li>
+    <li><a class="dropdown-item" href="empresas.html">Empresas</a></li>
+    <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
+	<li><a class="dropdown-item" href="productos.html">Productos</a></li>
+	<li class="border-top"><a class="dropdown-item" href="home.html">Cerrar Sesión</a></li>
+ 
+  </ul>
+</div>
+
+
+
+
+			</div> 
+	</nav>
+	   <div class="container py-3">
+	 <main >
+		 
+		 
+	
+    <div class="p-5 mt-5" >
+		
+		
+		<div class="mb-5 mt-6" >
+		<h1>¿En qué podemos ayudarte?</h1><br>
+		<div class="input-group input-group-lg mb-3">
+		  <input type="text" class="form-control" placeholder="En qué podemos ayudarte?" aria-label="En qué podemos ayudarte?" aria-describedby="button-addon2">
+		  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+		</div>
+		</div>
+		
+		<div class="panel-usuario">
+  <div class="parent">
+    <div class="wrapper">
+    
+		<div class="card m-3 mb-4 mt-4 shadow">
+			
+			<div class="titulo-ventana2">Instructivos: Unidades de medida </div>
+			
+			
+			<div class="p-3">
+
+<style>
+
+#myUL, #myUL2 {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 1800px;
+  max-height: 418px;
+	min-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 0px !important;
+  border: 1px solid rgba(232,232,232,1.00);
+}
+
+.etiqueta a{
+		padding: 15px; 
+		padding-top: 13px;
+		padding-bottom: 13px;
+		font-size: 16px;
+		overflow: hidden;
+		display: block;
+		border: 1px solid rgba(232,232,232,1.00);
+		cursor: default;
+		min-height: 52px;
+  		height: auto;
+		transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	}
+	
+.etiqueta a:hover{
+		font-size: 18px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		color: #000000;
+		transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	}
+	
+.etiqueta a span{
+	text-transform:uppercase;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 80px;
+	transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	margin-right: 15px;
+}
+	
+.etiqueta a:hover span{
+	text-transform:uppercase;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 90px;
+	transition:  all .3s;
+        -ms-transition: all .3s;
+        -moz-transition:  all .34s;
+        -webkit-transition:  all .3s;
+	background-color: #000000 !important;
+}
+	</style>
+				
+	<div class="list-group-item" style="padding: 0px; padding-bottom: 4px;">
+		<div class="form-floating rounded" style="width: 100%; border: 2px solid var(--bs-border-color);  border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; overflow: hidden" >
+		 <input style=" width: calc(100% - 350px) !important; float: left" type="text" class="form-control border-0 rounded-0" id="myInput" onkeyup="myFunction()" placeholder="Ejemplo: Mermelada, conservas, dulces, etc">
+		 <label for="buscarconf">Buscar / Filtrar</label>
+			
+
+
+<div class="btn-group m-2" role="group" aria-label="Button group with nested dropdown" style="float: right; margin: .59rem !important;">
+ 
+
+  <a href="../assets/archivos/ejemplo.xls" target="_blank" class="btn btn-primary">
+	  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xls" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM6.472 15.29a1.2 1.2 0 0 1-.111-.449h.765a.58.58 0 0 0 .254.384q.106.073.25.114.143.041.319.041.246 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.152-.12-.462-.193l-.619-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.527-.422.338-.15.777-.149.457 0 .78.152.324.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.247-.181.9.9 0 0 0-.369-.068q-.325 0-.513.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .405.175l.62.143q.326.075.566.211a1 1 0 0 1 .375.358q.135.222.135.56 0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375m-2.945-3.358h-.893L1.81 13.37h-.036l-.832-1.438h-.93l1.227 1.983L0 15.931h.861l.853-1.415h.035l.85 1.415h.908L2.253 13.94zm2.727 3.325H4.557v-3.325h-.79v4h2.487z"></path>
+</svg>
+	  Exportar XLS
+	</a>
+ <a href="../assets/archivos/ejemplo.pdf" target="_blank" class="btn btn-primary">
+	 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+</svg>
+	 Exportar PDF
+	</a>
+
+</div>
+	
+		</div>
+		
+	</div>
+
+<ul id="myUL" class="list-group" Style="padding: 0px;">
+<li class="etiqueta" id="4"><a><span class="badge text-bg-secondary">Ty</span>  Bandejas</a></li>
+<li class="etiqueta" id="5"><a><span class="badge text-bg-secondary">Bi</span>  Barras</a></li>
+<li class="etiqueta" id="6"><a><span class="badge text-bg-secondary">Br</span>  Barriles</a></li>
+<li class="etiqueta" id="7"><a><span class="badge text-bg-secondary">Ke</span>  Barriles</a></li>
+<li class="etiqueta" id="8"><a><span class="badge text-bg-secondary">Bl</span>  Bloques</a></li>
+<li class="etiqueta" id="9"><a><span class="badge text-bg-secondary">Bg</span>  Bolsas</a></li>
+<li class="etiqueta" id="10"><a><span class="badge text-bg-secondary">V2</span>  Bolsas Pequeñas</a></li>
+<li class="etiqueta" id="11"><a><span class="badge text-bg-secondary">Te</span>  Bolsones</a></li>
+<li class="etiqueta" id="12"><a><span class="badge text-bg-secondary">Bo</span>  Botellas</a></li>
+<li class="etiqueta" id="13"><a><span class="badge text-bg-secondary">Bn</span>  Bultos</a></li>
+<li class="etiqueta" id="14"><a><span class="badge text-bg-secondary">Pk</span>  Bultos</a></li>
+<li class="etiqueta" id="15"><a><span class="badge text-bg-secondary">Ea</span>  Cada Uno</a></li>
+<li class="etiqueta" id="16"><a><span class="badge text-bg-secondary">Bx</span>  Cajas</a></li>
+<li class="etiqueta" id="17"><a><span class="badge text-bg-secondary">Cn</span>  Canes</a></li>
+<li class="etiqueta" id="18"><a><span class="badge text-bg-secondary">Lr</span>  Capas</a></li>
+<li class="etiqueta" id="19"><a><span class="badge text-bg-secondary">Cap</span>  Capsulas</a></li>
+<li class="etiqueta" id="20"><a><span class="badge text-bg-secondary">Ct</span>  Cartones Tetrabriks</a></li>
+<li class="etiqueta" id="21"><a><span class="badge text-bg-secondary">Cq</span>  Cartuchos</a></li>
+<li class="etiqueta" id="22"><a><span class="badge text-bg-secondary">Ca</span>  Casos</a></li>
+<li class="etiqueta" id="23"><a><span class="badge text-bg-secondary">Bu</span>  Celemines</a></li>
+<li class="etiqueta" id="24"><a><span class="badge text-bg-secondary">C3</span>  Centigramos</a></li>
+<li class="etiqueta" id="25"><a><span class="badge text-bg-secondary">C04</span>  Centilitro</a></li>
+<li class="etiqueta" id="26"><a><span class="badge text-bg-secondary">Cmk</span>  Centimetro Cuadrado</a></li>
+<li class="etiqueta" id="27"><a><span class="badge text-bg-secondary">Cm</span>  Centimetros</a></li>
+<li class="etiqueta" id="28"><a><span class="badge text-bg-secondary">Cc</span>  Centimetros Cubicos</a></li>
+<li class="etiqueta" id="29"><a><span class="badge text-bg-secondary">Hc</span>  Cien Cuentas</a></li>
+<li class="etiqueta" id="30"><a><span class="badge text-bg-secondary">Cw</span>  Cien Libras</a></li>
+<li class="etiqueta" id="31"><a><span class="badge text-bg-secondary">Hl</span>  Cien Pies</a></li>
+<li class="etiqueta" id="32"><a><span class="badge text-bg-secondary">Uy</span>  Cincuenta Pies Cuadrados</a></li>
+<li class="etiqueta" id="33"><a><span class="badge text-bg-secondary">Cmp</span>  Comprimidos</a></li>
+<li class="etiqueta" id="34"><a><span class="badge text-bg-secondary">Pa</span>  Cubos</a></li>
+<li class="etiqueta" id="35"><a><span class="badge text-bg-secondary">1N</span>  Cuentas</a></li>
+<li class="etiqueta" id="36"><a><span class="badge text-bg-secondary">Dg</span>  Decigramos</a></li>
+<li class="etiqueta" id="37"><a><span class="badge text-bg-secondary">Dl</span>  Deciliter</a></li>
+<li class="etiqueta" id="38"><a><span class="badge text-bg-secondary">Dm</span>  Decimeter</a></li>
+<li class="etiqueta" id="39"><a><span class="badge text-bg-secondary">Dmt</span>  Decimetro</a></li>
+<li class="etiqueta" id="40"><a><span class="badge text-bg-secondary">C8</span>  Decimetros Cubicos</a></li>
+<li class="etiqueta" id="41"><a><span class="badge text-bg-secondary">Da</span>  Dias</a></li>
+<li class="etiqueta" id="42"><a><span class="badge text-bg-secondary">Ds</span>  Display</a></li>
+<li class="etiqueta" id="43"><a><span class="badge text-bg-secondary">Dz</span>  Docenas</a></li>
+<li class="etiqueta" id="44"><a><span class="badge text-bg-secondary">Do</span>  Dolares Estadounidenses</a></li>
+<li class="etiqueta" id="45"><a><span class="badge text-bg-secondary">Dos</span>  Dosis</a></li>
+<li class="etiqueta" id="46"><a><span class="badge text-bg-secondary">Lk</span>  Enlaces</a></li>
+<li class="etiqueta" id="47"><a><span class="badge text-bg-secondary">Fj</span>  Factores del Tamaño</a></li>
+<li class="etiqueta" id="48"><a><span class="badge text-bg-secondary">Uz</span>  Fifty Count</a></li>
+<li class="etiqueta" id="49"><a><span class="badge text-bg-secondary">Ga</span>  Galones</a></li>
+<li class="etiqueta" id="50"><a><span class="badge text-bg-secondary">Ce</span>  Grados Centigrados</a></li>
+<li class="etiqueta" id="51"><a><span class="badge text-bg-secondary">Fa</span>  Grados Fahrenheit</a></li>
+<li class="etiqueta" id="52"><a><span class="badge text-bg-secondary">Gr</span>  Gramos</a></li>
+<li class="etiqueta" id="53"><a><span class="badge text-bg-secondary">Grs</span>  Gruesa (12 Docenas)</a></li>
+<li class="etiqueta" id="54"><a><span class="badge text-bg-secondary">Sh</span>  Hojas</a></li>
+<li class="etiqueta" id="55"><a><span class="badge text-bg-secondary">Hrm</span>  Horma</a></li>
+<li class="etiqueta" id="56"><a><span class="badge text-bg-secondary">Jr</span>  Jarras</a></li>
+<li class="etiqueta" id="57"><a><span class="badge text-bg-secondary">Kg</span>  Kilogramos</a></li>
+<li class="etiqueta" id="58"><a><span class="badge text-bg-secondary">Gt</span>  Kilogramos Brutos</a></li>
+<li class="etiqueta" id="59"><a><span class="badge text-bg-secondary">58</span>  Kilogramos Netos</a></li>
+<li class="etiqueta" id="60"><a><span class="badge text-bg-secondary">Dk</span>  Kilometros</a></li>
+<li class="etiqueta" id="61"><a><span class="badge text-bg-secondary">Kt</span>  Kits</a></li>
+<li class="etiqueta" id="62"><a><span class="badge text-bg-secondary">Lb</span>  Libras</a></li>
+<li class="etiqueta" id="63"><a><span class="badge text-bg-secondary">Pg</span>  Libras Brutas</a></li>
+<li class="etiqueta" id="64"><a><span class="badge text-bg-secondary">Pe</span>  Libras Equivalentes</a></li>
+<li class="etiqueta" id="65"><a><span class="badge text-bg-secondary">Pn</span>  Libras Netas</a></li>
+<li class="etiqueta" id="66"><a><span class="badge text-bg-secondary">Lt</span>  Litros</a></li>
+<li class="etiqueta" id="67"><a><span class="badge text-bg-secondary">Hd</span>  Media Docena</a></li>
+<li class="etiqueta" id="68"><a><span class="badge text-bg-secondary">Mr</span>  Metros</a></li>
+<li class="etiqueta" id="69"><a><span class="badge text-bg-secondary">Sm</span>  Metros Cuadrados</a></li>
+<li class="etiqueta" id="70"><a><span class="badge text-bg-secondary">Cr</span>  Metros Cubicos</a></li>
+<li class="etiqueta" id="71"><a><span class="badge text-bg-secondary">Co</span>  Metros Cubicos (Neto)</a></li>
+<li class="etiqueta" id="72"><a><span class="badge text-bg-secondary">Lm</span>  Metros Lineales</a></li>
+<li class="etiqueta" id="73"><a><span class="badge text-bg-secondary">Mc</span>  Microgramos</a></li>
+<li class="etiqueta" id="74"><a><span class="badge text-bg-secondary">4G</span>  Microlitros</a></li>
+<li class="etiqueta" id="75"><a><span class="badge text-bg-secondary">Tm</span>  Mil Pies</a></li>
+<li class="etiqueta" id="76"><a><span class="badge text-bg-secondary">Me</span>  Miligramos</a></li>
+<li class="etiqueta" id="77"><a><span class="badge text-bg-secondary">Ml</span>  Mililitros</a></li>
+<li class="etiqueta" id="78"><a><span class="badge text-bg-secondary">Mm</span>  Milimetros</a></li>
+<li class="etiqueta" id="79"><a><span class="badge text-bg-secondary">Mmq</span>  Milimetros Cubicos</a></li>
+<li class="etiqueta" id="80"><a><span class="badge text-bg-secondary">Mx</span>  Mod Pallet (Mixed)</a></li>
+<li class="etiqueta" id="81"><a><span class="badge text-bg-secondary">Nd</span>  No Definida</a></li>
+<li class="etiqueta" id="82"><a><span class="badge text-bg-secondary">Ni</span>  No Informado</a></li>
+<li class="etiqueta" id="83"><a><span class="badge text-bg-secondary">Oz</span>  Onzas</a></li>
+<li class="etiqueta" id="84"><a><span class="badge text-bg-secondary">Fo</span>  Onzas Liquidas</a></li>
+<li class="etiqueta" id="85"><a><span class="badge text-bg-secondary">Pl</span>  Pallet</a></li>
+<li class="etiqueta" id="86"><a><span class="badge text-bg-secondary">Ph</span>  Paquetes</a></li>
+<li class="etiqueta" id="87"><a><span class="badge text-bg-secondary">Bd</span>  Paquetes</a></li>
+<li class="etiqueta" id="88"><a><span class="badge text-bg-secondary">Pr</span>  Pares</a></li>
+<li class="etiqueta" id="89"><a><span class="badge text-bg-secondary">Py</span>  Peck, Dry U.S.</a></li>
+<li class="etiqueta" id="90"><a><span class="badge text-bg-secondary">Ft</span>  Pies</a></li>
+<li class="etiqueta" id="91"><a><span class="badge text-bg-secondary">Sf</span>  Pies Cuadrados</a></li>
+<li class="etiqueta" id="92"><a><span class="badge text-bg-secondary">Cf</span>  Pies Cubicos</a></li>
+<li class="etiqueta" id="93"><a><span class="badge text-bg-secondary">Bf</span>  Pies de Tablero</a></li>
+<li class="etiqueta" id="94"><a><span class="badge text-bg-secondary">Lf</span>  Pies Lineales</a></li>
+<li class="etiqueta" id="95"><a><span class="badge text-bg-secondary">Pc</span>  Piezas</a></li>
+<li class="etiqueta" id="96"><a><span class="badge text-bg-secondary">Pt</span>  Pintas</a></li>
+<li class="etiqueta" id="97"><a><span class="badge text-bg-secondary">P1</span>  Porcentajes</a></li>
+<li class="etiqueta" id="98"><a><span class="badge text-bg-secondary">Ptn</span>  Porciones</a></li>
+<li class="etiqueta" id="99"><a><span class="badge text-bg-secondary">In</span>  Pulgadas</a></li>
+<li class="etiqueta" id="100"><a><span class="badge text-bg-secondary">Ci</span>  Pulgadas Cubicas</a></li>
+<li class="etiqueta" id="101"><a><span class="badge text-bg-secondary">Qs</span>  Quart</a></li>
+<li class="etiqueta" id="102"><a><span class="badge text-bg-secondary">Qt</span>  Quart, Dry</a></li>
+<li class="etiqueta" id="103"><a><span class="badge text-bg-secondary">Nt</span>  Remolques</a></li>
+<li class="etiqueta" id="104"><a><span class="badge text-bg-secondary">Res</span>  Resma</a></li>
+<li class="etiqueta" id="105"><a><span class="badge text-bg-secondary">Rl</span>  Rollos</a></li>
+<li class="etiqueta" id="106"><a><span class="badge text-bg-secondary">St</span>  Set</a></li>
+<li class="etiqueta" id="107"><a><span class="badge text-bg-secondary">Ev</span>  Sobres</a></li>
+<li class="etiqueta" id="108"><a><span class="badge text-bg-secondary">15</span>  Stick</a></li>
+<li class="etiqueta" id="109"><a><span class="badge text-bg-secondary">As</span>  Surtidos</a></li>
+<li class="etiqueta" id="110"><a><span class="badge text-bg-secondary">B8</span>  Tableros</a></li>
+<li class="etiqueta" id="111"><a><span class="badge text-bg-secondary">Dr</span>  Tambores</a></li>
+<li class="etiqueta" id="112"><a><span class="badge text-bg-secondary">Tk</span>  Tanques</a></li>
+<li class="etiqueta" id="113"><a><span class="badge text-bg-secondary">Cv</span>  Tapas</a></li>
+<li class="etiqueta" id="114"><a><span class="badge text-bg-secondary">Cg</span>  Tarjetas</a></li>
+<li class="etiqueta" id="115"><a><span class="badge text-bg-secondary">Cu</span>  Tazas</a></li>
+<li class="etiqueta" id="116"><a><span class="badge text-bg-secondary">Mp</span>  Toneladas Metricas</a></li>
+<li class="etiqueta" id="117"><a><span class="badge text-bg-secondary">26</span>  Toneladas Reales</a></li>
+<li class="etiqueta" id="118"><a><span class="badge text-bg-secondary">Sx</span>  Transportes</a></li>
+<li class="etiqueta" id="119"><a><span class="badge text-bg-secondary">Un</span>  Unidades</a></li>
+<li class="etiqueta" id="120"><a><span class="badge text-bg-secondary">Z25</span>  Usos</a></li>
+<li class="etiqueta" id="121"><a><span class="badge text-bg-secondary">Yd</span>  Yardas</a></li>
+<li class="etiqueta" id="122"><a><span class="badge text-bg-secondary">Sy</span>  Yardas Cuadradas</a></li>
+</ul>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+         
+        
+				
+<div class="mt-3" > 
+			<a class="btn btn-outline-primary px-5 btn-lg mb-1" href="instructivos.html">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg> Volver a Instructivos
+			</a>
+	
+</div>
+       
+			</div>
+
+
+
+
+      
+      </div>
+		  
+
+	
+      </div>
+		
+    </div>
+	  
+  </div>
+			
+</div>
+		
+
+		 
+
+</main>
+	  
+	  </div>
+
+
+  
+	
+<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/dragula.js"></script>
+<script src="../assets/js/example.min.js"></script>
+<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
+<script src="../assets/js/subir-imagen.js"></script>
+
+  </body>
+</html>
