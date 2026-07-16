@@ -293,9 +293,23 @@
     return copy;
   }
 
+  function updateById(id, patch) {
+    const record = allRecords.find((item) => item.id === id);
+    if (!record || !patch || typeof patch !== "object") {
+      return null;
+    }
+
+    Object.keys(patch).forEach((key) => {
+      record[key] = patch[key];
+    });
+
+    return cloneRecord(record);
+  }
+
   window.GS1ProductCatalog = {
     getCommercialProducts,
     getDispatchUnits,
     getById,
+    updateById,
   };
 })();

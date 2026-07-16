@@ -1845,6 +1845,94 @@ body.help-widget--dragging {
   overflow: hidden;
 }
 
+.account-summary {
+  border-radius: 1rem;
+}
+
+.account-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.account-summary__label {
+  color: var(--bs-secondary-color);
+  font-size: .85rem;
+}
+
+.account-summary__value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.membership-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #adb5bd;
+  border-radius: 999px;
+  padding: .35rem .75rem;
+  font-size: .95rem;
+  font-weight: 600;
+  background: #fff;
+}
+
+.membership-badge--standard {
+  border-color: #6c757d;
+  color: #495057;
+}
+
+.membership-badge--basic {
+  border-color: #0d6efd;
+  color: #0d6efd;
+}
+
+.membership-badge--premium {
+  border-color: #cd3c0d;
+  color: #cd3c0d;
+  background: rgba(205, 60, 13, .06);
+}
+
+.product-edit-page .product-edit-form-shell {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.product-edit-page #card-nuevo-producto .form-control,
+.product-edit-page #card-nuevo-producto .form-select,
+.product-edit-page #card-nuevo-producto .btn {
+  min-height: 2.5rem;
+}
+
+.product-edit-page #card-nuevo-producto .form-control-lg,
+.product-edit-page #card-nuevo-producto .form-select-lg,
+.product-edit-page #card-nuevo-producto .btn-lg {
+  font-size: 1rem;
+  padding: .65rem .9rem;
+}
+
+.product-edit-page #card-nuevo-producto .form-label {
+  font-size: 1rem;
+}
+
+.product-edit-page #card-nuevo-producto [class~="col-6"] {
+  width: 100%;
+}
+
+.product-edit-page #card-nuevo-producto .row > [class~="col-8"],
+.product-edit-page #card-nuevo-producto .row > [class~="col-4"] {
+  width: 100%;
+}
+
+.dispatch-editor__preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.dispatch-editor__actions .btn {
+  min-width: 180px;
+}
+
 
 
 @media (max-width: 991.98px) {
@@ -1913,5 +2001,28 @@ body.help-widget--dragging {
 
   .gs1-link-row {
     grid-template-columns: 1fr;
+  }
+
+  .account-summary__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-edit-page #card-nuevo-producto {
+    margin-inline: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-edit-page #card-nuevo-producto [class~="col-md-6"],
+  .product-edit-page #card-nuevo-producto [class~="col-6"] {
+    width: 50%;
+  }
+
+  .product-edit-page #card-nuevo-producto .row > [class~="col-8"] {
+    width: 66.666667%;
+  }
+
+  .product-edit-page #card-nuevo-producto .row > [class~="col-4"] {
+    width: 33.333333%;
   }
 }

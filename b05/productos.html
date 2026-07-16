@@ -177,7 +177,14 @@
                     </div>
                 </div>
 
-                <div class="product-account-panel license-summary card shadow-sm mb-3">
+                <div
+                    class="product-account-panel mb-3"
+                    data-account-summary
+                    data-account-cuit="30-71234567-8"
+                    data-account-license="GS1 Alimentos del Sur"
+                    data-account-membership="Plan Estándar"
+                    data-account-membership-tier="standard"
+                >
                     <div class="card-body">
                         <div class="row g-3 align-items-center">
                             <div class="col-lg-3 col-md-4">
@@ -559,6 +566,23 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="dispatchEditModal" tabindex="-1" aria-labelledby="dispatchEditModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div>
+                                <h2 class="modal-title fs-5" id="dispatchEditModalLabel">Modificar unidad de despacho</h2>
+                                <div class="small text-secondary" id="dispatchEditModalMeta">GTIN-14</div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="dispatchEditModalMount"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -612,9 +636,11 @@
     <script defer src="../assets/js/jquery.js"></script>
     <script src="../assets/js/chart.js"></script>
     <script src="../assets/js/components/help-widget.js"></script>
+    <script src="../assets/js/components/account-summary.js"></script>
     <script src="../assets/js/components/shortcuts-manager.js"></script>
     <script src="../assets/js/gs1-utils.js"></script>
     <script src="../assets/js/data/product-catalog.js"></script>
+    <script src="../assets/js/producto-dun14-form.js"></script>
     <script src="../assets/js/productos.js"></script>
 </body>
 </html>

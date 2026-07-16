@@ -152,6 +152,7 @@
   let imageModal;
   let digitalLinkModal;
   let symbolModal;
+  let dispatchEditModal;
 
   document.addEventListener("DOMContentLoaded", init);
 
@@ -297,7 +298,8 @@
     imageModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("imageModal"));
     digitalLinkModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("digitalLinkModal"));
     symbolModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("symbolModal"));
-    ["copyProductModal", "productDetailModal", "imageModal", "digitalLinkModal", "symbolModal", "logsModal"].forEach(initModalFocusRestoration);
+    dispatchEditModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("dispatchEditModal"));
+    ["copyProductModal", "productDetailModal", "imageModal", "digitalLinkModal", "symbolModal", "logsModal", "dispatchEditModal"].forEach(initModalFocusRestoration);
   }
 
   function initEventHandlers() {
@@ -742,21 +744,6 @@
       data-bs-title="${escapeAttribute(label)}"
     `;
 
-    if (action === "edit" && state.activeTable === TABLE_MODES.dispatchUnits) {
-      return `
-        <span
-          class="d-inline-flex"
-          tabindex="0"
-          data-bs-toggle="tooltip"
-          data-bs-title="La edicion de unidades de despacho todavia no esta disponible en esta pantalla."
-        >
-          <button type="button" class="btn btn-outline-secondary" disabled aria-label="Modificar deshabilitado">
-            ${iconMarkup}
-          </button>
-        </span>
-      `;
-    }
-
     return `<button type="button" ${commonAttrs} data-row-action="${action}" data-product-id="${id}">${iconMarkup}</button>`;
   }
 
@@ -1054,7 +1041,7 @@
     }
     if (action === "edit") {
       if (record.mode === TABLE_MODES.dispatchUnits) {
-        window.location.href = `producto-editar-dun14.html?id=${encodeURIComponent(productId)}`;
+        openDispatchEditModal(record);
         return;
       }
       window.location.href = getCommercialEditUrl(record);
@@ -1076,6 +1063,36 @@
     if (action === "symbol") {
       window.location.href = `generador-simbologia.html?id=${encodeURIComponent(productId)}`;
     }
+  }
+
+  function openDispatchEditModal(record) {
+    const mount = document.getElementById("dispatchEditModalMount");
+    const meta = document.getElementById("dispatchEditModalMeta");
+    if (!mount || !dispatchEditModal || !window.GS1DispatchEditor) {
+      return;
+    }
+
+    document.getElementById("dispatchEditModalLabel").textContent = "Modificar unidad de despacho";
+    meta.textContent = `${record.code} | ${record.name}`;
+
+    window.GS1DispatchEditor.mount({
+      mount,
+      record,
+      context: "modal",
+      onSave(updatedRecord) {
+        if (!updatedRecord) {
+          return;
+        }
+        loadDatasets();
+        renderTable();
+        showToast(`La unidad de despacho ${updatedRecord.code} se actualizó correctamente.`);
+      },
+      onCancel() {
+        dispatchEditModal.hide();
+      },
+    });
+
+    dispatchEditModal.show();
   }
 
   function openCopyProductModal(record) {
@@ -1551,10 +1568,31 @@
   function updateAccountContext() {
     document.getElementById("currentUserName").textContent = currentUser.name;
     document.getElementById("currentUserEmail").textContent = currentUser.email;
-    document.getElementById("accountLicenseName").textContent = state.currentLicense.name;
-    document.getElementById("accountLicenseCuit").textContent = state.currentLicense.cuit;
-    document.getElementById("accountMembershipName").textContent = state.currentLicense.membership;
     document.getElementById("currentLicenseNameMenu").textContent = state.currentLicense.name;
+    const summaryMount = document.querySelector("[data-account-summary]");
+    if (summaryMount && window.GS1AccountSummary) {
+      window.GS1AccountSummary.updateMount(summaryMount, {
+        cuit: state.currentLicense.cuit,
+        license: state.currentLicense.name,
+        membership: normalizeMembershipLabel(state.currentLicense.membership),
+        membershipTier: getMembershipTier(state.currentLicense.membership),
+      });
+    }
+  }
+
+  function getMembershipTier(membership) {
+    const value = normalizeText(membership);
+    if (value.includes("premium")) {
+      return "premium";
+    }
+    if (value.includes("basic")) {
+      return "basic";
+    }
+    return "standard";
+  }
+
+  function normalizeMembershipLabel(membership) {
+    return String(membership || "").replace("Estandar", "Estándar");
   }
 
   function renderNotifications() {
