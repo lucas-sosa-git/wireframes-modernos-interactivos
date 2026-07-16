@@ -1,9 +1,9 @@
 (function () {
   const TYPE_CONFIG = {
-    "GTIN-8 / EAN-8": { base: 7, full: 8 },
-    "UPC-12 / UCC-12": { base: 11, full: 12 },
-    "GTIN-13 / EAN-13": { base: 12, full: 13 },
-    "GTIN-14 / DUN-14": { base: 13, full: 14 },
+    "GTIN-8": { base: 7, full: 8 },
+    "UPC-12": { base: 11, full: 12 },
+    "GTIN-13": { base: 12, full: 13 },
+    "GTIN-14": { base: 13, full: 14 },
     GLN: { base: 12, full: 13 },
   };
   document.addEventListener("DOMContentLoaded", initCheckDigitPage);

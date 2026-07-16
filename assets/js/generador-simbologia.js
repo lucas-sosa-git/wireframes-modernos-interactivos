@@ -1,5 +1,5 @@
 (function () {
-  const TYPES = ["EAN-13 / GTIN-13", "ITF-14 / GTIN-14", "UPC-A", "GS1-128", "SSCC", "GS1 DataMatrix", "QR Code Digital Link", "DataMatrix Digital Link"];
+  const TYPES = ["GTIN-13", "GTIN-14", "UPC-A", "GS1-128", "SSCC", "GS1 DataMatrix", "QR Code Digital Link", "DataMatrix Digital Link"];
   document.addEventListener("DOMContentLoaded", initSymbolGenerator);
 
   function initSymbolGenerator() {
