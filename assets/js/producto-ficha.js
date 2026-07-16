@@ -11,8 +11,7 @@
       return;
     }
 
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    const id = window.GS1Utils ? window.GS1Utils.getUrlParam("id") : new URLSearchParams(window.location.search).get("id");
     const record = id ? window.GS1ProductCatalog.getById(id) : null;
 
     if (!record) {
@@ -22,9 +21,10 @@
 
     const pageTitle = document.querySelector("[data-portal-header]");
     if (pageTitle) {
-      pageTitle.dataset.pageTitle = `Ficha del Producto ${record.code}`;
+      pageTitle.dataset.pageTitle = record.mode === "dispatchUnits" ? `Ficha de la unidad de despacho ${record.code}` : `Ficha del producto ${record.code}`;
     }
 
+    const title = record.mode === "dispatchUnits" ? "Ficha de la unidad de despacho" : "Ficha del producto";
     mount.innerHTML = `
       <section class="card shadow-sm product-detail-card">
         <div class="card-body">
@@ -37,42 +37,67 @@
             <div class="col-lg-8">
               <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
                 <div>
-                  <div class="text-secondary small">${record.type}</div>
-                  <h1 class="h3 mb-2">${escapeHtml(record.name)}</h1>
+                  <div class="text-secondary small">${escapeHtml(record.type)}</div>
+                  <h1 class="h3 mb-2">${title}</h1>
+                  <div class="fw-semibold mb-2">${escapeHtml(record.name)}</div>
                   <div class="d-flex flex-wrap gap-2 align-items-center">
                     <span class="badge text-bg-primary">${escapeHtml(record.code)}</span>
                     <span class="badge ${statusBadgeClass(record.status)}">${escapeHtml(record.status)}</span>
                   </div>
                 </div>
-                <div class="btn-group">
-                  <a href="producto-editar.html?id=${encodeURIComponent(record.id)}" class="btn btn-outline-primary">Modificar</a>
-                  <a href="producto-copiar.html?id=${encodeURIComponent(record.id)}" class="btn btn-outline-primary">Copiar</a>
-                  <a href="productos.html" class="btn btn-primary">Volver al listado</a>
+                <div class="d-flex flex-wrap gap-2 justify-content-end">
+                  <a href="${getEditUrl(record)}" class="btn btn-outline-primary">Modificar</a>
+                  <a href="${getCopyUrl(record)}" class="btn btn-outline-primary">Copiar datos</a>
+                  <a href="productos.html" class="btn btn-outline-secondary">Volver al listado</a>
+                  <a href="${record.mode === "dispatchUnits" ? "producto-nuevo-dun14.html" : "producto-nuevo.html"}" class="btn btn-primary">Nueva alta</a>
                 </div>
               </div>
 
               <div class="row g-3">
-                ${renderField("Marca", record.brand)}
-                ${renderField("Variedad", record.variety)}
-                ${renderField("Origen", record.origin)}
-                ${renderField("Clasificacion", record.classification)}
-                ${renderField("Contenido", record.content)}
-                ${renderField("Tipo de distribucion", record.distributionType)}
-                ${renderField("Fecha de alta", formatDate(record.createdAt))}
-                ${renderField("Fecha de modificacion", formatDate(record.modifiedAt))}
-                ${record.mode === "dispatchUnits" ? renderField("Nivel logistico", record.packagingLevel) : ""}
-                ${record.mode === "dispatchUnits" ? renderField("Destino", record.destination) : ""}
+                ${buildFields(record).map((field) => renderField(field.label, field.value)).join("")}
               </div>
 
               <div class="product-detail-note mt-4">
                 <div class="text-secondary small mb-1">Descripcion</div>
-                <div>${escapeHtml(record.shortDescription)}</div>
+                <div>${escapeHtml(record.shortDescription || "Sin descripcion disponible.")}</div>
               </div>
             </div>
           </div>
         </div>
       </section>
     `;
+  }
+
+  function buildFields(record) {
+    if (record.mode === "dispatchUnits") {
+      return [
+        { label: "GTIN-14", value: record.code },
+        { label: "GTIN contenido", value: record.containedGtin },
+        { label: "Descripcion", value: record.containedDescription || record.name },
+        { label: "Unidades contenidas", value: record.unitsContained },
+        { label: "Envase agrupador", value: record.packagingLevel || record.packaging },
+        { label: "Destino", value: record.destination },
+        { label: "Origen", value: record.origin },
+        { label: "Fecha de alta", value: formatDate(record.createdAt) },
+        { label: "Fecha de modificacion", value: formatDate(record.modifiedAt) },
+      ];
+    }
+
+    return [
+      { label: "Tipo", value: record.type },
+      { label: "GTIN", value: record.code },
+      { label: "Marca", value: record.brand },
+      { label: "Submarca", value: record.subBrand },
+      { label: "Clasificacion", value: record.classification },
+      { label: "Contenido neto", value: record.content },
+      { label: "Envase", value: record.packaging },
+      { label: "Distribucion", value: record.distributionType },
+      { label: "Mercados", value: (record.markets || []).join(", ") },
+      { label: "Linea de negocio", value: record.lineOfBusiness },
+      { label: "Origen", value: record.origin },
+      { label: "Fecha de alta", value: formatDate(record.createdAt) },
+      { label: "Fecha de modificacion", value: formatDate(record.modifiedAt) },
+    ];
   }
 
   function renderNotFound(mount) {
@@ -110,6 +135,25 @@
     `;
   }
 
+  function getCopyUrl(record) {
+    return record.mode === "dispatchUnits"
+      ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
+      : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
+  }
+
+  function getEditUrl(record) {
+    if (record.mode === "dispatchUnits") {
+      return `producto-editar-dun14.html?id=${encodeURIComponent(record.id)}`;
+    }
+    if (record.graceStatus === "exception-required") {
+      return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+    }
+    if (record.graceStatus === "exception-open") {
+      return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
+    }
+    return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+  }
+
   function statusBadgeClass(status) {
     if (status === "Activo") {
       return "text-bg-success";
@@ -121,19 +165,11 @@
   }
 
   function formatDate(value) {
-    if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-      return value || "-";
-    }
-    const [year, month, day] = value.split("-");
-    return `${day}/${month}/${year}`;
+    return window.GS1Utils ? window.GS1Utils.formatDate(value) : value || "-";
   }
 
   function escapeHtml(value) {
-    return String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;");
+    return window.GS1Utils ? window.GS1Utils.escapeHtml(value) : String(value || "");
   }
 
   function escapeAttribute(value) {

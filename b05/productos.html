@@ -208,18 +208,18 @@
                         <div class="dropdown product-module-menu__item">
                             <button class="btn dropdown-toggle product-module-button" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">Unidades de Despacho</button>
                             <ul class="dropdown-menu main-module-dropdown">
-                                <li><a class="dropdown-item" href="producto-nuevo-dun14.html">Nuevo DUN14</a></li>
-                                <li><a class="dropdown-item" href="productos-listado-dun14.html">Ver Listado DUN14</a></li>
-                                <li><button type="button" class="dropdown-item" data-bulk-upload-trigger="dun14">Alta Masiva DUN 14</button></li>
+                                <li><a class="dropdown-item" href="producto-nuevo-dun14.html">Nueva unidad de despacho GTIN-14</a></li>
+                                <li><a class="dropdown-item" href="productos-listado-dun14.html">Ver unidades de despacho</a></li>
+                                <li><button type="button" class="dropdown-item" data-bulk-upload-trigger="dun14">Alta masiva GTIN-14</button></li>
                             </ul>
                         </div>
                         <div class="dropdown product-module-menu__item">
                             <button class="btn dropdown-toggle product-module-button" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">Herramientas</button>
                             <ul class="dropdown-menu main-module-dropdown">
-                                <li><a class="dropdown-item" href="../assets/otros/GeneradorCodigo_qr_dl" target="_blank">Generador de Simbolog&iacute;a</a></li>
-                                <li><a class="dropdown-item" href="../assets/otros/GeneradorCodigo_qr_dl" target="_blank">GS1 QR Code / Digital Link</a></li>
-                                <li><button type="button" class="dropdown-item" data-tool-action="dv">C&aacute;lculo D&iacute;gito Verificador</button></li>
-                                <li><button type="button" class="dropdown-item" data-tool-action="label">Verificaci&oacute;n de Etiquetas</button></li>
+                                <li><a class="dropdown-item" href="generador-simbologia.html">Generador de Simbolog&iacute;a</a></li>
+                                <li><a class="dropdown-item" href="qr-digital-link.html">GS1 QR Code / Digital Link</a></li>
+                                <li><a class="dropdown-item" href="calculo-digito-verificador.html">C&aacute;lculo D&iacute;gito Verificador</a></li>
+                                <li><a class="dropdown-item" href="verificacion-simbologia.html">Verificaci&oacute;n de Simbolog&iacute;a</a></li>
                             </ul>
                         </div>
                         <div class="dropdown product-module-menu__item">
@@ -442,7 +442,7 @@
             </div>
 
             <div class="modal fade" id="massUploadModal" tabindex="-1" aria-labelledby="massUploadModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2 class="modal-title fs-5" id="massUploadModalLabel">Carga masiva de productos</h2>
@@ -485,6 +485,7 @@
                             <div class="license-selector" id="licenseSelector"></div>
                         </div>
                         <div class="modal-footer">
+                            <a href="producto-ficha.html" class="btn btn-outline-primary" id="productDetailOpenBtn">Ver ficha completa</a>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
@@ -500,11 +501,14 @@
                         </div>
                         <div class="modal-body">
                             <div class="alert alert-warning">La copia es una simulación de wireframe. Se precarga el producto seleccionado para continuar la edición.</div>
-                            <div id="copyProductSummary" class="small text-secondary"></div>
+                            <div id="copyProductMedia" class="mb-3"></div>
+                            <div id="copyProductFields" class="row g-3"></div>
+                            <div id="copyProductSummary" class="small text-secondary d-none"></div>
+                            <div class="alert alert-warning mt-3 mb-0" id="copyProductNote">La copia es una simulaci&oacute;n de wireframe. Se precarga el producto seleccionado para continuar la edici&oacute;n.</div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <a href="producto-copiar.html" class="btn btn-primary">Copiar y editar</a>
+                            <a href="producto-copiar.html" class="btn btn-primary" id="copyProductConfirmBtn">Copiar y editar</a>
                         </div>
                     </div>
                 </div>

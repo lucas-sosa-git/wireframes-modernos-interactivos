@@ -146,6 +146,7 @@
   let columnsDropdownMenu;
   let toast;
   let toastBody;
+  let copyProductModal;
   let productDetailModal;
   let logsModal;
   let imageModal;
@@ -290,25 +291,17 @@
   function initBootstrap() {
     const toastEl = document.getElementById("productsToast");
     toast = toastEl ? new bootstrap.Toast(toastEl, { delay: 2400 }) : null;
+    copyProductModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("copyProductModal"));
     productDetailModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("productDetailModal"));
     logsModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("logsModal"));
     imageModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("imageModal"));
     digitalLinkModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("digitalLinkModal"));
     symbolModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("symbolModal"));
-    ["productDetailModal", "imageModal", "digitalLinkModal", "symbolModal", "logsModal"].forEach(initModalFocusRestoration);
+    ["copyProductModal", "productDetailModal", "imageModal", "digitalLinkModal", "symbolModal", "logsModal"].forEach(initModalFocusRestoration);
   }
 
   function initEventHandlers() {
     downloadButton.addEventListener("click", handleDownload);
-
-    document.querySelectorAll("[data-tool-action]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const message = button.dataset.toolAction === "dv"
-          ? "Calculo de digito verificador preparado para integracion."
-          : "Verificacion de etiquetas preparada para integracion.";
-        showToast(message);
-      });
-    });
 
     modeButtons.forEach((button) => {
       button.addEventListener("click", () => setActiveTable(button.dataset.tableMode));
@@ -1056,15 +1049,15 @@
       return;
     }
     if (action === "copy") {
-      window.location.href = `producto-copiar.html?id=${encodeURIComponent(productId)}`;
+      openCopyProductModal(record);
       return;
     }
     if (action === "edit") {
-      if (record.mode !== TABLE_MODES.products) {
-        showToast("La edicion de unidades de despacho todavia no esta disponible en esta pantalla.");
+      if (record.mode === TABLE_MODES.dispatchUnits) {
+        window.location.href = `producto-editar-dun14.html?id=${encodeURIComponent(productId)}`;
         return;
       }
-      window.location.href = `producto-editar.html?id=${encodeURIComponent(productId)}`;
+      window.location.href = getCommercialEditUrl(record);
       return;
     }
     if (action === "logs") {
@@ -1077,18 +1070,62 @@
       return;
     }
     if (action === "digital-link") {
-      openDigitalLinkModal(record);
+      window.location.href = `qr-digital-link.html?id=${encodeURIComponent(productId)}`;
       return;
     }
     if (action === "symbol") {
-      openSymbolModal(record);
+      window.location.href = `generador-simbologia.html?id=${encodeURIComponent(productId)}`;
     }
+  }
+
+  function openCopyProductModal(record) {
+    const confirmButton = document.getElementById("copyProductConfirmBtn");
+    const fields = buildCopyProductFields(record);
+    document.getElementById("copyProductModalLabel").textContent = record.mode === TABLE_MODES.dispatchUnits ? "Copiar unidad de despacho" : "Copiar producto";
+    document.getElementById("copyProductMedia").innerHTML = `
+      <div class="product-detail-media">
+        ${renderImageContent(record, false)}
+      </div>
+    `;
+    document.getElementById("copyProductFields").innerHTML = fields.map((field) => `
+      <div class="col-md-6">
+        <div class="product-detail-field">
+          <div class="small text-secondary">${escapeHtml(field.label)}</div>
+          <div class="fw-semibold mt-1">${escapeHtml(field.value)}</div>
+        </div>
+      </div>
+    `).join("");
+    document.getElementById("copyProductSummary").textContent = "";
+    confirmButton.href = getCopyUrl(record);
+    copyProductModal.show();
+  }
+
+  function buildCopyProductFields(record) {
+    const common = [
+      { label: "Tipo de codigo", value: record.type },
+      { label: "Codigo actual", value: record.code },
+      { label: "Descripcion", value: record.name },
+      { label: "Marca", value: record.brand || "-" },
+      { label: "Clasificacion", value: record.classification || "-" },
+      { label: "Contenido", value: record.content || "-" },
+      { label: "Estado", value: record.status || "-" },
+      { label: "Mercados u origen", value: (record.markets || [record.origin]).join(", ") },
+    ];
+    if (record.mode === TABLE_MODES.dispatchUnits) {
+      common.push(
+        { label: "GTIN contenido", value: record.containedGtin || "-" },
+        { label: "Unidades contenidas", value: record.unitsContained || "-" },
+        { label: "Envase agrupador", value: record.packagingLevel || record.packaging || "-" },
+      );
+    }
+    return common;
   }
 
   function openProductDetailModal(record) {
     const fields = buildProductDetailFields(record);
     document.getElementById("productDetailModalLabel").textContent = record.name;
     document.getElementById("productDetailModalMeta").textContent = `${record.type} | ${record.code}`;
+    document.getElementById("productDetailOpenBtn").href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
     document.getElementById("productDetailMedia").innerHTML = renderImageContent(record, false);
     document.getElementById("productDetailFields").innerHTML = fields.map((field) => `
       <div class="col-md-6">
@@ -1113,21 +1150,24 @@
       { label: "Marca", value: record.brand },
       { label: "Clasificacion", value: record.classification },
       { label: "Contenido", value: record.content },
-      { label: "Origen", value: record.origin },
       { label: "Fecha de alta", value: record.createdAt },
       { label: "Fecha de modificacion", value: record.modifiedAt },
-      { label: "Distribucion", value: record.distributionType },
     ];
 
     if (record.mode === TABLE_MODES.dispatchUnits) {
       fields.splice(4, 0,
-        { label: "Nivel de empaque", value: record.packagingLevel || "-" },
-        { label: "Cantidad base", value: record.baseQuantity || "-" },
+        { label: "GTIN contenido", value: record.containedGtin || "-" },
+        { label: "Unidades contenidas", value: record.unitsContained || "-" },
+        { label: "Envase agrupador", value: record.packagingLevel || "-" },
         { label: "Destino", value: record.destination || "-" },
       );
     } else {
       fields.splice(4, 0,
+        { label: "Submarca", value: record.subBrand || "-" },
         { label: "Variedad", value: record.variety || "-" },
+        { label: "Envase", value: record.packaging || "-" },
+        { label: "Distribucion", value: record.distributionType || "-" },
+        { label: "Mercados", value: (record.markets || []).join(", ") || "-" },
       );
     }
 
@@ -1135,19 +1175,22 @@
   }
 
   function renderLogs(record) {
-    const entries = [
-      { title: "Alta creada", detail: `Se genero el registro inicial para ${record.code}.`, timestamp: record.createdAt },
-      { title: "Validacion comercial", detail: `${record.brand} quedo listo para seguimiento operativo.`, timestamp: record.modifiedAt },
-      { title: "Ultima actualizacion", detail: `Se reviso ${record.name}.`, timestamp: record.modifiedAt },
-    ];
-
-    document.getElementById("logsTimeline").innerHTML = entries.map((entry) => `
+    const entries = Array.isArray(record.logs) ? [...record.logs] : [];
+    document.getElementById("logsModalLabel").textContent = record.mode === TABLE_MODES.dispatchUnits
+      ? `Logs de la unidad de despacho: GTIN-14 ${record.code}`
+      : `Logs del producto: GTIN ${record.code}`;
+    document.getElementById("logsTimeline").innerHTML = entries.length ? entries.map((entry) => `
       <div class="notification-card">
         <div class="fw-semibold">${escapeHtml(entry.title)}</div>
         <div class="small text-secondary">${escapeHtml(entry.detail)}</div>
-        <div class="small text-secondary mt-1">${escapeHtml(entry.timestamp)}</div>
+        <div class="small text-secondary mt-2">${escapeHtml(entry.date)} ${escapeHtml(entry.time)} | ${escapeHtml(entry.actor)}</div>
       </div>
-    `).join("");
+    `).join("") : `
+      <div class="notification-card text-center">
+        <div class="fw-semibold mb-1">No hay eventos registrados</div>
+        <div class="small text-secondary">Este registro todavia no tiene logs disponibles en la simulacion.</div>
+      </div>
+    `;
   }
 
   function openImageModal(record) {
@@ -1324,7 +1367,25 @@
   }
 
   function normalizeGtinForDigitalLink(code) {
-    return String(code).replace(/\D/g, "").padStart(14, "0");
+    return window.GS1Utils ? window.GS1Utils.normalizeDigitalLinkGtin(code) : String(code).replace(/\D/g, "").padStart(14, "0");
+  }
+
+  function getCopyUrl(record) {
+    return record.mode === TABLE_MODES.dispatchUnits
+      ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
+      : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
+  }
+
+  function getCommercialEditUrl(record) {
+    switch (record.graceStatus) {
+      case "exception-required":
+        return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+      case "exception-open":
+        return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
+      case "active":
+      default:
+        return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+    }
   }
 
   function initBulkUploadModal() {
