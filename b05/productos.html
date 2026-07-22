@@ -245,8 +245,8 @@
                     <div class="card-body">
                         <div class="d-flex flex-column flex-xl-row justify-content-between align-items-xl-center gap-3 mb-3">
                             <div class="table-mode-heading" id="tableModeHeading" aria-label="Selector de tabla">
-                                <button type="button" class="table-mode-title is-active" id="productsModeBtn" data-table-mode="products" aria-pressed="true">Tabla Productos</button>
-                                <button type="button" class="table-mode-title" id="dispatchModeBtn" data-table-mode="dispatchUnits" aria-pressed="false">Tabla Unidades de Despacho</button>
+                                <button type="button" class="table-mode-title is-active" id="productsModeBtn" data-table-mode="products" aria-pressed="true" title="Mostrar productos comerciales">Listado Productos</button>
+                                <button type="button" class="table-mode-title" id="dispatchModeBtn" data-table-mode="dispatchUnits" aria-pressed="false" title="Mostrar unidades de despacho">Listado Unidades de Despacho</button>
                             </div>
                             <div class="d-flex flex-wrap gap-2">
                                 <button type="button" id="downloadProductsBtn" class="btn btn-outline-primary">Descargar productos a Excel</button>
@@ -259,7 +259,7 @@
                                         data-bs-auto-close="outside"
                                         aria-expanded="false"
                                     >
-                                        Columnas
+                                        Atributos
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end columns-menu" id="columnsDropdownMenu" aria-labelledby="columnsToggleBtn"></div>
                                 </div>
@@ -267,6 +267,13 @@
                             </div>
                         </div>
 
+                        <div class="d-flex flex-wrap gap-2 align-items-center mb-3" role="search" aria-label="Buscar productos">
+                            <div class="input-group flex-grow-1" style="max-width: 520px;">
+                                <span class="input-group-text" aria-hidden="true">⌕</span>
+                                <input type="search" class="form-control" id="productsGlobalSearch" placeholder="Buscar en todos los atributos visibles" aria-label="Buscar en todos los atributos visibles">
+                                <button type="button" class="btn btn-outline-secondary" id="clearProductsSearch" aria-label="Limpiar búsqueda">Limpiar</button>
+                            </div>
+                        </div>
                         <div class="table-responsive product-table-wrap">
                             <table class="table table-sm table-hover align-middle productos product-grid products-table mb-0">
                                 <colgroup>
@@ -448,39 +455,6 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="massUploadModal" tabindex="-1" aria-labelledby="massUploadModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title fs-5" id="massUploadModalLabel">Carga masiva de productos</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p class="text-secondary">Seleccioná un archivo `.xlsx` o `.xls`. En esta entrega la carga se simula sin procesar el contenido real.</p>
-                            <div class="bulk-upload-type-selector d-none mb-3" id="bulkUploadTypeSelector">
-                                <div class="text-secondary small mb-2">Seleccioná qué querés cargar</div>
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-outline-primary w-100 bulk-upload-type-btn" data-bulk-type-option="product">Productos</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-outline-primary w-100 bulk-upload-type-btn" data-bulk-type-option="dun14">DUN 14</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="small text-secondary mb-2" id="massUploadTypeHint">Tipo seleccionado: Producto</div>
-                            <input class="form-control" type="file" id="massUploadFile" accept=".xlsx,.xls">
-                            <div class="small text-secondary mt-2" id="massUploadFileName">Todavía no seleccionaste ningún archivo.</div>
-                            <div class="alert alert-danger mt-3 d-none" id="massUploadError" role="alert"></div>
-                            <div class="alert alert-success mt-3 d-none" id="massUploadSuccess" role="alert"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" id="confirmMassUploadBtn">Confirmar carga</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="modal fade" id="licenseModal" tabindex="-1" aria-labelledby="licenseModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -492,14 +466,13 @@
                             <div class="license-selector" id="licenseSelector"></div>
                         </div>
                         <div class="modal-footer">
-                            <a href="producto-ficha.html" class="btn btn-outline-primary" id="productDetailOpenBtn">Ver ficha completa</a>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="copyProductModal" tabindex="-1" aria-labelledby="copyProductModalLabel" aria-hidden="true">
+            <!-- Copy modal removed: the action now navigates directly to the new-product form. <div class="modal fade" id="copyProductModal" tabindex="-1" aria-labelledby="copyProductModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -519,7 +492,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -543,6 +516,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <a href="producto-ficha.html" class="btn btn-outline-primary" id="productDetailOpenBtn">Ver ficha completa</a>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>

@@ -84,12 +84,10 @@
     const base = input.length === config.full ? input.slice(0, -1) : input;
     const digit = window.GS1Utils.computeCheckDigit(base);
     const fullCode = `${base}${digit}`;
-    const validity = input.length === config.full ? (input === fullCode ? "V&aacute;lido" : "Inv&aacute;lido") : "Calculado";
     panel.innerHTML = `
       <div class="fw-semibold mb-2">Resultado</div>
       <div>D&iacute;gito calculado: <strong>${digit}</strong></div>
       <div>C&oacute;digo completo: <strong>${fullCode}</strong></div>
-      <div>Estado: <strong>${validity}</strong></div>
     `;
   }
 })();

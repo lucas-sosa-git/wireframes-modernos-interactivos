@@ -31,7 +31,7 @@
           <div class="row g-4 align-items-start">
             <div class="col-lg-4">
               <div class="product-detail-media">
-                ${renderImage(record)}
+                ${renderProductGallery(record)}
               </div>
             </div>
             <div class="col-lg-8">
@@ -43,6 +43,10 @@
                   <div class="d-flex flex-wrap gap-2 align-items-center">
                     <span class="badge text-bg-primary">${escapeHtml(record.code)}</span>
                     <span class="badge ${statusBadgeClass(record.status)}">${escapeHtml(record.status)}</span>
+                  </div>
+                  <div class="product-detail-note mt-3">
+                    <div class="text-secondary small mb-1">Descripción</div>
+                    <div>${escapeHtml(record.shortDescription || "Sin descripción disponible.")}</div>
                   </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2 justify-content-end">
@@ -57,15 +61,44 @@
                 ${buildFields(record).map((field) => renderField(field.label, field.value)).join("")}
               </div>
 
-              <div class="product-detail-note mt-4">
-                <div class="text-secondary small mb-1">Descripcion</div>
-                <div>${escapeHtml(record.shortDescription || "Sin descripcion disponible.")}</div>
-              </div>
             </div>
           </div>
         </div>
       </section>
     `;
+    bindProductGallery(mount, record);
+  }
+
+  function getRecordImages(record) {
+    return (Array.isArray(record.imageGallery) && record.imageGallery.length ? record.imageGallery : [record.image]).filter(Boolean);
+  }
+
+  function renderProductGallery(record) {
+    const images = getRecordImages(record);
+    if (!images.length) return renderImage(record);
+    return `<div class="product-gallery" data-gallery-index="0">
+      <div class="product-gallery__stage">
+        ${images.length > 1 ? `<button type="button" class="product-gallery__control product-gallery__control--prev" data-gallery-prev aria-label="Imagen anterior">‹</button>` : ""}
+        <img data-gallery-main src="${escapeAttribute(images[0])}" alt="Imagen de ${escapeAttribute(record.name)}">
+        ${images.length > 1 ? `<button type="button" class="product-gallery__control product-gallery__control--next" data-gallery-next aria-label="Imagen siguiente">›</button>` : ""}
+      </div>
+      ${images.length > 1 ? `<div class="product-gallery__thumbs" role="tablist">${images.map((image, index) => `<button type="button" class="product-gallery__thumb${index === 0 ? " is-active" : ""}" data-gallery-thumb="${index}" aria-label="Ver imagen ${index + 1}"><img src="${escapeAttribute(image)}" alt=""></button>`).join("")}</div>` : ""}
+    </div>`;
+  }
+
+  function bindProductGallery(host, record) {
+    const gallery = host.querySelector(".product-gallery");
+    if (!gallery) return;
+    const images = getRecordImages(record);
+    const update = (index) => {
+      const nextIndex = (index + images.length) % images.length;
+      gallery.dataset.galleryIndex = String(nextIndex);
+      gallery.querySelector("[data-gallery-main]").src = images[nextIndex];
+      gallery.querySelectorAll("[data-gallery-thumb]").forEach((thumb) => thumb.classList.toggle("is-active", Number(thumb.dataset.galleryThumb) === nextIndex));
+    };
+    gallery.querySelector("[data-gallery-prev]")?.addEventListener("click", () => update(Number(gallery.dataset.galleryIndex) - 1));
+    gallery.querySelector("[data-gallery-next]")?.addEventListener("click", () => update(Number(gallery.dataset.galleryIndex) + 1));
+    gallery.querySelectorAll("[data-gallery-thumb]").forEach((thumb) => thumb.addEventListener("click", () => update(Number(thumb.dataset.galleryThumb))));
   }
 
   function buildFields(record) {

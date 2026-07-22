@@ -78,7 +78,19 @@
   }
 
   function renderOpen(record) {
-    const request = record.exceptionRequest || { id: "-", status: "En revision", reason: "-", files: [], comments: [] };
+    const request = record.exceptionRequest || {
+      id: `SOL-2026-${record.id.replace(/\D/g, "")}`,
+      status: "Pendiente",
+      reason: "Solicitud de modificación registrada para revisión de GS1.",
+      files: [],
+      comments: [
+        {
+          author: "GS1 Argentina",
+          date: "Ahora",
+          message: "Tu solicitud está pendiente de revisión. Esperá la respuesta de GS1; podés dejar comentarios en este espacio.",
+        },
+      ],
+    };
     const comments = request.comments.concat(readStoredComments(record.id));
     return `
       <section class="card shadow-sm gs1-tool-shell">
@@ -153,11 +165,30 @@
         return;
       }
       error.classList.add("d-none");
+      const request = {
+        id: record.exceptionRequest?.id || `SOL-2026-${record.id.replace(/\D/g, "")}`,
+        status: "Pendiente",
+        createdAt: new Date().toISOString().slice(0, 10),
+        reason,
+        files: Array.from(document.getElementById("exceptionFiles").files).map((file) => ({ name: file.name, size: "Archivo adjunto" })),
+        comments: [
+          {
+            author: "GS1 Argentina",
+            date: "Ahora",
+            message: "Recibimos tu solicitud. Un especialista de GS1 la está revisando. Podés continuar la comunicación desde este espacio.",
+          },
+        ],
+      };
+      window.GS1ProductCatalog.updateById(record.id, {
+        status: "Pendiente",
+        graceStatus: "exception-open",
+        exceptionRequest: request,
+      });
       const params = new URLSearchParams(window.location.search);
       params.set("id", record.id);
-      params.set("view", "success");
+      params.set("view", "open");
       window.history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`);
-      renderView(document.getElementById("exceptionRequestMount"), record, "success");
+      renderView(document.getElementById("exceptionRequestMount"), window.GS1ProductCatalog.getById(record.id), "open");
     });
   }
 
@@ -206,7 +237,7 @@
 
   function renderComment(comment) {
     return `
-      <div class="gs1-comment-card">
+      <div class="gs1-comment-card ${comment.author === "GS1 Argentina" ? "gs1-comment-card--gs1" : "gs1-comment-card--user"}">
         <div class="d-flex justify-content-between gap-2">
           <div class="fw-semibold">${escapeHtml(comment.author)}</div>
           <div class="small text-secondary">${escapeHtml(comment.date)}</div>

@@ -61,7 +61,7 @@
 
   const VIEW_CONFIG = {
     [TABLE_MODES.products]: {
-      title: "Tabla Productos",
+      title: "Listado Productos",
       statusLabel: "productos",
       emptyMessage: "No hay productos comerciales para mostrar con los filtros activos.",
       downloadLabel: "Descargar productos a Excel",
@@ -79,7 +79,7 @@
       ],
     },
     [TABLE_MODES.dispatchUnits]: {
-      title: "Tabla Unidades de Despacho",
+      title: "Listado Unidades de Despacho",
       statusLabel: "unidades de despacho",
       emptyMessage: "No hay unidades de despacho para mostrar con los filtros activos.",
       downloadLabel: "Descargar unidades de despacho a Excel",
@@ -131,6 +131,7 @@
     tooltips: [],
     lastFocusTrigger: null,
     digitalLinkValue: "",
+    globalSearch: "",
   };
 
   let tableWrap;
@@ -146,13 +147,13 @@
   let columnsDropdownMenu;
   let toast;
   let toastBody;
-  let copyProductModal;
   let productDetailModal;
   let logsModal;
   let imageModal;
   let digitalLinkModal;
   let symbolModal;
   let dispatchEditModal;
+  let globalSearchInput;
 
   document.addEventListener("DOMContentLoaded", init);
 
@@ -191,6 +192,7 @@
     downloadButton = document.getElementById("downloadProductsBtn");
     columnsDropdownMenu = document.getElementById("columnsDropdownMenu");
     toastBody = document.getElementById("productsToastBody");
+    globalSearchInput = document.getElementById("productsGlobalSearch");
   }
 
   function loadDatasets() {
@@ -292,18 +294,29 @@
   function initBootstrap() {
     const toastEl = document.getElementById("productsToast");
     toast = toastEl ? new bootstrap.Toast(toastEl, { delay: 2400 }) : null;
-    copyProductModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("copyProductModal"));
     productDetailModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("productDetailModal"));
     logsModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("logsModal"));
     imageModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("imageModal"));
     digitalLinkModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("digitalLinkModal"));
     symbolModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("symbolModal"));
     dispatchEditModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("dispatchEditModal"));
-    ["copyProductModal", "productDetailModal", "imageModal", "digitalLinkModal", "symbolModal", "logsModal", "dispatchEditModal"].forEach(initModalFocusRestoration);
+    ["productDetailModal", "imageModal", "digitalLinkModal", "symbolModal", "logsModal", "dispatchEditModal"].forEach(initModalFocusRestoration);
   }
 
   function initEventHandlers() {
     downloadButton.addEventListener("click", handleDownload);
+
+    globalSearchInput?.addEventListener("input", (event) => {
+      state.globalSearch = normalizeText(event.target.value);
+      getCurrentTableState().page = 1;
+      renderTable();
+    });
+    document.getElementById("clearProductsSearch")?.addEventListener("click", () => {
+      state.globalSearch = "";
+      if (globalSearchInput) globalSearchInput.value = "";
+      getCurrentTableState().page = 1;
+      renderTable();
+    });
 
     modeButtons.forEach((button) => {
       button.addEventListener("click", () => setActiveTable(button.dataset.tableMode));
@@ -522,7 +535,7 @@
     columnsDropdownMenu.innerHTML = `
       <div class="columns-menu__panel">
         <div class="columns-menu__header">
-          <div class="fw-semibold">Columnas visibles</div>
+          <div class="fw-semibold">Atributos visibles</div>
           <div class="small text-secondary">Preferencia guardada por tabla.</div>
         </div>
         <div class="columns-menu__list">
@@ -704,12 +717,12 @@
       <td class="text-end product-cell-nowrap product-grid__actions-cell" data-column-key="actions" style="${buildColumnStyle("actions")}">
         <div class="btn-group btn-group-sm product-row-actions" role="group" aria-label="Acciones del registro">
           ${renderActionButton("detail", record.id, "Detalle", "eye")}
-          ${renderActionButton("copy", record.id, "Copiar", "files")}
+          ${renderActionButton("copy", record.id, "Editar copia", "files")}
           ${renderActionButton("edit", record.id, "Modificar", "pencil-square")}
           ${renderActionButton("logs", record.id, "Logs", "clock-history")}
           ${renderActionButton("image", record.id, "Ver imagen", "image")}
-          ${renderActionButton("digital-link", record.id, "Generar Digital Link", "link-45deg")}
-          ${renderActionButton("symbol", record.id, "Generar simbologia", "upc-scan")}
+          ${renderActionButton("digital-link", record.id, "QR / Digital Link", "../QR-DATAMATRIX.png")}
+          ${renderActionButton("symbol", record.id, "Generador de simbologia", "../GENERADOR DE SIMBOLOGIA.png")}
         </div>
       </td>
     `);
@@ -735,7 +748,9 @@
   }
 
   function renderActionButton(action, id, label, icon) {
-    const iconMarkup = getBootstrapIcon(icon, 14);
+    const iconMarkup = icon.includes(".")
+      ? `<img class="action-image" src="${escapeAttribute(icon)}" alt="">`
+      : getBootstrapIcon(icon, 14);
     const commonAttrs = `
       class="btn btn-outline-secondary"
       title="${escapeAttribute(label)}"
@@ -777,6 +792,8 @@
   function getCurrentFilteredItems() {
     const current = getCurrentTableState();
     let items = state.datasets[state.activeTable].filter((record) => {
+      const visibleColumns = getVisibleColumns();
+      if (state.globalSearch && !visibleColumns.some((column) => normalizeText(record[column.key] || "").includes(state.globalSearch))) return false;
       return Object.entries(current.filters).every(([column, values]) => {
         if (!values || !values.length) {
           return true;
@@ -1036,7 +1053,7 @@
       return;
     }
     if (action === "copy") {
-      openCopyProductModal(record);
+      window.location.href = getCopyUrl(record);
       return;
     }
     if (action === "edit") {
@@ -1095,55 +1112,13 @@
     dispatchEditModal.show();
   }
 
-  function openCopyProductModal(record) {
-    const confirmButton = document.getElementById("copyProductConfirmBtn");
-    const fields = buildCopyProductFields(record);
-    document.getElementById("copyProductModalLabel").textContent = record.mode === TABLE_MODES.dispatchUnits ? "Copiar unidad de despacho" : "Copiar producto";
-    document.getElementById("copyProductMedia").innerHTML = `
-      <div class="product-detail-media">
-        ${renderImageContent(record, false)}
-      </div>
-    `;
-    document.getElementById("copyProductFields").innerHTML = fields.map((field) => `
-      <div class="col-md-6">
-        <div class="product-detail-field">
-          <div class="small text-secondary">${escapeHtml(field.label)}</div>
-          <div class="fw-semibold mt-1">${escapeHtml(field.value)}</div>
-        </div>
-      </div>
-    `).join("");
-    document.getElementById("copyProductSummary").textContent = "";
-    confirmButton.href = getCopyUrl(record);
-    copyProductModal.show();
-  }
-
-  function buildCopyProductFields(record) {
-    const common = [
-      { label: "Tipo de codigo", value: record.type },
-      { label: "Codigo actual", value: record.code },
-      { label: "Descripcion", value: record.name },
-      { label: "Marca", value: record.brand || "-" },
-      { label: "Clasificacion", value: record.classification || "-" },
-      { label: "Contenido", value: record.content || "-" },
-      { label: "Estado", value: record.status || "-" },
-      { label: "Mercados u origen", value: (record.markets || [record.origin]).join(", ") },
-    ];
-    if (record.mode === TABLE_MODES.dispatchUnits) {
-      common.push(
-        { label: "GTIN contenido", value: record.containedGtin || "-" },
-        { label: "Unidades contenidas", value: record.unitsContained || "-" },
-        { label: "Envase agrupador", value: record.packagingLevel || record.packaging || "-" },
-      );
-    }
-    return common;
-  }
-
   function openProductDetailModal(record) {
     const fields = buildProductDetailFields(record);
     document.getElementById("productDetailModalLabel").textContent = record.name;
     document.getElementById("productDetailModalMeta").textContent = `${record.type} | ${record.code}`;
     document.getElementById("productDetailOpenBtn").href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
-    document.getElementById("productDetailMedia").innerHTML = renderImageContent(record, false);
+    document.getElementById("productDetailMedia").innerHTML = renderProductGallery(record, "modal");
+    bindProductGallery(document.getElementById("productDetailMedia"), record);
     document.getElementById("productDetailFields").innerHTML = fields.map((field) => `
       <div class="col-md-6">
         <div class="product-detail-field">
@@ -1157,6 +1132,41 @@
       <div class="text-secondary">${escapeHtml(record.shortDescription || "Sin descripcion disponible.")}</div>
     `;
     productDetailModal.show();
+  }
+
+  function getRecordImages(record) {
+    return (Array.isArray(record.imageGallery) && record.imageGallery.length ? record.imageGallery : [record.image]).filter(Boolean);
+  }
+
+  function renderProductGallery(record, context) {
+    const images = getRecordImages(record);
+    if (!images.length) {
+      return renderImagePlaceholder(record, false);
+    }
+    const galleryId = `${context}-gallery-${record.id}`;
+    return `<div class="product-gallery" id="${galleryId}" data-gallery-index="0">
+      <div class="product-gallery__stage">
+        ${images.length > 1 ? `<button type="button" class="product-gallery__control product-gallery__control--prev" data-gallery-prev aria-label="Imagen anterior">‹</button>` : ""}
+        <img data-gallery-main src="${escapeAttribute(images[0])}" alt="Imagen de ${escapeAttribute(record.name)}">
+        ${images.length > 1 ? `<button type="button" class="product-gallery__control product-gallery__control--next" data-gallery-next aria-label="Imagen siguiente">›</button>` : ""}
+      </div>
+      ${images.length > 1 ? `<div class="product-gallery__thumbs" role="tablist">${images.map((image, index) => `<button type="button" class="product-gallery__thumb${index === 0 ? " is-active" : ""}" data-gallery-thumb="${index}" aria-label="Ver imagen ${index + 1}"><img src="${escapeAttribute(image)}" alt=""></button>`).join("")}</div>` : ""}
+    </div>`;
+  }
+
+  function bindProductGallery(host, record) {
+    const gallery = host.querySelector(".product-gallery");
+    if (!gallery) return;
+    const images = getRecordImages(record);
+    const update = (index) => {
+      const nextIndex = (index + images.length) % images.length;
+      gallery.dataset.galleryIndex = String(nextIndex);
+      gallery.querySelector("[data-gallery-main]").src = images[nextIndex];
+      gallery.querySelectorAll("[data-gallery-thumb]").forEach((thumb) => thumb.classList.toggle("is-active", Number(thumb.dataset.galleryThumb) === nextIndex));
+    };
+    gallery.querySelector("[data-gallery-prev]")?.addEventListener("click", () => update(Number(gallery.dataset.galleryIndex) - 1));
+    gallery.querySelector("[data-gallery-next]")?.addEventListener("click", () => update(Number(gallery.dataset.galleryIndex) + 1));
+    gallery.querySelectorAll("[data-gallery-thumb]").forEach((thumb) => thumb.addEventListener("click", () => update(Number(thumb.dataset.galleryThumb))));
   }
 
   function buildProductDetailFields(record) {
@@ -1394,6 +1404,15 @@
   }
 
   function getCommercialEditUrl(record) {
+    if (record.mode === TABLE_MODES.products && record.status === "Borrador") {
+      return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+    }
+    if (record.mode === TABLE_MODES.products && record.status === "Pendiente") {
+      return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
+    }
+    if (record.mode === TABLE_MODES.products && record.status === "Activo") {
+      return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+    }
     switch (record.graceStatus) {
       case "exception-required":
         return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
@@ -1406,126 +1425,16 @@
   }
 
   function initBulkUploadModal() {
-    const modalElement = document.getElementById("massUploadModal");
-    const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
-    const fileInput = document.getElementById("massUploadFile");
-    const fileName = document.getElementById("massUploadFileName");
-    const error = document.getElementById("massUploadError");
-    const success = document.getElementById("massUploadSuccess");
-    const confirmButton = document.getElementById("confirmMassUploadBtn");
-
     document.getElementById("massUploadBtn").addEventListener("click", () => {
-      openBulkUploadModal(state.activeTable === TABLE_MODES.dispatchUnits ? "dun14" : "generic");
-      modal.show();
+      const type = state.activeTable === TABLE_MODES.dispatchUnits ? "dun14" : "product";
+      window.location.href = `productos-carga-masiva.html?type=${type}`;
     });
 
     document.querySelectorAll("[data-bulk-upload-trigger]").forEach((button) => {
       button.addEventListener("click", () => {
-        openBulkUploadModal(button.dataset.bulkUploadTrigger);
-        modal.show();
+        window.location.href = `productos-carga-masiva.html?type=${encodeURIComponent(button.dataset.bulkUploadTrigger)}`;
       });
     });
-
-    document.querySelectorAll("[data-bulk-type-option]").forEach((button) => {
-      button.addEventListener("click", () => {
-        state.bulkUploadType = button.dataset.bulkTypeOption;
-        updateBulkUploadUi();
-      });
-    });
-
-    fileInput.addEventListener("change", () => {
-      fileName.textContent = fileInput.files[0]
-        ? `Archivo seleccionado: ${fileInput.files[0].name}`
-        : "Todavia no seleccionaste ningun archivo.";
-      error.classList.add("d-none");
-      success.classList.add("d-none");
-    });
-
-    modalElement.addEventListener("hidden.bs.modal", resetBulkUploadModal);
-
-    confirmButton.addEventListener("click", () => {
-      if (!state.bulkUploadType) {
-        showBulkUploadError("Selecciona si queres cargar Productos o DUN 14.");
-        return;
-      }
-      if (!fileInput.files.length) {
-        showBulkUploadError("Selecciona un archivo antes de confirmar la carga.");
-        return;
-      }
-      const file = fileInput.files[0];
-      if (!/\.(xlsx|xls)$/i.test(file.name)) {
-        showBulkUploadError("La extension del archivo debe ser .xlsx o .xls.");
-        return;
-      }
-
-      confirmButton.disabled = true;
-      error.classList.add("d-none");
-      success.classList.add("d-none");
-
-      window.setTimeout(() => {
-        const label = state.bulkUploadType === "dun14" ? "DUN 14" : "productos";
-        const message = `La carga masiva de ${label} se completo correctamente.`;
-        success.textContent = message;
-        success.classList.remove("d-none");
-        confirmButton.disabled = false;
-        fileInput.value = "";
-        fileName.textContent = "Todavia no seleccionaste ningun archivo.";
-        showToast(message);
-      }, 850);
-    });
-
-    function showBulkUploadError(message) {
-      error.textContent = message;
-      error.classList.remove("d-none");
-      success.classList.add("d-none");
-    }
-  }
-
-  function openBulkUploadModal(type) {
-    state.bulkUploadSource = type;
-    state.bulkUploadType = type === "generic" ? null : type;
-    resetBulkUploadFields();
-    updateBulkUploadUi();
-  }
-
-  function updateBulkUploadUi() {
-    const title = document.getElementById("massUploadModalLabel");
-    const selector = document.getElementById("bulkUploadTypeSelector");
-    const hint = document.getElementById("massUploadTypeHint");
-    selector.classList.toggle("d-none", state.bulkUploadSource !== "generic");
-
-    if (state.bulkUploadType === "product") {
-      title.textContent = "Carga masiva de productos";
-      hint.textContent = "Tipo seleccionado: Producto";
-    } else if (state.bulkUploadType === "dun14") {
-      title.textContent = "Carga masiva de DUN 14";
-      hint.textContent = "Tipo seleccionado: DUN 14";
-    } else {
-      title.textContent = "Carga masiva";
-      hint.textContent = "Selecciona primero que queres cargar.";
-    }
-
-    document.querySelectorAll("[data-bulk-type-option]").forEach((button) => {
-      const active = button.dataset.bulkTypeOption === state.bulkUploadType;
-      button.classList.toggle("btn-primary", active);
-      button.classList.toggle("btn-outline-primary", !active);
-    });
-  }
-
-  function resetBulkUploadModal() {
-    state.bulkUploadType = null;
-    state.bulkUploadSource = "generic";
-    resetBulkUploadFields();
-    updateBulkUploadUi();
-  }
-
-  function resetBulkUploadFields() {
-    document.getElementById("massUploadFile").value = "";
-    document.getElementById("massUploadFileName").textContent = "Todavia no seleccionaste ningun archivo.";
-    document.getElementById("massUploadError").classList.add("d-none");
-    document.getElementById("massUploadSuccess").classList.add("d-none");
-    document.getElementById("massUploadSuccess").textContent = "";
-    document.getElementById("confirmMassUploadBtn").disabled = false;
   }
 
   function renderLicenseSelector() {

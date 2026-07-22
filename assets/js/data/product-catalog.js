@@ -1,4 +1,5 @@
 (function () {
+  const PRODUCT_STATE_STORAGE_KEY = "gs1-product-state:v1";
   const PRODUCT_IMAGES = [
     "../assets/img/producto-1c.jpg",
     "../assets/img/producto-2c.jpg",
@@ -21,6 +22,7 @@
   const VARIETIES = ["Clasico", "Integral", "Light", "Premium", "Organico", "Sin TACC"];
   const ORIGINS = ["Argentina", "Uruguay", "Chile", "Paraguay", "Bolivia", "Peru"];
   const STATUSES = ["Activo", "Pendiente", "Borrador"];
+  const DISPATCH_STATUSES = ["Activo", "Inactivo"];
   const CLASSIFICATIONS = [
     "Alimentos / Desayuno / Cereales",
     "Alimentos / Conservas / Dulces",
@@ -199,6 +201,7 @@
         modifiedAt,
         createdAt,
         image: PRODUCT_IMAGES[index % PRODUCT_IMAGES.length],
+        imageGallery: buildImageGallery(PRODUCT_IMAGES, index),
         classification: CLASSIFICATIONS[index % CLASSIFICATIONS.length],
         content: CONTENTS[index % CONTENTS.length],
         distributionType: DISTRIBUTIONS[index % DISTRIBUTIONS.length],
@@ -237,13 +240,14 @@
         type: normalizeDispatchType(typeSeed),
         code: buildDispatchCode(index + 1),
         name: `Unidad de despacho ${brand} ${index + 1}`,
-        status: STATUSES[index % STATUSES.length],
+        status: DISPATCH_STATUSES[index % DISPATCH_STATUSES.length],
         brand,
         variety: PACKAGING_LEVELS[index % PACKAGING_LEVELS.length],
         origin: ORIGINS[index % ORIGINS.length],
         modifiedAt,
         createdAt,
         image: DISPATCH_IMAGES[index % DISPATCH_IMAGES.length],
+        imageGallery: buildImageGallery(DISPATCH_IMAGES, index),
         classification: "Logistica / Distribucion / Unidad de despacho",
         content: `${unitsContained} unidades base`,
         distributionType: DESTINATIONS[index % DESTINATIONS.length],
@@ -261,6 +265,12 @@
     });
   }
 
+  function buildImageGallery(images, index) {
+    return [0, 1, 2]
+      .map((offset) => images[(index + offset) % images.length])
+      .filter(Boolean);
+  }
+
   const commercialProducts = createCommercialProducts();
   const dispatchUnits = createDispatchUnits(commercialProducts);
   const allRecords = [...commercialProducts, ...dispatchUnits];
@@ -270,7 +280,7 @@
   }
 
   function getCommercialProducts() {
-    return commercialProducts.map(cloneRecord);
+    return commercialProducts.map((record) => applyPersistedState(cloneRecord(record)));
   }
 
   function getDispatchUnits() {
@@ -286,7 +296,7 @@
     if (!record) {
       return null;
     }
-    const copy = cloneRecord(record);
+    const copy = applyPersistedState(cloneRecord(record));
     if (copy.mode === "dispatchUnits") {
       copy.type = normalizeDispatchType(copy.type);
     }
@@ -303,7 +313,36 @@
       record[key] = patch[key];
     });
 
+    persistProductState(record);
+
     return cloneRecord(record);
+  }
+
+  function readPersistedStates() {
+    try {
+      return JSON.parse(localStorage.getItem(PRODUCT_STATE_STORAGE_KEY) || "{}");
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function applyPersistedState(record) {
+    const states = readPersistedStates();
+    return states[record.id] ? { ...record, ...states[record.id] } : record;
+  }
+
+  function persistProductState(record) {
+    try {
+      const states = readPersistedStates();
+      states[record.id] = {
+        status: record.status,
+        graceStatus: record.graceStatus,
+        exceptionRequest: record.exceptionRequest,
+      };
+      localStorage.setItem(PRODUCT_STATE_STORAGE_KEY, JSON.stringify(states));
+    } catch (error) {
+      // La simulacion continua funcionando aunque el navegador bloquee localStorage.
+    }
   }
 
   window.GS1ProductCatalog = {

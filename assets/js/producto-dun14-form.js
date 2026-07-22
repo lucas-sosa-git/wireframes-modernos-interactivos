@@ -153,7 +153,7 @@
 
   function renderField(label, name, value, options = {}) {
     const requiredBadge = options.required
-      ? ' <span class="badge text-bg-secondary required-badge">Requerido</span>'
+      ? ' <span class="text-danger" aria-label="obligatorio">*</span>'
       : "";
     const inputMode = options.inputMode ? ` inputmode="${escapeAttribute(options.inputMode)}"` : "";
 

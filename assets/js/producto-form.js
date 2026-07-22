@@ -57,6 +57,9 @@
     if (/producto-editar\.html$/i.test(path) && record) {
       preloadCommercialFields(record);
       injectEditNotice(record);
+      if (record.mode === "products" && record.status === "Activo") {
+        restrictActiveProductFields(record);
+      }
     }
 
     if (mode === "copy" && record && record.mode === "products") {
@@ -335,7 +338,7 @@
       );
 
       window.scrollTo({
-        top: target,
+        bottom: target,
         behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       });
     });
@@ -449,6 +452,31 @@
         <div class="small">El producto <strong>${escapeHtml(record.name)}</strong> está dentro del período de gracia y puede modificarse directamente.</div>
       </div>
     `);
+  }
+
+  function restrictActiveProductFields(record) {
+    ["#paso10a", "#paso10b", "#paso20a", "#paso20b", "#paso30a", "#paso30b"].forEach((selector) => {
+      document.querySelector(selector)?.classList.add("gs1-restricted-step");
+    });
+    ["#paso10a a", "#paso20a a", "#paso30a a", "#paso10b a", "#paso20b a", "#paso30b a"].forEach((selector) => {
+      document.querySelectorAll(selector).forEach((element) => {
+        element.setAttribute("aria-disabled", "true");
+        element.setAttribute("tabindex", "-1");
+        element.removeAttribute("onclick");
+        element.addEventListener("click", (event) => event.preventDefault());
+      });
+    });
+    const banner = document.querySelector(".gs1-inline-banner");
+    if (banner) {
+      banner.insertAdjacentHTML("beforeend", `
+        <div class="small mt-2">Tipo de GTIN, línea de negocio y tipo de distribución quedan reservados para una solicitud de revisión.</div>
+        <div class="mt-3">
+          <a class="btn btn-outline-primary btn-sm" href="producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new">
+            Contactar a GS1 para editar estos datos
+          </a>
+        </div>
+      `);
+    }
   }
 
   function injectBanner(markup) {

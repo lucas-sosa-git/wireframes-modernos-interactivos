@@ -14,8 +14,16 @@
           <div class="row g-4">
             <div class="col-lg-4">
               <div class="gs1-side-panel">
-                <label class="form-label" for="symbolType">Simbologia</label>
-                <select class="form-select mb-3" id="symbolType">${TYPES.map((type) => `<option>${type}</option>`).join("")}</select>
+                <label class="form-label" for="symbolType">Simbología</label>
+                <div class="btn-group w-100 mb-3" role="group" aria-label="Selector de simbología">
+                  <button type="button" class="btn btn-outline-primary symbol-type-button is-active" data-symbol-type="GTIN-13">EAN-13</button>
+                  <button type="button" class="btn btn-outline-primary symbol-type-button" data-symbol-type="GTIN-14">ITF-14</button>
+                  <button type="button" class="btn btn-outline-primary symbol-type-button" data-symbol-type="Otros" data-bs-toggle="collapse" data-bs-target="#otherSymbolTypes">Otros</button>
+                </div>
+                <div class="collapse mb-3" id="otherSymbolTypes">
+                  <select class="form-select" id="symbolTypeOther">${TYPES.slice(2).map((type) => `<option value="${type}">${type}</option>`).join("")}</select>
+                </div>
+                <select class="visually-hidden" id="symbolType">${TYPES.map((type) => `<option>${type}</option>`).join("")}</select>
                 <label class="form-label" for="symbolCode">Ingres&aacute; el c&oacute;digo</label>
                 <input class="form-control mb-3" id="symbolCode" value="${escapeHtml(record ? record.code : "")}">
                 <div class="row g-2">
@@ -54,13 +62,28 @@
       </section>
     `;
     if (record) {
-      document.getElementById("symbolType").value = inferType(record.type);
+      const inferredType = inferType(record.type);
+      document.getElementById("symbolType").value = inferredType;
+      document.querySelectorAll("[data-symbol-type]").forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.symbolType === inferredType);
+      });
     }
     bindGenerator();
     renderPreview();
   }
 
   function bindGenerator() {
+    document.querySelectorAll("[data-symbol-type]").forEach((button) => button.addEventListener("click", () => {
+      const type = button.dataset.symbolType === "Otros" ? document.getElementById("symbolTypeOther").value : button.dataset.symbolType;
+      document.getElementById("symbolType").value = type;
+      document.querySelectorAll("[data-symbol-type]").forEach((item) => item.classList.toggle("is-active", item === button));
+      renderPreview();
+    }));
+    document.getElementById("symbolTypeOther").addEventListener("change", (event) => {
+      document.getElementById("symbolType").value = event.target.value;
+      document.querySelectorAll("[data-symbol-type]").forEach((item) => item.classList.toggle("is-active", item.dataset.symbolType === "Otros"));
+      renderPreview();
+    });
     document.getElementById("generateSymbolBtn").addEventListener("click", renderPreview);
     document.getElementById("resetSymbolBtn").addEventListener("click", () => window.location.reload());
     document.getElementById("downloadSymbolBtn").addEventListener("click", () => window.GS1Utils.showSimulationToast("Descarga simulada correctamente.", "success"));
@@ -70,14 +93,24 @@
     const type = document.getElementById("symbolType").value;
     const code = document.getElementById("symbolCode").value.trim();
     const preview = document.getElementById("symbolPreview");
-    const numericTypes = ["EAN-13 / GTIN-13", "ITF-14 / GTIN-14", "UPC-A", "SSCC"];
+    const numericTypes = ["GTIN-13", "GTIN-14", "UPC-A", "SSCC"];
     if (!code || (numericTypes.includes(type) && !/^\d+$/.test(code))) {
       preview.innerHTML = `<div class="alert alert-warning mb-0">Ingres&aacute; un c&oacute;digo v&aacute;lido para generar la previsualizaci&oacute;n.</div>`;
       return;
     }
+    const imageByType = {
+      "GTIN-13": "../GTIN-13 imagen.png",
+      "GTIN-14": "../GENERADOR DE SIMBOLOGIA.png",
+      "UPC-A": "../UPC-12 Imagen.png",
+      "GS1-128": "../GENERADOR DE SIMBOLOGIA.png",
+      "SSCC": "../GENERADOR DE SIMBOLOGIA.png",
+      "GS1 DataMatrix": "../QR-DATAMATRIX.png",
+      "DataMatrix Digital Link": "../QR-DATAMATRIX.png",
+      "QR Code Digital Link": "../assets/img/qr_gs1.jpg",
+    };
     preview.innerHTML = type.includes("QR") || type.includes("DataMatrix")
-      ? `<div class="gs1-matrix-preview">${escapeHtml(type)}<div class="gs1-matrix-grid"></div><div class="small mt-2">${escapeHtml(code)}</div></div>`
-      : `<div class="gs1-linear-preview"><div class="gs1-linear-bars"></div><div class="small mt-3">${escapeHtml(type)} | ${escapeHtml(code)}</div></div>`;
+      ? `<div class="gs1-matrix-preview"><img src="${imageByType[type]}" alt="Previsualización ${escapeHtml(type)}"><div class="small mt-2">${escapeHtml(code)}</div></div>`
+      : `<div class="gs1-linear-preview"><img src="${imageByType[type]}" alt="Previsualización ${escapeHtml(type)}"><div class="small mt-3">${escapeHtml(type)} | ${escapeHtml(code)}</div></div>`;
   }
 
   function resolveRecord() {
@@ -87,12 +120,12 @@
 
   function inferType(type) {
     if (type === "GTIN-14") {
-      return "ITF-14 / GTIN-14";
+      return "GTIN-14";
     }
     if (type === "UPC-12") {
       return "UPC-A";
     }
-    return "EAN-13 / GTIN-13";
+    return "GTIN-13";
   }
 
   function numberField(label, id, value) {

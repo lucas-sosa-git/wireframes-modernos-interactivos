@@ -20,9 +20,19 @@
                   <label class="form-label" for="digitalLinkGtin">GTIN</label>
                   <input class="form-control" id="digitalLinkGtin" value="${escapeHtml(gtin)}">
                 </div>
+                <div class="col-md-6"><label class="form-label" for="digitalLinkBrand">Marca</label><input class="form-control" id="digitalLinkBrand" value="${escapeHtml(record ? record.brand : "")}"></div>
+                <div class="col-md-6"><label class="form-label" for="digitalLinkImage">Imagen</label><input class="form-control" id="digitalLinkImage" value="${escapeHtml(record ? record.image : "")}"></div>
                 <div class="col-md-6">
-                  <label class="form-label" for="digitalLinkDescription">Descripci&oacute;n del producto</label>
-                  <input class="form-control" id="digitalLinkDescription" value="${escapeHtml(record ? record.name : "")}">
+                  <label class="form-label" for="digitalLinkName">Nombre del producto</label>
+                  <input class="form-control" id="digitalLinkName" value="${escapeHtml(record ? record.name : "")}">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="digitalLinkDescription">Descripción</label>
+                  <input class="form-control" id="digitalLinkDescription" value="${escapeHtml(record ? record.shortDescription : "")}">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="digitalLinkTargetUrl">URL del producto</label>
+                  <input class="form-control" id="digitalLinkTargetUrl" value="${escapeHtml(record ? `https://id.gs1.org/01/${gtin}` : "")}">
                 </div>
                 <div class="col-12">
                   <label class="form-label">Digital Link calculado</label>
@@ -48,6 +58,9 @@
                   ${field("Escala vertical", "dlScaleY", "number", "2")}
                   ${field("Rotacion", "dlRotation", "number", "0")}
                 </div>
+                <label class="form-label mt-3" for="dlType">Tipo de link</label>
+                <select class="form-select" id="dlType" disabled><option>Tipos pendientes de definición</option></select>
+                <div class="small text-secondary mt-2">// TODO: pendiente de definición (Lucas): incorporar únicamente los tipos definidos en el Excel de referencia.</div>
                 <label class="form-label mt-3" for="dlFormat">Formato</label>
                 <select class="form-select" id="dlFormat"><option>PNG</option><option>JPG</option><option>JPEG</option></select>
                 <div class="d-flex flex-wrap gap-2 mt-4">
@@ -61,7 +74,6 @@
         </div>
       </section>
     `;
-    addRow({ url: "https://www.empresa.com/producto", type: "Ficha", principal: true });
     bindDigitalLinkEvents();
     renderPreview();
   }
@@ -113,7 +125,7 @@
   function renderPreview() {
     const gtin = window.GS1Utils.normalizeDigitalLinkGtin(document.getElementById("digitalLinkGtin").value);
     document.getElementById("digitalLinkValue").value = `https://id.gs1.org/01/${gtin}`;
-    document.getElementById("digitalLinkPreview").innerHTML = `<div class="gs1-matrix-preview">QR Digital Link<div class="gs1-matrix-grid"></div><div class="small mt-2">https://id.gs1.org/01/${escapeHtml(gtin)}</div></div>`;
+    document.getElementById("digitalLinkPreview").innerHTML = `<div class="gs1-matrix-preview"><img src="../assets/img/qr_gs1.jpg" alt="Previsualización QR Digital Link" class="img-fluid rounded"><div class="small mt-2">https://id.gs1.org/01/${escapeHtml(gtin)}</div></div>`;
   }
 
   function resolveRecord() {

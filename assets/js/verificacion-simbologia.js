@@ -1,5 +1,6 @@
 (function () {
   const STORAGE_KEY = "gs1-symbol-verification-comments";
+  const REQUESTS_KEY = "gs1-symbol-verification-requests:v1";
   document.addEventListener("DOMContentLoaded", initVerificationPage);
 
   function initVerificationPage() {
@@ -7,7 +8,8 @@
     if (!mount) {
       return;
     }
-    renderHome(mount);
+    // La acción principal al entrar es generar una solicitud; el historial queda disponible desde Volver.
+    renderNew(mount);
   }
 
   function renderHome(mount) {
@@ -23,7 +25,7 @@
       </section>
     `;
     document.getElementById("openVerificationNew").addEventListener("click", () => renderNew(mount));
-    document.getElementById("openVerificationOpen").addEventListener("click", () => renderOpen(mount));
+    document.getElementById("openVerificationOpen").addEventListener("click", () => renderOpen(mount, readRequests()[0]));
   }
 
   function renderNew(mount) {
@@ -53,6 +55,8 @@
     document.getElementById("verificationNewForm").addEventListener("submit", (event) => {
       event.preventDefault();
       const description = document.getElementById("verificationDescription").value.trim();
+      const gtin = document.getElementById("verificationGtin").value.trim();
+      const symbolType = document.getElementById("verificationType").value;
       const hasFiles = document.getElementById("verificationFiles").files.length > 0;
       const error = document.querySelector("#verificationError .alert");
       if (!description || !hasFiles) {
@@ -60,11 +64,22 @@
         error.textContent = "Ingres&aacute; una descripci&oacute;n y adjunt&aacute; al menos un archivo.";
         return;
       }
-      renderSuccess(mount);
+      const duplicate = readRequests().find((request) => request.gtin === gtin && request.symbolType === symbolType);
+      if (duplicate) {
+        window.GS1Utils.showSimulationToast("Ya existe una solicitud para ese producto y simbología. Se abrió su canal.", "warning");
+        renderOpen(mount, duplicate);
+        return;
+      }
+      const request = { id: `VS-2026-${String(readRequests().length + 13).padStart(4, "0")}`, gtin, symbolType, description, status: "En revisión" };
+      const requests = readRequests();
+      requests.push(request);
+      localStorage.setItem(REQUESTS_KEY, JSON.stringify(requests));
+      renderSuccess(mount, request);
     });
   }
 
-  function renderOpen(mount) {
+  function renderOpen(mount, request) {
+    request = request || readRequests()[0];
     const comments = readComments();
     mount.innerHTML = `
       <section class="card shadow-sm gs1-tool-shell">
@@ -72,8 +87,8 @@
           <div class="d-flex justify-content-between align-items-start gap-2 mb-4">
             <div>
               <div class="text-secondary small">Solicitud abierta</div>
-              <h1 class="h3 mb-1">VS-2026-0012</h1>
-              <div class="text-secondary">En revision</div>
+              <h1 class="h3 mb-1">${escapeHtml(request.id)}</h1>
+              <div class="text-secondary">${escapeHtml(request.status)} · ${escapeHtml(request.gtin || "Sin GTIN")} · ${escapeHtml(request.symbolType)}</div>
             </div>
             <button class="btn btn-outline-secondary" id="backVerificationHome" type="button">Volver</button>
           </div>
@@ -112,21 +127,31 @@
       const commentsList = readComments();
       commentsList.push(next);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(commentsList));
-      renderOpen(mount);
+      renderOpen(mount, request);
     });
   }
 
-  function renderSuccess(mount) {
+  function renderSuccess(mount, request) {
     mount.innerHTML = `
       <section class="card shadow-sm gs1-tool-shell">
         <div class="card-body text-center py-5">
           <h1 class="h3 mb-2">Solicitud enviada</h1>
-          <p class="text-secondary mb-4">Su solicitud de verificaci&oacute;n de simbolog&iacute;a fue enviada con &eacute;xito. Un administrador de GS1 Argentina estar&aacute; revisando el formulario.</p>
-          <button class="btn btn-primary" id="backVerificationHome" type="button">Volver al inicio</button>
+          <p class="text-secondary mb-4">La solicitud ${escapeHtml(request.id)} fue enviada con éxito. Un administrador de GS1 Argentina revisará el formulario.</p>
+          <button class="btn btn-primary" id="openCreatedRequest" type="button">Abrir canal de la solicitud</button>
         </div>
       </section>
     `;
-    document.getElementById("backVerificationHome").addEventListener("click", () => renderHome(mount));
+    document.getElementById("openCreatedRequest").addEventListener("click", () => renderOpen(mount, request));
+  }
+
+  function readRequests() {
+    const seed = [{ id: "VS-2026-0012", gtin: "7791234000019", symbolType: "EAN-13", description: "Verificación de etiqueta", status: "En revisión" }];
+    try {
+      const raw = localStorage.getItem(REQUESTS_KEY);
+      return raw ? JSON.parse(raw) : seed;
+    } catch (error) {
+      return seed;
+    }
   }
 
   function readComments() {
