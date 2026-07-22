@@ -9,17 +9,17 @@
   ];
   const DISTRIBUTION_VALUES = ["Nacional", "Internacional"];
   const SCROLLABLE_ACTIONS = [
-    { name: "validar_paso40", target: "#paso50a" },
+    { name: "validar_paso40", target: "#paso40b" },
     { name: "editar_paso40", target: "#paso40a" },
-    { name: "validar_paso50", target: "#paso60a" },
+    { name: "validar_paso50", target: "#paso50b" },
     { name: "editar_paso50", target: "#paso50a" },
-    { name: "validar_paso60", target: "#paso70a" },
+    { name: "validar_paso60", target: "#paso60b" },
     { name: "editar_paso60", target: "#paso60a" },
-    { name: "validar_paso70", target: "#paso80a" },
+    { name: "validar_paso70", target: "#paso70b" },
     { name: "editar_paso70", target: "#paso70a" },
-    { name: "validar_paso80", target: "#paso90a" },
+    { name: "validar_paso80", target: "#paso80b" },
     { name: "editar_paso80", target: "#paso80a" },
-    { name: "validar_paso90", target: "#paso100a" },
+    { name: "validar_paso90", target: "#ficha-final" },
     { name: "editar_paso90", target: "#paso90a" },
   ];
 
@@ -46,7 +46,9 @@
     }
 
     setupSharedChrome();
+    setupWizardStepLayout();
     bindWizard();
+    bindFieldAutoAdvance();
     wrapLegacyStepActions();
 
     const params = new URLSearchParams(window.location.search);
@@ -131,7 +133,7 @@
       animateWizardStep({
         hide: ["#paso20a", "#paso20c"],
         show: ["#paso20b", "#paso30a"],
-        scrollTarget: "#paso30a",
+        scrollTarget: "#paso20b",
       });
     };
 
@@ -151,7 +153,7 @@
       animateWizardStep({
         hide: ["#paso30a", "#paso30c"],
         show: ["#paso30b", "#paso40a"],
-        scrollTarget: "#paso40a",
+        scrollTarget: "#paso30b",
       });
     };
 
@@ -255,7 +257,7 @@
     animateWizardStep({
       hide: ["#paso10a", "#paso10c"],
       show: [summarySelector, "#paso20a"],
-      scrollTarget: "#paso20a",
+      scrollTarget: summarySelector,
     });
   }
 
@@ -309,40 +311,51 @@
   }
 
   function scrollToWizardStep(element) {
-    if (!element) {
-      return;
-    }
+    if (element && window.GS1Utils) window.GS1Utils.scrollToElement(element, { force: true });
+  }
 
-    const token = ++scrollToken;
-    window.requestAnimationFrame(() => {
-      if (token !== scrollToken) {
-        return;
-      }
-
-      const rect = element.getBoundingClientRect();
-      const header = document.querySelector(".bg-body-secondary.position-fixed, .p-3.bg-body-secondary.border-1");
-      const headerHeight = header ? header.getBoundingClientRect().height : 0;
-      const margin = 16;
-      const viewportTop = headerHeight + margin;
-      const viewportBottom = window.innerHeight - margin;
-      const topVisible = rect.top >= viewportTop;
-      const bottomVisible = rect.bottom <= viewportBottom;
-      if (topVisible && bottomVisible) {
-        return;
-      }
-
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const target = Math.min(
-        Math.max(window.scrollY + rect.top - headerHeight - margin, 0),
-        Math.max(maxScroll, 0),
-      );
-
-      window.scrollTo({
-        bottom: target,
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      });
+  function setupWizardStepLayout() {
+    const root = document.getElementById("producto-nuevo-wizard");
+    if (!root) return;
+    Array.from(root.children).forEach((step) => {
+      if (/^paso\d+[abc]$/i.test(step.id)) step.classList.add("product-wizard-step");
     });
   }
+
+  function bindFieldAutoAdvance() {
+    const root = document.getElementById("paso40a");
+    if (!root || /producto-editar\.html$/i.test(location.pathname)) return;
+    const advance = (field) => window.GS1Utils.focusNextVisibleField(field, root, { exclude: "[data-autoadvance-exclude]" });
+    root.addEventListener("change", (event) => {
+      if (event.target.matches("select, input[type=radio], input[type=checkbox]")) advance(event.target);
+    });
+    root.addEventListener("blur", (event) => { if (event.target.matches("input[type=text], input[type=number], textarea")) advance(event.target); }, true);
+    root.addEventListener("keydown", (event) => { if (event.key === "Enter" && event.target.matches("input, textarea")) { event.preventDefault(); advance(event.target); } });
+  }
+
+  function buildCreatedProductPayload() {
+    const selects = document.querySelectorAll("#paso40a select");
+    const selectText = (index) => selects[index] && selects[index].selectedOptions[0] ? selects[index].selectedOptions[0].textContent.trim() : "";
+    const code = "7798336831071";
+    const name = document.getElementById("Producto")?.value.trim() || "Producto nuevo";
+    const content = [document.getElementById("contenidoneto")?.value.trim(), selectText(3)].filter(Boolean).join(" ");
+    return { mode: "products", code, name, brand: selectText(0), subBrand: selectText(1), image: document.querySelector("#imagen-1 img")?.src || "../assets/img/producto-1c.jpg", shortDescription: `${name}${content ? ` - ${content}` : ""}`, content, packaging: selectText(2), lineOfBusiness: wizardState.lineOfBusiness, distributionType: wizardState.distributionType };
+  }
+
+  window.GS1BuildCreatedProductPayload = buildCreatedProductPayload;
+  const legacyFinal = window.validar_paso90;
+  window.validar_paso90 = function () {
+    legacyFinal.apply(this, arguments);
+    const payload = buildCreatedProductPayload();
+    const finalCard = document.getElementById("ficha-final");
+    finalCard?.querySelector("[data-created-gtin]") && (finalCard.querySelector("[data-created-gtin]").textContent = `GTIN: ${payload.code}`);
+    finalCard?.querySelector("[data-created-name]") && (finalCard.querySelector("[data-created-name]").textContent = payload.shortDescription);
+    finalCard?.querySelector("[data-created-brand]") && (finalCard.querySelector("[data-created-brand]").textContent = payload.brand || "-");
+    const button = document.getElementById("printCreatedQrBtn");
+    const token = window.GS1Utils.saveQrHandoff(payload);
+    if (button) { button.classList.toggle("disabled", !token); button.setAttribute("aria-disabled", String(!token)); button.href = token ? `qr-digital-link.html?handoff=${encodeURIComponent(token)}` : "#"; }
+    if (!token) window.GS1Utils.showSimulationToast("No fue posible preparar los datos para el QR en esta sesión.", "danger");
+  };
 
   function wrapLegacyStepActions() {
     SCROLLABLE_ACTIONS.forEach(({ name, target }) => {
@@ -352,7 +365,8 @@
       }
       window[name] = function wrappedLegacyStepAction() {
         original.apply(this, arguments);
-        scrollToWizardStep(document.querySelector(target));
+        const $target = window.jQuery(target);
+        $target.promise().done(() => scrollToWizardStep($target.get(0)));
       };
     });
   }

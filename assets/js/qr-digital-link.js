@@ -7,7 +7,8 @@
       return;
     }
     const record = resolveRecord();
-    const gtin = record ? window.GS1Utils.normalizeDigitalLinkGtin(record.code) : "";
+    const requestedGtin = window.GS1Utils.getUrlParam("gtin");
+    const gtin = record ? window.GS1Utils.normalizeDigitalLinkGtin(record.code) : window.GS1Utils.normalizeDigitalLinkGtin(requestedGtin || "");
     mount.innerHTML = `
       <section class="card shadow-sm gs1-tool-shell">
         <div class="card-body">
@@ -32,7 +33,7 @@
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" for="digitalLinkTargetUrl">URL del producto</label>
-                  <input class="form-control" id="digitalLinkTargetUrl" value="${escapeHtml(record ? `https://id.gs1.org/01/${gtin}` : "")}">
+                  <input class="form-control" id="digitalLinkTargetUrl" value="${escapeHtml(gtin ? `https://id.gs1.org/01/${gtin}` : "")}">
                 </div>
                 <div class="col-12">
                   <label class="form-label">Digital Link calculado</label>
@@ -130,7 +131,10 @@
 
   function resolveRecord() {
     const id = window.GS1Utils.getUrlParam("id");
-    return id ? window.GS1ProductCatalog.getById(id) : null;
+    if (id) return window.GS1ProductCatalog.getById(id);
+    const handoff = window.GS1Utils.getUrlParam("handoff");
+    const record = handoff ? window.GS1Utils.readQrHandoff(handoff) : null;
+    return record && record.code && record.name ? record : null;
   }
 
   function field(label, id, type, value) {

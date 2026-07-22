@@ -80,7 +80,17 @@
       renderPreview();
     }));
     document.getElementById("symbolTypeOther").addEventListener("change", (event) => {
-      document.getElementById("symbolType").value = event.target.value;
+      const selectedType = event.target.value;
+      if (selectedType === "QR Code Digital Link" || selectedType === "DataMatrix Digital Link") {
+        const url = new URL("qr-digital-link.html", window.location.href);
+        const id = new URLSearchParams(window.location.search).get("id");
+        const gtin = document.getElementById("symbolCode").value.trim();
+        if (id) url.searchParams.set("id", id);
+        if (gtin) url.searchParams.set("gtin", gtin);
+        window.location.assign(url.toString());
+        return;
+      }
+      document.getElementById("symbolType").value = selectedType;
       document.querySelectorAll("[data-symbol-type]").forEach((item) => item.classList.toggle("is-active", item.dataset.symbolType === "Otros"));
       renderPreview();
     });

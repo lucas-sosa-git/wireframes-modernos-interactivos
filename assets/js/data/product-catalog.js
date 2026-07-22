@@ -276,7 +276,25 @@
   const allRecords = [...commercialProducts, ...dispatchUnits];
 
   function cloneRecord(record) {
-    return JSON.parse(JSON.stringify(record));
+    const copy = JSON.parse(JSON.stringify(record));
+    copy.image = resolveImagePath(copy.image);
+    if (Array.isArray(copy.imageGallery)) {
+      copy.imageGallery = copy.imageGallery.map(resolveImagePath);
+    }
+    return copy;
+  }
+
+  // Catalog images are stored once and resolved against the current document,
+  // independent of the depth or URL of the view that renders them.
+  function resolveImagePath(value) {
+    if (!value) return null;
+    const path = String(value).trim();
+    if (!path || /^(?:data:|https?:|blob:)/i.test(path)) return path || null;
+    try {
+      return new URL(path, document.baseURI).href;
+    } catch {
+      return path;
+    }
   }
 
   function getCommercialProducts() {
@@ -350,5 +368,6 @@
     getDispatchUnits,
     getById,
     updateById,
+    resolveImagePath,
   };
 })();

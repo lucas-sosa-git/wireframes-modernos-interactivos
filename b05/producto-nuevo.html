@@ -480,6 +480,28 @@
   object-position: center;
   display: block;
 }
+
+#producto-nuevo-wizard {
+  max-width: 1180px;
+  margin-inline: auto;
+  font-size: .95rem;
+}
+#producto-nuevo-wizard .product-wizard-step {
+  scroll-margin-top: 88px;
+  margin-bottom: .75rem;
+}
+#producto-nuevo-wizard h2 { margin-bottom: .75rem; font-size: 1.25rem; line-height: 1.25; }
+#producto-nuevo-wizard h3 { font-size: 1.05rem; }
+#producto-nuevo-wizard .form-label { margin-bottom: .25rem; font-size: .9rem; }
+#producto-nuevo-wizard .form-control, #producto-nuevo-wizard .form-select { min-height: 42px; padding: .45rem .7rem; font-size: .95rem; }
+#producto-nuevo-wizard textarea.form-control { min-height: 88px; }
+#producto-nuevo-wizard .btn { padding: .5rem .85rem; font-size: .95rem; }
+#producto-nuevo-wizard .row { --bs-gutter-y: .75rem; }
+#producto-nuevo-wizard .wizard-choice .card { min-height: auto; padding: .85rem 1rem !important; }
+#producto-nuevo-wizard .wizard-choice .card-body { padding: .5rem 0 0; }
+#producto-nuevo-wizard .wizard-choice .gtin-selector-image { height: 120px; }
+#ficha-final .final-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: .5rem; }
+#ficha-final .final-actions .btn { flex: 0 0 auto; width: auto; margin: 0; white-space: nowrap; }
 </style>
 				 
 <div class="progress mb-3" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 20px; border-radius: 20px 20px 0px 0px !important; border-bottom: 0px solid rgba(255,255,255,1.00);">
@@ -530,6 +552,7 @@
 	
 <form class="needs-validation" novalidate>
 <div class="pasos" id="pasos">	
+	<div id="producto-nuevo-wizard">
 	<div id="paso10a">
 		<h2 class="mb-3 pt-0">01 - Seleccione el Tipo de GTIN</h2>
 		  <div class="row g-3 p-1" >	
@@ -707,16 +730,16 @@
 
 			
  <div class="col-sm-12">
-                  <label for="Producto" class="form-label">Producto  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-                  <input type="text"  class="form-control  form-control-lg" id="Producto" placeholder="Ejemplo: Mermelada" value=""  />
+                  <label for="Producto" class="form-label">Producto <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+                  <input type="text" class="form-control form-control-lg" id="Producto" placeholder="Ejemplo: Mermelada" value="" required aria-required="true" />
 </div>
 			
 <div class="col-6">
 	
 	 <div class="row p-0">
 		<div class="col-8"> 
-		<label for="marca" class="form-label">Marca <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-	<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="marca">
+		<label for="marca" class="form-label">Marca <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+	<select id="marca" class="form-select form-select-lg mb-0" aria-label="Marca" required aria-required="true">
 	  <option selected disabled > - </option>
 	  <option value="1">Marca 1</option>
 	  <option value="2">Marca 2</option>
@@ -789,13 +812,13 @@
 </div>
 			
 <div class="col-sm-12">
-                  <label for="variedad" class="form-label">Variedad  <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-                  <input type="text"  class="form-control  form-control-lg" id="variedad" placeholder="Ejemplo: Durazno" value=""  />
+		<label for="variedad" class="form-label">Variedad <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+		<input type="text" class="form-control form-control-lg" id="variedad" placeholder="Ejemplo: Durazno" value="" required aria-required="true" />
 </div>
 			
 <div class="col-3">
-	<label for="envase" class="form-label">Envase <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+	<label for="envase" class="form-label">Envase <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+<select id="envase" class="form-select form-select-lg mb-0" aria-label="Envase" required aria-required="true">
   <option selected disabled > - </option>
   <option value="1">Envase 1</option>
   <option value="2">Envase 2</option> 
@@ -805,13 +828,13 @@
 </div>
 			
 	<div class="col-sm-3">
-                  <label for="centenidoneto" class="form-label">Contenido Neto <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-                  <input type="text"  class="form-control  form-control-lg" id="contenidoneto" placeholder="Ejemplo: 150" value=""  />
+                  <label for="contenidoneto" class="form-label">Contenido Neto <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+                  <input type="text" class="form-control form-control-lg" id="contenidoneto" placeholder="Ejemplo: 150" value="" required aria-required="true" />
 </div>
 			
 <div class="col-3">
-	<label for="envase" class="form-label">Unidad de medida <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+	<label for="unidad-medida" class="form-label">Unidad de medida <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+<select id="unidad-medida" class="form-select form-select-lg mb-0" aria-label="Unidad de medida" required aria-required="true">
   <option selected disabled > - </option>
   <option value="1">Unidades 1</option>
   <option value="2">Unidades 2</option> 
@@ -821,8 +844,8 @@
 </div>
 			
 <div class="col-3">
-	<label for="envase" class="form-label">País de fabricación <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-<select class="form-select form-select-lg mb-0" aria-label="Large select example" laceholder="envase">
+	<label for="pais-fabricacion" class="form-label">País de fabricación <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+<select id="pais-fabricacion" class="form-select form-select-lg mb-0" aria-label="País de fabricación" required aria-required="true">
   <option selected disabled > - </option>
   <option value="1">Argentina</option>
   <option value="2">País 2</option> 
@@ -836,8 +859,8 @@
 	
 	 <div class="row p-0">
 		<div class="col-8"> 
-		<label for="codigo" class="form-label">Código de Artículo <span class="badge text-bg-secondary " style="font-weight: lighter">Requerido</span></label>
-	<input type="text"  class="form-control  form-control-lg" id="codigo" placeholder="" value=""  />
+		<label for="codigo" class="form-label">Código de Artículo <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">obligatorio</span></label>
+	<input type="text" class="form-control form-control-lg" id="codigo" placeholder="" value="" required aria-required="true" />
 	</div>
 
 	<div class="col-4">
@@ -1616,7 +1639,7 @@ function agregar_imagenes() {
 	<div id="paso90c" class="text-body-tertiary">
 		<h4 class="mb-0 text-body-tertiary"><img src="../assets/img/sin-check.png" class="imagen-indicador">09 - Final</h4>
 	</div>
-	
+	</div>
 </div>	
 	
 <script>
@@ -1851,7 +1874,7 @@ function editar_paso90() {
 	<div class="row g-3" >
 	  <div class="col-6 border-bottom pb-2">
 		  <div>GTIN</div>
-		  <div class="d-block"><span class="badge text-bg-primary py-2 px-3 fs-5">GTIN: 7798336831071</span></div>
+		  <div class="d-block"><span class="badge text-bg-primary py-2 px-3 fs-5" data-created-gtin>GTIN: 7798336831071</span></div>
 	  </div>
 		
 	  <div class="col-6 border-bottom pb-2">
@@ -1861,12 +1884,12 @@ function editar_paso90() {
 	
 	  <div class="col-12 border-bottom pb-2">
 		  <div>Descripción</div>
-		  <div class="d-block fs-5"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
+		  <div class="d-block fs-5"><strong data-created-name>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ullamcorper ligula.</strong></div>
 	  </div>
 
 	  <div class="col-6 border-bottom pb-2">
 		  <div>Marca</div>
-		  <div class="d-block fs-5"><strong>MarcaEjemplo</strong></div>
+		  <div class="d-block fs-5"><strong data-created-brand>MarcaEjemplo</strong></div>
 	  </div>
 
 	  <div class="col-6 border-bottom pb-2">
@@ -1888,17 +1911,19 @@ function editar_paso90() {
 		  <div>Mercados</div>
 		  <div class="d-block fs-5 pb-2"><div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Argentina</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Paraguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Uruguay</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Chile</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Perú</div> <div class="alert border p-2 pt-1 me-1 mb-1 lh-1 bg-white">Bolivia</div></div>
 	  </div>
- <div class="col-12  text-end">
-
-			  <a class="btn btn-primary " href="producto-editar.html">
+ <div class="col-12">
+	<div class="final-actions">
+			  <a class="btn btn-primary" href="producto-editar.html">
 					   Modificar este producto
 			  </a>
-              <a class="btn btn-primary " href="productos-listado.html">
+			  <a class="btn btn-primary" href="productos-listado.html">
 					  Ir al listado de productos
 			  </a>
-	 <a class="btn btn-primary " href="producto-nuevo.html">
+	 <a class="btn btn-primary" href="producto-nuevo.html">
 					   Dar de Alta un nuevo producto
 			  </a>
+	 <a class="btn btn-primary" id="printCreatedQrBtn" aria-disabled="true">Imprimí tu QR</a>
+	</div>
 	<div class="form-text mb-3">Recibiras un e-mail con los datos del producto y quedará visible en "Productos"</div>
 		</div>
 	</div>

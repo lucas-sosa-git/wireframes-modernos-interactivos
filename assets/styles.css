@@ -441,17 +441,6 @@ main,
   margin-left: auto;
 }
 
-.product-row-actions .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 32px;
-  height: 30px;
-  padding: 0 .55rem;
-  background: #ffffff;
-  border-color: #d5dbe5;
-}
-
 .product-row-actions .btn:hover,
 .product-row-actions .btn:focus-visible {
   background: #edf4ff;
@@ -476,13 +465,6 @@ main,
   border-color: #0d6efd;
   box-shadow: 0 0 0 2px rgba(13, 110, 253, .12);
   outline: 0;
-}
-
-.product-thumb-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
 }
 
 .product-thumb-placeholder,
@@ -1325,21 +1307,6 @@ body.help-widget--dragging {
   pointer-events: none;
 }
 
-.product-thumb-image,
-.product-thumb-placeholder {
-  width: 48px;
-  height: 48px;
-  border-radius: .75rem;
-  border: 1px solid var(--bs-border-color);
-  background: #f8f9fa;
-}
-
-.product-thumb-image {
-  object-fit: contain;
-  display: block;
-  padding: .2rem;
-}
-
 .product-thumb-placeholder,
 .product-image-placeholder {
   display: inline-flex;
@@ -2164,4 +2131,63 @@ body.help-widget--dragging {
   .product-edit-page #card-nuevo-producto .row > [class~="col-4"] {
     width: 33.333333%;
   }
+}
+
+/* Shared product-table controls: keep textual DUN-14 action and thumbnails usable. */
+.product-row-actions .product-table-generate-dun14 {
+  width: auto;
+  min-width: 180px;
+  height: 2.25rem;
+  padding: 0 .9rem;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.product-grid__actions-cell .product-row-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .35rem;
+  width: max-content;
+}
+
+.product-thumbnail {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  max-width: 52px;
+  min-height: 52px;
+  max-height: 52px;
+  padding: 3px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-thumbnail > .product-thumb-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  object-fit: contain;
+  border: 0;
+  border-radius: 8px;
+}
+
+/* Estado reutilizable para la tabla de selección de producto contenido. */
+.product-table-row--selected > td {
+  background-color: rgba(0, 112, 192, 0.10) !important;
+  box-shadow: inset 4px 0 0 #0070c0;
+}
+
+.product-table-generate-dun14 {
+  white-space: nowrap;
+}
+
+.dispatch-form-section[hidden] {
+  display: none;
 }

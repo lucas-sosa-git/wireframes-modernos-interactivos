@@ -88,6 +88,50 @@
     }
   }
 
+  let scrollRequest = 0;
+  function scrollToElement(element, options = {}) {
+    if (!(element instanceof Element)) return;
+    const request = ++scrollRequest;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (request !== scrollRequest || !element.isConnected) return;
+      const rect = element.getBoundingClientRect();
+      const header = document.querySelector("header.position-fixed, .bg-body-secondary.position-fixed, .p-3.bg-body-secondary.border-1");
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const viewportHeight = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+      const gap = options.gap == null ? 16 : options.gap;
+      if (!options.force && rect.top >= headerHeight + gap && rect.bottom <= viewportHeight - gap) return;
+      element.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start", inline: "nearest" });
+    }));
+  }
+
+  function isVisibleField(field) {
+    const style = getComputedStyle(field);
+    const rect = field.getBoundingClientRect();
+    return !field.disabled && !field.readOnly && field.type !== "hidden" && style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+  }
+  function focusNextVisibleField(currentField, root = document, options = {}) {
+    if (!currentField || (currentField.required && (!currentField.value || !currentField.checkValidity()))) return null;
+    const excluded = options.exclude || "[data-autoadvance-exclude]";
+    const fields = Array.from(root.querySelectorAll("input, select, textarea, button")).filter((field) => isVisibleField(field) && !field.matches(excluded));
+    const next = fields.slice(fields.indexOf(currentField) + 1).find((field) => !field.matches("button[type=button], button[type=submit], a"));
+    if (!next) return null;
+    try { next.focus({ preventScroll: true }); } catch (_) { next.focus(); }
+    scrollToElement(next, options);
+    return next;
+  }
+
+  function saveQrHandoff(payload) {
+    try {
+      const token = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+      sessionStorage.setItem(`gs1:qr-handoff:${token}`, JSON.stringify(payload));
+      return token;
+    } catch (_) { return null; }
+  }
+  function readQrHandoff(token) {
+    if (!token) return null;
+    try { return JSON.parse(sessionStorage.getItem(`gs1:qr-handoff:${token}`) || "null"); } catch (_) { return null; }
+  }
+
   window.GS1Utils = {
     normalizeCode,
     digitsOnly,
@@ -98,5 +142,9 @@
     normalizeDigitalLinkGtin,
     formatDate,
     showSimulationToast,
+    scrollToElement,
+    focusNextVisibleField,
+    saveQrHandoff,
+    readQrHandoff,
   };
 })();
