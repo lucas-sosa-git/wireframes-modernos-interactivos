@@ -699,6 +699,7 @@
   }
 
   function saveDraft(showFeedback) {
+    const expiresAt = endOfToday();
     const draft = {
       currentStep: state.currentStep,
       highestAvailable: state.highestAvailable,
@@ -710,10 +711,11 @@
       uploadedImages: state.uploadedImages.map(({ id, name, size }) => ({ id, name, size })),
       fields: collectFields(),
       savedAt: new Date().toISOString(),
+      expiresAt,
     };
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
-      if (showFeedback) showToast("Borrador guardado en este dispositivo.", "success");
+      if (showFeedback) showToast("Borrador guardado hasta el final del día.", "success");
     } catch (error) {
       if (showFeedback) showToast("No fue posible guardar el borrador en este dispositivo.", "danger");
     }
@@ -727,6 +729,10 @@
       return;
     }
     if (!draft) return;
+    if (!draft.expiresAt || Date.parse(draft.expiresAt) <= Date.now()) {
+      localStorage.removeItem(STORAGE_KEY);
+      return;
+    }
     state.currentStep = Number.isInteger(draft.currentStep) ? draft.currentStep : 0;
     state.highestAvailable = Math.max(1, Number(draft.highestAvailable) || 1);
     state.steps = { ...state.steps, ...(draft.steps || {}) };
@@ -751,6 +757,12 @@
       else fields[key] = field.value;
     });
     return fields;
+  }
+
+  function endOfToday() {
+    const expiration = new Date();
+    expiration.setHours(24, 0, 0, 0);
+    return expiration.toISOString();
   }
 
   function restoreFields(fields) {
