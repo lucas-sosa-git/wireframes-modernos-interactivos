@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "gs1.productWizard.draft.v1";
   const IMAGE_RULES = Object.freeze({
     acceptedTypes: ["image/jpeg", "image/png", "image/webp"],
     maxBytes: 8 * 1024 * 1024,
@@ -86,7 +85,7 @@
     bindSelections();
     bindFields();
     overrideLegacyNavigation();
-    restoreDraft();
+    clearLegacyDraft();
     render();
   }
 
@@ -699,92 +698,15 @@
   }
 
   function saveDraft(showFeedback) {
-    const expiresAt = endOfToday();
-    const draft = {
-      currentStep: state.currentStep,
-      highestAvailable: state.highestAvailable,
-      steps: state.steps,
-      values: state.values,
-      step0Skipped: state.step0Skipped,
-      imageAnalysisStatus: state.imageAnalysisStatus,
-      imageSuggestions: state.imageSuggestions,
-      uploadedImages: state.uploadedImages.map(({ id, name, size }) => ({ id, name, size })),
-      fields: collectFields(),
-      savedAt: new Date().toISOString(),
-      expiresAt,
-    };
+    if (showFeedback) showToast("El borrador se mantiene solo mientras esta página permanezca abierta.", "info");
+  }
+
+  function clearLegacyDraft() {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
-      if (showFeedback) showToast("Borrador guardado hasta el final del día.", "success");
+      localStorage.removeItem("gs1.productWizard.draft.v1");
     } catch (error) {
-      if (showFeedback) showToast("No fue posible guardar el borrador en este dispositivo.", "danger");
+      // El flujo sigue funcionando aunque el navegador no permita almacenamiento local.
     }
-  }
-
-  function restoreDraft() {
-    let draft;
-    try {
-      draft = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-    } catch (error) {
-      return;
-    }
-    if (!draft) return;
-    if (!draft.expiresAt || Date.parse(draft.expiresAt) <= Date.now()) {
-      localStorage.removeItem(STORAGE_KEY);
-      return;
-    }
-    state.currentStep = Number.isInteger(draft.currentStep) ? draft.currentStep : 0;
-    state.highestAvailable = Math.max(1, Number(draft.highestAvailable) || 1);
-    state.steps = { ...state.steps, ...(draft.steps || {}) };
-    state.values = { ...state.values, ...(draft.values || {}) };
-    state.step0Skipped = Boolean(draft.step0Skipped);
-    state.imageAnalysisStatus = draft.imageAnalysisStatus || "idle";
-    state.imageSuggestions = Array.isArray(draft.imageSuggestions) ? draft.imageSuggestions : [];
-    restoreFields(draft.fields || {});
-    restoreSelections();
-    if (Array.isArray(draft.uploadedImages) && draft.uploadedImages.length) {
-      root.querySelector("[data-assisted-status]").innerHTML = `<div class="alert alert-info py-2 mb-0">El borrador conservó las referencias de ${draft.uploadedImages.length} imagen(es), pero el navegador requiere que vuelvas a seleccionarlas para analizarlas o enviarlas.</div>`;
-    }
-    renderSuggestions();
-  }
-
-  function collectFields() {
-    const fields = {};
-    root.querySelectorAll("input, select, textarea").forEach((field) => {
-      const key = field.id || field.name;
-      if (!key || field.type === "file" || field.id === "assistedImageInput") return;
-      if (field.type === "checkbox" || field.type === "radio") fields[key] = field.checked;
-      else fields[key] = field.value;
-    });
-    return fields;
-  }
-
-  function endOfToday() {
-    const expiration = new Date();
-    expiration.setHours(24, 0, 0, 0);
-    return expiration.toISOString();
-  }
-
-  function restoreFields(fields) {
-    Object.entries(fields).forEach(([key, value]) => {
-      const field = document.getElementById(key) || document.querySelector(`[name="${cssEscape(key)}"]`);
-      if (!field) return;
-      if (field.type === "checkbox" || field.type === "radio") field.checked = Boolean(value);
-      else field.value = value;
-    });
-  }
-
-  function restoreSelections() {
-    const mappings = [
-      ["#paso10a [data-modern-choice]", state.values.gtinType, (item) => item.querySelector(".card-title")?.textContent.trim()],
-      ["#paso20a [data-distribution-value]", state.values.distributionType, (item) => item.dataset.distributionValue],
-      ["#paso30a [data-business-line]", state.values.lineOfBusiness, (item) => item.dataset.businessLine],
-    ];
-    mappings.forEach(([selector, value, getter]) => {
-      const items = Array.from(document.querySelectorAll(selector));
-      const active = items.find((item) => normalize(getter(item)) === normalize(value));
-      if (active) selectOnly(items, active);
-    });
   }
 
   function currentPanel() {
