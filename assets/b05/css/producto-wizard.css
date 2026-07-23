@@ -174,6 +174,23 @@
   padding: 1.5rem;
 }
 
+.product-wizard-completion {
+  padding: 1.5rem;
+}
+
+.product-wizard-completion #ficha-final {
+  overflow: visible !important;
+}
+
+.product-wizard-completion #ficha-contendor-imagen img {
+  display: block;
+  width: 100% !important;
+  max-height: 330px;
+  border-radius: .85rem;
+  object-fit: contain;
+  background: #f6f8f7;
+}
+
 .product-wizard-modern #producto-nuevo-wizard {
   max-width: none;
   margin: 0;
@@ -283,6 +300,82 @@
 
 .product-wizard-modern #paso30a > .row > [class*="col-"] {
   width: 33.333333%;
+}
+
+/* Los recursos del legado se ajustan al panel en vez de conservar medidas fijas. */
+.product-wizard-modern #paso60a img {
+  max-width: 100%;
+  max-height: 96px;
+  object-fit: contain;
+}
+
+.product-wizard-modern #paso60a .row.align-items-md-stretch > [class*="col-"] > .p-4 {
+  min-height: 146px;
+  padding: .85rem !important;
+}
+
+.product-wizard-modern #paso60a .row.align-items-md-stretch h4,
+.product-wizard-modern #paso60a .row.align-items-md-stretch h5 {
+  font-size: .96rem;
+}
+
+.product-wizard-modern #paso60a .row.align-items-md-stretch p {
+  margin-bottom: .45rem;
+  font-size: .8rem;
+}
+
+.product-wizard-modern #paso60a [style*="max-height: 300px"] {
+  max-height: 210px !important;
+}
+
+.product-wizard-modern #paso60a button[data-modern-choice] {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  min-height: 38px;
+  align-items: center;
+}
+
+.product-wizard-modern #paso60a button[data-modern-choice]::after {
+  display: none;
+}
+
+.product-wizard-modern #paso70a .profile-picture {
+  width: min(100%, 260px);
+  height: auto;
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.product-wizard-modern #paso70a .profile-picture2 {
+  width: min(100%, 220px);
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.product-wizard-modern #paso70a #imagenes-extras {
+  max-height: 190px;
+  overflow-y: auto;
+}
+
+.product-wizard-modern #paso70a #imagenes-extras .card {
+  overflow: hidden;
+}
+
+.product-wizard-modern #paso70a #imagenes-extras .card > img {
+  width: 100% !important;
+  height: 88px;
+  object-fit: cover;
+}
+
+.product-wizard-modern #paso70a .col-7 > .mb-3 {
+  margin-bottom: .65rem !important;
+  padding-bottom: .65rem !important;
+}
+
+.product-wizard-modern #paso70a .col-7 .small,
+.product-wizard-modern #paso70a .col-7 p {
+  font-size: .8rem;
 }
 
 .product-wizard-modern .is-invalid-step {
@@ -508,6 +601,20 @@
   .product-wizard-modern #paso30a > .row > [class*="col-"],
   .product-wizard-modern #paso40a .row > [class*="col-"],
   .product-wizard-modern #paso50a .row > [class*="col-"] {
+    width: 100%;
+  }
+
+  .product-wizard-modern #paso60a .row.align-items-md-stretch > [class*="col-"],
+  .product-wizard-modern #paso70a .row > [class*="col-"] {
+    width: 100%;
+  }
+
+  .product-wizard-completion {
+    padding: 1rem;
+  }
+
+  .product-wizard-completion #ficha-contendor-imagen,
+  .product-wizard-completion #ficha-contendor-datos {
     width: 100%;
   }
 

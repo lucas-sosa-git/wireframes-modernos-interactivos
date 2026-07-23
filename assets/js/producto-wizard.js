@@ -71,6 +71,7 @@
   let panelBody;
   let actions;
   let originalFinalize;
+  let completionHost;
 
   document.addEventListener("DOMContentLoaded", init);
 
@@ -130,6 +131,16 @@
     panelBody = layout.querySelector(".product-wizard-panel__body");
     panelBody.appendChild(pasos);
     actions = layout.querySelector(".product-wizard-actions");
+
+    const finalCard = document.getElementById("ficha-final");
+    if (finalCard) {
+      completionHost = document.createElement("section");
+      completionHost.className = "product-wizard-completion";
+      completionHost.hidden = true;
+      completionHost.setAttribute("aria-live", "polite");
+      layout.insertAdjacentElement("afterend", completionHost);
+      completionHost.appendChild(finalCard);
+    }
 
     buildStepper(layout.querySelector(".product-wizard-stepper"));
     actions.querySelector("[data-wizard-previous]").addEventListener("click", previousStep);
@@ -502,6 +513,7 @@
     if (stepId === 9) {
       saveDraft(false);
       if (typeof originalFinalize === "function") originalFinalize();
+      showCompletion();
       return;
     }
     goToStep(stepId + 1);
@@ -667,6 +679,23 @@
         </div>
       </div>
     `).join("");
+  }
+
+  function showCompletion() {
+    const card = document.getElementById("card-nuevo-producto");
+    const layout = card?.querySelector(".product-wizard-modern__layout");
+    const header = card?.querySelector(".product-wizard-modern__header");
+    if (!card || !completionHost) return;
+
+    card.classList.add("product-wizard-modern--complete");
+    header.hidden = true;
+    layout.hidden = true;
+    completionHost.hidden = false;
+    const finalCard = completionHost.querySelector("#ficha-final");
+    if (finalCard) finalCard.style.display = "block";
+    completionHost.scrollIntoView({ behavior: "smooth", block: "start" });
+    completionHost.querySelector(".h1, h1, h2")?.setAttribute("tabindex", "-1");
+    completionHost.querySelector(".h1, h1, h2")?.focus({ preventScroll: true });
   }
 
   function saveDraft(showFeedback) {
