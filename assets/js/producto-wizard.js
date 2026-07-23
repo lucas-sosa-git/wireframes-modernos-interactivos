@@ -301,7 +301,7 @@
     status.innerHTML = `<div class="alert alert-light border py-2 mb-0" role="status"><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Analizando las imágenes cargadas…</div>`;
 
     try {
-      const result = await productImageAnalysisAdapter.analyze(state.uploadedImages);
+      const result = await window.GS1ProductImageAnalysisAdapter.analyze(state.uploadedImages);
       state.imageSuggestions = result.suggestions || [];
       state.imageAnalysisStatus = "success";
       status.innerHTML = result.warnings?.length
@@ -316,30 +316,6 @@
       analyzeButton.textContent = "Analizar imágenes";
       renderActions();
     }
-  }
-
-  const productImageAnalysisAdapter = {
-    async analyze(images) {
-      const demoMode = new URLSearchParams(window.location.search).get("wizardDemo");
-      if (demoMode !== "suggestions") {
-        throw new Error("El servicio de análisis todavía no está integrado.");
-      }
-      await new Promise((resolve) => window.setTimeout(resolve, 650));
-      const sourceImageId = images[0]?.id || "";
-      return {
-        suggestions: [
-          createSuggestion("product-name", 4, "Producto", "Yogur bebible descremado", "high", sourceImageId),
-          createSuggestion("brand", 4, "marca", "Marca 1", "medium", sourceImageId),
-          createSuggestion("net-content", 4, "contenidoneto", "190", "high", sourceImageId),
-          createSuggestion("category", 6, "buscarconf", "Yogures y leches fermentadas", "medium", sourceImageId),
-        ],
-        warnings: ["Fixture de demostración activo: estas sugerencias no provienen de un servicio real."],
-      };
-    },
-  };
-
-  function createSuggestion(id, targetStepId, targetFieldId, proposedValue, confidence, sourceImageId) {
-    return { id, targetStepId, targetFieldId, proposedValue, confidence, sourceImageId, decision: "pending" };
   }
 
   function renderSuggestions() {
