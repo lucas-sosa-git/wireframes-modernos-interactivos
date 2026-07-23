@@ -1612,22 +1612,9 @@ function agregar_imagenes() {
 			
 			<div class="col-6">
 				<div class="text-end mb-1">
-					<div class="dropup">
-					  <a class="btn btn-primary btn-lg "  data-bs-toggle="dropdown" aria-expanded="false">
-								 Confirmar y dar de alta
-						</a>
-					  <div class="dropdown-menu p-3 text-end">
-						  <div class="form-text mb-3 text-end">Al dar de alta el producto se generará un código, <br>que no podra ser reutilizado por otro producto<br>
-							  El producto solo podrá ser modificado durante los próximos <span class="badge text-bg-secondary">30 días</span>.
-						  </div>
-						  <a class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false" >
-								 Cancelar
-						 </a> 
-						<a class="btn btn-primary" onclick="validar_paso90()" >
-								 Aceptar
-						</a>
-					  </div>
-					</div>
+					<button class="btn btn-outline-primary btn-lg" type="button" id="aiValidateButton">
+						Validar con IA
+					</button>
 			     </div>
 			</div>		
 				<div class="form-text mb-3 text-end">El producto solo podrá ser modificado durante los próximos 30 días.<br>

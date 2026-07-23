@@ -324,7 +324,7 @@
 
   function bindFieldAutoAdvance() {
     const root = document.getElementById("paso40a");
-    if (!root || /producto-editar\.html$/i.test(location.pathname)) return;
+    if (!root || /producto-(editar|nuevo)\.html$/i.test(location.pathname)) return;
     const advance = (field) => window.GS1Utils.focusNextVisibleField(field, root, { exclude: "[data-autoadvance-exclude]" });
     root.addEventListener("change", (event) => {
       if (event.target.matches("select, input[type=radio], input[type=checkbox]")) advance(event.target);

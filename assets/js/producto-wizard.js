@@ -103,7 +103,7 @@
       <div>
         <div class="product-wizard-modern__eyebrow">Productos</div>
         <h1 class="product-wizard-modern__title">Nuevo producto</h1>
-        <p class="product-wizard-modern__lead">Completá los pasos para registrar el producto y obtener su código GTIN. Podés guardar un borrador y retomarlo cuando quieras.</p>
+        <p class="product-wizard-modern__lead">Completá los pasos para registrar el producto y obtener su código GTIN. Esta pantalla es de prueba: al refrescar, el formulario se reinicia.</p>
       </div>
     `;
 
@@ -142,6 +142,7 @@
     }
 
     buildStepper(layout.querySelector(".product-wizard-stepper"));
+    setupAiValidation();
     actions.querySelector("[data-wizard-previous]").addEventListener("click", previousStep);
     actions.querySelector("[data-wizard-skip]").addEventListener("click", skipAssistedUpload);
     actions.querySelector("[data-wizard-save]").addEventListener("click", () => saveDraft(true));
@@ -519,25 +520,7 @@
   }
 
   function validateStep(stepId) {
-    if (stepId === 0) return true;
-    if (stepId === 1 && !state.values.gtinType) return showStepError(stepId, "Seleccioná un tipo de GTIN.");
-    if (stepId === 2 && !state.values.distributionType) return showStepError(stepId, "Seleccioná un tipo de distribución.");
-    if (stepId === 3 && !state.values.lineOfBusiness) return showStepError(stepId, "Seleccioná una línea de negocio.");
-
-    const panel = document.getElementById(STEP_PANEL_IDS[stepId]);
-    if (!panel) return true;
-    const invalid = Array.from(panel.querySelectorAll("[required]")).filter((field) => {
-      const placeholderSelected = field.tagName === "SELECT" && field.selectedOptions[0]?.disabled;
-      return placeholderSelected || !field.checkValidity();
-    });
-    panel.querySelectorAll(".is-invalid").forEach((field) => field.classList.remove("is-invalid"));
-    invalid.forEach((field) => field.classList.add("is-invalid"));
-    if (invalid.length) {
-      invalid[0].focus({ preventScroll: true });
-      invalid[0].scrollIntoView({ behavior: "smooth", block: "center" });
-      return showStepError(stepId, "Revisá los campos obligatorios antes de continuar.");
-    }
-    clearStepError(panel);
+    // Este prototipo permite recorrer el flujo sin bloquear por campos incompletos.
     return true;
   }
 
@@ -583,7 +566,7 @@
     }
     if (stepId === 9) renderConfirmation();
     render();
-    panelBody.scrollIntoView({ behavior: "smooth", block: "start" });
+    panelBody.scrollTop = 0;
     window.setTimeout(() => currentPanel()?.querySelector("h2")?.focus({ preventScroll: true }), 220);
   }
 
@@ -632,7 +615,7 @@
     previous.disabled = state.currentStep === 0;
     skip.classList.toggle("d-none", state.currentStep !== 0);
     next.textContent = state.currentStep === 9
-      ? "Crear producto"
+      ? "Confirmar y dar de alta"
       : state.currentStep === 0 && state.imageSuggestions.some((item) => item.decision === "accepted")
         ? "Continuar con sugerencias →"
         : "Continuar →";
@@ -695,6 +678,55 @@
     completionHost.scrollIntoView({ behavior: "smooth", block: "start" });
     completionHost.querySelector(".h1, h1, h2")?.setAttribute("tabindex", "-1");
     completionHost.querySelector(".h1, h1, h2")?.focus({ preventScroll: true });
+  }
+
+  function setupAiValidation() {
+    const trigger = document.getElementById("aiValidateButton");
+    if (!trigger || document.getElementById("aiValidationModal")) return;
+
+    document.body.insertAdjacentHTML("beforeend", `
+      <div class="modal fade" id="aiValidationModal" tabindex="-1" aria-labelledby="aiValidationTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center p-4">
+              <div class="spinner-border text-primary mb-3" role="status" data-ai-validation-spinner><span class="visually-hidden">Validando…</span></div>
+              <h2 class="h5 mb-2" id="aiValidationTitle" data-ai-validation-title>Validando con IA</h2>
+              <p class="text-secondary mb-0" data-ai-validation-copy>Estamos revisando la información del producto.</p>
+              <div class="d-none" data-ai-validation-success>
+                <div class="fs-2 text-success mb-2" aria-hidden="true">✓</div>
+                <p class="text-success fw-semibold mb-0">Validación completada.</p>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-center d-none" data-ai-validation-footer>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+
+    const modalElement = document.getElementById("aiValidationModal");
+    const modal = new window.bootstrap.Modal(modalElement);
+    trigger.addEventListener("click", () => {
+      const spinner = modalElement.querySelector("[data-ai-validation-spinner]");
+      const title = modalElement.querySelector("[data-ai-validation-title]");
+      const copy = modalElement.querySelector("[data-ai-validation-copy]");
+      const success = modalElement.querySelector("[data-ai-validation-success]");
+      const footer = modalElement.querySelector("[data-ai-validation-footer]");
+      spinner.classList.remove("d-none");
+      title.textContent = "Validando con IA";
+      copy.classList.remove("d-none");
+      success.classList.add("d-none");
+      footer.classList.add("d-none");
+      modal.show();
+      window.setTimeout(() => {
+        spinner.classList.add("d-none");
+        title.textContent = "Validación completa";
+        copy.classList.add("d-none");
+        success.classList.remove("d-none");
+        footer.classList.remove("d-none");
+      }, 3000);
+    });
   }
 
   function saveDraft(showFeedback) {
