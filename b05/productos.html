@@ -149,11 +149,10 @@
                                     <img src="../assets/img/usuario.jpg" width="45" class="profile-avatar-sm me-2 float-start" alt="">
                                     <strong>Mi cuenta</strong><br>
                                     <small id="currentUserEmail">maria.lopez@empresa.com</small><br>
-                                    <small class="text-secondary">Licencia: <span id="currentLicenseNameMenu">GS1 Alimentos del Sur</span></small>
+                                    <small class="text-secondary">Licencia: <span id="currentLicenseNameMenu" data-account-current-license>0012345678901</span></small>
                                 </div>
                             </a>
                         </li>
-                        <li class="border-top"><button type="button" class="dropdown-item p-3" data-bs-toggle="modal" data-bs-target="#licenseModal">Cambiar empresa o licencia</button></li>
                         <li class="border-top"><a class="dropdown-item p-3" href="micuenta.html#ModalEditarMisDatos">Editar usuario</a></li>
                         <li class="border-top"><button type="button" class="dropdown-item dropdown-item-danger p-3 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#logoutConfirmModal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -164,12 +163,17 @@
                         </button></li>
                     </ul>
                 </div>
+
+                <button type="button" class="btn btn-outline-secondary ms-2" data-account-company-open>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M4 1a1 1 0 0 0-1 1v12H2a1 1 0 0 0-1 1h14a1 1 0 0 0-1-1h-1V2a1 1 0 0 0-1-1H4Zm0 1h8v12h-2v-2H6v2H4V2Zm2 2v2h1V4H6Zm3 0v2h1V4H9ZM6 7v2h1V7H6Zm3 0v2h1V7H9Z"/>
+                    </svg>
+                    Cambiar empresa
+                </button>
             </div>
 
             <div class="container-fluid px-3 px-xl-4 py-4">
-                <section class="shortcuts-section shortcuts-section--top mb-3" aria-label="Atajos r&aacute;pidos">
-                    <div data-shortcuts data-shortcuts-context="productos"></div>
-                </section>
+                <div class="mb-3" data-account-tools-card data-account-tools-context="productos"></div>
 
                 <div class="product-page-intro mb-3">
                     <div>
@@ -177,31 +181,6 @@
                     </div>
                 </div>
 
-                <div
-                    class="product-account-panel mb-3"
-                    data-account-summary
-                    data-account-cuit="30-71234567-8"
-                    data-account-license="GS1 Alimentos del Sur"
-                    data-account-membership="Plan Estándar"
-                    data-account-membership-tier="standard"
-                >
-                    <div class="card-body">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-lg-3 col-md-4">
-                                <div class="text-secondary small">CUIT</div>
-                                <div class="fs-5 fw-semibold" id="accountLicenseCuit">30-71234567-8</div>
-                            </div>
-                            <div class="col-lg-5 col-md-4">
-                                <div class="text-secondary small">Licencia</div>
-                                <div class="fs-5 fw-semibold" id="accountLicenseName">GS1 Alimentos del Sur</div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="text-secondary small">Membresía</div>
-                                <div class="fs-5 fw-semibold" id="accountMembershipName">Plan Estándar</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <section class="module-navigation mb-3" aria-label="Men&uacute;s principales de productos">
                     <div class="product-module-menu">
                         <div class="dropdown product-module-menu__item">
@@ -455,23 +434,6 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="licenseModal" tabindex="-1" aria-labelledby="licenseModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title fs-5" id="licenseModalLabel">Cambiar empresa o licencia</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="license-selector" id="licenseSelector"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Copy modal removed: the action now navigates directly to the new-product form. <div class="modal fade" id="copyProductModal" tabindex="-1" aria-labelledby="copyProductModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -612,6 +574,7 @@
     <script src="../assets/js/components/help-widget.js"></script>
     <script src="../assets/js/components/account-summary.js"></script>
     <script src="../assets/js/components/shortcuts-manager.js"></script>
+    <script src="../assets/js/components/account-tools-card.js"></script>
     <script src="../assets/js/gs1-utils.js"></script>
     <script src="../assets/js/data/product-catalog.js"></script>
     <script src="../assets/js/components/product-table.js"></script>

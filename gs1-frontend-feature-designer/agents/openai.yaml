@@ -1,0 +1,5 @@
+interface:
+  display_name: "GS1 Frontend Feature Designer"
+  short_description: "Plans and reviews beautiful GS1 frontend features with targeted repo context."
+  icon: "layout-template"
+  brand_color: "#F26334"

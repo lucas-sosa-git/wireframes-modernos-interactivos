@@ -1,7 +1,7 @@
 (function () {
   const PROFILE_NAME = "Maria Alejandra Lopez";
   const PROFILE_EMAIL = "maria.lopez@empresa.com";
-  const LICENSE_NAME = "GS1 Alimentos del Sur";
+  const DEFAULT_LICENSE_CODE = "0012345678901";
 
   document.addEventListener("DOMContentLoaded", initPortalChrome);
 
@@ -20,6 +20,7 @@
 
     renderSidebar(sidebarMount);
     renderHeader(headerMount);
+    ensureAccountToolsCard(headerMount);
     ensureSharedPanels();
     updateNotificationBadge();
 
@@ -190,11 +191,10 @@
                   <img src="../assets/img/usuario-sin-imagen.jpg" width="45" class="profile-avatar-sm me-2 float-start" alt="">
                   <strong>Mi cuenta</strong><br>
                   <small id="currentUserEmail">${PROFILE_EMAIL}</small><br>
-                  <small class="text-secondary">Licencia: <span id="currentLicenseNameMenu">${LICENSE_NAME}</span></small>
+                  <small class="text-secondary">Licencia: <span id="currentLicenseNameMenu" data-account-current-license>${DEFAULT_LICENSE_CODE}</span></small>
                 </div>
               </a>
             </li>
-            <li class="border-top"><button type="button" class="dropdown-item p-3" data-bs-toggle="modal" data-bs-target="#licenseModal">Cambiar empresa o licencia</button></li>
             <li class="border-top"><a class="dropdown-item p-3" href="micuenta.html#ModalEditarMisDatos">Editar usuario</a></li>
             <li class="border-top"><button type="button" class="dropdown-item dropdown-item-danger p-3 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#logoutConfirmModal">
               ${icon("box-arrow-right", 18)}
@@ -202,8 +202,33 @@
             </button></li>
           </ul>
         </div>
+
+        <button type="button" class="btn btn-outline-secondary ms-2" data-account-company-open>
+          ${icon("building", 18)}
+          Cambiar empresa
+        </button>
       </div>
     `;
+  }
+
+  function ensureAccountToolsCard(headerMount) {
+    const contentShell = headerMount.parentElement;
+    if (!contentShell || contentShell.querySelector("[data-account-tools-card]")) {
+      return;
+    }
+
+    headerMount.insertAdjacentHTML(
+      "afterend",
+      `
+        <div class="container-fluid px-3 px-xl-4 pt-4 portal-account-tools-container">
+          <div data-account-tools-card data-account-tools-context="portal"></div>
+        </div>
+      `,
+    );
+
+    if (window.GS1AccountToolsCard) {
+      window.GS1AccountToolsCard.mountAll(contentShell);
+    }
   }
 
   function ensureSharedPanels() {
@@ -225,36 +250,6 @@
                 <div class="notification-card">
                   <div class="fw-semibold">Factura disponible</div>
                   <div class="small text-secondary">La factura del plan estandar ya puede descargarse.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-      );
-    }
-
-    if (!document.getElementById("licenseModal")) {
-      document.body.insertAdjacentHTML(
-        "beforeend",
-        `
-          <div class="modal fade" id="licenseModal" tabindex="-1" aria-labelledby="licenseModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="modal-title fs-5" id="licenseModalLabel">Cambiar empresa o licencia</h2>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                  <div class="license-card license-card-active">
-                    <div>
-                      <div class="fw-semibold">${LICENSE_NAME}</div>
-                      <div class="small text-secondary">CUIT 30-71234567-8</div>
-                    </div>
-                    <span class="badge text-bg-success">Activa</span>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
               </div>
             </div>

@@ -11,13 +11,6 @@
     null,
   ];
 
-  const DISPATCH_IMAGES = [
-    "../assets/img/caja-1.jpg",
-    "../assets/img/caja-2.jpg",
-    "../assets/img/gtin-masivo.jpg",
-    null,
-  ];
-
   const BRANDS = ["La Huella", "Verde Norte", "Campo Vivo", "Origen Uno", "Gran Molino", "Del Valle"];
   const VARIETIES = ["Clasico", "Integral", "Light", "Premium", "Organico", "Sin TACC"];
   const ORIGINS = ["Argentina", "Uruguay", "Chile", "Paraguay", "Bolivia", "Peru"];
@@ -194,6 +187,8 @@
         type,
         code: buildCommercialCode(type, index + 1),
         name: `${brand} ${variety} ${index + 1}`,
+        dataQuality: index % 3 !== 1,
+        gs1Verify: index % 4 < 2,
         status: STATUSES[index % STATUSES.length],
         brand,
         variety,
@@ -246,8 +241,8 @@
         origin: ORIGINS[index % ORIGINS.length],
         modifiedAt,
         createdAt,
-        image: DISPATCH_IMAGES[index % DISPATCH_IMAGES.length],
-        imageGallery: buildImageGallery(DISPATCH_IMAGES, index),
+        image: containedProduct.image,
+        imageGallery: containedProduct.imageGallery,
         classification: "Logistica / Distribucion / Unidad de despacho",
         content: `${unitsContained} unidades base`,
         distributionType: DESTINATIONS[index % DESTINATIONS.length],

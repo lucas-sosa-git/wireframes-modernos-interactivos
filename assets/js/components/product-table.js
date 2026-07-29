@@ -3,7 +3,7 @@
     products: {
       title: "Productos comerciales", label: "productos", empty: "No hay productos comerciales para mostrar con los filtros activos.",
       columns: [
-        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["name", "Producto"], ["status", "Estado"],
+        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["name", "Descripción"], ["dataQuality", "Calidad de datos"], ["gs1Verify", "Verify GS1"], ["status", "Estado"],
         ["brand", "Marca"], ["variety", "Variedad"], ["origin", "Origen"], ["modifiedAt", "Fecha de modificación"], ["createdAt", "Fecha de alta"],
       ],
     },
@@ -15,7 +15,7 @@
       ],
     },
   };
-  const LAYOUT = { image: 72, type: 110, code: 140, name: 210, status: 100, brand: 120, variety: 120, origin: 120, packagingLevel: 120, baseQuantity: 160, destination: 140, modifiedAt: 140, createdAt: 140, actions: 230 };
+  const LAYOUT = { image: 72, type: 110, code: 140, name: 210, dataQuality: 130, gs1Verify: 110, status: 100, brand: 120, variety: 120, origin: 120, packagingLevel: 120, baseQuantity: 160, destination: 140, modifiedAt: 140, createdAt: 140, actions: 230 };
   let sequence = 0;
 
   function mount(options) {
@@ -30,7 +30,7 @@
   function createInstance(target, options) {
     const records = (options.records || getRecords(options.mode)).map((record) => ({ ...record }));
     const columns = options.config.columns.map(([key, label, filterable]) => ({ key, label, filterable: filterable !== false }));
-    const storageKey = options.persistenceKey || `gs1.products.columnVisibility.${options.mode}.v2`;
+    const storageKey = options.persistenceKey || `gs1.products.columnVisibility.${options.mode}.v3`;
     const stored = read(storageKey);
     const state = { page: 1, search: "", sort: null, filters: {}, visible: validVisible(stored, columns), selectedId: options.selectedId || null, draft: null, filterSearch: "" };
     const menu = document.createElement("div");
@@ -121,11 +121,12 @@
     function cell(record, column) {
       if (column.key === "image") return `<td>${thumbnail(record)}</td>`;
       if (column.key === "status") return `<td class="product-cell-nowrap"><span class="badge ${badge(record.status)}">${escape(record.status)}</span></td>`;
+      if (["dataQuality", "gs1Verify"].includes(column.key)) return `<td class="product-cell-nowrap"><span class="badge ${record[column.key] ? "text-bg-success" : "text-bg-secondary"}">${record[column.key] ? "Sí" : "No"}</span></td>`;
       return `<td class="${["code", "createdAt", "modifiedAt"].includes(column.key) ? "product-cell-nowrap" : "product-cell-break"}">${escape(record[column.key] || "")}</td>`;
     }
     function actions(record) {
       if (options.actions === "dun14-selection") return `${button("create-dun14", record, "Generar nuevo DUN-14", "", "btn-primary product-table-generate-dun14")}${button("detail", record, "Detalle", "eye")}`;
-      return [button("detail", record, "Detalle", "eye"), button("copy", record, "Editar copia", "files"), button("edit", record, "Modificar", "pencil-square"), button("logs", record, "Logs", "clock-history"), button("image", record, "Ver imagen", "image"), button("digital-link", record, "QR / Digital Link", "../QR-DATAMATRIX.png"), button("symbol", record, "Generador de simbología", "../GENERADOR DE SIMBOLOGIA.png")].join("");
+      return [button("detail", record, "Detalle", "eye"), button("copy", record, "Editar copia", "files"), button("edit", record, "Modificar", "pencil-square"), button("logs", record, "Logs", "clock-history"), button("digital-link", record, "QR / Digital Link", "../QR-DATAMATRIX.png"), button("symbol", record, "Generador de simbología", "../GENERADOR DE SIMBOLOGIA.png")].join("");
     }
     function button(action, record, label, icon, className = "btn-outline-secondary") { const mark = icon ? iconMarkup(icon) : escape(label); return `<button type="button" class="btn ${className}" data-product-table-action="${action}" data-product-id="${escapeAttr(record.id)}" aria-label="${escapeAttr(label)}" title="${escapeAttr(label)}" data-bs-toggle="tooltip" data-bs-title="${escapeAttr(label)}">${mark}</button>`; }
     function placeholderMarkup(record) { return `<span class="product-thumb-placeholder" aria-label="Sin imagen para ${escapeAttr(record?.name || "producto")}">${iconMarkup("image")}<span>Sin imagen</span></span>`; }

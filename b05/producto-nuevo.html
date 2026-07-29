@@ -17,7 +17,6 @@
 	<link href="../assets/b05/css/features.css" rel="stylesheet" />
 	<link href="../assets/b05/css/list-groups.css" rel="stylesheet" />
 	<link href="../assets/b05/css/dropdowns.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="../assets/b05/css/subir-imagen.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/b05/css/producto-wizard.css" />
 	<script defer src="../assets/js/jquery.js"></script>	
 
@@ -1854,8 +1853,9 @@ function editar_paso90() {
 <div class="row g-3" >
 	
 <div class="col-4" id="ficha-contendor-imagen">
-	<a onClick="ficha_ampliar_imagen()" id="imagen-1"><img src="../assets/img/producto-1c.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Ampliar Imagen" /></a>
-	<a onClick="ficha_reducir_imagen()" id="imagen-2" style="display: none"><img src="../assets/img/producto-1.jpg" style="width: 100%;" data-bs-toggle="tooltip"  data-bs-title="Reducir Imagen"  /></a>
+	<div class="product-created-image-placeholder" data-created-image-placeholder>Sin imagen principal</div>
+	<a onClick="ficha_ampliar_imagen()" id="imagen-1" hidden><img src="" alt="" data-bs-toggle="tooltip" data-bs-title="Ampliar Imagen" /></a>
+	<a onClick="ficha_reducir_imagen()" id="imagen-2" hidden><img src="" alt="" data-bs-toggle="tooltip" data-bs-title="Reducir Imagen" /></a>
 </div>
 	
 <div class="col-8" id="ficha-contendor-datos">
@@ -2821,11 +2821,6 @@ function editar_paso90() {
 </style>
 	<script src="../assets/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
 	<script src="../assets/js/sidebars.js" class="astro-vvvwv3sm"></script>
-		<script src="../assets/js/subir-imagen.js"></script>
-	
-
-
-	
 <script>
   window.onscroll = function() {
     var nav = document.getElementById('barra-codificar');
@@ -3256,6 +3251,7 @@ function confirmar2() {
       <script src="../assets/js/components/portal-chrome.js"></script>
       <script src="../assets/js/components/account-summary.js"></script>
       <script src="../assets/js/components/shortcuts-manager.js"></script>
+      <script src="../assets/js/components/account-tools-card.js"></script>
       <script src="../assets/js/gs1-utils.js"></script>
       <script src="../assets/js/data/product-catalog.js"></script>
       <script src="../assets/js/producto-form.js"></script>

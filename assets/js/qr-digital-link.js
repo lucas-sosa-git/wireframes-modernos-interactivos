@@ -126,7 +126,7 @@
   function renderPreview() {
     const gtin = window.GS1Utils.normalizeDigitalLinkGtin(document.getElementById("digitalLinkGtin").value);
     document.getElementById("digitalLinkValue").value = `https://id.gs1.org/01/${gtin}`;
-    document.getElementById("digitalLinkPreview").innerHTML = `<div class="gs1-matrix-preview"><img src="../assets/img/qr_gs1.jpg" alt="Previsualización QR Digital Link" class="img-fluid rounded"><div class="small mt-2">https://id.gs1.org/01/${escapeHtml(gtin)}</div></div>`;
+    document.getElementById("digitalLinkPreview").innerHTML = `<div class="gs1-matrix-preview"><img src="../assets/img/qr_gs1_2.jpg" alt="Previsualización QR Digital Link" class="img-fluid rounded"><div class="small mt-2">https://id.gs1.org/01/${escapeHtml(gtin)}</div></div>`;
   }
 
   function resolveRecord() {

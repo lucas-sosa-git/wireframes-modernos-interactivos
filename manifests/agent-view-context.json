@@ -1,0 +1,608 @@
+{
+  "_purpose": "Direct dependency map for targeted agent inspection. Generated from b05 HTML in repomix-output(10).xml.",
+  "_rules": [
+    "Open the requested view and controller_js first.",
+    "Open shared_js only when the requested behavior is owned there.",
+    "Never read or edit vendor_js_ignored_for_normal_changes for ordinary feature work.",
+    "Search selectors in assets/styles.css instead of reading the whole file."
+  ],
+  "views": {
+    "b05/calculo-digito-verificador.html": {
+      "controller_js": [
+        "assets/js/calculo-digito-verificador.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "checkDigitMount",
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/generador-simbologia.html": {
+      "controller_js": [
+        "assets/js/generador-simbologia.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "symbolGeneratorMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/micuenta.html": {
+      "controller_js": [],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/help-widget.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/b05/css/sidebars.css",
+        "assets/b05/css/micuenta2.css",
+        "assets/b05/css/carousel-micuenta.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/features.css",
+        "assets/b05/css/list-groups.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [
+        "../assets/archivos/ejemplo.pdf",
+        "../assets/otros/GeneradorCodigo_qr_dl",
+        "../b03/preferencias.html",
+        "pagar.html",
+        "productos.html"
+      ],
+      "mounts": [
+        "data-account-tools-card",
+        "data-help-widget"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/chart.js",
+        "assets/js/chart.js",
+        "assets/js/bootstrap.bundle.min.js",
+        "assets/js/dragula.js",
+        "assets/js/example.min.js",
+        "assets/js/jquery.js"
+      ]
+    },
+    "b05/pagar.html": {
+      "controller_js": [
+        "assets/js/checkout.js"
+      ],
+      "shared_js": [
+        "assets/js/color-modes.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/b05/css/checkout.css",
+        "assets/b05/css/list-groups.css"
+      ],
+      "local_routes": [
+        "../assets/archivos/ejemplo.pdf",
+        "micuenta.html"
+      ],
+      "mounts": [
+        "data-help-widget"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/jquery.js",
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-alta-dun14.html": {
+      "controller_js": [
+        "assets/js/producto-alta-dun14.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "dispatchAltaMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-copiar.html": {
+      "controller_js": [
+        "assets/js/producto-copiar-legacy.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/subir-imagen.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css",
+        "assets/b05/css/sidebars.css",
+        "assets/b05/css/micuenta2.css",
+        "assets/b05/css/carousel-micuenta.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/features.css",
+        "assets/b05/css/list-groups.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/subir-imagen.css"
+      ],
+      "local_routes": [
+        "micuenta.html",
+        "producto-editar.html",
+        "producto-nuevo.html",
+        "productos-listado.html",
+        "productos.html"
+      ],
+      "mounts": [
+        "data-help-widget"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/jquery.js",
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-editar-dun14.html": {
+      "controller_js": [
+        "assets/js/producto-dun14-form.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "dispatchEditMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-editar.html": {
+      "controller_js": [
+        "assets/js/producto-form.js",
+        "assets/js/producto-wizard.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/subir-imagen.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css",
+        "assets/b05/css/sidebars.css",
+        "assets/b05/css/micuenta2.css",
+        "assets/b05/css/carousel-micuenta.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/features.css",
+        "assets/b05/css/list-groups.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/subir-imagen.css",
+        "assets/b05/css/producto-wizard.css"
+      ],
+      "local_routes": [
+        "micuenta.html",
+        "producto-editar.html",
+        "producto-nuevo.html",
+        "productos-listado.html",
+        "productos.html"
+      ],
+      "mounts": [
+        "data-help-widget"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/jquery.js",
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-ficha.html": {
+      "controller_js": [
+        "assets/js/producto-ficha.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "productDetailMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-nuevo-dun14.html": {
+      "controller_js": [
+        "assets/js/producto-nuevo-dun14.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/product-table.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "dispatchNewMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-nuevo.html": {
+      "controller_js": [
+        "assets/js/producto-form.js",
+        "assets/js/producto-wizard.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/services/product-image-analysis-adapter.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css",
+        "assets/b05/css/sidebars.css",
+        "assets/b05/css/micuenta2.css",
+        "assets/b05/css/carousel-micuenta.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/features.css",
+        "assets/b05/css/list-groups.css",
+        "assets/b05/css/dropdowns.css",
+        "assets/b05/css/producto-wizard.css"
+      ],
+      "local_routes": [
+        "generador-simbologia.html",
+        "micuenta.html",
+        "producto-copiar.html",
+        "producto-editar.html",
+        "producto-nuevo.html",
+        "productos-listado.html",
+        "productos.html"
+      ],
+      "mounts": [
+        "data-help-widget"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/jquery.js",
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/producto-solicitud-modificacion.html": {
+      "controller_js": [
+        "assets/js/producto-solicitud-modificacion.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "exceptionRequestMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/productos-carga-masiva.html": {
+      "controller_js": [
+        "assets/js/productos-carga-masiva.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "bulkUploadMount",
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/productos-listado-dun14.html": {
+      "controller_js": [
+        "assets/js/productos-listado.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/product-table.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "catalogListMount",
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/productos-listado.html": {
+      "controller_js": [
+        "assets/js/productos-listado.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/product-table.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "catalogListMount",
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/productos.html": {
+      "controller_js": [
+        "assets/js/producto-dun14-form.js",
+        "assets/js/productos.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/help-widget.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/product-table.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [
+        "../assets/archivos/Instructivo_ABM.pdf",
+        "../assets/archivos/Instructivo_ABM_Senasa.pdf",
+        "../assets/archivos/ejemplo.xls",
+        "../assets/archivos/terminos.pdf",
+        "../b03/instructivo1.html",
+        "../b03/instructivo2.html",
+        "../b03/instructivo3.html",
+        "../b03/preferencias.html",
+        "calculo-digito-verificador.html",
+        "generador-simbologia.html",
+        "micuenta.html",
+        "micuenta.html#ModalEditarMisDatos",
+        "producto-editar.html",
+        "producto-ficha.html",
+        "producto-nuevo-dun14.html",
+        "producto-nuevo.html",
+        "productos-carga-masiva.html",
+        "productos-listado-dun14.html",
+        "productos-listado.html",
+        "qr-digital-link.html",
+        "verificacion-simbologia.html"
+      ],
+      "mounts": [
+        "data-account-tools-card",
+        "data-help-widget",
+        "dispatchEditModalMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js",
+        "assets/js/jquery.js",
+        "assets/js/chart.js"
+      ]
+    },
+    "b05/qr-digital-link.html": {
+      "controller_js": [
+        "assets/js/qr-digital-link.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/data/product-catalog.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "digitalLinkMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    },
+    "b05/verificacion-simbologia.html": {
+      "controller_js": [
+        "assets/js/verificacion-simbologia.js"
+      ],
+      "shared_js": [
+        "assets/js/sidebars.js",
+        "assets/js/components/portal-chrome.js",
+        "assets/js/components/account-summary.js",
+        "assets/js/components/shortcuts-manager.js",
+        "assets/js/components/account-tools-card.js",
+        "assets/js/gs1-utils.js",
+        "assets/js/components/help-widget.js"
+      ],
+      "styles": [
+        "assets/b05/css/bootstrap.min.css",
+        "assets/styles.css"
+      ],
+      "local_routes": [],
+      "mounts": [
+        "data-help-widget",
+        "data-portal-header",
+        "data-portal-sidebar",
+        "symbolVerificationMount"
+      ],
+      "vendor_js_ignored_for_normal_changes": [
+        "assets/js/bootstrap.bundle.min.js"
+      ]
+    }
+  }
+}

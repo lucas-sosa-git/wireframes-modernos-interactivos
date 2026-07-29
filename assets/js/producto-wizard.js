@@ -14,7 +14,7 @@
     { id: 4, title: "Detalles del producto", meta: "Datos descriptivos" },
     { id: 5, title: "Atributos", meta: "Características obligatorias" },
     { id: 6, title: "Categoría", meta: "Clasificación global" },
-    { id: 7, title: "Imagen", meta: "Foto principal" },
+    { id: 7, title: "Imágenes", meta: "Galería y foto principal" },
     { id: 8, title: "Campos extra", meta: "Datos complementarios" },
     { id: 9, title: "Confirmación", meta: "Revisión final" },
   ];
@@ -36,7 +36,7 @@
     4: "Completá la información descriptiva y comercial del producto.",
     5: "Revisá los atributos obligatorios definidos para el producto.",
     6: "Buscá o elegí la clasificación global que mejor represente al producto.",
-    7: "Agregá la imagen principal y, si corresponde, imágenes adicionales.",
+    7: "Revisá la galería del producto y elegí una imagen principal (frontal).",
     8: "Seleccioná las leyendas, sellos y microsellos que correspondan.",
     9: "Revisá la información antes de crear el producto.",
   };
@@ -45,6 +45,8 @@
     2: [6, 9],
     3: [5, 6, 9],
   };
+  const ACTIVE_EDITABLE_STEPS = new Set([4, 7, 8]);
+  const LOCKED_ACTIVE_STEPS = new Set([1, 2, 3, 5, 6]);
 
   const state = {
     currentStep: 0,
@@ -61,9 +63,24 @@
       category: "",
     },
     uploadedImages: [],
+    primaryImageId: null,
     imageSuggestions: [],
     imageAnalysisStatus: "idle",
     step0Skipped: false,
+  };
+
+  window.GS1ProductWizardImages = {
+    getSnapshot() {
+      return {
+        primaryImageId: state.primaryImageId,
+        images: state.uploadedImages.map((image) => ({
+          id: image.id,
+          name: image.name,
+          url: image.previewUrl,
+          source: image.source,
+        })),
+      };
+    },
   };
 
   let root;
@@ -71,21 +88,52 @@
   let actions;
   let originalFinalize;
   let completionHost;
+  let isEditMode = false;
+  let isActiveEdit = false;
+  let editingRecord = null;
 
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
-    if (!/\/producto-nuevo\.html$/i.test(window.location.pathname)) return;
-    root = document.getElementById("producto-nuevo-wizard");
+    const path = window.location.pathname;
+    if (!/\/producto-(nuevo|editar)\.html$/i.test(path)) return;
+    isEditMode = /\/producto-editar\.html$/i.test(path);
+    if (isEditMode) {
+      const id = new URLSearchParams(window.location.search).get("id");
+      editingRecord = id ? window.GS1ProductCatalog?.getById(id) : null;
+      isActiveEdit = editingRecord?.mode === "products" && editingRecord.status === "Activo";
+    }
+
+    root = isEditMode ? document.getElementById("pasos") : document.getElementById("producto-nuevo-wizard");
     if (!root) return;
+    root.dataset.productWizardRoot = "";
+
+    if (isEditMode) {
+      state.currentStep = 1;
+      state.highestAvailable = 9;
+      state.steps[0].status = "skipped";
+      state.steps[1].status = "current";
+      state.values.gtinType = editingRecord?.type || "";
+      state.values.distributionType = editingRecord?.distributionType || "";
+      state.values.lineOfBusiness = editingRecord?.lineOfBusiness || "";
+      state.values.category = editingRecord?.classification || "";
+    }
 
     originalFinalize = window.validar_paso90;
     buildShell();
     prepareLegacyPanels();
+    if (isEditMode) prepareEditGtinCards();
     bindSelections();
+    if (isEditMode) syncEditSelections();
     bindFields();
     overrideLegacyNavigation();
-    clearLegacyDraft();
+    if (isEditMode) {
+      preloadEditImages();
+      applyEditRestrictions();
+    } else {
+      clearLegacyDraft();
+    }
+    window.addEventListener("beforeunload", releaseLocalImageUrls, { once: true });
     render();
   }
 
@@ -102,8 +150,12 @@
     header.innerHTML = `
       <div>
         <div class="product-wizard-modern__eyebrow">Productos</div>
-        <h1 class="product-wizard-modern__title">Nuevo producto</h1>
-        <p class="product-wizard-modern__lead">Completá los pasos para registrar el producto y obtener su código GTIN. Esta pantalla es de prueba: al refrescar, el formulario se reinicia.</p>
+        <h1 class="product-wizard-modern__title">${isEditMode ? "Editar producto" : "Nuevo producto"}</h1>
+        <p class="product-wizard-modern__lead">${isEditMode
+          ? isActiveEdit
+            ? "Consultá la información registrada. En productos activos solo podés modificar el Código Interno, las imágenes y los sellos."
+            : "Revisá y actualizá la información del producto antes de guardar los cambios."
+          : "Completá los pasos para registrar el producto y obtener su código GTIN. Esta pantalla es de prueba: al refrescar, el formulario se reinicia."}</p>
       </div>
     `;
 
@@ -119,7 +171,7 @@
           <button type="button" class="btn btn-link text-decoration-none" data-wizard-previous>← Anterior</button>
           <button type="button" class="btn btn-outline-secondary d-none" data-wizard-skip>Omitir y completar manualmente</button>
           <span class="product-wizard-actions__spacer"></span>
-          <button type="button" class="btn btn-outline-primary" data-wizard-save>Guardar borrador</button>
+          <button type="button" class="btn btn-outline-primary ${isEditMode ? "d-none" : ""}" data-wizard-save>Guardar borrador</button>
           <button type="button" class="btn btn-primary" data-wizard-next>Continuar →</button>
         </div>
       </section>
@@ -150,15 +202,19 @@
   }
 
   function buildStepper(host) {
-    host.innerHTML = STEP_DEFINITIONS.map((step) => `
-      <li class="product-wizard-stepper__item" data-stepper-item="${step.id}" data-status="${step.id === 0 ? "optional" : "pending"}">
-        <button type="button" class="product-wizard-stepper__button" data-stepper-button="${step.id}" aria-current="${step.id === 0 ? "step" : "false"}">
-          <span class="product-wizard-stepper__marker" aria-hidden="true">${step.id}</span>
-          <span class="product-wizard-stepper__title">${step.title}</span>
-          <span class="product-wizard-stepper__meta">${step.meta}</span>
+    const definitions = isEditMode ? STEP_DEFINITIONS.filter((step) => step.id !== 0) : STEP_DEFINITIONS;
+    host.innerHTML = definitions.map((step) => {
+      const displayStep = getDisplayStep(step);
+      return `
+      <li class="product-wizard-stepper__item" data-stepper-item="${displayStep.id}" data-status="${displayStep.id === 0 ? "optional" : "pending"}">
+        <button type="button" class="product-wizard-stepper__button" data-stepper-button="${displayStep.id}" aria-current="${displayStep.id === state.currentStep ? "step" : "false"}">
+          <span class="product-wizard-stepper__marker" aria-hidden="true">${displayStep.id}</span>
+          <span class="product-wizard-stepper__title">${displayStep.title}</span>
+          <span class="product-wizard-stepper__meta">${displayStep.meta}</span>
         </button>
       </li>
-    `).join("");
+    `;
+    }).join("");
 
     host.querySelectorAll("[data-stepper-button]").forEach((button) => {
       button.addEventListener("click", () => goToStep(Number(button.dataset.stepperButton)));
@@ -166,10 +222,14 @@
   }
 
   function prepareLegacyPanels() {
-    const assisted = document.createElement("div");
-    assisted.id = "paso00a";
-    assisted.innerHTML = assistedUploadMarkup();
-    root.insertBefore(assisted, root.firstChild);
+    let assisted = null;
+    if (!isEditMode) {
+      assisted = document.createElement("div");
+      assisted.id = "paso00a";
+      assisted.innerHTML = assistedUploadMarkup();
+      root.insertBefore(assisted, root.firstChild);
+    }
+    prepareImageStep();
 
     Object.entries(STEP_PANEL_IDS).forEach(([stepId, panelId]) => {
       const panel = document.getElementById(panelId);
@@ -178,15 +238,18 @@
       panel.hidden = true;
       const heading = panel.querySelector(":scope > h2");
       if (heading) {
-        heading.textContent = `${String(stepId).padStart(2, "0")} · ${STEP_DEFINITIONS[Number(stepId)].title}`;
+        const displayStep = getDisplayStep(STEP_DEFINITIONS[Number(stepId)]);
+        heading.textContent = `${String(stepId).padStart(2, "0")} · ${displayStep.title}`;
         heading.setAttribute("tabindex", "-1");
-        heading.insertAdjacentHTML("afterend", `<p class="product-wizard-step-intro">${STEP_INTROS[stepId]}</p>`);
+        heading.insertAdjacentHTML("afterend", `<p class="product-wizard-step-intro">${getStepIntro(Number(stepId))}</p>`);
       }
     });
 
-    assisted.dataset.wizardStep = "0";
-    assisted.hidden = true;
-    assisted.querySelector("h2").setAttribute("tabindex", "-1");
+    if (assisted) {
+      assisted.dataset.wizardStep = "0";
+      assisted.hidden = true;
+      assisted.querySelector("h2").setAttribute("tabindex", "-1");
+    }
 
     ["40", "50", "70", "80", "90"].forEach((number) => {
       const panel = document.getElementById(`paso${number}a`);
@@ -195,7 +258,73 @@
       if (candidates.length === 1) candidates[0].classList.add("legacy-step-action-hidden");
     });
 
-    setupUpload();
+    if (!isEditMode) setupUpload();
+    setupProductImages();
+  }
+
+  function getDisplayStep(step) {
+    if (!isActiveEdit) return step;
+    if (step.id === 4) return { ...step, title: "Código Interno", meta: "Modificable" };
+    if (step.id === 7) return { ...step, title: "Imágenes y URL", meta: "Modificable" };
+    if (step.id === 8) return { ...step, title: "Sellos", meta: "Modificable" };
+    return step;
+  }
+
+  function getStepIntro(stepId) {
+    if (!isActiveEdit) return STEP_INTROS[stepId];
+    if (stepId === 4) return "Consultá los detalles registrados y modificá únicamente el Código Interno.";
+    if (stepId === 7) return "Actualizá las imágenes del producto desde tu equipo o mediante una URL.";
+    if (stepId === 8) return "Seleccioná las leyendas, sellos y microsellos que correspondan.";
+    return STEP_INTROS[stepId];
+  }
+
+  function prepareImageStep() {
+    const panel = document.getElementById("paso70a");
+    if (!panel) return;
+    panel.innerHTML = `
+      <h2>07 - Imágenes</h2>
+      <section class="product-images-manager" aria-labelledby="product-images-heading">
+        <div class="product-images-manager__header">
+          <div>
+            <h3 class="h5 mb-1" id="product-images-heading">Imágenes del producto</h3>
+            <p class="text-secondary mb-0">${isEditMode
+              ? "Revisá las imágenes registradas, agregá nuevas o cambiá la imagen principal."
+              : "Las imágenes cargadas en el paso 0 ya están disponibles acá."}</p>
+          </div>
+          <span class="badge rounded-pill text-bg-light border" data-product-images-count>0 de 6 imágenes</span>
+        </div>
+        <div class="product-images-manager__notice" data-product-images-guidance role="status"></div>
+        <div class="product-images-manager__gallery" data-product-images-gallery aria-live="polite"></div>
+        <div class="product-images-manager__empty" data-product-images-empty>
+          <span class="product-images-manager__empty-icon" aria-hidden="true">▧</span>
+          <strong>Todavía no cargaste imágenes</strong>
+          <span>Podés agregarlas desde tu equipo o mediante una URL.</span>
+        </div>
+        <div class="product-images-manager__add">
+          <div class="product-images-manager__dropzone" data-product-images-dropzone>
+            <span aria-hidden="true">↑</span>
+            <div>
+              <strong>Arrastrá imágenes o seleccionalas desde tu equipo</strong>
+              <small>JPG, PNG o WebP · hasta 8 MB por archivo</small>
+            </div>
+            <label class="btn btn-outline-primary mb-0" for="productImagesInput">Seleccionar imágenes</label>
+            <input class="visually-hidden" id="productImagesInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+          </div>
+          <div class="product-images-manager__url">
+            <label class="form-label fw-semibold" for="productImageUrl">Agregar mediante URL</label>
+            <div class="input-group">
+              <input class="form-control" id="productImageUrl" type="url" placeholder="https://dominio.com/imagen.jpg">
+              <button class="btn btn-outline-primary" type="button" data-add-product-image-url>Agregar</button>
+            </div>
+          </div>
+        </div>
+        <div data-product-images-status aria-live="polite"></div>
+        <aside class="product-images-manager__tips">
+          <strong>Para obtener un mejor resultado</strong>
+          <span>Usá imágenes nítidas, con fondo claro, sin marcas de agua ni elementos promocionales.</span>
+        </aside>
+      </section>
+    `;
   }
 
   function assistedUploadMarkup() {
@@ -229,7 +358,10 @@
     const input = document.getElementById("assistedImageInput");
     const dropzone = root.querySelector("[data-assisted-dropzone]");
     const analyzeButton = root.querySelector("[data-analyze-images]");
-    input.addEventListener("change", (event) => addImages(event.target.files));
+    input.addEventListener("change", (event) => {
+      addImages(event.target.files, 0);
+      event.target.value = "";
+    });
     analyzeButton.addEventListener("click", analyzeImages);
 
     ["dragenter", "dragover"].forEach((type) => dropzone.addEventListener(type, (event) => {
@@ -240,10 +372,109 @@
       event.preventDefault();
       dropzone.classList.remove("is-dragging");
     }));
-    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files));
+    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files, 0));
   }
 
-  function addImages(fileList) {
+  function setupProductImages() {
+    const input = document.getElementById("productImagesInput");
+    const dropzone = root.querySelector("[data-product-images-dropzone]");
+    const urlInput = document.getElementById("productImageUrl");
+    const urlButton = root.querySelector("[data-add-product-image-url]");
+    if (!input || !dropzone || !urlInput || !urlButton) return;
+
+    input.addEventListener("change", (event) => {
+      addImages(event.target.files, 7);
+      event.target.value = "";
+    });
+    ["dragenter", "dragover"].forEach((type) => dropzone.addEventListener(type, (event) => {
+      event.preventDefault();
+      dropzone.classList.add("is-dragging");
+    }));
+    ["dragleave", "drop"].forEach((type) => dropzone.addEventListener(type, (event) => {
+      event.preventDefault();
+      dropzone.classList.remove("is-dragging");
+    }));
+    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files, 7));
+    urlButton.addEventListener("click", () => addImageFromUrl(urlInput));
+    urlInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      addImageFromUrl(urlInput);
+    });
+    renderProductImages([]);
+  }
+
+  function preloadEditImages() {
+    if (!editingRecord) return;
+    const urls = Array.from(new Set(
+      [...(editingRecord.imageGallery || []), editingRecord.image]
+        .filter(Boolean)
+        .map((url) => window.GS1ProductCatalog?.resolveImagePath?.(url) || url)
+    ));
+    state.uploadedImages = urls.map((url, index) => ({
+      id: `catalog-image-${index + 1}`,
+      file: null,
+      name: index === 0 ? "Imagen principal actual" : `Imagen actual ${index + 1}`,
+      size: null,
+      previewUrl: url,
+      source: "catalog",
+    }));
+    state.primaryImageId = state.uploadedImages[0]?.id || null;
+    renderProductImages([]);
+  }
+
+  function applyEditRestrictions() {
+    if (!isActiveEdit) return;
+
+    LOCKED_ACTIVE_STEPS.forEach((stepId) => {
+      lockPanel(document.getElementById(STEP_PANEL_IDS[stepId]), {
+        message: "Este paso es de solo lectura porque el producto está activo.",
+      });
+    });
+
+    lockPanel(document.getElementById(STEP_PANEL_IDS[4]), {
+      allowedSelector: "#codigointerno",
+      message: "Producto activo: en este paso solo podés modificar el Código Interno.",
+      partial: true,
+    });
+
+    lockPanel(document.getElementById(STEP_PANEL_IDS[9]), {
+      message: "Revisá los cambios permitidos antes de confirmar.",
+    });
+  }
+
+  function lockPanel(panel, options = {}) {
+    if (!panel) return;
+    panel.classList.add(options.partial ? "product-wizard-step--partially-editable" : "product-wizard-step--readonly");
+
+    panel.querySelectorAll("input, select, textarea, button").forEach((control) => {
+      if (options.allowedSelector && control.matches(options.allowedSelector)) return;
+      control.disabled = true;
+      control.setAttribute("aria-disabled", "true");
+    });
+    panel.querySelectorAll("[contenteditable]").forEach((element) => {
+      if (options.allowedSelector && element.matches(options.allowedSelector)) return;
+      element.removeAttribute("contenteditable");
+      element.setAttribute("aria-disabled", "true");
+    });
+    panel.querySelectorAll("a").forEach((link) => {
+      if (options.allowedSelector && link.matches(options.allowedSelector)) return;
+      link.classList.add("disabled");
+      link.setAttribute("aria-disabled", "true");
+      link.setAttribute("tabindex", "-1");
+      link.removeAttribute("onclick");
+      link.addEventListener("click", (event) => event.preventDefault());
+    });
+
+    const intro = panel.querySelector(".product-wizard-step-intro");
+    const notice = document.createElement("div");
+    notice.className = "product-wizard-readonly-notice";
+    notice.setAttribute("role", "note");
+    notice.innerHTML = `<span aria-hidden="true">🔒</span><span>${escapeHtml(options.message || "Paso de solo lectura.")}</span>`;
+    (intro || panel.querySelector("h2"))?.insertAdjacentElement("afterend", notice);
+  }
+
+  function addImages(fileList, sourceStep) {
     const files = Array.from(fileList || []);
     const errors = [];
     files.forEach((file) => {
@@ -265,34 +496,89 @@
         name: file.name,
         size: file.size,
         previewUrl: URL.createObjectURL(file),
+        source: "file",
       });
     });
-    state.steps[0].isDirty = true;
-    state.step0Skipped = false;
-    state.steps[0].status = "current";
+    if (!isEditMode) state.steps[0].isDirty = true;
+    state.steps[7].isDirty = true;
+    if (sourceStep === 0) {
+      state.step0Skipped = false;
+      state.steps[0].status = "current";
+    }
     renderImages(errors);
+    renderProductImages(errors);
+  }
+
+  function addImageFromUrl(input) {
+    const value = input.value.trim();
+    const errors = [];
+    if (state.uploadedImages.length >= IMAGE_RULES.maxFiles) {
+      errors.push(`Solo podés cargar hasta ${IMAGE_RULES.maxFiles} imágenes.`);
+    } else if (!isValidImageUrl(value)) {
+      errors.push("Ingresá una URL válida que comience con http:// o https://.");
+    } else {
+      state.uploadedImages.push({
+        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        file: null,
+        name: urlImageName(value),
+        size: null,
+        previewUrl: value,
+        source: "url",
+      });
+      if (!isEditMode) state.steps[0].isDirty = true;
+      state.steps[7].isDirty = true;
+      input.value = "";
+    }
+    renderImages(errors);
+    renderProductImages(errors);
+  }
+
+  function isValidImageUrl(value) {
+    try {
+      const url = new URL(value);
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch {
+      return false;
+    }
+  }
+
+  function urlImageName(value) {
+    try {
+      const url = new URL(value);
+      return decodeURIComponent(url.pathname.split("/").filter(Boolean).pop() || url.hostname);
+    } catch {
+      return "Imagen por URL";
+    }
   }
 
   function removeImage(id) {
     const image = state.uploadedImages.find((item) => item.id === id);
-    if (image?.previewUrl) URL.revokeObjectURL(image.previewUrl);
+    const removedPrimary = state.primaryImageId === id;
+    if (image?.source === "file" && image.previewUrl) URL.revokeObjectURL(image.previewUrl);
     state.uploadedImages = state.uploadedImages.filter((item) => item.id !== id);
     state.imageSuggestions = state.imageSuggestions.filter((item) => item.sourceImageId !== id);
+    if (removedPrimary) state.primaryImageId = null;
+    if (!isEditMode) state.steps[0].isDirty = true;
+    state.steps[7].isDirty = true;
+    if (removedPrimary && state.steps[7].status === "completed") state.steps[7].status = "needs-review";
     renderImages([]);
     renderSuggestions();
+    renderProductImages([]);
+    syncFinalImage();
   }
 
   function renderImages(errors) {
     const host = root.querySelector("[data-assisted-thumbs]");
     const status = root.querySelector("[data-assisted-status]");
     const analyzeButton = root.querySelector("[data-analyze-images]");
+    if (!host || !status || !analyzeButton) return;
     host.innerHTML = state.uploadedImages.map((image) => `
       <article class="assisted-upload__thumb">
         <img src="${escapeAttribute(image.previewUrl)}" alt="Vista previa de ${escapeHtml(image.name)}">
         <button type="button" class="assisted-upload__remove" data-remove-assisted-image="${escapeAttribute(image.id)}" aria-label="Eliminar ${escapeAttribute(image.name)}">×</button>
         <div class="assisted-upload__thumb-meta">
           <span class="assisted-upload__thumb-name" title="${escapeAttribute(image.name)}">${escapeHtml(image.name)}</span>
-          <span class="text-secondary">${formatBytes(image.size)}</span>
+          <span class="text-secondary">${image.source === "url" ? "URL" : formatBytes(image.size)}</span>
         </div>
       </article>
     `).join("");
@@ -301,6 +587,89 @@
     });
     analyzeButton.disabled = state.uploadedImages.length === 0 || state.imageAnalysisStatus === "analyzing";
     status.innerHTML = errors.length ? `<div class="alert alert-danger py-2 mb-0" role="alert">${errors.map(escapeHtml).join("<br>")}</div>` : "";
+  }
+
+  function renderProductImages(errors) {
+    const gallery = root.querySelector("[data-product-images-gallery]");
+    const empty = root.querySelector("[data-product-images-empty]");
+    const count = root.querySelector("[data-product-images-count]");
+    const guidance = root.querySelector("[data-product-images-guidance]");
+    const status = root.querySelector("[data-product-images-status]");
+    if (!gallery || !empty || !count || !guidance || !status) return;
+
+    count.textContent = `${state.uploadedImages.length} de ${IMAGE_RULES.maxFiles} imágenes`;
+    empty.hidden = state.uploadedImages.length > 0;
+    gallery.hidden = state.uploadedImages.length === 0;
+    gallery.innerHTML = state.uploadedImages.map((image) => {
+      const isPrimary = image.id === state.primaryImageId;
+      return `
+        <article class="product-images-card ${isPrimary ? "is-primary" : ""}">
+          <div class="product-images-card__preview">
+            <img src="${escapeAttribute(image.previewUrl)}" alt="Vista previa de ${escapeAttribute(image.name)}">
+            <span class="product-images-card__broken">Vista previa no disponible</span>
+            ${isPrimary ? '<span class="product-images-card__badge">Principal</span>' : ""}
+          </div>
+          <div class="product-images-card__body">
+            <span class="product-images-card__name" title="${escapeAttribute(image.name)}">${escapeHtml(image.name)}</span>
+            <span class="text-secondary small">${image.source === "url"
+              ? "Agregada por URL"
+              : image.source === "catalog"
+                ? "Imagen existente"
+                : formatBytes(image.size)}</span>
+            <div class="product-images-card__actions">
+              <button type="button" class="btn btn-sm ${isPrimary ? "btn-primary" : "btn-outline-primary"}" data-set-primary-image="${escapeAttribute(image.id)}" aria-pressed="${isPrimary}">
+                ${isPrimary ? "Imagen principal" : "Usar como principal"}
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-remove-product-image="${escapeAttribute(image.id)}" aria-label="Eliminar ${escapeAttribute(image.name)}">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+    gallery.querySelectorAll("[data-set-primary-image]").forEach((button) => {
+      button.addEventListener("click", () => setPrimaryImage(button.dataset.setPrimaryImage));
+    });
+    gallery.querySelectorAll("[data-remove-product-image]").forEach((button) => {
+      button.addEventListener("click", () => removeImage(button.dataset.removeProductImage));
+    });
+    gallery.querySelectorAll(".product-images-card__preview img").forEach((image) => {
+      image.addEventListener("error", () => image.closest(".product-images-card")?.classList.add("has-broken-image"), { once: true });
+    });
+
+    guidance.className = `product-images-manager__notice alert py-2 ${state.primaryImageId ? "alert-success" : "alert-warning"}`;
+    guidance.innerHTML = state.primaryImageId
+      ? "<strong>Imagen principal definida.</strong> Podés cambiarla en cualquier momento."
+      : "<strong>Elegí una imagen principal (frontal).</strong> Es recomendable para completar el alta, aunque podés continuar y definirla más tarde.";
+    status.innerHTML = errors.length ? `<div class="alert alert-danger py-2 mb-0" role="alert">${errors.map(escapeHtml).join("<br>")}</div>` : "";
+  }
+
+  function setPrimaryImage(id) {
+    if (!state.uploadedImages.some((image) => image.id === id)) return;
+    state.primaryImageId = id;
+    state.steps[7].isDirty = true;
+    if (state.currentStep !== 7 && state.steps[7].status === "needs-review") {
+      state.steps[7].status = "completed";
+    }
+    renderProductImages([]);
+    renderStepper();
+    syncFinalImage();
+  }
+
+  function syncFinalImage() {
+    const primary = state.uploadedImages.find((image) => image.id === state.primaryImageId);
+    const placeholder = document.querySelector("[data-created-image-placeholder]");
+    const compactLink = document.getElementById("imagen-1");
+    const expandedLink = document.getElementById("imagen-2");
+    const links = [compactLink, expandedLink].filter(Boolean);
+    placeholder?.toggleAttribute("hidden", Boolean(primary));
+    links.forEach((link) => {
+      link.hidden = !primary;
+      const image = link.querySelector("img");
+      if (!image) return;
+      image.src = primary?.previewUrl || "";
+      image.alt = primary ? `Imagen principal de ${primary.name}` : "";
+    });
   }
 
   async function analyzeImages() {
@@ -331,6 +700,7 @@
 
   function renderSuggestions() {
     const host = root.querySelector("[data-image-suggestions]");
+    if (!host) return;
     const pending = state.imageSuggestions.filter((item) => item.decision !== "discarded");
     if (!pending.length) {
       host.innerHTML = "";
@@ -435,6 +805,57 @@
     }));
   }
 
+  function prepareEditGtinCards() {
+    const cards = Array.from(document.querySelectorAll("#paso10a > .row a"));
+    const definitions = [
+      {
+        title: "GTIN-13",
+        description: "El GTIN-13 es de 13 dígitos y se usa a nivel global para la mayoría de los productos.",
+        image: "../assets/img/gtin-13.jpg",
+      },
+      {
+        title: "UPC-12",
+        description: "El UPC-12 es de 12 dígitos y se utiliza principalmente en productos comercializados en Norteamérica.",
+        image: "../assets/img/gtin-13.jpg",
+      },
+      {
+        title: "GTIN-8",
+        description: "El GTIN-8 se utiliza para identificar artículos de tamaño muy reducido.",
+        image: "../assets/img/gtin-8.jpg",
+      },
+    ];
+    cards.forEach((card, index) => {
+      const definition = definitions[index];
+      if (!definition) return;
+      const title = card.querySelector(".card-title");
+      const description = card.querySelector(".card-body p");
+      const image = card.querySelector("img");
+      if (title) title.textContent = definition.title;
+      if (description) description.textContent = definition.description;
+      if (image) {
+        image.src = definition.image;
+        image.alt = `Ejemplo ${definition.title}`;
+      }
+    });
+  }
+
+  function syncEditSelections() {
+    if (!editingRecord) return;
+
+    const gtinCards = Array.from(document.querySelectorAll("#paso10a > .row a"));
+    const gtinMatch = gtinCards.find((card) => normalize(card.querySelector(".card-title")?.textContent) === normalize(editingRecord.type));
+    if (gtinMatch) selectOnly(gtinCards, gtinMatch);
+
+    const distributionCards = Array.from(document.querySelectorAll("#paso20a [data-distribution-value]"));
+    const normalizedDistribution = normalize(editingRecord.distributionType) === "nacional" ? "Nacional" : "Internacional";
+    const distributionMatch = distributionCards.find((card) => card.dataset.distributionValue === normalizedDistribution);
+    if (distributionMatch) selectOnly(distributionCards, distributionMatch);
+
+    const businessCards = Array.from(document.querySelectorAll("#paso30a [data-business-line]"));
+    const businessMatch = businessCards.find((card) => normalize(card.dataset.businessLine) === normalize(editingRecord.lineOfBusiness));
+    if (businessMatch) selectOnly(businessCards, businessMatch);
+  }
+
   function makeChoice(element, handler) {
     element.removeAttribute("onclick");
     element.href && element.setAttribute("href", "#");
@@ -507,7 +928,7 @@
       render();
       return;
     }
-    state.steps[stepId].status = "completed";
+    state.steps[stepId].status = stepId === 7 && !state.primaryImageId ? "needs-review" : "completed";
     state.steps[stepId].isDirty = false;
     state.highestAvailable = Math.max(state.highestAvailable, Math.min(9, stepId + 1));
     if (stepId === 9) {
@@ -584,6 +1005,7 @@
       assisted.hidden = state.currentStep !== 0;
       assisted.style.display = state.currentStep === 0 ? "block" : "none";
     }
+    if (state.currentStep === 7) renderProductImages([]);
     renderStepper();
     renderActions();
   }
@@ -601,7 +1023,9 @@
       button.disabled = !accessible;
       button.setAttribute("aria-current", stepId === state.currentStep ? "step" : "false");
       marker.textContent = status === "completed" ? "✓" : status === "needs-review" || status === "error" ? "!" : String(stepId);
-      if (status === "skipped") meta.textContent = "Omitido";
+      if (isActiveEdit && LOCKED_ACTIVE_STEPS.has(stepId)) meta.textContent = "Solo lectura";
+      else if (isActiveEdit && ACTIVE_EDITABLE_STEPS.has(stepId)) meta.textContent = "Modificable";
+      else if (status === "skipped") meta.textContent = "Omitido";
       else if (status === "needs-review") meta.textContent = "Requiere revisión";
       else if (status === "error") meta.textContent = "Revisar errores";
       else meta.textContent = STEP_DEFINITIONS[stepId].meta;
@@ -612,10 +1036,10 @@
     const previous = actions.querySelector("[data-wizard-previous]");
     const skip = actions.querySelector("[data-wizard-skip]");
     const next = actions.querySelector("[data-wizard-next]");
-    previous.disabled = state.currentStep === 0;
-    skip.classList.toggle("d-none", state.currentStep !== 0);
+    previous.disabled = state.currentStep === (isEditMode ? 1 : 0);
+    skip.classList.toggle("d-none", isEditMode || state.currentStep !== 0);
     next.textContent = state.currentStep === 9
-      ? "Confirmar y dar de alta"
+      ? isEditMode ? "Guardar cambios" : "Confirmar y dar de alta"
       : state.currentStep === 0 && state.imageSuggestions.some((item) => item.decision === "accepted")
         ? "Continuar con sugerencias →"
         : "Continuar →";
@@ -642,7 +1066,7 @@
     }
     const product = document.getElementById("Producto")?.value || "Sin completar";
     const brand = document.getElementById("marca")?.selectedOptions[0]?.textContent.trim() || "Sin completar";
-    const imageName = state.uploadedImages[0]?.name || document.getElementById("imagen-producto")?.files[0]?.name || "Sin imagen cargada";
+    const primaryImage = state.uploadedImages.find((image) => image.id === state.primaryImageId);
     const rows = [
       ["Tipo de GTIN", state.values.gtinType || "Sin completar"],
       ["Distribución", state.values.distributionType || "Sin completar"],
@@ -650,8 +1074,8 @@
       ["Producto", product],
       ["Marca", brand],
       ["Categoría", state.values.category || document.getElementById("buscarconf")?.value || "Sin completar"],
-      ["Imagen", imageName],
-      ["Carga asistida", state.step0Skipped ? "Omitida" : state.uploadedImages.length ? `${state.uploadedImages.length} imagen(es)` : "No utilizada"],
+      ["Imágenes", state.uploadedImages.length ? `${state.uploadedImages.length} imagen(es)` : "Sin imágenes"],
+      ["Imagen principal (frontal)", primaryImage?.name || "Sin definir"],
     ];
     summary.innerHTML = rows.map(([label, value]) => `
       <div class="col-md-6">
@@ -669,6 +1093,7 @@
     const header = card?.querySelector(".product-wizard-modern__header");
     if (!card || !completionHost) return;
 
+    syncFinalImage();
     card.classList.add("product-wizard-modern--complete");
     header.hidden = true;
     layout.hidden = true;
@@ -777,6 +1202,12 @@
   function formatBytes(bytes) {
     if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
     return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  }
+
+  function releaseLocalImageUrls() {
+    state.uploadedImages.forEach((image) => {
+      if (image.source === "file" && image.previewUrl) URL.revokeObjectURL(image.previewUrl);
+    });
   }
 
   function showToast(message, variant) {

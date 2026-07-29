@@ -6,7 +6,7 @@
     window.GS1ProductTable.mount({
       mount,
       mode,
-      persistenceKey: `gs1.products.columnVisibility.list.${mode}.v2`,
+      persistenceKey: `gs1.products.columnVisibility.list.${mode}.v3`,
       eyebrow: "Catálogo GS1",
       heading: mode === "products" ? "Productos comerciales" : "Unidades de despacho GTIN-14",
       description: "Consultá y administrá los registros desde un listado responsive.",

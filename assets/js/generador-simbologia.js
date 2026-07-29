@@ -41,19 +41,21 @@
                 </div>
                 <label class="form-label mt-3" for="symbolFormat">Formato</label>
                 <select class="form-select" id="symbolFormat"><option>PNG</option><option>JPG</option><option>JPEG</option></select>
+                <div class="d-grid mt-3">
+                  <button class="btn btn-outline-secondary" id="resetSymbolBtn" type="button">Restablecer</button>
+                </div>
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
+              <div class="mb-3">
                 <div>
                   <h1 class="h3 mb-1">Generador de Simbolog&iacute;a</h1>
                   <div class="text-secondary">${escapeHtml(record ? `${record.type} | ${record.name}` : "Herramienta de simulacion local")}</div>
                 </div>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-primary" id="generateSymbolBtn" type="button">Generar c&oacute;digo</button>
-                  <button class="btn btn-outline-secondary" id="resetSymbolBtn" type="button">Restablecer</button>
-                  <button class="btn btn-outline-secondary" id="downloadSymbolBtn" type="button">Descargar</button>
-                </div>
+              </div>
+              <div class="d-flex flex-wrap justify-content-end gap-2 mb-3">
+                <button class="btn btn-primary" id="generateSymbolBtn" type="button">Generar c&oacute;digo</button>
+                <button class="btn btn-outline-secondary" id="downloadSymbolBtn" type="button">Descargar</button>
               </div>
               <div class="gs1-code-preview" id="symbolPreview"></div>
             </div>
@@ -94,17 +96,27 @@
       document.querySelectorAll("[data-symbol-type]").forEach((item) => item.classList.toggle("is-active", item.dataset.symbolType === "Otros"));
       renderPreview();
     });
-    document.getElementById("generateSymbolBtn").addEventListener("click", renderPreview);
+    document.getElementById("symbolCode").addEventListener("input", renderPreview);
+    document.getElementById("generateSymbolBtn").addEventListener("click", generateFinalSymbol);
     document.getElementById("resetSymbolBtn").addEventListener("click", () => window.location.reload());
     document.getElementById("downloadSymbolBtn").addEventListener("click", () => window.GS1Utils.showSimulationToast("Descarga simulada correctamente.", "success"));
+  }
+
+  function generateFinalSymbol() {
+    const code = document.getElementById("symbolCode").value.trim();
+    const type = document.getElementById("symbolType").value;
+    if (!isValidPreviewCode(type, code)) {
+      renderPreview();
+      return;
+    }
+    window.GS1Utils.showSimulationToast("Generación definitiva simulada correctamente.", "success");
   }
 
   function renderPreview() {
     const type = document.getElementById("symbolType").value;
     const code = document.getElementById("symbolCode").value.trim();
     const preview = document.getElementById("symbolPreview");
-    const numericTypes = ["GTIN-13", "GTIN-14", "UPC-A", "SSCC"];
-    if (!code || (numericTypes.includes(type) && !/^\d+$/.test(code))) {
+    if (!isValidPreviewCode(type, code)) {
       preview.innerHTML = `<div class="alert alert-warning mb-0">Ingres&aacute; un c&oacute;digo v&aacute;lido para generar la previsualizaci&oacute;n.</div>`;
       return;
     }
@@ -121,6 +133,11 @@
     preview.innerHTML = type.includes("QR") || type.includes("DataMatrix")
       ? `<div class="gs1-matrix-preview"><img src="${imageByType[type]}" alt="Previsualización ${escapeHtml(type)}"><div class="small mt-2">${escapeHtml(code)}</div></div>`
       : `<div class="gs1-linear-preview"><img src="${imageByType[type]}" alt="Previsualización ${escapeHtml(type)}"><div class="small mt-3">${escapeHtml(type)} | ${escapeHtml(code)}</div></div>`;
+  }
+
+  function isValidPreviewCode(type, code) {
+    const numericTypes = ["GTIN-13", "GTIN-14", "UPC-A", "SSCC"];
+    return Boolean(code) && (!numericTypes.includes(type) || /^\d+$/.test(code));
   }
 
   function resolveRecord() {

@@ -18,6 +18,7 @@
 	<link href="../assets/b05/css/list-groups.css" rel="stylesheet" />
 	<link href="../assets/b05/css/dropdowns.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="../assets/b05/css/subir-imagen.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/b05/css/producto-wizard.css" />
 	<script defer src="../assets/js/jquery.js"></script>	
 
   </head>
@@ -519,7 +520,7 @@
 	
 .imagen-indicador{
 		width: 28px; vertical-align: text-bottom; margin-right: 16px;
-	}	
+	}
 
 			</style>
 						
@@ -528,7 +529,7 @@
 <div>
 	
 <form class="needs-validation" novalidate>
-<div class="pasos" id="pasos">	
+<div class="pasos" id="pasos">
 	<div id="paso10a" style="display: none">
 		<h2 class="mb-3 pt-0">01 - Seleccione el Tipo de GTIN</h2> 
 		  <div class="row g-3 p-1" >	
@@ -1055,7 +1056,7 @@
 			
 		<hr class="mt-4">
 	</div>
-	<div id="paso60b"><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">06 - Categoría: Confituras
+	<div id="paso60b" ><h4 class="mb-0"><img src="../assets/img/check-verde.png" class="imagen-indicador">06 - Categoría: Confituras
 	    <a class="btn btn-outline-dark btn-sm" onclick="editar_paso60()" >CAMBIAR</a></h4>
 		<hr>
 	</div>	
@@ -2966,9 +2967,11 @@ function confirmar2() {
       <script src="../assets/js/components/portal-chrome.js"></script>
       <script src="../assets/js/components/account-summary.js"></script>
       <script src="../assets/js/components/shortcuts-manager.js"></script>
+      <script src="../assets/js/components/account-tools-card.js"></script>
       <script src="../assets/js/gs1-utils.js"></script>
       <script src="../assets/js/data/product-catalog.js"></script>
       <script src="../assets/js/producto-form.js"></script>
+      <script src="../assets/js/producto-wizard.js"></script>
       <script src="../assets/js/components/help-widget.js"></script>
 </body>
 </html>

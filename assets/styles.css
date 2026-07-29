@@ -1570,6 +1570,37 @@ body.help-widget--dragging {
   gap: 1rem;
 }
 
+.account-context-selector {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.account-context-options {
+  display: grid;
+  gap: .75rem;
+}
+
+.account-context-options--licenses {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.account-context-option {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: .75rem;
+  padding: .85rem 1rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.account-context-option:hover,
+.account-context-option--selected {
+  border-color: rgba(var(--bs-success-rgb), .55);
+  background: rgba(var(--bs-success-rgb), .06);
+}
+
 .license-card {
   display: flex;
   justify-content: space-between;
@@ -1792,6 +1823,16 @@ body.help-widget--dragging {
   width: 100%;
 }
 
+.gs1-code-preview .gs1-matrix-preview {
+  width: min(100%, 300px);
+}
+
+.gs1-code-preview .gs1-matrix-preview img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
 .gs1-linear-bars {
   min-height: 130px;
   border-radius: .75rem;
@@ -1951,13 +1992,25 @@ body.help-widget--dragging {
   object-fit: contain;
 }
 
-.account-summary {
+.account-tools-card {
   border-radius: 1rem;
+}
+
+.account-tools-card__divider {
+  margin: 1.25rem 0;
+}
+
+.account-summary__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .account-summary__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -2110,6 +2163,14 @@ body.help-widget--dragging {
   }
 
   .account-summary__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-summary__header {
+    flex-direction: column;
+  }
+
+  .account-context-options--licenses {
     grid-template-columns: 1fr;
   }
 

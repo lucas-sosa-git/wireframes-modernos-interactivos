@@ -8,13 +8,15 @@
     [TABLE_MODES.products]: 10,
     [TABLE_MODES.dispatchUnits]: 10,
   };
-  const COLUMN_VISIBILITY_STORAGE_KEY = "gs1.products.columnVisibility.v1";
+  const COLUMN_VISIBILITY_STORAGE_KEY = "gs1.products.columnVisibility.v2";
   const REQUIRED_CORE_COLUMNS = ["code", "name"];
   const COLUMN_LAYOUT = {
     image: { min: 72, width: 72, max: 72, fixed: true },
     type: { min: 110, width: 110, max: 120, fixed: true },
     code: { min: 140, flexible: true },
     name: { min: 210, flexible: true, priority: "primary" },
+    dataQuality: { min: 130, width: 130, max: 135, fixed: true },
+    gs1Verify: { min: 110, width: 110, max: 115, fixed: true },
     status: { min: 100, width: 100, max: 110, fixed: true },
     brand: { min: 120, flexible: true },
     variety: { min: 120, flexible: true },
@@ -26,17 +28,6 @@
     createdAt: { min: 140, width: 140, max: 145, fixed: true },
     actions: { min: 230, width: 230, max: 230, fixed: true },
   };
-
-  const currentUser = {
-    name: "Maria Alejandra Lopez",
-    email: "maria.lopez@empresa.com",
-  };
-
-  const licenses = [
-    { id: "lic-1", name: "GS1 Alimentos del Sur", cuit: "30-71234567-8", membership: "Plan Estandar" },
-    { id: "lic-2", name: "GS1 Nutricion Andina", cuit: "30-70111222-4", membership: "Plan Estandar" },
-    { id: "lic-3", name: "GS1 Mercado Federal", cuit: "30-69888777-0", membership: "Plan Premium" },
-  ];
 
   const notifications = [
     {
@@ -69,7 +60,9 @@
         { key: "image", label: "Imagen", className: "product-col-image", filterable: false },
         { key: "type", label: "Tipo de codigo", className: "product-col-tipo" },
         { key: "code", label: "Codigo", className: "product-col-codigo" },
-        { key: "name", label: "Producto", className: "product-col-producto" },
+        { key: "name", label: "Descripción", className: "product-col-producto" },
+        { key: "dataQuality", label: "Calidad de datos", className: "product-col-estado" },
+        { key: "gs1Verify", label: "Verify GS1", className: "product-col-estado" },
         { key: "status", label: "Estado", className: "product-col-estado" },
         { key: "brand", label: "Marca", className: "product-col-marca" },
         { key: "variety", label: "Variedad", className: "product-col-variedad" },
@@ -121,7 +114,6 @@
       [TABLE_MODES.products]: [],
       [TABLE_MODES.dispatchUnits]: [],
     },
-    currentLicense: licenses[0],
     activeFilterMenu: null,
     activeFilterColumn: null,
     activeFilterDraft: [],
@@ -170,8 +162,6 @@
     initBootstrap();
     initEventHandlers();
     renderNotifications();
-    updateAccountContext();
-    renderLicenseSelector();
     renderTable();
     initBulkUploadModal();
     initChart();
@@ -710,6 +700,9 @@
       if (column.key === "status") {
         return `<td class="product-cell-nowrap" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}"><span class="badge ${statusBadgeClass(record.status)}">${escapeHtml(record.status)}</span></td>`;
       }
+      if (["dataQuality", "gs1Verify"].includes(column.key)) {
+        return `<td class="product-cell-nowrap" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}"><span class="badge ${record[column.key] ? "text-bg-success" : "text-bg-secondary"}">${record[column.key] ? "Sí" : "No"}</span></td>`;
+      }
       return `<td class="${getCellClass(column.key)}" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}">${escapeHtml(record[column.key] || "")}</td>`;
     });
 
@@ -720,7 +713,6 @@
           ${renderActionButton("copy", record.id, "Editar copia", "files")}
           ${renderActionButton("edit", record.id, "Modificar", "pencil-square")}
           ${renderActionButton("logs", record.id, "Logs", "clock-history")}
-          ${renderActionButton("image", record.id, "Ver imagen", "image")}
           ${renderActionButton("digital-link", record.id, "QR / Digital Link", "../QR-DATAMATRIX.png")}
           ${renderActionButton("symbol", record.id, "Generador de simbologia", "../GENERADOR DE SIMBOLOGIA.png")}
         </div>
@@ -1435,73 +1427,6 @@
         window.location.href = `productos-carga-masiva.html?type=${encodeURIComponent(button.dataset.bulkUploadTrigger)}`;
       });
     });
-  }
-
-  function renderLicenseSelector() {
-    const selector = document.getElementById("licenseSelector");
-    selector.innerHTML = licenses.map((license) => `
-      <div class="license-card ${state.currentLicense.id === license.id ? "license-card-active" : ""}">
-        <div>
-          <div class="fw-semibold">${license.name}</div>
-          <div class="small text-secondary">CUIT ${license.cuit}</div>
-        </div>
-        <div class="d-flex align-items-center gap-2">
-          <span class="badge ${state.currentLicense.id === license.id ? "text-bg-success" : "text-bg-light"}">${state.currentLicense.id === license.id ? "Activa" : "Disponible"}</span>
-          <button
-            type="button"
-            class="btn btn-sm ${state.currentLicense.id === license.id ? "btn-outline-secondary" : "btn-primary"}"
-            data-license-id="${license.id}"
-            ${state.currentLicense.id === license.id ? "disabled" : ""}
-          >
-            Cambiar
-          </button>
-        </div>
-      </div>
-    `).join("");
-
-    selector.querySelectorAll("[data-license-id]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const next = licenses.find((license) => license.id === button.dataset.licenseId);
-        if (!next) {
-          return;
-        }
-        state.currentLicense = next;
-        updateAccountContext();
-        renderLicenseSelector();
-        showToast(`Licencia activa: ${next.name}`);
-        bootstrap.Modal.getOrCreateInstance(document.getElementById("licenseModal")).hide();
-      });
-    });
-  }
-
-  function updateAccountContext() {
-    document.getElementById("currentUserName").textContent = currentUser.name;
-    document.getElementById("currentUserEmail").textContent = currentUser.email;
-    document.getElementById("currentLicenseNameMenu").textContent = state.currentLicense.name;
-    const summaryMount = document.querySelector("[data-account-summary]");
-    if (summaryMount && window.GS1AccountSummary) {
-      window.GS1AccountSummary.updateMount(summaryMount, {
-        cuit: state.currentLicense.cuit,
-        license: state.currentLicense.name,
-        membership: normalizeMembershipLabel(state.currentLicense.membership),
-        membershipTier: getMembershipTier(state.currentLicense.membership),
-      });
-    }
-  }
-
-  function getMembershipTier(membership) {
-    const value = normalizeText(membership);
-    if (value.includes("premium")) {
-      return "premium";
-    }
-    if (value.includes("basic")) {
-      return "basic";
-    }
-    return "standard";
-  }
-
-  function normalizeMembershipLabel(membership) {
-    return String(membership || "").replace("Estandar", "Estándar");
   }
 
   function renderNotifications() {

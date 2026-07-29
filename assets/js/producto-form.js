@@ -57,15 +57,12 @@
     const record = id ? window.GS1ProductCatalog.getById(id) : null;
 
     if (/producto-editar\.html$/i.test(path) && record) {
-      preloadCommercialFields(record);
+      preloadCommercialFields(record, { copy: false });
       injectEditNotice(record);
-      if (record.mode === "products" && record.status === "Activo") {
-        restrictActiveProductFields(record);
-      }
     }
 
     if (mode === "copy" && record && record.mode === "products") {
-      preloadCommercialFields(record);
+      preloadCommercialFields(record, { copy: true });
       preloadWizardSelections(record);
       injectCopyNotice(record);
     }
@@ -339,7 +336,23 @@
     const code = "7798336831071";
     const name = document.getElementById("Producto")?.value.trim() || "Producto nuevo";
     const content = [document.getElementById("contenidoneto")?.value.trim(), selectText(3)].filter(Boolean).join(" ");
-    return { mode: "products", code, name, brand: selectText(0), subBrand: selectText(1), image: document.querySelector("#imagen-1 img")?.src || "../assets/img/producto-1c.jpg", shortDescription: `${name}${content ? ` - ${content}` : ""}`, content, packaging: selectText(2), lineOfBusiness: wizardState.lineOfBusiness, distributionType: wizardState.distributionType };
+    const imageSnapshot = window.GS1ProductWizardImages?.getSnapshot?.() || { images: [], primaryImageId: null };
+    const primaryImage = imageSnapshot.images.find((image) => image.id === imageSnapshot.primaryImageId) || null;
+    return {
+      mode: "products",
+      code,
+      name,
+      brand: selectText(0),
+      subBrand: selectText(1),
+      image: primaryImage?.url || null,
+      imageGallery: imageSnapshot.images.map((image) => image.url),
+      primaryImageId: imageSnapshot.primaryImageId,
+      shortDescription: `${name}${content ? ` - ${content}` : ""}`,
+      content,
+      packaging: selectText(2),
+      lineOfBusiness: wizardState.lineOfBusiness,
+      distributionType: wizardState.distributionType,
+    };
   }
 
   window.GS1BuildCreatedProductPayload = buildCreatedProductPayload;
@@ -371,12 +384,12 @@
     });
   }
 
-  function preloadCommercialFields(record) {
+  function preloadCommercialFields(record, options = {}) {
     setValue("#Producto", record.name);
     setValue("#variedad", record.variety);
     setValue("#contenidoneto", extractNumber(record.content));
-    setValue("#codigo", "");
-    setValue("#codigointerno", `${record.code}-COPIA`);
+    setValue("#codigo", options.copy ? "" : record.code);
+    setValue("#codigointerno", options.copy ? `${record.code}-COPIA` : record.internalCode || record.code);
     setValue("#buscarconf", record.classification);
     setSelectByText(0, record.brand);
     setSelectByText(1, record.subBrand);
@@ -460,37 +473,15 @@
   }
 
   function injectEditNotice(record) {
+    const isActive = record.mode === "products" && record.status === "Activo";
     injectBanner(`
       <div class="alert alert-info gs1-inline-banner" role="status">
-        <div class="fw-semibold">Edición habilitada</div>
-        <div class="small">El producto <strong>${escapeHtml(record.name)}</strong> está dentro del período de gracia y puede modificarse directamente.</div>
+        <div class="fw-semibold">${isActive ? "Edición restringida" : "Edición habilitada"}</div>
+        <div class="small">${isActive
+          ? `El producto <strong>${escapeHtml(record.name)}</strong> está activo. Solo se pueden modificar el Código Interno, las imágenes, la URL y los sellos.`
+          : `Podés modificar la información de <strong>${escapeHtml(record.name)}</strong> antes de guardar los cambios.`}</div>
       </div>
     `);
-  }
-
-  function restrictActiveProductFields(record) {
-    ["#paso10a", "#paso10b", "#paso20a", "#paso20b", "#paso30a", "#paso30b"].forEach((selector) => {
-      document.querySelector(selector)?.classList.add("gs1-restricted-step");
-    });
-    ["#paso10a a", "#paso20a a", "#paso30a a", "#paso10b a", "#paso20b a", "#paso30b a"].forEach((selector) => {
-      document.querySelectorAll(selector).forEach((element) => {
-        element.setAttribute("aria-disabled", "true");
-        element.setAttribute("tabindex", "-1");
-        element.removeAttribute("onclick");
-        element.addEventListener("click", (event) => event.preventDefault());
-      });
-    });
-    const banner = document.querySelector(".gs1-inline-banner");
-    if (banner) {
-      banner.insertAdjacentHTML("beforeend", `
-        <div class="small mt-2">Tipo de GTIN, línea de negocio y tipo de distribución quedan reservados para una solicitud de revisión.</div>
-        <div class="mt-3">
-          <a class="btn btn-outline-primary btn-sm" href="producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new">
-            Contactar a GS1 para editar estos datos
-          </a>
-        </div>
-      `);
-    }
   }
 
   function injectBanner(markup) {

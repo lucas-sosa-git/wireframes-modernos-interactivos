@@ -6,6 +6,12 @@
     dun14: "Alta masiva DUN-14 (GTIN-14)",
     urls: "Generador de URLs masivo (de imágenes)",
   };
+  const PRODUCT_TEMPLATE_COLUMNS = {
+    Alimentos: ["gtin", "marca", "descripcion_producto", "contenido_neto", "unidad_medida", "clasificacion_gpc"],
+    Bebidas: ["gtin", "marca", "descripcion_producto", "volumen_neto", "unidad_medida", "tipo_bebida"],
+    Hogar: ["gtin", "marca", "descripcion_producto", "contenido_neto", "unidad_medida", "categoria_hogar"],
+    Despensa: ["gtin", "marca", "descripcion_producto", "contenido_neto", "unidad_medida", "categoria_despensa"],
+  };
   const HISTORY = [
     { name: "alta_productos_2026-07-18.xlsx", date: "18/07/2026", time: "11:42", type: "Productos comerciales", rows: 120, errors: 2 },
     { name: "alta_dun14_2026-07-21.xlsx", date: "21/07/2026", time: "09:15", type: "DUN-14", rows: 48, errors: 0 },
@@ -20,8 +26,9 @@
       <section class="card shadow-sm mb-4"><div class="card-body text-center py-4">
         <h1 class="h3 mb-1">Alta masiva</h1><p class="text-secondary">Seleccioná el tipo de proceso antes de cargar el archivo.</p>
         <select class="form-select mx-auto" id="bulkType" style="max-width:340px">${Object.entries(TYPES).map(([value, label]) => `<option value="${value}" ${value === initial ? "selected" : ""}>${label}</option>`).join("")}</select>
-        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4"><a class="btn btn-primary" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank">Ver instructivo alta masiva DUN-14</a><a class="btn btn-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo alta masiva DUN-14</a></div>
-        <div class="d-flex flex-wrap justify-content-center gap-2 mt-3"><button class="btn btn-warning" id="downloadExcel" type="button">Descargar Excel</button><button class="btn btn-warning" id="uploadExcel" type="button">Subir Excel</button></div>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4"><a class="btn btn-primary" id="viewInstructions" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank">Ver instructivo alta masiva GTIN-13</a><a class="btn btn-primary" id="downloadInstructions" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo alta masiva GTIN-13</a></div>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-3"><div class="dropdown" id="templateDownloadMenu"><button class="btn btn-warning dropdown-toggle" id="templateDownloadButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">Descargar plantilla</button><ul class="dropdown-menu text-start" aria-labelledby="templateDownloadButton">${Object.keys(PRODUCT_TEMPLATE_COLUMNS).map((line) => `<li><button class="dropdown-item" type="button" data-template-line="${line}">${line}</button></li>`).join("")}</ul></div><button class="btn btn-warning" id="uploadExcel" type="button">Subir Excel</button></div>
+        <div class="small text-secondary mt-2" id="templateDownloadHint">Seleccioná la línea de negocio para descargar la plantilla con sus campos correspondientes.</div>
         <input class="d-none" id="excelFile" type="file" accept=".xlsx,.xls,.csv">
         <div class="small text-secondary mt-3" id="bulkHint">Las reglas exactas de columnas están pendientes de definición.</div>
       </div></section>
@@ -32,6 +39,7 @@
         <div class="d-flex flex-wrap gap-2 align-items-center mt-3"><button class="btn btn-primary" id="downloadUrls" type="button">Descargar URLs temporales</button><span class="small text-secondary" id="urlFileName">Ningún archivo seleccionado.</span></div>
       </div></section>`;
     bind();
+    updateBulkType();
   }
 
   function bind() {
@@ -45,7 +53,8 @@
       document.getElementById("reviewBulkFile").disabled = false;
       toast(`Archivo ${file.files[0].name} preparado como ${family}. Revisá los errores antes de confirmar.`);
     });
-    document.getElementById("downloadExcel").addEventListener("click", () => { const date = window.prompt("Fecha del archivo procesado (DD/MM/AAAA)", HISTORY[0].date); if (date) toast(`Descarga del archivo procesado del ${date} preparada.`); });
+    document.getElementById("bulkType").addEventListener("change", updateBulkType);
+    document.querySelectorAll("[data-template-line]").forEach((button) => button.addEventListener("click", () => downloadTemplate(button.dataset.templateLine)));
     document.querySelectorAll("[data-download-row]").forEach((button) => button.addEventListener("click", () => toast(`Descarga de ${button.dataset.downloadRow} preparada.`)));
     const urlFile = document.getElementById("urlFile");
     urlFile.addEventListener("change", () => { document.getElementById("urlFileName").textContent = urlFile.files[0] ? urlFile.files[0].name : "Ningún archivo seleccionado."; });
@@ -63,6 +72,30 @@
       document.getElementById("confirmBulkUpload").disabled = true;
     });
     // TODO: pendiente de definición (Lucas): reglas exactas de validación de columnas por tipo de carga.
+  }
+  function updateBulkType() {
+    const type = document.getElementById("bulkType").value;
+    const label = TYPES[type];
+    const isCommercialProduct = ["product-13", "product-12", "product-8"].includes(type);
+    document.getElementById("viewInstructions").textContent = `Ver instructivo ${label}`;
+    document.getElementById("downloadInstructions").textContent = `Descargar instructivo ${label}`;
+    document.getElementById("templateDownloadMenu").classList.toggle("d-none", !isCommercialProduct);
+    document.getElementById("templateDownloadHint").classList.toggle("d-none", !isCommercialProduct);
+  }
+  function downloadTemplate(line) {
+    const type = document.getElementById("bulkType").value;
+    const gtin = type.replace("product-", "GTIN-");
+    const content = `${PRODUCT_TEMPLATE_COLUMNS[line].join(",")}\n`;
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(new Blob([content], { type: "text/csv;charset=utf-8" }));
+    link.download = `plantilla-alta-masiva-${gtin.toLowerCase()}-${line.toLowerCase()}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    window.setTimeout(() => {
+      URL.revokeObjectURL(link.href);
+      link.remove();
+    }, 0);
+    toast(`Plantilla ${gtin} para ${line} descargada.`);
   }
   function setFlowStep(active) { document.querySelectorAll("[data-flow-step]").forEach((step) => { const reached = Number(step.dataset.flowStep) <= active; step.classList.toggle("border-primary", reached); step.classList.toggle("bg-primary-subtle", Number(step.dataset.flowStep) === active); step.classList.toggle("text-secondary", !reached); }); }
   function historyRow(item) { return `<tr><td>${item.name}</td><td>${item.date}</td><td>${item.time}</td><td>${item.type}</td><td>${item.rows}</td><td><span class="badge ${item.errors ? "text-bg-danger" : "text-bg-success"}">${item.errors}</span></td><td><button class="btn btn-sm btn-outline-primary" type="button" data-download-row="${item.name}" title="Descargar archivo procesado" aria-label="Descargar archivo procesado">⇩</button></td></tr>`; }
