@@ -1113,7 +1113,7 @@
       <div class="col-md-6">
         <div class="product-detail-field">
           <div class="small text-secondary">${escapeHtml(field.label)}</div>
-          <div class="fw-semibold mt-1">${escapeHtml(field.value)}</div>
+          <div class="fw-semibold mt-1">${field.valueHtml || escapeHtml(field.value)}</div>
         </div>
       </div>
     `).join("");
@@ -1164,7 +1164,7 @@
       { label: "Tipo de codigo", value: record.type },
       { label: "Codigo", value: record.code },
       { label: "Estado", value: record.status },
-      { label: "Verify GS1", value: record.gs1Verify ? "Verificado" : "No verificado" },
+      { label: "Verify GS1", valueHtml: dataQualityMarkup(record.gs1Verify, "Verify GS1") },
       { label: "Marca", value: record.brand },
       { label: "Clasificacion", value: record.classification },
       { label: "Contenido", value: record.content },
@@ -1508,13 +1508,13 @@
     });
   }
 
-  function dataQualityMarkup(value) {
+  function dataQualityMarkup(value, attributeLabel = "Calidad de datos") {
     const isValid = Boolean(value);
     const label = isValid ? "Sí" : "No";
     const path = isValid
       ? "M13.854 3.646a.5.5 0 0 0-.708 0L6.5 10.293 2.854 6.646a.5.5 0 1 0-.708.708l4 4a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.708"
       : "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z";
-    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="Calidad de datos: ${label}" title="Calidad de datos: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
+    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="${attributeLabel}: ${label}" title="${attributeLabel}: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
   }
 
   function statusBadgeClass(status) {

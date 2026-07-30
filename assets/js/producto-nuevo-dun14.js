@@ -27,12 +27,20 @@
 
   function showDetail(record, trigger) {
     const image = window.GS1ProductCatalog.resolveImagePath(record.image);
-    document.getElementById("containedDetailBody").innerHTML = `<div class="row g-3"><div class="col-md-4">${image ? `<img class="img-fluid rounded" src="${escapeHtml(image)}" alt="${escapeHtml(record.name)}">` : "Sin imagen"}</div><div class="col-md-8"><h3 class="h5">${escapeHtml(record.name)}</h3><dl><dt>GTIN</dt><dd>${escapeHtml(record.code)}</dd><dt>Tipo de código</dt><dd>${escapeHtml(record.type)}</dd><dt>Verify GS1</dt><dd>${record.gs1Verify ? "Verificado" : "No verificado"}</dd><dt>Marca</dt><dd>${escapeHtml(record.brand)}</dd><dt>Descripción</dt><dd>${escapeHtml(record.shortDescription)}</dd></dl></div></div>`;
+    document.getElementById("containedDetailBody").innerHTML = `<div class="row g-3"><div class="col-md-4">${image ? `<img class="img-fluid rounded" src="${escapeHtml(image)}" alt="${escapeHtml(record.name)}">` : "Sin imagen"}</div><div class="col-md-8"><h3 class="h5">${escapeHtml(record.name)}</h3><dl><dt>GTIN</dt><dd>${escapeHtml(record.code)}</dd><dt>Tipo de código</dt><dd>${escapeHtml(record.type)}</dd><dt>Verify GS1</dt><dd>${verifyGs1Markup(record.gs1Verify)}</dd><dt>Marca</dt><dd>${escapeHtml(record.brand)}</dd><dt>Descripción</dt><dd>${escapeHtml(record.shortDescription)}</dd></dl></div></div>`;
     const modalElement = document.getElementById("containedDetailModal");
     bootstrap.Modal.getOrCreateInstance(modalElement).show();
     modalElement.addEventListener("hidden.bs.modal", () => trigger?.focus(), { once: true });
   }
 
   function detailModal() { return `<div class="modal fade" id="containedDetailModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5">Detalle del producto contenido</h2><button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div><div class="modal-body" id="containedDetailBody"></div><div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button></div></div></div></div>`; }
+  function verifyGs1Markup(value) {
+    const isValid = Boolean(value);
+    const label = isValid ? "Sí" : "No";
+    const path = isValid
+      ? "M13.854 3.646a.5.5 0 0 0-.708 0L6.5 10.293 2.854 6.646a.5.5 0 1 0-.708.708l4 4a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.708"
+      : "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z";
+    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="Verify GS1: ${label}" title="Verify GS1: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
+  }
   function escapeHtml(value) { return window.GS1Utils.escapeHtml(String(value || "")); }
 })();

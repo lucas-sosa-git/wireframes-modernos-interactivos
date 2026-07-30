@@ -58,7 +58,7 @@
               </div>
 
               <div class="row g-3">
-                ${buildFields(record).map((field) => renderField(field.label, field.value)).join("")}
+                ${buildFields(record).map((field) => renderField(field.label, field.value, field.valueHtml)).join("")}
               </div>
 
             </div>
@@ -119,7 +119,7 @@
     return [
       { label: "Tipo", value: record.type },
       { label: "GTIN", value: record.code },
-      { label: "Verify GS1", value: record.gs1Verify ? "Verificado" : "No verificado" },
+      { label: "Verify GS1", valueHtml: verifyGs1Markup(record.gs1Verify) },
       { label: "Marca", value: record.brand },
       { label: "Submarca", value: record.subBrand },
       { label: "Clasificacion", value: record.classification },
@@ -158,15 +158,24 @@
     `;
   }
 
-  function renderField(label, value) {
+  function renderField(label, value, valueHtml) {
     return `
       <div class="col-md-6">
         <div class="product-detail-field">
           <div class="text-secondary small">${escapeHtml(label)}</div>
-          <div class="fw-semibold">${escapeHtml(value || "-")}</div>
+          <div class="fw-semibold">${valueHtml || escapeHtml(value || "-")}</div>
         </div>
       </div>
     `;
+  }
+
+  function verifyGs1Markup(value) {
+    const isValid = Boolean(value);
+    const label = isValid ? "Sí" : "No";
+    const path = isValid
+      ? "M13.854 3.646a.5.5 0 0 0-.708 0L6.5 10.293 2.854 6.646a.5.5 0 1 0-.708.708l4 4a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.708"
+      : "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z";
+    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="Verify GS1: ${label}" title="Verify GS1: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
   }
 
   function getCopyUrl(record) {
