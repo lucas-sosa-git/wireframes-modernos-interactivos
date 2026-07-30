@@ -19,10 +19,10 @@
       const sourceImageId = images[0]?.id || "";
       return {
         suggestions: [
-          suggestion("product-name", 4, "Producto", "Yogur bebible descremado", "high", sourceImageId),
-          suggestion("brand", 4, "marca", "Marca 1", "medium", sourceImageId),
-          suggestion("net-content", 4, "contenidoneto", "190", "high", sourceImageId),
-          suggestion("category", 6, "buscarconf", "Yogures y leches fermentadas", "medium", sourceImageId),
+          suggestion("product-name", 5, "Producto", "Yogur bebible descremado", "high", sourceImageId),
+          suggestion("brand", 5, "marca", "Marca 1", "medium", sourceImageId),
+          suggestion("net-content", 5, "contenidoneto", "190", "high", sourceImageId),
+          suggestion("category", 7, "buscarconf", "Yogures y leches fermentadas", "medium", sourceImageId),
         ],
         warnings: ["Fixture de demostración activo: estas sugerencias no provienen de un servicio real."],
       };

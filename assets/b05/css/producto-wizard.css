@@ -13,6 +13,8 @@
 .product-wizard-modern > .progress,
 .product-wizard-modern #pasos > [id$="b"],
 .product-wizard-modern #pasos > [id$="c"],
+.product-wizard-modern #pasos > #producto-nuevo-wizard > [id$="b"],
+.product-wizard-modern #pasos > #producto-nuevo-wizard > [id$="c"],
 .product-wizard-modern .legacy-step-action-hidden {
   display: none !important;
 }

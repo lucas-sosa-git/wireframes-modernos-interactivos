@@ -6,7 +6,7 @@
     maxBytes: 8 * 1024 * 1024,
     maxFiles: 6,
   });
-  const STEP_DEFINITIONS = [
+  const LEGACY_STEP_DEFINITIONS = [
     { id: 0, title: "Carga asistida por imágenes", meta: "Opcional" },
     { id: 1, title: "Tipo de GTIN", meta: "Estándar de codificación" },
     { id: 2, title: "Tipo de distribución", meta: "Alcance comercial" },
@@ -18,7 +18,7 @@
     { id: 8, title: "Campos extra", meta: "Datos complementarios" },
     { id: 9, title: "Confirmación", meta: "Revisión final" },
   ];
-  const STEP_PANEL_IDS = {
+  const LEGACY_STEP_PANEL_IDS = {
     1: "paso10a",
     2: "paso20a",
     3: "paso30a",
@@ -29,7 +29,7 @@
     8: "paso80a",
     9: "paso90a",
   };
-  const STEP_INTROS = {
+  const LEGACY_STEP_INTROS = {
     1: "Elegí el estándar que corresponda al producto y al mercado donde se comercializará.",
     2: "Indicá si el producto se comercializa dentro de Argentina o también en otros países.",
     3: "Buscá y seleccioná el rubro principal del artículo.",
@@ -40,19 +40,69 @@
     8: "Seleccioná las leyendas, sellos y microsellos que correspondan.",
     9: "Revisá la información antes de crear el producto.",
   };
-  const DEPENDENCIES = {
+  const LEGACY_DEPENDENCIES = {
     1: [4, 9],
     2: [6, 9],
     3: [5, 6, 9],
   };
+  const NEW_STEP_DEFINITIONS = [
+    { id: 1, title: LEGACY_STEP_DEFINITIONS[1].title, meta: LEGACY_STEP_DEFINITIONS[1].meta },
+    { id: 2, title: LEGACY_STEP_DEFINITIONS[2].title, meta: LEGACY_STEP_DEFINITIONS[2].meta },
+    { id: 3, title: LEGACY_STEP_DEFINITIONS[3].title, meta: LEGACY_STEP_DEFINITIONS[3].meta },
+    { id: 4, title: LEGACY_STEP_DEFINITIONS[0].title, meta: LEGACY_STEP_DEFINITIONS[0].meta },
+    { id: 5, title: LEGACY_STEP_DEFINITIONS[4].title, meta: LEGACY_STEP_DEFINITIONS[4].meta },
+    { id: 6, title: LEGACY_STEP_DEFINITIONS[5].title, meta: LEGACY_STEP_DEFINITIONS[5].meta },
+    { id: 7, title: LEGACY_STEP_DEFINITIONS[6].title, meta: LEGACY_STEP_DEFINITIONS[6].meta },
+    { id: 8, title: LEGACY_STEP_DEFINITIONS[7].title, meta: LEGACY_STEP_DEFINITIONS[7].meta },
+    { id: 9, title: LEGACY_STEP_DEFINITIONS[8].title, meta: LEGACY_STEP_DEFINITIONS[8].meta },
+    { id: 10, title: LEGACY_STEP_DEFINITIONS[9].title, meta: LEGACY_STEP_DEFINITIONS[9].meta },
+  ];
+  const EDIT_STEP_DEFINITIONS = LEGACY_STEP_DEFINITIONS.filter((step) => step.id !== 0);
+  const NEW_STEP_PANEL_IDS = {
+    1: LEGACY_STEP_PANEL_IDS[1],
+    2: LEGACY_STEP_PANEL_IDS[2],
+    3: LEGACY_STEP_PANEL_IDS[3],
+    4: "paso00a",
+    5: LEGACY_STEP_PANEL_IDS[4],
+    6: LEGACY_STEP_PANEL_IDS[5],
+    7: LEGACY_STEP_PANEL_IDS[6],
+    8: LEGACY_STEP_PANEL_IDS[7],
+    9: LEGACY_STEP_PANEL_IDS[8],
+    10: LEGACY_STEP_PANEL_IDS[9],
+  };
+  const EDIT_STEP_PANEL_IDS = LEGACY_STEP_PANEL_IDS;
+  const NEW_STEP_INTROS = {
+    1: LEGACY_STEP_INTROS[1],
+    2: LEGACY_STEP_INTROS[2],
+    3: LEGACY_STEP_INTROS[3],
+    4: "Carg\u00e1 una o varias im\u00e1genes para obtener sugerencias sobre campos existentes.",
+    5: LEGACY_STEP_INTROS[4],
+    6: LEGACY_STEP_INTROS[5],
+    7: LEGACY_STEP_INTROS[6],
+    8: LEGACY_STEP_INTROS[7],
+    9: LEGACY_STEP_INTROS[8],
+    10: LEGACY_STEP_INTROS[9],
+  };
+  const EDIT_STEP_INTROS = LEGACY_STEP_INTROS;
+  const NEW_DEPENDENCIES = {
+    1: [5, 10],
+    2: [7, 10],
+    3: [6, 7, 10],
+  };
+  const EDIT_DEPENDENCIES = LEGACY_DEPENDENCIES;
+  let STEP_DEFINITIONS = NEW_STEP_DEFINITIONS;
+  let STEP_PANEL_IDS = NEW_STEP_PANEL_IDS;
+  let STEP_INTROS = NEW_STEP_INTROS;
+  let DEPENDENCIES = NEW_DEPENDENCIES;
+
   const ACTIVE_EDITABLE_STEPS = new Set([4, 7, 8]);
   const LOCKED_ACTIVE_STEPS = new Set([1, 2, 3, 5, 6]);
 
   const state = {
-    currentStep: 0,
+    currentStep: 1,
     highestAvailable: 1,
-    steps: Object.fromEntries(STEP_DEFINITIONS.map((step) => [step.id, {
-      status: step.id === 0 ? "optional" : "pending",
+    steps: Object.fromEntries(NEW_STEP_DEFINITIONS.map((step) => [step.id, {
+      status: step.id === 4 ? "optional" : "pending",
       isDirty: false,
       errors: {},
     }])),
@@ -66,7 +116,7 @@
     primaryImageId: null,
     imageSuggestions: [],
     imageAnalysisStatus: "idle",
-    step0Skipped: false,
+    assistedStepSkipped: false,
   };
 
   window.GS1ProductWizardImages = {
@@ -98,6 +148,10 @@
     const path = window.location.pathname;
     if (!/\/producto-(nuevo|editar)\.html$/i.test(path)) return;
     isEditMode = /\/producto-editar\.html$/i.test(path);
+    STEP_DEFINITIONS = isEditMode ? EDIT_STEP_DEFINITIONS : NEW_STEP_DEFINITIONS;
+    STEP_PANEL_IDS = isEditMode ? EDIT_STEP_PANEL_IDS : NEW_STEP_PANEL_IDS;
+    STEP_INTROS = isEditMode ? EDIT_STEP_INTROS : NEW_STEP_INTROS;
+    DEPENDENCIES = isEditMode ? EDIT_DEPENDENCIES : NEW_DEPENDENCIES;
     if (isEditMode) {
       const id = new URLSearchParams(window.location.search).get("id");
       editingRecord = id ? window.GS1ProductCatalog?.getById(id) : null;
@@ -111,7 +165,6 @@
     if (isEditMode) {
       state.currentStep = 1;
       state.highestAvailable = 9;
-      state.steps[0].status = "skipped";
       state.steps[1].status = "current";
       state.values.gtinType = editingRecord?.type || "";
       state.values.distributionType = editingRecord?.distributionType || "";
@@ -202,11 +255,11 @@
   }
 
   function buildStepper(host) {
-    const definitions = isEditMode ? STEP_DEFINITIONS.filter((step) => step.id !== 0) : STEP_DEFINITIONS;
+    const definitions = STEP_DEFINITIONS;
     host.innerHTML = definitions.map((step) => {
       const displayStep = getDisplayStep(step);
       return `
-      <li class="product-wizard-stepper__item" data-stepper-item="${displayStep.id}" data-status="${displayStep.id === 0 ? "optional" : "pending"}">
+      <li class="product-wizard-stepper__item" data-stepper-item="${displayStep.id}" data-status="pending">
         <button type="button" class="product-wizard-stepper__button" data-stepper-button="${displayStep.id}" aria-current="${displayStep.id === state.currentStep ? "step" : "false"}">
           <span class="product-wizard-stepper__marker" aria-hidden="true">${displayStep.id}</span>
           <span class="product-wizard-stepper__title">${displayStep.title}</span>
@@ -230,25 +283,30 @@
       root.insertBefore(assisted, root.firstChild);
     }
     prepareImageStep();
+    hideLegacySummaries();
 
     Object.entries(STEP_PANEL_IDS).forEach(([stepId, panelId]) => {
       const panel = document.getElementById(panelId);
       if (!panel) return;
       panel.dataset.wizardStep = stepId;
       panel.hidden = true;
-      const heading = panel.querySelector(":scope > h2");
+      const heading = panel.querySelector("h2");
       if (heading) {
-        const displayStep = getDisplayStep(STEP_DEFINITIONS[Number(stepId)]);
+        const displayStep = getDisplayStep(getStepDefinition(Number(stepId)));
         heading.textContent = `${String(stepId).padStart(2, "0")} · ${displayStep.title}`;
         heading.setAttribute("tabindex", "-1");
-        heading.insertAdjacentHTML("afterend", `<p class="product-wizard-step-intro">${getStepIntro(Number(stepId))}</p>`);
+        if (panel !== assisted) {
+          heading.insertAdjacentHTML("afterend", `<p class="product-wizard-step-intro">${getStepIntro(Number(stepId))}</p>`);
+        }
       }
     });
 
     if (assisted) {
-      assisted.dataset.wizardStep = "0";
+      assisted.dataset.wizardStep = "4";
       assisted.hidden = true;
-      assisted.querySelector("h2").setAttribute("tabindex", "-1");
+      const heading = assisted.querySelector("h2");
+      heading.textContent = `04 · ${getDisplayStep(getStepDefinition(4)).title}`;
+      heading.setAttribute("tabindex", "-1");
     }
 
     ["40", "50", "70", "80", "90"].forEach((number) => {
@@ -262,12 +320,30 @@
     setupProductImages();
   }
 
+  function hideLegacySummaries() {
+    if (!root) return;
+    Array.from(root.children)
+      .filter((panel) => /^paso\d+[bc]$/i.test(panel.id))
+      .forEach((panel) => {
+        panel.hidden = true;
+        panel.style.display = "none";
+      });
+  }
+
   function getDisplayStep(step) {
     if (!isActiveEdit) return step;
     if (step.id === 4) return { ...step, title: "Código Interno", meta: "Modificable" };
     if (step.id === 7) return { ...step, title: "Imágenes y URL", meta: "Modificable" };
     if (step.id === 8) return { ...step, title: "Sellos", meta: "Modificable" };
     return step;
+  }
+
+  function getStepDefinition(stepId) {
+    return STEP_DEFINITIONS.find((step) => step.id === Number(stepId));
+  }
+
+  function getImageStepId() {
+    return isEditMode ? 7 : 8;
   }
 
   function getStepIntro(stepId) {
@@ -289,7 +365,7 @@
             <h3 class="h5 mb-1" id="product-images-heading">Imágenes del producto</h3>
             <p class="text-secondary mb-0">${isEditMode
               ? "Revisá las imágenes registradas, agregá nuevas o cambiá la imagen principal."
-              : "Las imágenes cargadas en el paso 0 ya están disponibles acá."}</p>
+              : "Las imágenes cargadas en el paso 4 ya están disponibles acá."}</p>
           </div>
           <span class="badge rounded-pill text-bg-light border" data-product-images-count>0 de 6 imágenes</span>
         </div>
@@ -359,7 +435,7 @@
     const dropzone = root.querySelector("[data-assisted-dropzone]");
     const analyzeButton = root.querySelector("[data-analyze-images]");
     input.addEventListener("change", (event) => {
-      addImages(event.target.files, 0);
+      addImages(event.target.files, 4);
       event.target.value = "";
     });
     analyzeButton.addEventListener("click", analyzeImages);
@@ -372,7 +448,7 @@
       event.preventDefault();
       dropzone.classList.remove("is-dragging");
     }));
-    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files, 0));
+    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files, 4));
   }
 
   function setupProductImages() {
@@ -383,7 +459,7 @@
     if (!input || !dropzone || !urlInput || !urlButton) return;
 
     input.addEventListener("change", (event) => {
-      addImages(event.target.files, 7);
+      addImages(event.target.files, getImageStepId());
       event.target.value = "";
     });
     ["dragenter", "dragover"].forEach((type) => dropzone.addEventListener(type, (event) => {
@@ -394,7 +470,7 @@
       event.preventDefault();
       dropzone.classList.remove("is-dragging");
     }));
-    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files, 7));
+    dropzone.addEventListener("drop", (event) => addImages(event.dataTransfer.files, getImageStepId()));
     urlButton.addEventListener("click", () => addImageFromUrl(urlInput));
     urlInput.addEventListener("keydown", (event) => {
       if (event.key !== "Enter") return;
@@ -499,12 +575,12 @@
         source: "file",
       });
     });
-    if (!isEditMode) state.steps[0].isDirty = true;
-    state.steps[7].isDirty = true;
-    if (sourceStep === 0) {
-      state.step0Skipped = false;
-      state.steps[0].status = "current";
+    if (sourceStep === 4) {
+      state.assistedStepSkipped = false;
+      state.steps[4].isDirty = true;
+      state.steps[4].status = "current";
     }
+    state.steps[getImageStepId()].isDirty = true;
     renderImages(errors);
     renderProductImages(errors);
   }
@@ -525,8 +601,7 @@
         previewUrl: value,
         source: "url",
       });
-      if (!isEditMode) state.steps[0].isDirty = true;
-      state.steps[7].isDirty = true;
+      state.steps[getImageStepId()].isDirty = true;
       input.value = "";
     }
     renderImages(errors);
@@ -558,9 +633,8 @@
     state.uploadedImages = state.uploadedImages.filter((item) => item.id !== id);
     state.imageSuggestions = state.imageSuggestions.filter((item) => item.sourceImageId !== id);
     if (removedPrimary) state.primaryImageId = null;
-    if (!isEditMode) state.steps[0].isDirty = true;
-    state.steps[7].isDirty = true;
-    if (removedPrimary && state.steps[7].status === "completed") state.steps[7].status = "needs-review";
+    state.steps[getImageStepId()].isDirty = true;
+    if (removedPrimary && state.steps[getImageStepId()].status === "completed") state.steps[getImageStepId()].status = "needs-review";
     renderImages([]);
     renderSuggestions();
     renderProductImages([]);
@@ -647,9 +721,9 @@
   function setPrimaryImage(id) {
     if (!state.uploadedImages.some((image) => image.id === id)) return;
     state.primaryImageId = id;
-    state.steps[7].isDirty = true;
-    if (state.currentStep !== 7 && state.steps[7].status === "needs-review") {
-      state.steps[7].status = "completed";
+    state.steps[getImageStepId()].isDirty = true;
+    if (state.currentStep !== getImageStepId() && state.steps[getImageStepId()].status === "needs-review") {
+      state.steps[getImageStepId()].status = "completed";
     }
     renderProductImages([]);
     renderStepper();
@@ -712,7 +786,7 @@
     }, {});
     host.innerHTML = Object.entries(groups).map(([stepId, suggestions]) => `
       <section class="image-suggestions__group">
-        <h3 class="image-suggestions__group-title">Paso ${stepId} · ${escapeHtml(STEP_DEFINITIONS[Number(stepId)].title)}</h3>
+        <h3 class="image-suggestions__group-title">Paso ${stepId} · ${escapeHtml(getStepDefinition(Number(stepId))?.title || "")}</h3>
         ${suggestions.map((suggestion) => `
           <div class="image-suggestion" data-suggestion="${escapeAttribute(suggestion.id)}">
             <div>
@@ -801,7 +875,7 @@
     categoryChoices.forEach((choice) => makeChoice(choice, () => {
       state.values.category = choice.textContent.replace(/\s+/g, " ").trim();
       selectOnly(categoryChoices, choice);
-      state.steps[6].isDirty = true;
+      state.steps[7].isDirty = true;
     }));
   }
 
@@ -897,28 +971,18 @@
   }
 
   function overrideLegacyNavigation() {
-    window.validar_paso10 = () => completeStep(1);
-    window.validar_paso11 = () => completeStep(1);
-    window.validar_paso12 = () => completeStep(1);
-    window.validar_paso20 = () => completeStep(2);
-    window.validar_paso30 = () => completeStep(3);
-    window.validar_paso40 = () => completeStep(4);
-    window.validar_paso50 = () => completeStep(5);
-    window.validar_paso60 = () => completeStep(6);
-    window.validar_paso70 = () => completeStep(7);
-    window.validar_paso80 = () => completeStep(8);
-    window.validar_paso90 = () => completeStep(9);
-    for (let stepId = 1; stepId <= 9; stepId += 1) {
-      const legacyNumber = stepId * 10;
-      window[`editar_paso${legacyNumber}`] = () => goToStep(stepId);
-    }
+    const legacyStepMap = isEditMode
+      ? { 10: 1, 11: 1, 12: 1, 20: 2, 30: 3, 40: 4, 50: 5, 60: 6, 70: 7, 80: 8, 90: 9 }
+      : { 10: 1, 11: 1, 12: 1, 20: 2, 30: 3, 40: 5, 50: 6, 60: 7, 70: 8, 80: 9, 90: 10 };
+    Object.entries(legacyStepMap).forEach(([legacyNumber, stepId]) => {
+      window[`validar_paso${legacyNumber}`] = () => completeStep(stepId);
+    });
+    Object.entries(legacyStepMap).forEach(([legacyNumber, stepId]) => {
+      if (Number(legacyNumber) % 10 === 0) window[`editar_paso${legacyNumber}`] = () => goToStep(stepId);
+    });
   }
 
   function nextStep() {
-    if (state.currentStep === 0) {
-      completeStep(0);
-      return;
-    }
     completeStep(state.currentStep);
   }
 
@@ -928,10 +992,11 @@
       render();
       return;
     }
-    state.steps[stepId].status = stepId === 7 && !state.primaryImageId ? "needs-review" : "completed";
+    state.steps[stepId].status = stepId === getImageStepId() && !state.primaryImageId ? "needs-review" : "completed";
     state.steps[stepId].isDirty = false;
-    state.highestAvailable = Math.max(state.highestAvailable, Math.min(9, stepId + 1));
-    if (stepId === 9) {
+    const finalStep = isEditMode ? 9 : 10;
+    state.highestAvailable = Math.max(state.highestAvailable, Math.min(finalStep, stepId + 1));
+    if (stepId === finalStep) {
       saveDraft(false);
       if (typeof originalFinalize === "function") originalFinalize();
       showCompletion();
@@ -946,7 +1011,7 @@
   }
 
   function showStepError(stepId, message) {
-    const panel = document.getElementById(stepId === 0 ? "paso00a" : STEP_PANEL_IDS[stepId]);
+    const panel = document.getElementById(STEP_PANEL_IDS[stepId]);
     if (!panel) return false;
     let alert = panel.querySelector("[data-step-error]");
     if (!alert) {
@@ -965,33 +1030,34 @@
   }
 
   function previousStep() {
-    if (state.currentStep <= 0) return;
+    if (state.currentStep <= 1) return;
     goToStep(state.currentStep - 1);
   }
 
   function skipAssistedUpload() {
-    state.step0Skipped = true;
-    state.steps[0].status = "skipped";
-    state.highestAvailable = Math.max(state.highestAvailable, 1);
-    goToStep(1);
+    state.assistedStepSkipped = true;
+    state.steps[4].status = "skipped";
+    state.highestAvailable = Math.max(state.highestAvailable, 5);
+    goToStep(5);
   }
 
   function goToStep(stepId) {
-    if (stepId !== 0 && stepId > state.highestAvailable && state.steps[stepId].status === "pending") return;
+    if (stepId > state.highestAvailable && state.steps[stepId].status === "pending") return;
     if (state.currentStep !== stepId && state.steps[state.currentStep].status === "current") {
-      state.steps[state.currentStep].status = state.currentStep === 0 && state.step0Skipped ? "skipped" : "pending";
+      state.steps[state.currentStep].status = state.currentStep === 4 && state.assistedStepSkipped ? "skipped" : "pending";
     }
     state.currentStep = stepId;
     if (state.steps[stepId].status !== "completed" && state.steps[stepId].status !== "needs-review") {
       state.steps[stepId].status = "current";
     }
-    if (stepId === 9) renderConfirmation();
+    if (stepId === (isEditMode ? 9 : 10)) renderConfirmation();
     render();
     panelBody.scrollTop = 0;
     window.setTimeout(() => currentPanel()?.querySelector("h2")?.focus({ preventScroll: true }), 220);
   }
 
   function render() {
+    hideLegacySummaries();
     Object.entries(STEP_PANEL_IDS).forEach(([stepId, panelId]) => {
       const panel = document.getElementById(panelId);
       if (panel) {
@@ -1000,12 +1066,7 @@
         panel.style.display = visible ? "block" : "none";
       }
     });
-    const assisted = document.getElementById("paso00a");
-    if (assisted) {
-      assisted.hidden = state.currentStep !== 0;
-      assisted.style.display = state.currentStep === 0 ? "block" : "none";
-    }
-    if (state.currentStep === 7) renderProductImages([]);
+    if (state.currentStep === getImageStepId()) renderProductImages([]);
     renderStepper();
     renderActions();
   }
@@ -1019,7 +1080,7 @@
       const button = item.querySelector("[data-stepper-button]");
       const marker = item.querySelector(".product-wizard-stepper__marker");
       const meta = item.querySelector(".product-wizard-stepper__meta");
-      const accessible = stepId === 0 || stepId <= state.highestAvailable || ["completed", "needs-review", "error", "skipped"].includes(state.steps[stepId].status);
+      const accessible = stepId <= state.highestAvailable || ["completed", "needs-review", "error", "skipped"].includes(state.steps[stepId].status);
       button.disabled = !accessible;
       button.setAttribute("aria-current", stepId === state.currentStep ? "step" : "false");
       marker.textContent = status === "completed" ? "✓" : status === "needs-review" || status === "error" ? "!" : String(stepId);
@@ -1028,7 +1089,7 @@
       else if (status === "skipped") meta.textContent = "Omitido";
       else if (status === "needs-review") meta.textContent = "Requiere revisión";
       else if (status === "error") meta.textContent = "Revisar errores";
-      else meta.textContent = STEP_DEFINITIONS[stepId].meta;
+      else meta.textContent = getStepDefinition(stepId)?.meta || "";
     });
   }
 
@@ -1036,11 +1097,11 @@
     const previous = actions.querySelector("[data-wizard-previous]");
     const skip = actions.querySelector("[data-wizard-skip]");
     const next = actions.querySelector("[data-wizard-next]");
-    previous.disabled = state.currentStep === (isEditMode ? 1 : 0);
-    skip.classList.toggle("d-none", isEditMode || state.currentStep !== 0);
-    next.textContent = state.currentStep === 9
+    previous.disabled = state.currentStep === 1;
+    skip.classList.toggle("d-none", isEditMode || state.currentStep !== 4);
+    next.textContent = state.currentStep === (isEditMode ? 9 : 10)
       ? isEditMode ? "Guardar cambios" : "Confirmar y dar de alta"
-      : state.currentStep === 0 && state.imageSuggestions.some((item) => item.decision === "accepted")
+      : state.currentStep === 4 && state.imageSuggestions.some((item) => item.decision === "accepted")
         ? "Continuar con sugerencias →"
         : "Continuar →";
   }
@@ -1167,7 +1228,7 @@
   }
 
   function currentPanel() {
-    return document.getElementById(state.currentStep === 0 ? "paso00a" : STEP_PANEL_IDS[state.currentStep]);
+    return document.getElementById(STEP_PANEL_IDS[state.currentStep]);
   }
 
   function setFieldValue(field, value) {
