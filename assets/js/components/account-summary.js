@@ -73,13 +73,6 @@
     mount.innerHTML = `
       <div class="account-summary">
         <div class="account-summary__header">
-          <div>
-            <div class="small text-secondary">Datos de la cuenta</div>
-            <div class="fw-semibold">${escapeHtml(context.account.name)}</div>
-          </div>
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-account-context-open>
-            Cambiar licencia
-          </button>
         </div>
         <div class="account-summary__grid">
           <div class="account-summary__item">
@@ -93,6 +86,9 @@
           <div class="account-summary__item">
             <div class="account-summary__label">Licencia</div>
             <div class="account-summary__value">${escapeHtml(context.license.code)}</div>
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-account-context-open>
+            Cambiar licencia
+          </button>
           </div>
           <div class="account-summary__item">
             <div class="account-summary__label">Membresía</div>
