@@ -119,6 +119,7 @@
     return [
       { label: "Tipo", value: record.type },
       { label: "GTIN", value: record.code },
+      { label: "Verify GS1", value: record.gs1Verify ? "Verificado" : "No verificado" },
       { label: "Marca", value: record.brand },
       { label: "Submarca", value: record.subBrand },
       { label: "Clasificacion", value: record.classification },

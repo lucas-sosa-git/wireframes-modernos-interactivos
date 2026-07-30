@@ -3,7 +3,7 @@
     products: {
       title: "Productos comerciales", label: "productos", empty: "No hay productos comerciales para mostrar con los filtros activos.",
       columns: [
-        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["name", "Descripción"], ["dataQuality", "Calidad de datos"], ["gs1Verify", "Verify GS1"], ["status", "Estado"],
+        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["name", "Descripción"], ["dataQuality", "Calidad de datos"], ["status", "Estado"],
         ["brand", "Marca"], ["variety", "Variedad"], ["origin", "Origen"], ["modifiedAt", "Fecha de modificación"], ["createdAt", "Fecha de alta"],
       ],
     },
@@ -15,7 +15,7 @@
       ],
     },
   };
-  const LAYOUT = { image: 72, type: 110, code: 140, name: 210, dataQuality: 130, gs1Verify: 110, status: 100, brand: 120, variety: 120, origin: 120, packagingLevel: 120, baseQuantity: 160, destination: 140, modifiedAt: 140, createdAt: 140, actions: 230 };
+  const LAYOUT = { image: 72, type: 110, code: 140, name: 210, dataQuality: 130, status: 100, brand: 120, variety: 120, origin: 120, packagingLevel: 120, baseQuantity: 160, destination: 140, modifiedAt: 140, createdAt: 140, actions: 230 };
   let sequence = 0;
 
   function mount(options) {
@@ -121,7 +121,7 @@
     function cell(record, column) {
       if (column.key === "image") return `<td>${thumbnail(record)}</td>`;
       if (column.key === "status") return `<td class="product-cell-nowrap"><span class="badge ${badge(record.status)}">${escape(record.status)}</span></td>`;
-      if (["dataQuality", "gs1Verify"].includes(column.key)) return `<td class="product-cell-nowrap"><span class="badge ${record[column.key] ? "text-bg-success" : "text-bg-secondary"}">${record[column.key] ? "Sí" : "No"}</span></td>`;
+      if (column.key === "dataQuality") return `<td class="product-cell-nowrap">${dataQualityMarkup(record[column.key])}</td>`;
       return `<td class="${["code", "createdAt", "modifiedAt"].includes(column.key) ? "product-cell-nowrap" : "product-cell-break"}">${escape(record[column.key] || "")}</td>`;
     }
     function actions(record) {
@@ -150,6 +150,7 @@
   function badge(status) { return status === "Activo" ? "text-bg-success" : status === "Pendiente" || status === "Borrador" ? "text-bg-warning" : "text-bg-secondary"; }
   function sortIcon(key) { return `<svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="m8 11 4-5H4z"/></svg>`; }
   function iconMarkup(name) { if (name.includes(".")) return `<img class="action-image" src="${escapeAttr(name)}" alt="">`; const paths = { eye: "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z", files: "M13 0a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a2 2 0 0 1 2-2z", "pencil-square": "M15.502 1.94a.5.5 0 0 1 0 .706l-1.793 1.793-2.647-2.647L12.855.5a.5.5 0 0 1 .707 0zM1 13.5V16h2.5l7.372-7.372-2.647-2.647z", "clock-history": "M8.515 3.879a.5.5 0 0 0-1 0v4.182l3.182 1.909a.5.5 0 1 0 .516-.857L8.515 7.494zM8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .91-.414A6 6 0 1 1 8 2z", image: "M.5 1A1.5 1.5 0 0 0-1 2.5v11A1.5 1.5 0 0 0 .5 15h15a1.5 1.5 0 0 0 1.5-1.5v-11A1.5 1.5 0 0 0 15.5 1zm0 1h15a.5.5 0 0 1 .5.5v6.248l-3.37-3.37a1 1 0 0 0-1.415 0L6.5 10.293 4.354 8.146a.5.5 0 0 0-.708 0L0 11.793V2.5A.5.5 0 0 1 .5 2" }; return `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${paths[name] || ""}"/></svg>`; }
+  function dataQualityMarkup(value) { const isValid = Boolean(value); const label = isValid ? "Sí" : "No"; const path = isValid ? "M13.854 3.646a.5.5 0 0 0-.708 0L6.5 10.293 2.854 6.646a.5.5 0 1 0-.708.708l4 4a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.708" : "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"; return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="Calidad de datos: ${label}" title="Calidad de datos: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`; }
   function getRecords(mode) { if (!window.GS1ProductCatalog) return []; return mode === "dispatchUnits" ? window.GS1ProductCatalog.getDispatchUnits().map((record) => ({ ...record, type: "GTIN-14", status: record.status || "Activo" })) : window.GS1ProductCatalog.getCommercialProducts(); }
   function validVisible(value, columns) { const available = columns.map((column) => column.key); const selected = Array.isArray(value) ? value.filter((key, index) => available.includes(key) && value.indexOf(key) === index) : available; return selected.length ? available.filter((key) => selected.includes(key)) : available; }
   function read(key) { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } }

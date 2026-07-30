@@ -66,7 +66,27 @@
       directWrapper.replaceWith(headerMount);
     }
 
+    removeLegacyAccountTools(contentShell);
+
     return true;
+  }
+
+  function removeLegacyAccountTools(contentShell) {
+    const shortcuts = contentShell.querySelector("#contenedor-atajos");
+    if (shortcuts) {
+      shortcuts.remove();
+    }
+
+    const accountSummary = contentShell.querySelector("#contenedor-empresa");
+    if (accountSummary) {
+      const accountColumn = accountSummary.closest(".col-12");
+      (accountColumn || accountSummary).remove();
+    }
+
+    const shortcutsModal = document.getElementById("ModalAtajos");
+    if (shortcutsModal) {
+      shortcutsModal.remove();
+    }
   }
 
   function extractLegacyTitle(container) {

@@ -1254,6 +1254,13 @@ body.help-widget--dragging {
   table-layout: auto;
 }
 
+.data-quality-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
 .products-table tbody tr > td {
   background: #fff;
   transition: background-color .15s ease;

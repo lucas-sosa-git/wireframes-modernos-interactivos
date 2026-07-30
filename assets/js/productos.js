@@ -16,7 +16,6 @@
     code: { min: 140, flexible: true },
     name: { min: 210, flexible: true, priority: "primary" },
     dataQuality: { min: 130, width: 130, max: 135, fixed: true },
-    gs1Verify: { min: 110, width: 110, max: 115, fixed: true },
     status: { min: 100, width: 100, max: 110, fixed: true },
     brand: { min: 120, flexible: true },
     variety: { min: 120, flexible: true },
@@ -62,7 +61,6 @@
         { key: "code", label: "Codigo", className: "product-col-codigo" },
         { key: "name", label: "Descripción", className: "product-col-producto" },
         { key: "dataQuality", label: "Calidad de datos", className: "product-col-estado" },
-        { key: "gs1Verify", label: "Verify GS1", className: "product-col-estado" },
         { key: "status", label: "Estado", className: "product-col-estado" },
         { key: "brand", label: "Marca", className: "product-col-marca" },
         { key: "variety", label: "Variedad", className: "product-col-variedad" },
@@ -700,8 +698,8 @@
       if (column.key === "status") {
         return `<td class="product-cell-nowrap" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}"><span class="badge ${statusBadgeClass(record.status)}">${escapeHtml(record.status)}</span></td>`;
       }
-      if (["dataQuality", "gs1Verify"].includes(column.key)) {
-        return `<td class="product-cell-nowrap" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}"><span class="badge ${record[column.key] ? "text-bg-success" : "text-bg-secondary"}">${record[column.key] ? "Sí" : "No"}</span></td>`;
+      if (column.key === "dataQuality") {
+        return `<td class="product-cell-nowrap" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}">${dataQualityMarkup(record[column.key])}</td>`;
       }
       return `<td class="${getCellClass(column.key)}" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}">${escapeHtml(record[column.key] || "")}</td>`;
     });
@@ -1166,6 +1164,7 @@
       { label: "Tipo de codigo", value: record.type },
       { label: "Codigo", value: record.code },
       { label: "Estado", value: record.status },
+      { label: "Verify GS1", value: record.gs1Verify ? "Verificado" : "No verificado" },
       { label: "Marca", value: record.brand },
       { label: "Clasificacion", value: record.classification },
       { label: "Contenido", value: record.content },
@@ -1507,6 +1506,15 @@
         state.lastFocusTrigger.focus();
       }
     });
+  }
+
+  function dataQualityMarkup(value) {
+    const isValid = Boolean(value);
+    const label = isValid ? "Sí" : "No";
+    const path = isValid
+      ? "M13.854 3.646a.5.5 0 0 0-.708 0L6.5 10.293 2.854 6.646a.5.5 0 1 0-.708.708l4 4a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.708"
+      : "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z";
+    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="Calidad de datos: ${label}" title="Calidad de datos: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
   }
 
   function statusBadgeClass(status) {
