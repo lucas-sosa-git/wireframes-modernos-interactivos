@@ -207,6 +207,7 @@ No afirmar que una validación fue realizada si no se ejecutó realmente.
 - El flujo preferido del proyecto es mantener los cambios en `main` cuando el usuario así lo indique.
 - No hacer commit ni push salvo pedido explícito.
 - Cuando se pidan commits, agruparlos por funcionalidad y usar mensajes descriptivos.
+- Para cada commit y push solicitado, redactar los mensajes y la comunicación en español argentino, con un tono claro, profesional y cordial; explicar bien qué incluye cada commit y mantenerlos agrupados por funcionalidad.
 - No mezclar correcciones ajenas al pedido en el mismo cambio.
 - Antes de terminar, revisar `git diff` y confirmar que solo aparecen archivos justificados por la tarea.
 
