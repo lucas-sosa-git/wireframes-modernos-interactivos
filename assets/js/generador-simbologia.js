@@ -146,7 +146,7 @@
   }
 
   function inferType(type) {
-    if (type === "GTIN-14") {
+    if (type === "GTIN-14" || type === "DUN 14") {
       return "GTIN-14";
     }
     if (type === "UPC-12") {

@@ -19,6 +19,10 @@
       return;
     }
 
+    const typeLabel = window.GS1ProductCatalog.formatProductType
+      ? window.GS1ProductCatalog.formatProductType(record.type)
+      : record.type;
+
     const pageTitle = document.querySelector("[data-portal-header]");
     if (pageTitle) {
       pageTitle.dataset.pageTitle = record.mode === "dispatchUnits" ? `Ficha de la unidad de despacho ${record.code}` : `Ficha del producto ${record.code}`;
@@ -37,7 +41,7 @@
             <div class="col-lg-8">
               <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
                 <div>
-                  <div class="text-secondary small">${escapeHtml(record.type)}</div>
+                  <div class="text-secondary small">${escapeHtml(typeLabel)}</div>
                   <h1 class="h3 mb-2">${title}</h1>
                   <div class="fw-semibold mb-2">${escapeHtml(record.name)}</div>
                   <div class="d-flex flex-wrap gap-2 align-items-center">
@@ -104,7 +108,7 @@
   function buildFields(record) {
     if (record.mode === "dispatchUnits") {
       return [
-        { label: "GTIN-14", value: record.code },
+        { label: "DUN 14", value: record.code },
         { label: "GTIN contenido", value: record.containedGtin },
         { label: "Descripcion", value: record.containedDescription || record.name },
         { label: "Unidades contenidas", value: record.unitsContained },
@@ -117,7 +121,9 @@
     }
 
     return [
-      { label: "Tipo", value: record.type },
+      { label: "Tipo", value: window.GS1ProductCatalog.formatProductType
+        ? window.GS1ProductCatalog.formatProductType(record.type)
+        : record.type },
       { label: "GTIN", value: record.code },
       { label: "Verify GS1", valueHtml: verifyGs1Markup(record.gs1Verify) },
       { label: "Marca", value: record.brand },

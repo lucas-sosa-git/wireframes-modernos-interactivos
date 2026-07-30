@@ -701,7 +701,8 @@
       if (column.key === "dataQuality") {
         return `<td class="product-cell-nowrap" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}">${dataQualityMarkup(record[column.key])}</td>`;
       }
-      return `<td class="${getCellClass(column.key)}" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}">${escapeHtml(record[column.key] || "")}</td>`;
+      const value = column.key === "type" ? formatProductType(record[column.key]) : record[column.key];
+      return `<td class="${getCellClass(column.key)}" data-column-key="${column.key}" style="${buildColumnStyle(column.key)}">${escapeHtml(value || "")}</td>`;
     });
 
     cells.push(`
@@ -871,7 +872,7 @@
                 value="${escapeAttribute(value)}"
                 ${selectedValues.has(value) ? "checked" : ""}
               >
-              ${escapeHtml(value)}
+              ${escapeHtml(formatProductType(value))}
             </label>
           `).join("") || '<div class="small text-secondary py-2">No hay coincidencias para ese filtro.</div>'}
         </div>
@@ -1105,7 +1106,7 @@
   function openProductDetailModal(record) {
     const fields = buildProductDetailFields(record);
     document.getElementById("productDetailModalLabel").textContent = record.name;
-    document.getElementById("productDetailModalMeta").textContent = `${record.type} | ${record.code}`;
+    document.getElementById("productDetailModalMeta").textContent = `${formatProductType(record.type)} | ${record.code}`;
     document.getElementById("productDetailOpenBtn").href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
     document.getElementById("productDetailMedia").innerHTML = renderProductGallery(record, "modal");
     bindProductGallery(document.getElementById("productDetailMedia"), record);
@@ -1161,7 +1162,7 @@
 
   function buildProductDetailFields(record) {
     const fields = [
-      { label: "Tipo de codigo", value: record.type },
+      { label: "Tipo de codigo", value: formatProductType(record.type) },
       { label: "Codigo", value: record.code },
       { label: "Estado", value: record.status },
       { label: "Verify GS1", valueHtml: dataQualityMarkup(record.gs1Verify, "Verify GS1") },
@@ -1195,7 +1196,7 @@
   function renderLogs(record) {
     const entries = Array.isArray(record.logs) ? [...record.logs] : [];
     document.getElementById("logsModalLabel").textContent = record.mode === TABLE_MODES.dispatchUnits
-      ? `Logs de la unidad de despacho: GTIN-14 ${record.code}`
+      ? `Logs de la unidad de despacho: DUN 14 ${record.code}`
       : `Logs del producto: GTIN ${record.code}`;
     document.getElementById("logsTimeline").innerHTML = entries.length ? entries.map((entry) => `
       <div class="notification-card">
@@ -1217,13 +1218,13 @@
       ? `<img id="productImagePreview" src="${escapeAttribute(record.image)}" alt="Imagen de ${escapeAttribute(record.name)}" class="img-fluid rounded border">`
       : renderImagePlaceholder(record, false);
     document.getElementById("productImageCaption").textContent = record.name;
-    document.getElementById("productImageMeta").textContent = `${record.type} | ${record.code}`;
+    document.getElementById("productImageMeta").textContent = `${formatProductType(record.type)} | ${record.code}`;
     imageModal.show();
   }
 
   function openDigitalLinkModal(record) {
     state.digitalLinkValue = `https://id.gs1.org/01/${normalizeGtinForDigitalLink(record.code)}`;
-    document.getElementById("digitalLinkCodeMeta").textContent = `${record.type} | ${record.code}`;
+    document.getElementById("digitalLinkCodeMeta").textContent = `${formatProductType(record.type)} | ${record.code}`;
     document.getElementById("digitalLinkValue").textContent = state.digitalLinkValue;
     document.getElementById("digitalLinkCopyFeedback").classList.add("d-none");
     digitalLinkModal.show();
@@ -1232,7 +1233,7 @@
   function openSymbolModal(record) {
     const symbol = generateSymbolPreview(record);
     document.getElementById("symbolPreview").innerHTML = symbol.svg;
-    document.getElementById("symbolIdentifierLabel").textContent = record.type;
+    document.getElementById("symbolIdentifierLabel").textContent = formatProductType(record.type);
     document.getElementById("symbolTypeLabel").textContent = symbol.label;
     document.getElementById("symbolCodeLabel").textContent = record.code;
     document.getElementById("symbolProductLabel").textContent = record.name;
@@ -1372,16 +1373,11 @@
   }
 
   function normalizeDispatchType(type) {
-    return String(type || "")
-      .toUpperCase()
-      .replace(/\s+/g, "")
-      .replace("ITF14", "GTIN-14")
-      .replace("ITF-14", "GTIN-14")
-      .replace("DUN14", "GTIN-14")
-      .replace("DUN-14", "GTIN-14")
-      .replace("GTIN14", "GTIN-14") === "GTIN-14"
-      ? "GTIN-14"
-      : "GTIN-14";
+    return "DUN 14";
+  }
+
+  function formatProductType(type) {
+    return window.GS1ProductCatalog?.formatProductType?.(type) || String(type || "");
   }
 
   function normalizeGtinForDigitalLink(code) {
@@ -1467,7 +1463,7 @@
     new Chart(canvas, {
       type: "pie",
       data: {
-        labels: ["Disponibles", "GTIN generados", "Reservados"],
+        labels: ["Disponibles", "DUN 14 generados", "Reservados"],
         datasets: [
           {
             backgroundColor: ["#cd3c0d", "#0d6efd", "#6c757d"],

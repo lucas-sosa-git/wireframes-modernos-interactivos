@@ -53,7 +53,7 @@
         <div class="card-body">
           <div class="gs1-tool-header">
             <div>
-              <div class="text-secondary small">GTIN-14</div>
+              <div class="text-secondary small">DUN 14</div>
               <h1 class="h4 mb-1">${context === "modal" ? "Modificar unidad de despacho" : "Edición de unidad de despacho"}</h1>
               <div class="text-secondary">${escapeHtml(record.name)} | ${escapeHtml(record.code)}</div>
             </div>
@@ -63,7 +63,7 @@
             ${renderField("Variable logística", "packagingLevel", record.packagingLevel)}
             ${renderField("GTIN contenido", "containedGtin", record.containedGtin, { required: true })}
             ${renderField("Descripción del GTIN contenido", "containedDescription", record.containedDescription)}
-            ${renderField("GTIN-14", "code", record.code, { required: true })}
+            ${renderField("DUN 14", "code", record.code, { required: true })}
             ${renderField("Unidades contenidas", "unitsContained", record.unitsContained, { required: true, inputMode: "numeric" })}
             ${renderField("Descripción de la unidad de despacho", "name", record.name, { required: true })}
             ${renderField("Envase agrupador", "packaging", record.packaging)}
@@ -183,7 +183,7 @@
       errors.push("El GTIN contenido es obligatorio.");
     }
     if (!payload.code) {
-      errors.push("El GTIN-14 es obligatorio.");
+      errors.push("El DUN 14 es obligatorio.");
     }
     if (!payload.unitsContained || Number(payload.unitsContained) <= 0) {
       errors.push("Las unidades contenidas deben ser mayores que cero.");
@@ -227,7 +227,7 @@
     host.insertAdjacentHTML("afterbegin", `
       <div class="alert alert-primary gs1-inline-banner" role="status">
         <div class="fw-semibold">Copia de unidad de despacho</div>
-        <div class="small">Se precargaron los datos logísticos de <strong>${escapeHtml(record.name)}</strong>. El nuevo GTIN-14 debe asignarse nuevamente. GTIN-14 original: <span class="fw-semibold">${escapeHtml(record.code)}</span>.</div>
+        <div class="small">Se precargaron los datos logísticos de <strong>${escapeHtml(record.name)}</strong>. El nuevo DUN 14 debe asignarse nuevamente. DUN 14 original: <span class="fw-semibold">${escapeHtml(record.code)}</span>.</div>
       </div>
     `);
     setValue("#Producto", record.name);

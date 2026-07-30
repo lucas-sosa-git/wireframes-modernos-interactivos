@@ -883,18 +883,18 @@
     const cards = Array.from(document.querySelectorAll("#paso10a > .row a"));
     const definitions = [
       {
-        title: "GTIN-13",
-        description: "El GTIN-13 es de 13 dígitos y se usa a nivel global para la mayoría de los productos.",
+        title: "GTIN 13",
+        description: "El GTIN 13 es de 13 dígitos y se usa a nivel global para la mayoría de los productos.",
         image: "../assets/img/gtin-13.jpg",
       },
       {
-        title: "UPC-12",
-        description: "El UPC-12 es de 12 dígitos y se utiliza principalmente en productos comercializados en Norteamérica.",
+        title: "UPC 12",
+        description: "El UPC 12 es de 12 dígitos y se utiliza principalmente en productos comercializados en Norteamérica.",
         image: "../assets/img/gtin-13.jpg",
       },
       {
-        title: "GTIN-8",
-        description: "El GTIN-8 se utiliza para identificar artículos de tamaño muy reducido.",
+        title: "GTIN 8",
+        description: "El GTIN 8 se utiliza para identificar artículos de tamaño muy reducido.",
         image: "../assets/img/gtin-8.jpg",
       },
     ];

@@ -66,15 +66,21 @@
   }
 
   function normalizeDispatchType(type) {
-    const normalized = String(type || "")
-      .toUpperCase()
-      .replace(/\s+/g, "")
-      .replace("ITF14", "GTIN-14")
-      .replace("ITF-14", "GTIN-14")
-      .replace("DUN14", "GTIN-14")
-      .replace("DUN-14", "GTIN-14")
-      .replace("GTIN14", "GTIN-14");
-    return normalized === "GTIN-14" ? "GTIN-14" : "GTIN-14";
+    return "DUN 14";
+  }
+
+  function formatProductType(type) {
+    const normalized = String(type || "").toUpperCase().replace(/[\s-]+/g, "");
+    const labels = {
+      GTIN8: "GTIN 8",
+      GTIN13: "GTIN 13",
+      UPC12: "UPC 12",
+      UPCA: "UPC 12",
+      GTIN14: "DUN 14",
+      DUN14: "DUN 14",
+      ITF14: "DUN 14",
+    };
+    return labels[normalized] || String(type || "");
   }
 
   function getGraceStatus(index) {
@@ -165,7 +171,7 @@
       },
       {
         title: "Alta de unidad de despacho generada con exito",
-        detail: `Se dio de alta el GTIN-14 ${record.code}.`,
+        detail: `Se dio de alta el DUN 14 ${record.code}.`,
         date: record.createdAt,
         time: "08:45",
         actor: "Socio",
@@ -364,5 +370,6 @@
     getById,
     updateById,
     resolveImagePath,
+    formatProductType,
   };
 })();

@@ -1,9 +1,9 @@
 (function () {
   const TYPES = {
-    "product-13": "Alta masiva GTIN-13",
-    "product-12": "Alta masiva GTIN-12 (UPC)",
-    "product-8": "Alta masiva GTIN-8",
-    dun14: "Alta masiva DUN-14",
+    "product-13": "Alta masiva GTIN 13",
+    "product-12": "Alta masiva UPC 12",
+    "product-8": "Alta masiva GTIN 8",
+    dun14: "Alta masiva DUN 14",
   };
   const PRODUCT_TEMPLATE_COLUMNS = {
     Alimentos: ["gtin", "marca", "descripcion_producto", "contenido_neto", "unidad_medida", "clasificacion_gpc"],
@@ -13,8 +13,8 @@
     Otros: ["gtin", "marca", "descripcion_producto", "contenido_neto", "unidad_medida", "categoria"],
   };
   const HISTORY = [
-    { name: "alta_productos_2026-07-18.xlsx", start: "18/07/2026 11:42", end: "18/07/2026 11:48", type: "GTIN-13", newProducts: 118, errors: 2 },
-    { name: "alta_dun14_2026-07-21.xlsx", start: "21/07/2026 09:15", end: "21/07/2026 09:19", type: "DUN-14", newProducts: 48, errors: 0 },
+    { name: "alta_productos_2026-07-18.xlsx", start: "18/07/2026 11:42", end: "18/07/2026 11:48", type: "GTIN 13", newProducts: 118, errors: 2 },
+    { name: "alta_dun14_2026-07-21.xlsx", start: "21/07/2026 09:15", end: "21/07/2026 09:19", type: "DUN 14", newProducts: 48, errors: 0 },
   ];
   document.addEventListener("DOMContentLoaded", init);
 
@@ -26,7 +26,7 @@
       <section class="card shadow-sm mb-4"><div class="card-body text-center py-4">
         <h1 class="h3 mb-1">Alta masiva</h1><p class="text-secondary">Seleccioná el tipo de proceso antes de cargar el archivo.</p>
         <select class="form-select mx-auto" id="bulkType" style="max-width:340px">${Object.entries(TYPES).map(([value, label]) => `<option value="${value}" ${value === initial ? "selected" : ""}>${label}</option>`).join("")}</select>
-        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4"><a class="btn btn-primary" id="viewInstructions" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank">Ver instructivo alta masiva GTIN-13</a><a class="btn btn-primary" id="downloadInstructions" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo alta masiva GTIN-13</a></div>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4"><a class="btn btn-primary" id="viewInstructions" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank">Ver instructivo alta masiva GTIN 13</a><a class="btn btn-primary" id="downloadInstructions" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo alta masiva GTIN 13</a></div>
         <div class="d-flex flex-wrap justify-content-center gap-2 mt-3"><div class="dropdown" id="templateDownloadMenu"><button class="btn btn-warning dropdown-toggle" id="templateDownloadButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">Descargar plantilla</button><ul class="dropdown-menu text-start" aria-labelledby="templateDownloadButton">${Object.keys(PRODUCT_TEMPLATE_COLUMNS).map((line) => `<li><button class="dropdown-item" type="button" data-template-line="${line}">${line}</button></li>`).join("")}</ul></div><button class="btn btn-warning" id="uploadExcel" type="button">Subir Excel</button></div>
         <div class="small text-secondary mt-2" id="templateDownloadHint">Seleccioná la línea de negocio para descargar la plantilla con sus campos correspondientes.</div>
         <input class="d-none" id="excelFile" type="file" accept=".xlsx,.xls,.csv">
@@ -47,7 +47,7 @@
     document.getElementById("uploadExcel").addEventListener("click", () => file.click());
     file.addEventListener("change", () => {
       if (!file.files.length) return;
-      const family = document.getElementById("bulkType").value === "dun14" ? "DUN-14" : "Productos comerciales";
+      const family = document.getElementById("bulkType").value === "dun14" ? "DUN 14" : "Productos comerciales";
       setFlowStep(2);
       document.getElementById("bulkFlowFeedback").textContent = `Archivo ${file.files[0].name} cargado como ${family}. La estructura queda preparada para aplicar las reglas de columnas cuando Lucas entregue el Excel de referencia.`;
       document.getElementById("reviewBulkFile").disabled = false;
@@ -83,11 +83,11 @@
   }
   function downloadTemplate(line) {
     const type = document.getElementById("bulkType").value;
-    const gtin = type.replace("product-", "GTIN-");
+    const gtin = { "product-13": "GTIN 13", "product-12": "UPC 12", "product-8": "GTIN 8", dun14: "DUN 14" }[type] || "GTIN";
     const content = `${PRODUCT_TEMPLATE_COLUMNS[line].join(",")}\n`;
     const link = document.createElement("a");
     link.href = URL.createObjectURL(new Blob([content], { type: "text/csv;charset=utf-8" }));
-    link.download = `plantilla-alta-masiva-${gtin.toLowerCase()}-${line.toLowerCase()}.csv`;
+    link.download = `plantilla-alta-masiva-${gtin.toLowerCase().replace(/\s+/g, "-")}-${line.toLowerCase()}.csv`;
     document.body.appendChild(link);
     link.click();
     window.setTimeout(() => {

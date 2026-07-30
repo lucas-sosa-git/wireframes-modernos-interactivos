@@ -27,7 +27,10 @@
 
   function showDetail(record, trigger) {
     const image = window.GS1ProductCatalog.resolveImagePath(record.image);
-    document.getElementById("containedDetailBody").innerHTML = `<div class="row g-3"><div class="col-md-4">${image ? `<img class="img-fluid rounded" src="${escapeHtml(image)}" alt="${escapeHtml(record.name)}">` : "Sin imagen"}</div><div class="col-md-8"><h3 class="h5">${escapeHtml(record.name)}</h3><dl><dt>GTIN</dt><dd>${escapeHtml(record.code)}</dd><dt>Tipo de código</dt><dd>${escapeHtml(record.type)}</dd><dt>Verify GS1</dt><dd>${verifyGs1Markup(record.gs1Verify)}</dd><dt>Marca</dt><dd>${escapeHtml(record.brand)}</dd><dt>Descripción</dt><dd>${escapeHtml(record.shortDescription)}</dd></dl></div></div>`;
+    const typeLabel = window.GS1ProductCatalog.formatProductType
+      ? window.GS1ProductCatalog.formatProductType(record.type)
+      : record.type;
+    document.getElementById("containedDetailBody").innerHTML = `<div class="row g-3"><div class="col-md-4">${image ? `<img class="img-fluid rounded" src="${escapeHtml(image)}" alt="${escapeHtml(record.name)}">` : "Sin imagen"}</div><div class="col-md-8"><h3 class="h5">${escapeHtml(record.name)}</h3><dl><dt>GTIN</dt><dd>${escapeHtml(record.code)}</dd><dt>Tipo de código</dt><dd>${escapeHtml(typeLabel)}</dd><dt>Verify GS1</dt><dd>${verifyGs1Markup(record.gs1Verify)}</dd><dt>Marca</dt><dd>${escapeHtml(record.brand)}</dd><dt>Descripción</dt><dd>${escapeHtml(record.shortDescription)}</dd></dl></div></div>`;
     const modalElement = document.getElementById("containedDetailModal");
     bootstrap.Modal.getOrCreateInstance(modalElement).show();
     modalElement.addEventListener("hidden.bs.modal", () => trigger?.focus(), { once: true });

@@ -8,9 +8,9 @@
       mode,
       persistenceKey: `gs1.products.columnVisibility.list.${mode}.v3`,
       eyebrow: "Catálogo GS1",
-      heading: mode === "products" ? "Productos comerciales" : "Unidades de despacho GTIN-14",
+      heading: mode === "products" ? "Productos comerciales" : "Unidades de despacho DUN 14",
       description: "Consultá y administrá los registros desde un listado responsive.",
-      headerActions: `<div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-primary" href="productos.html">Vista resumida</a><a class="btn btn-primary" href="${mode === "products" ? "producto-nuevo.html" : "producto-nuevo-dun14.html"}">${mode === "products" ? "Nuevo producto" : "Generar DUN-14"}</a></div>`,
+      headerActions: `<div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-primary" href="productos.html">Vista resumida</a><a class="btn btn-primary" href="${mode === "products" ? "producto-nuevo.html" : "producto-nuevo-dun14.html"}">${mode === "products" ? "Nuevo producto" : "Generar DUN 14"}</a></div>`,
       onAction(action, record) {
         if (action === "detail") window.location.href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
         if (action === "copy") window.location.href = record.mode === "dispatchUnits" ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}` : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
