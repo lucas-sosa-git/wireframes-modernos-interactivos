@@ -3,19 +3,19 @@
     products: {
       title: "Productos comerciales", label: "productos", empty: "No hay productos comerciales para mostrar con los filtros activos.",
       columns: [
-        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["name", "Descripción"], ["dataQuality", "Calidad de datos"], ["status", "Estado"],
+        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["productName", "Nombre Producto"], ["name", "Descripción"], ["dataQuality", "Calidad de datos"], ["status", "Estado"],
         ["brand", "Marca"], ["variety", "Variedad"], ["origin", "Origen"], ["modifiedAt", "Fecha de modificación"], ["createdAt", "Fecha de alta"],
       ],
     },
     dispatchUnits: {
       title: "Unidades de despacho", label: "unidades de despacho", empty: "No hay unidades de despacho para mostrar con los filtros activos.",
       columns: [
-        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["name", "Unidad de despacho"], ["status", "Estado"],
-        ["brand", "Marca"], ["packagingLevel", "Nivel"], ["baseQuantity", "Contenido"], ["destination", "Destino"], ["modifiedAt", "Fecha de modificación"],
+        ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["containedGtin", "GTIN Contenido"], ["name", "Descripción"], ["status", "Estado"],
+        ["brand", "Marca"], ["packagingLevel", "Envase"], ["baseQuantity", "Unidad Contenida"], ["modifiedAt", "Fecha de modificación"],
       ],
     },
   };
-  const LAYOUT = { image: 72, type: 110, code: 140, name: 210, dataQuality: 130, status: 100, brand: 120, variety: 120, origin: 120, packagingLevel: 120, baseQuantity: 160, destination: 140, modifiedAt: 140, createdAt: 140, actions: 230 };
+  const LAYOUT = { image: 72, type: 110, code: 140, productName: 210, name: 260, containedGtin: 140, dataQuality: 130, status: 100, brand: 120, variety: 120, origin: 120, packagingLevel: 120, baseQuantity: 140, modifiedAt: 140, createdAt: 140, actions: 230 };
   let sequence = 0;
 
   function mount(options) {
@@ -97,8 +97,8 @@
     }
     function filtered() {
       const searchable = options.searchKeys || columns.filter((column) => column.key !== "image").map((column) => column.key);
-      let items = records.filter((record) => (!state.search || searchable.some((key) => normalize(record[key]).includes(state.search))) && Object.entries(state.filters).every(([key, values]) => !values || values.includes(String(record[key] || ""))));
-      if (state.sort) items = [...items].sort((a, b) => String(a[state.sort.key] || "").localeCompare(String(b[state.sort.key] || ""), "es", { sensitivity: "base" }) * (state.sort.direction === "asc" ? 1 : -1));
+      let items = records.filter((record) => (!state.search || searchable.some((key) => normalize(displayValue(record, key)).includes(state.search))) && Object.entries(state.filters).every(([key, values]) => !values || values.includes(String(displayValue(record, key) || ""))));
+      if (state.sort) items = [...items].sort((a, b) => String(displayValue(a, state.sort.key) || "").localeCompare(String(displayValue(b, state.sort.key) || ""), "es", { sensitivity: "base" }) * (state.sort.direction === "asc" ? 1 : -1));
       return items;
     }
     function renderPagination(totalPages) {
@@ -122,14 +122,13 @@
       if (column.key === "image") return `<td>${thumbnail(record)}</td>`;
       if (column.key === "status") return `<td class="product-cell-nowrap"><span class="badge ${badge(record.status)}">${escape(record.status)}</span></td>`;
       if (column.key === "dataQuality") return `<td class="product-cell-nowrap">${dataQualityMarkup(record[column.key])}</td>`;
-      const value = column.key === "type" && window.GS1ProductCatalog?.formatProductType
-        ? window.GS1ProductCatalog.formatProductType(record[column.key])
-        : record[column.key];
+      const value = displayValue(record, column.key);
       return `<td class="${["code", "createdAt", "modifiedAt"].includes(column.key) ? "product-cell-nowrap" : "product-cell-break"}">${escape(value || "")}</td>`;
     }
     function actions(record) {
       if (options.actions === "dun14-selection") return `${button("create-dun14", record, "Generar nuevo DUN 14", "", "btn-primary product-table-generate-dun14")}${button("detail", record, "Detalle", "eye")}`;
-      return [button("detail", record, "Detalle", "eye"), button("copy", record, "Editar copia", "files"), button("edit", record, "Modificar", "pencil-square"), button("logs", record, "Logs", "clock-history"), button("digital-link", record, "QR / Digital Link", "../QR-DATAMATRIX.png"), button("symbol", record, "Generador de simbología", "../GENERADOR DE SIMBOLOGIA.png")].join("");
+      const editLabel = record.mode === "products" && record.status === "Activo" ? "Crear Solicitud de Excepción" : "Modificar";
+      return [button("detail", record, "Detalle", "eye"), button("copy", record, "Editar copia", "files"), button("edit", record, editLabel, "pencil-square"), button("logs", record, "Logs", "clock-history"), button("digital-link", record, "QR / Digital Link", "../QR-DATAMATRIX.png"), button("symbol", record, "Generador de simbología", "../GENERADOR DE SIMBOLOGIA.png")].join("");
     }
     function button(action, record, label, icon, className = "btn-outline-secondary") { const mark = icon ? iconMarkup(icon) : escape(label); return `<button type="button" class="btn ${className}" data-product-table-action="${action}" data-product-id="${escapeAttr(record.id)}" aria-label="${escapeAttr(label)}" title="${escapeAttr(label)}" data-bs-toggle="tooltip" data-bs-title="${escapeAttr(label)}">${mark}</button>`; }
     function placeholderMarkup(record) { return `<span class="product-thumb-placeholder" aria-label="Sin imagen para ${escapeAttr(record?.name || "producto")}">${iconMarkup("image")}<span>Sin imagen</span></span>`; }
@@ -137,7 +136,7 @@
     function renderColumns() { if (!refs.columns) return; refs.columns.innerHTML = `<div class="columns-menu__panel"><div class="columns-menu__header"><div class="fw-semibold">Atributos visibles</div><div class="small text-secondary">Preferencia guardada para esta tabla.</div></div><div class="columns-menu__list">${columns.map((column) => `<button type="button" class="dropdown-item columns-menu__item ${state.visible.includes(column.key) ? "is-selected" : ""}" data-product-table-visibility="${column.key}"><span class="columns-menu__item-main"><span class="form-check-input columns-menu__indicator ${state.visible.includes(column.key) ? "checked" : ""}" aria-hidden="true"></span><span>${escape(column.label)}</span></span></button>`).join("")}</div></div>`; }
     function toggleVisibility(key) { const next = state.visible.includes(key) ? state.visible.filter((item) => item !== key) : [...state.visible, key]; state.visible = validVisible(next, columns); write(storageKey, state.visible); render(); }
     function openMenu(key, trigger) {
-      const values = [...new Set(records.map((record) => String(record[key] || "")).filter(Boolean))].sort((a, b) => a.localeCompare(b, "es"));
+      const values = [...new Set(records.map((record) => String(displayValue(record, key) || "")).filter(Boolean))].sort((a, b) => a.localeCompare(b, "es"));
       state.draft = { key, values, selected: new Set(state.filters[key] || values) };
       const draw = () => { const shown = values.filter((value) => normalize(value).includes(normalize(state.filterSearch))); menu.innerHTML = `<div class="column-filter-card"><div class="column-filter-actions"><button type="button" class="dropdown-item" data-sort="asc">Orden ascendente</button><button type="button" class="dropdown-item" data-sort="desc">Orden descendente</button></div><div class="column-filter-toolbar p-3 border-top border-bottom"><input type="search" class="form-control form-control-sm" data-filter-search placeholder="Buscar valor" value="${escapeAttr(state.filterSearch)}"></div><div class="filter-panel__body column-filter-checklist"><label class="column-filter-option fw-semibold"><input type="checkbox" data-all ${shown.length && shown.every((value) => state.draft.selected.has(value)) ? "checked" : ""}>Seleccionar todo</label>${shown.map((value) => `<label class="column-filter-option"><input type="checkbox" data-value="${escapeAttr(value)}" ${state.draft.selected.has(value) ? "checked" : ""}>${escape(window.GS1ProductCatalog?.formatProductType?.(value) || value)}</label>`).join("") || '<div class="small text-secondary py-2">No hay coincidencias.</div>'}</div><div class="filter-panel__footer column-filter-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-clear>Limpiar</button><button type="button" class="btn btn-sm btn-outline-secondary" data-cancel>Cancelar</button><button type="button" class="btn btn-sm btn-primary" data-apply>Aplicar</button></div></div>`; bindMenu(shown); };
       draw(); menu.classList.add("show"); place(trigger); menu.querySelector("[data-filter-search]")?.focus();
@@ -158,6 +157,15 @@
   function validVisible(value, columns) { const available = columns.map((column) => column.key); const selected = Array.isArray(value) ? value.filter((key, index) => available.includes(key) && value.indexOf(key) === index) : available; return selected.length ? available.filter((key) => selected.includes(key)) : available; }
   function read(key) { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } }
   function write(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* persistence is optional */ } }
+  function displayValue(record, key) {
+    if (key === "productName") return record.name;
+    if (key === "name" && record.mode === "products") return [record.name, record.variety, record.brand, record.content].filter(Boolean).join(" ");
+    if (key === "name" && record.mode === "dispatchUnits") return [record.containedDescription, record.unitsContained].filter(Boolean).join(" ");
+    if (key === "packagingLevel" && record.mode === "dispatchUnits") return record.packagingLevel || record.packaging;
+    if (key === "baseQuantity" && record.mode === "dispatchUnits") return record.unitsContained;
+    if (key === "type" && window.GS1ProductCatalog?.formatProductType) return window.GS1ProductCatalog.formatProductType(record[key]);
+    return record[key];
+  }
   function normalize(value) { return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
   function escape(value) { return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;"); }
   function escapeAttr(value) { return escape(value).replaceAll("'", "&#39;"); }

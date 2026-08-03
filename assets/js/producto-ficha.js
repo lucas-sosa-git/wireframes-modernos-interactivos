@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2 justify-content-end">
-                  <a href="${getEditUrl(record)}" class="btn btn-outline-primary">Modificar</a>
+                  <a href="${getEditUrl(record)}" class="btn btn-outline-primary">${getEditLabel(record)}</a>
                   <a href="${getCopyUrl(record)}" class="btn btn-outline-primary">Copiar datos</a>
                   <a href="productos.html" class="btn btn-outline-secondary">Volver al listado</a>
                   <a href="${record.mode === "dispatchUnits" ? "producto-nuevo-dun14.html" : "producto-nuevo.html"}" class="btn btn-primary">Nueva alta</a>
@@ -195,6 +195,9 @@
     if (record.mode === "dispatchUnits") {
       return `producto-editar-dun14.html?id=${encodeURIComponent(record.id)}`;
     }
+    if (record.status === "Activo") {
+      return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+    }
     if (record.graceStatus === "exception-required") {
       return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
     }
@@ -202,6 +205,10 @@
       return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
     }
     return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+  }
+
+  function getEditLabel(record) {
+    return record.mode === "products" && record.status === "Activo" ? "Crear Solicitud de Excepción" : "Modificar";
   }
 
   function statusBadgeClass(status) {

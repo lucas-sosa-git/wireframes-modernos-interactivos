@@ -6,7 +6,7 @@
     window.GS1ProductTable.mount({
       mount,
       mode,
-      persistenceKey: `gs1.products.columnVisibility.list.${mode}.v3`,
+      persistenceKey: `gs1.products.columnVisibility.list.${mode}.v4`,
       eyebrow: "Catálogo GS1",
       heading: mode === "products" ? "Productos comerciales" : "Unidades de despacho DUN 14",
       description: "Consultá y administrá los registros desde un listado responsive.",
@@ -14,7 +14,7 @@
       onAction(action, record) {
         if (action === "detail") window.location.href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
         if (action === "copy") window.location.href = record.mode === "dispatchUnits" ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}` : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
-        if (action === "edit") window.location.href = record.mode === "dispatchUnits" ? `producto-editar-dun14.html?id=${encodeURIComponent(record.id)}` : `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+        if (action === "edit") window.location.href = getEditUrl(record);
         if (action === "logs") window.location.href = `productos.html?mode=${mode}&logs=${encodeURIComponent(record.id)}`;
         if (action === "image") window.location.href = `producto-ficha.html?id=${encodeURIComponent(record.id)}#imagen`;
         if (action === "digital-link") window.location.href = `qr-digital-link.html?id=${encodeURIComponent(record.id)}`;
@@ -22,4 +22,12 @@
       },
     });
   });
+
+  function getEditUrl(record) {
+    if (record.mode === "dispatchUnits") return `producto-editar-dun14.html?id=${encodeURIComponent(record.id)}`;
+    if (record.status === "Activo") return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+    if (record.graceStatus === "exception-open") return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
+    if (record.graceStatus === "exception-required") return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+    return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
+  }
 })();

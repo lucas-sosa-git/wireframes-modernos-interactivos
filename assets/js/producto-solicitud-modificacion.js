@@ -37,9 +37,9 @@
         <div class="card-body">
           <div class="gs1-tool-header">
             <div>
-              <div class="text-secondary small">Solicitud de modificacion</div>
-              <h1 class="h3 mb-1">${escapeHtml(record.name)}</h1>
-              <div class="text-secondary">${escapeHtml(record.code)} | ${escapeHtml(record.status)}</div>
+              <div class="text-secondary small">Crear Solicitud de Excepci&oacute;n</div>
+              <h1 class="h3 mb-1">Crear Solicitud de Excepci&oacute;n</h1>
+              <div class="text-secondary">Producto: ${escapeHtml(record.name)} | Estado: ${escapeHtml(record.status)}</div>
             </div>
           </div>
           <form id="exceptionNewForm" class="row g-3 mt-1">
@@ -68,7 +68,7 @@
               <div class="alert alert-danger d-none" id="exceptionError"></div>
             </div>
             <div class="col-12 d-flex flex-wrap gap-2">
-              <button type="submit" class="btn btn-primary">Enviar formulario</button>
+              <button type="submit" class="btn btn-primary">Enviar solicitud</button>
               <a href="productos.html" class="btn btn-outline-secondary">Volver a productos</a>
             </div>
           </form>
