@@ -68,10 +68,6 @@
             ${renderField("Descripción de la unidad de despacho", "name", record.name, { required: true })}
             ${renderField("Envase agrupador", "packaging", record.packaging)}
             <div class="col-12 col-lg-6">
-              <label class="form-label" for="dispatchImage">Imagen</label>
-              <input class="form-control" id="dispatchImage" name="imageFile" type="file" accept="image/*">
-            </div>
-            <div class="col-12 col-lg-6">
               <div class="dispatch-editor__preview">
                 ${renderImagePreview(record)}
               </div>
@@ -89,8 +85,6 @@
     const form = mount.querySelector("form");
     const feedback = mount.querySelector("[data-dispatch-feedback]");
     const cancelButton = mount.querySelector("[data-dispatch-cancel]");
-    const imageInput = mount.querySelector("#dispatchImage");
-    const preview = mount.querySelector("[data-dispatch-preview]");
     let currentImage = record.image || "";
 
     cancelButton.addEventListener("click", () => {
@@ -99,16 +93,6 @@
       } else if (context === "page") {
         window.location.href = "productos.html";
       }
-    });
-
-    imageInput.addEventListener("change", () => {
-      const file = imageInput.files && imageInput.files[0];
-      if (!file || !preview) {
-        return;
-      }
-      const nextUrl = URL.createObjectURL(file);
-      preview.innerHTML = `<img src="${escapeAttribute(nextUrl)}" alt="Vista previa de la unidad de despacho" class="img-fluid rounded border">`;
-      currentImage = nextUrl;
     });
 
     form.addEventListener("submit", (event) => {
