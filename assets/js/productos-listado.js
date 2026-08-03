@@ -10,7 +10,7 @@
       eyebrow: "Catálogo GS1",
       heading: mode === "products" ? "Productos comerciales" : "Unidades de despacho DUN 14",
       description: "Consultá y administrá los registros desde un listado responsive.",
-      headerActions: `<div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-primary" href="productos.html">Vista resumida</a><a class="btn btn-primary" href="${mode === "products" ? "producto-nuevo.html" : "producto-nuevo-dun14.html"}">${mode === "products" ? "Nuevo producto" : "Generar DUN 14"}</a></div>`,
+      headerActions: `<div class="d-flex flex-wrap gap-2">${mode === "products" ? '<button type="button" class="btn btn-outline-primary" id="downloadProductsListBtn">Descargar Productos a Excel</button>' : ""}<a class="btn btn-outline-primary" href="productos.html">Vista resumida</a><a class="btn btn-primary" href="${mode === "products" ? "producto-nuevo.html" : "producto-nuevo-dun14.html"}">${mode === "products" ? "Nuevo producto" : "Generar DUN 14"}</a></div>`,
       onAction(action, record) {
         if (action === "detail") window.location.href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
         if (action === "copy") window.location.href = record.mode === "dispatchUnits" ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}` : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
@@ -20,6 +20,11 @@
         if (action === "digital-link") window.location.href = `qr-digital-link.html?id=${encodeURIComponent(record.id)}`;
         if (action === "symbol") window.location.href = `generador-simbologia.html?id=${encodeURIComponent(record.id)}`;
       },
+    });
+    const downloadButton = document.getElementById("downloadProductsListBtn");
+    downloadButton?.addEventListener("click", () => {
+      const count = window.GS1ProductCatalog.getCommercialProducts().length;
+      window.GS1Utils.showSimulationToast(`Descarga preparada para ${count} productos.`, "success");
     });
   });
 
