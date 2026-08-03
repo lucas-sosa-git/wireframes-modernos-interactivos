@@ -110,6 +110,7 @@
       return [
         { label: "DUN 14", value: record.code },
         { label: "GTIN contenido", value: record.containedGtin },
+        { label: "Calidad de datos", valueHtml: verifyGs1Markup(record.dataQuality !== false, "Calidad de datos") },
         { label: "Descripcion", value: record.containedDescription || record.name },
         { label: "Unidades contenidas", value: record.unitsContained },
         { label: "Envase agrupador", value: record.packagingLevel || record.packaging },
@@ -175,13 +176,13 @@
     `;
   }
 
-  function verifyGs1Markup(value) {
+  function verifyGs1Markup(value, attributeLabel = "Verify GS1") {
     const isValid = Boolean(value);
     const label = isValid ? "Sí" : "No";
     const path = isValid
       ? "M13.854 3.646a.5.5 0 0 0-.708 0L6.5 10.293 2.854 6.646a.5.5 0 1 0-.708.708l4 4a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.708"
       : "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z";
-    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="Verify GS1: ${label}" title="Verify GS1: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
+    return `<span class="data-quality-indicator ${isValid ? "text-success" : "text-danger"}" role="img" aria-label="${attributeLabel}: ${label}" title="${attributeLabel}: ${label}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="${path}"/></svg></span>`;
   }
 
   function getCopyUrl(record) {
