@@ -6,6 +6,7 @@
     "GTIN-14": { base: 13, full: 14 },
     GLN: { base: 12, full: 13 },
   };
+  const CHECK_DIGIT_TEMPLATE_CONTENT = "\uFEFFtipo,codigo_base_o_completo\r\n";
   document.addEventListener("DOMContentLoaded", initCheckDigitPage);
 
   function initCheckDigitPage() {
@@ -37,7 +38,14 @@
             </div>
             <div class="col-lg-5">
               <div class="gs1-side-panel">
-                <h2 class="h5 mb-3">Importaci&oacute;n masiva</h2>
+                <div class="d-flex flex-wrap align-items-start justify-content-between gap-2 mb-3">
+                  <div>
+                    <h2 class="h5 mb-1">Importaci&oacute;n masiva</h2>
+                    <div class="small text-secondary">Descarg&aacute; la plantilla, completala y luego carg&aacute; el archivo.</div>
+                  </div>
+                  <button class="btn btn-outline-primary" id="downloadCheckDigitTemplateBtn" type="button">Descargar Plantilla</button>
+                </div>
+                <label class="form-label" for="bulkCheckDigitFile">Importar archivo</label>
                 <input class="form-control mb-3" id="bulkCheckDigitFile" type="file" accept=".xlsx,.xls,.csv">
                 <div class="small text-secondary mb-3" id="bulkCheckDigitName">Todav&iacute;a no seleccionaste ning&uacute;n archivo.</div>
                 <button class="btn btn-outline-secondary" id="bulkCheckDigitBtn" type="button">Calcular</button>
@@ -54,6 +62,7 @@
   function bindCheckDigitEvents() {
     document.getElementById("calculateCheckDigitBtn").addEventListener("click", calculate);
     document.getElementById("resetCheckDigitBtn").addEventListener("click", () => window.location.reload());
+    document.getElementById("downloadCheckDigitTemplateBtn").addEventListener("click", downloadCheckDigitTemplate);
     document.getElementById("bulkCheckDigitFile").addEventListener("change", (event) => {
       document.getElementById("bulkCheckDigitName").textContent = event.target.files[0] ? event.target.files[0].name : "Todav&iacute;a no seleccionaste ning&uacute;n archivo.";
     });
@@ -62,6 +71,18 @@
       panel.classList.remove("d-none");
       panel.innerHTML = "<div class='fw-semibold'>Resultado simulado</div><div class='small text-secondary mt-2'>Registros procesados: 120 | Registros v&aacute;lidos: 116</div>";
     });
+  }
+
+  function downloadCheckDigitTemplate() {
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(new Blob([CHECK_DIGIT_TEMPLATE_CONTENT], { type: "text/csv;charset=utf-8;" }));
+    link.download = "plantilla-calculo-digito-verificador.csv";
+    document.body.appendChild(link);
+    link.click();
+    window.setTimeout(() => {
+      URL.revokeObjectURL(link.href);
+      link.remove();
+    }, 0);
   }
 
   function calculate() {
