@@ -121,13 +121,13 @@
       return;
     }
     const imageByType = {
-      "GTIN-13": "../GTIN-13 imagen.png",
-      "GTIN-14": "../GENERADOR DE SIMBOLOGIA.png",
-      "UPC-A": "../UPC-12 Imagen.png",
-      "GS1-128": "../GENERADOR DE SIMBOLOGIA.png",
-      "SSCC": "../GENERADOR DE SIMBOLOGIA.png",
-      "GS1 DataMatrix": "../QR-DATAMATRIX.png",
-      "DataMatrix Digital Link": "../QR-DATAMATRIX.png",
+      "GTIN-13": "../assets/img/GTIN-13 imagen.png",
+      "GTIN-14": "../assets/img/GENERADOR DE SIMBOLOGIA.png",
+      "UPC-A": "../assets/img/UPC-12 Imagen.png",
+      "GS1-128": "../assets/img/GENERADOR DE SIMBOLOGIA.png",
+      "SSCC": "../assets/img/GENERADOR DE SIMBOLOGIA.png",
+      "GS1 DataMatrix": "../assets/img/QR-DATAMATRIX.png",
+      "DataMatrix Digital Link": "../assets/img/QR-DATAMATRIX.png",
       "QR Code Digital Link": "../assets/img/qr_gs1.jpg",
     };
     preview.innerHTML = type.includes("QR") || type.includes("DataMatrix")

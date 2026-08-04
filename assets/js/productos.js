@@ -716,8 +716,8 @@
           ${renderActionButton("copy", record.id, "Editar copia", "files")}
           ${renderActionButton("edit", record.id, "Modificar", "pencil-square")}
           ${renderActionButton("logs", record.id, "Logs", "clock-history")}
-          ${renderActionButton("digital-link", record.id, "QR / Digital Link", "../QR-DATAMATRIX.png")}
-          ${renderActionButton("symbol", record.id, "Generador de simbologia", "../GENERADOR DE SIMBOLOGIA.png")}
+          ${renderActionButton("digital-link", record.id, "QR / Digital Link", "../assets/img/QR-DATAMATRIX.png")}
+          ${renderActionButton("symbol", record.id, "Generador de simbologia", "../assets/img/GENERADOR DE SIMBOLOGIA.png")}
         </div>
       </td>
     `);
