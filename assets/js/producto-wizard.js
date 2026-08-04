@@ -139,6 +139,7 @@
   let originalFinalize;
   let completionHost;
   let isEditMode = false;
+  let isCopyMode = false;
   let isActiveEdit = false;
   let editingRecord = null;
 
@@ -148,12 +149,14 @@
     const path = window.location.pathname;
     if (!/\/producto-(nuevo|editar)\.html$/i.test(path)) return;
     isEditMode = /\/producto-editar\.html$/i.test(path);
+    const params = new URLSearchParams(window.location.search);
+    isCopyMode = !isEditMode && params.get("mode") === "copy";
     STEP_DEFINITIONS = isEditMode ? EDIT_STEP_DEFINITIONS : NEW_STEP_DEFINITIONS;
     STEP_PANEL_IDS = isEditMode ? EDIT_STEP_PANEL_IDS : NEW_STEP_PANEL_IDS;
     STEP_INTROS = isEditMode ? EDIT_STEP_INTROS : NEW_STEP_INTROS;
     DEPENDENCIES = isEditMode ? EDIT_DEPENDENCIES : NEW_DEPENDENCIES;
-    if (isEditMode) {
-      const id = new URLSearchParams(window.location.search).get("id");
+    if (isEditMode || isCopyMode) {
+      const id = params.get("id");
       editingRecord = id ? window.GS1ProductCatalog?.getById(id) : null;
       isActiveEdit = editingRecord?.mode === "products" && editingRecord.status === "Activo";
     }
@@ -166,7 +169,9 @@
       state.currentStep = 1;
       state.highestAvailable = 9;
       state.steps[1].status = "current";
-      state.values.gtinType = editingRecord?.type || "";
+    }
+    if (isEditMode || isCopyMode) {
+      state.values.gtinType = formatGtinType(editingRecord?.type);
       state.values.distributionType = editingRecord?.distributionType || "";
       state.values.lineOfBusiness = editingRecord?.lineOfBusiness || "";
       state.values.category = editingRecord?.classification || "";
@@ -177,11 +182,11 @@
     prepareLegacyPanels();
     if (isEditMode) prepareEditGtinCards();
     bindSelections();
-    if (isEditMode) syncEditSelections();
+    if (isEditMode || isCopyMode) syncRecordSelections();
     bindFields();
     overrideLegacyNavigation();
-    if (isEditMode) {
-      preloadEditImages();
+    if (isEditMode || isCopyMode) {
+      preloadRecordImages();
       applyEditRestrictions();
     } else {
       clearLegacyDraft();
@@ -480,7 +485,7 @@
     renderProductImages([]);
   }
 
-  function preloadEditImages() {
+  function preloadRecordImages() {
     if (!editingRecord) return;
     const urls = Array.from(new Set(
       [...(editingRecord.imageGallery || []), editingRecord.image]
@@ -913,11 +918,11 @@
     });
   }
 
-  function syncEditSelections() {
+  function syncRecordSelections() {
     if (!editingRecord) return;
 
     const gtinCards = Array.from(document.querySelectorAll("#paso10a > .row a"));
-    const gtinMatch = gtinCards.find((card) => normalize(card.querySelector(".card-title")?.textContent) === normalize(editingRecord.type));
+    const gtinMatch = gtinCards.find((card) => normalize(card.querySelector(".card-title")?.textContent) === normalize(formatGtinType(editingRecord.type)));
     if (gtinMatch) selectOnly(gtinCards, gtinMatch);
 
     const distributionCards = Array.from(document.querySelectorAll("#paso20a [data-distribution-value]"));
@@ -1281,6 +1286,15 @@
 
   function normalize(value) {
     return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  }
+
+  function formatGtinType(value) {
+    const key = normalize(value).replace(/-/g, " ");
+    return {
+      "gtin 13": "GTIN 13",
+      "upc 12": "UPC 12",
+      "gtin 8": "GTIN 8",
+    }[key] || String(value || "").replace(/-/g, " ");
   }
 
   function escapeHtml(value) {

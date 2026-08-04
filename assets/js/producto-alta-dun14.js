@@ -6,9 +6,11 @@
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
-    const id = new URLSearchParams(location.search).get("id");
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
     const record = id ? window.GS1ProductCatalog.getById(id) : null;
-    product = record && record.mode === "products" ? record : null;
+    const copyRecord = params.get("mode") === "copy" && record?.mode === "dispatchUnits" ? record : null;
+    product = copyRecord ? findContainedProduct(copyRecord.containedGtin) : record && record.mode === "products" ? record : null;
     const mount = document.getElementById("dispatchAltaMount");
     if (!mount) return;
     if (!product) {
@@ -17,18 +19,31 @@
     }
 
     state = {
-      logisticVariable: "",
+      logisticVariable: copyRecord ? String(copyRecord.code || "").charAt(0) : "",
       code: "",
-      units: "",
-      packaging: "",
+      units: copyRecord ? String(copyRecord.unitsContained || "") : "",
+      packaging: copyRecord ? String(copyRecord.packaging || "") : "",
       finalDescription: "",
-      images: getProductImages(product),
+      images: getProductImages(copyRecord || product),
       galleryIndex: 0,
     };
     pendingImages = [];
     renderAlta();
+    setInitialFormValues();
     bindAlta();
     updateDerivedFields();
+  }
+
+  function findContainedProduct(containedGtin) {
+    return window.GS1ProductCatalog.getCommercialProducts().find((record) => String(record.code) === String(containedGtin)) || null;
+  }
+
+  function setInitialFormValues() {
+    const form = document.getElementById("dispatchAltaForm");
+    if (!form) return;
+    form.elements.logisticVariable.value = state.logisticVariable;
+    form.elements.units.value = state.units;
+    form.elements.packaging.value = state.packaging;
   }
 
   function getProductImages(record) {

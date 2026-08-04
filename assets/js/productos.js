@@ -152,6 +152,10 @@
       return;
     }
 
+    const requestedMode = new URLSearchParams(window.location.search).get("mode");
+    if (VIEW_CONFIG[requestedMode]) {
+      state.activeTable = requestedMode;
+    }
     cacheDom();
     ensureDynamicModals();
     cacheDom();
@@ -1166,6 +1170,7 @@
       { label: "Codigo", value: record.code },
       { label: "Estado", value: record.status },
       { label: "Verify GS1", valueHtml: dataQualityMarkup(record.gs1Verify, "Verify GS1") },
+      { label: "Calidad de datos", valueHtml: dataQualityMarkup(record.dataQuality, "Calidad de datos") },
       { label: "Marca", value: record.brand },
       { label: "Clasificacion", value: record.classification },
       { label: "Contenido", value: record.content },
@@ -1386,7 +1391,7 @@
 
   function getCopyUrl(record) {
     return record.mode === TABLE_MODES.dispatchUnits
-      ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
+      ? `producto-alta-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
       : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
   }
 

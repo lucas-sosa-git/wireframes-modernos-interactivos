@@ -404,13 +404,29 @@
   }
 
   function preloadWizardSelections(record) {
+    const gtinType = formatGtinType(record.type);
     const distribution = normalizeDistributionValue(record.distributionType);
     const line = record.lineOfBusiness || "Alimentos";
+    wizardState.gtinType = gtinType;
     wizardState.distributionType = distribution;
     wizardState.lineOfBusiness = line;
+    markGtinType(gtinType);
     markDistribution(distribution);
     markBusinessLine(line);
+    setSummaryText("#paso10b h4", `01 - Tipo de GTIN: ${gtinType}`);
     updateWizardSummaries();
+  }
+
+  function markGtinType(value) {
+    const step = document.getElementById("paso10a");
+    if (!step) {
+      return;
+    }
+    const match = Array.from(step.querySelectorAll(".card-title"))
+      .find((title) => normalizeText(title.textContent) === normalizeText(value));
+    if (match) {
+      setActiveButton(step.querySelectorAll(".row a"), match.closest("a"));
+    }
   }
 
   function updateWizardSummaries() {
@@ -438,7 +454,27 @@
     if (!step) {
       return;
     }
-    const match = Array.from(step.querySelectorAll("[data-business-line]")).find((button) => normalizeText(button.dataset.businessLine) === normalizeText(value));
+    let match = Array.from(step.querySelectorAll("[data-business-line]")).find((button) => normalizeText(button.dataset.businessLine) === normalizeText(value));
+    if (!match && value) {
+      const optionsRow = step.querySelector(".row");
+      if (optionsRow) {
+        const column = document.createElement("div");
+        column.className = "col-2";
+        const button = document.createElement("a");
+        button.className = "btn btn-lg btn-outline-secondary text-center border-3 w-100 p-4 px-3 wizard-choice";
+        button.href = "#";
+        button.dataset.businessLine = value;
+        button.textContent = value;
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          setActiveButton(step.querySelectorAll("[data-business-line]"), button);
+          wizardState.lineOfBusiness = value;
+        });
+        column.appendChild(button);
+        optionsRow.appendChild(column);
+        match = button;
+      }
+    }
     if (match) {
       setActiveButton(step.querySelectorAll("[data-business-line]"), match);
     }
@@ -461,6 +497,15 @@
 
   function normalizeDistributionValue(value) {
     return normalizeText(value) === "nacional" ? "Nacional" : "Internacional";
+  }
+
+  function formatGtinType(value) {
+    const key = normalizeText(value).replace(/-/g, " ");
+    return {
+      "gtin 13": "GTIN 13",
+      "upc 12": "UPC 12",
+      "gtin 8": "GTIN 8",
+    }[key] || String(value || "").replace(/-/g, " ");
   }
 
   function injectCopyNotice(record) {
