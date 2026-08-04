@@ -43,14 +43,9 @@
                 <div>
                   <div class="text-secondary small">${escapeHtml(typeLabel)}</div>
                   <h1 class="h3 mb-2">${title}</h1>
-                  <div class="fw-semibold mb-2">${escapeHtml(record.name)}</div>
                   <div class="d-flex flex-wrap gap-2 align-items-center">
                     <span class="badge text-bg-primary">${escapeHtml(record.code)}</span>
                     <span class="badge ${statusBadgeClass(record.status)}">${escapeHtml(record.status)}</span>
-                  </div>
-                  <div class="product-detail-note mt-3">
-                    <div class="text-secondary small mb-1">Descripción</div>
-                    <div>${escapeHtml(record.shortDescription || "Sin descripción disponible.")}</div>
                   </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2 justify-content-end">
@@ -126,6 +121,7 @@
         ? window.GS1ProductCatalog.formatProductType(record.type)
         : record.type },
       { label: "GTIN", value: record.code },
+      { label: "Descripción", value: record.shortDescription },
       { label: "Verify GS1", valueHtml: verifyGs1Markup(record.gs1Verify) },
       { label: "Calidad de datos", valueHtml: verifyGs1Markup(record.dataQuality, "Calidad de datos") },
       { label: "Marca", value: record.brand },
