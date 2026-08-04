@@ -158,7 +158,7 @@
     if (isEditMode || isCopyMode) {
       const id = params.get("id");
       editingRecord = id ? window.GS1ProductCatalog?.getById(id) : null;
-      isActiveEdit = editingRecord?.mode === "products" && editingRecord.status === "Activo";
+      isActiveEdit = isEditMode && editingRecord?.mode === "products" && editingRecord.status === "Activo";
     }
 
     root = isEditMode ? document.getElementById("pasos") : document.getElementById("producto-nuevo-wizard");
