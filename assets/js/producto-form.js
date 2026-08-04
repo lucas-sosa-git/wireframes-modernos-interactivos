@@ -512,7 +512,7 @@
     injectBanner(`
       <div class="alert alert-primary gs1-inline-banner" role="status">
         <div class="fw-semibold">Copia de producto</div>
-        <div class="small">Se precargaron los datos de <strong>${escapeHtml(record.name)}</strong>. Debés asignar un GTIN nuevo. GTIN de origen: <span class="fw-semibold">${escapeHtml(record.code)}</span>.</div>
+        <div class="small">Se precargaron los datos de <strong>${escapeHtml(record.name)}</strong>. Podés editar cualquier campo desde el selector de pasos y asignar un GTIN nuevo. GTIN de origen: <span class="fw-semibold">${escapeHtml(record.code)}</span>.</div>
       </div>
     `);
   }

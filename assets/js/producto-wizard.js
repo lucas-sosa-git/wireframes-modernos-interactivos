@@ -170,6 +170,13 @@
       state.highestAvailable = 9;
       state.steps[1].status = "current";
     }
+    if (isCopyMode) {
+      // La copia parte de datos ya cargados: el usuario puede ir directo al
+      // campo que necesita cambiar sin repetir el alta paso por paso.
+      state.currentStep = 1;
+      state.highestAvailable = 10;
+      state.steps[1].status = "current";
+    }
     if (isEditMode || isCopyMode) {
       state.values.gtinType = formatGtinType(editingRecord?.type);
       state.values.distributionType = editingRecord?.distributionType || "";
@@ -205,15 +212,19 @@
 
     const header = document.createElement("header");
     header.className = "product-wizard-modern__header";
+    const title = isCopyMode ? "Editar copia" : isEditMode ? "Editar producto" : "Nuevo producto";
+    const lead = isCopyMode
+      ? "La copia está precargada. Elegí cualquier paso para modificar solo los campos que necesites."
+      : isEditMode
+        ? isActiveEdit
+          ? "Consultá la información registrada. En productos activos solo podés modificar el Código Interno, las imágenes y los sellos."
+          : "Revisá y actualizá la información del producto antes de guardar los cambios."
+        : "Completá los pasos para registrar el producto y obtener su código GTIN. Esta pantalla es de prueba: al refrescar, el formulario se reinicia.";
     header.innerHTML = `
       <div>
         <div class="product-wizard-modern__eyebrow">Productos</div>
-        <h1 class="product-wizard-modern__title">${isEditMode ? "Editar producto" : "Nuevo producto"}</h1>
-        <p class="product-wizard-modern__lead">${isEditMode
-          ? isActiveEdit
-            ? "Consultá la información registrada. En productos activos solo podés modificar el Código Interno, las imágenes y los sellos."
-            : "Revisá y actualizá la información del producto antes de guardar los cambios."
-          : "Completá los pasos para registrar el producto y obtener su código GTIN. Esta pantalla es de prueba: al refrescar, el formulario se reinicia."}</p>
+        <h1 class="product-wizard-modern__title">${title}</h1>
+        <p class="product-wizard-modern__lead">${lead}</p>
       </div>
     `;
 
