@@ -59,6 +59,7 @@
               <div class="row g-3">
                 ${buildFields(record).map((field) => renderField(field.label, field.value, field.valueHtml)).join("")}
               </div>
+              ${renderAdditionalDetails(record)}
 
             </div>
           </div>
@@ -127,11 +128,11 @@
       { label: "Marca", value: record.brand },
       { label: "Submarca", value: record.subBrand },
       { label: "Variedad", value: record.variety },
-      { label: "Clasificacion", value: record.classification },
+      { label: "Categoría", value: record.category || record.classification },
       { label: "Contenido neto", value: record.content },
+      { label: "Código interno", value: record.internalCode || record.code },
       { label: "Envase", value: record.packaging },
-      { label: "Distribucion", value: record.distributionType },
-      { label: "Mercados", value: (record.markets || []).join(", ") },
+      { label: `Mercado - ${formatDistributionScope(record)}`, value: (record.markets || []).join(", ") },
       { label: "Linea de negocio", value: record.lineOfBusiness },
       { label: "Origen", value: record.origin },
       { label: "Fecha de alta", value: formatDate(record.createdAt) },
@@ -172,6 +173,79 @@
         </div>
       </div>
     `;
+  }
+
+  function formatDistributionScope(record) {
+    return String(record.distributionType || "").trim().toLowerCase() === "nacional"
+      ? "Nacional"
+      : "Internacional";
+  }
+
+  function renderAdditionalDetails(record) {
+    if (record.mode === "dispatchUnits") {
+      return "";
+    }
+
+    const attributes = ["Atributo A", "Atributo B", "Atributo C", "Atributo D"];
+
+    return `
+      <div class="product-detail-section">
+        <h2 class="product-detail-section__title">Atributos</h2>
+        <div class="row g-3">
+          ${attributes.map((label) => renderAttributeLabel(label)).join("")}
+        </div>
+      </div>
+      <div class="product-detail-section">
+        <h2 class="product-detail-section__title">Sellos</h2>
+        ${renderSeals(record)}
+      </div>
+    `;
+  }
+
+  function renderAttributeLabel(label) {
+    return `
+      <div class="col-md-6">
+        <div class="product-detail-field">
+          <div class="text-secondary small">${escapeHtml(label)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderSeals(record) {
+    const sealValues = record.seals || record.sellos || [];
+    const seals = Array.isArray(sealValues) ? sealValues : [sealValues];
+    const validSeals = seals.filter(Boolean);
+
+    if (!validSeals.length) {
+      return `<div class="product-detail-empty">Sin sellos asociados</div>`;
+    }
+
+    return `<div class="product-seals-grid">${validSeals.map((seal) => {
+      const label = typeof seal === "object" ? seal.label || seal.name : seal;
+      const image = typeof seal === "object" ? seal.image || seal.imageUrl : getSealImage(label);
+      return `
+        <article class="product-seal-card">
+          <div class="product-seal-card__image">
+            ${image ? `<img src="${escapeAttribute(image)}" alt="${escapeAttribute(label)}">` : imageIcon(28)}
+          </div>
+          <div class="small fw-semibold">${escapeHtml(label)}</div>
+        </article>
+      `;
+    }).join("")}</div>`;
+  }
+
+  function getSealImage(label) {
+    const normalized = String(label || "").toLowerCase();
+    const images = [
+      ["azúcar", "../assets/img/sellos_sueltos_exceso_en_azucares.png"],
+      ["caloría", "../assets/img/sellos_sueltos_exceso_en_calorias.png"],
+      ["cafeína", "../assets/img/sellos_sueltos_leyenda_cafeina.png"],
+      ["sodio", "../assets/img/sellos_sueltos_exceso_en_sodio.png"],
+      ["grasas saturadas", "../assets/img/sellos_sueltos_exceso_en_grasas_saturadas.png"],
+      ["grasas totales", "../assets/img/sellos_sueltos_exceso_en_grasas_totales.png"],
+    ];
+    return images.find(([key]) => normalized.includes(key))?.[1] || "";
   }
 
   function verifyGs1Markup(value, attributeLabel = "Verify GS1") {

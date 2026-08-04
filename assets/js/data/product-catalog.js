@@ -36,6 +36,18 @@
   ];
   const LINES_OF_BUSINESS = ["Alimentos", "Bebidas", "Hogar", "Despensa"];
   const PACKAGING = ["Frasco", "Botella", "Caja", "Bolsa", "Lata", "Blister"];
+  const SEALS = [
+    [
+      { label: "Exceso en azúcares", image: "../assets/img/sellos_sueltos_exceso_en_azucares.png" },
+      { label: "Exceso en calorías", image: "../assets/img/sellos_sueltos_exceso_en_calorias.png" },
+    ],
+    [{ label: "Contiene cafeína", image: "../assets/img/sellos_sueltos_leyenda_cafeina.png" }],
+    [{ label: "Exceso en sodio", image: "../assets/img/sellos_sueltos_exceso_en_sodio.png" }],
+    [
+      { label: "Exceso en grasas saturadas", image: "../assets/img/sellos_sueltos_exceso_en_grasas_saturadas.png" },
+      { label: "Exceso en grasas totales", image: "../assets/img/sellos_sueltos_exceso_en_grasas_totales.png" },
+    ],
+  ];
 
   function computeGs1CheckDigit(body) {
     return window.GS1Utils ? window.GS1Utils.computeCheckDigit(body) : "0";
@@ -187,11 +199,13 @@
       const createdAt = toDateString((index % 12) + 1, (index % 28) + 1);
       const modifiedAt = toDateString(((index + 2) % 12) + 1, ((index + 8) % 28) + 1);
       const graceStatus = getGraceStatus(index);
+      const category = CLASSIFICATIONS[index % CLASSIFICATIONS.length];
       const record = {
         id: `product-${String(index + 1).padStart(3, "0")}`,
         mode: "products",
         type,
         code: buildCommercialCode(type, index + 1),
+        internalCode: `CI-${String(index + 1).padStart(6, "0")}`,
         name: `${brand} ${variety} ${index + 1}`,
         dataQuality: index % 3 !== 1,
         gs1Verify: index % 4 < 2,
@@ -203,7 +217,8 @@
         createdAt,
         image: PRODUCT_IMAGES[index % PRODUCT_IMAGES.length],
         imageGallery: buildImageGallery(PRODUCT_IMAGES, index),
-        classification: CLASSIFICATIONS[index % CLASSIFICATIONS.length],
+        classification: category,
+        category,
         content: CONTENTS[index % CONTENTS.length],
         distributionType: DISTRIBUTIONS[index % DISTRIBUTIONS.length],
         shortDescription: `${brand} ${variety}`,
@@ -212,12 +227,7 @@
         packaging: PACKAGING[index % PACKAGING.length],
         subBrand: `${brand} ${["Seleccion", "Origen", "Vital", "Max"][index % 4]}`,
         lineOfBusiness: LINES_OF_BUSINESS[index % LINES_OF_BUSINESS.length],
-        extraFields: {
-          atributoA: `Segmento ${String.fromCharCode(65 + (index % 4))}`,
-          atributoB: `Familia ${index % 5 + 1}`,
-          atributoC: `Canal ${["Retail", "Mayorista", "E-commerce"][index % 3]}`,
-          atributoD: `Sello ${index % 2 === 0 ? "Controlado" : "General"}`,
-        },
+        seals: [...SEALS[index % SEALS.length]],
       };
       if (graceStatus === "exception-open") {
         record.exceptionRequest = buildExceptionRequest(index);
