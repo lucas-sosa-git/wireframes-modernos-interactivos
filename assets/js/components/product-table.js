@@ -11,7 +11,7 @@
       title: "Unidades de despacho", label: "unidades de despacho", empty: "No hay unidades de despacho para mostrar con los filtros activos.",
       columns: [
         ["image", "Imagen", false], ["type", "Tipo de código"], ["code", "Código"], ["containedGtin", "GTIN Contenido"], ["name", "Descripción"], ["status", "Estado"],
-        ["brand", "Marca"], ["packagingLevel", "Envase"], ["baseQuantity", "Unidad Contenida"], ["modifiedAt", "Fecha de modificación"],
+        ["brand", "Marca"], ["packagingLevel", "Variable logística"], ["baseQuantity", "Unidad Contenida"], ["modifiedAt", "Fecha de modificación"],
       ],
     },
   };

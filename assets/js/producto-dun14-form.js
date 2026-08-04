@@ -1,11 +1,8 @@
 (function () {
   const EDITABLE_FIELDS = [
     "packagingLevel",
-    "containedGtin",
-    "containedDescription",
     "code",
     "unitsContained",
-    "name",
     "packaging",
     "image",
     "baseQuantity",
@@ -60,12 +57,12 @@
             ${context === "page" ? '<a href="productos.html" class="btn btn-outline-secondary">Volver al listado</a>' : ""}
           </div>
           <form class="row g-3 dispatch-editor__form" novalidate>
-            ${renderField("Variable logística", "packagingLevel", record.packagingLevel)}
-            ${renderField("GTIN contenido", "containedGtin", record.containedGtin, { required: true })}
-            ${renderField("Descripción del GTIN contenido", "containedDescription", record.containedDescription)}
+            ${renderSelectField("Variable logística", "packagingLevel", record.packagingLevel)}
+            ${renderField("GTIN contenido", "containedGtin", record.containedGtin, { required: true, locked: true })}
+            ${renderField("Descripción del GTIN contenido", "containedDescription", record.containedDescription, { locked: true })}
             ${renderField("DUN 14", "code", record.code, { required: true })}
             ${renderField("Unidades contenidas", "unitsContained", record.unitsContained, { required: true, inputMode: "numeric" })}
-            ${renderField("Descripción de la unidad de despacho", "name", record.name, { required: true })}
+            ${renderField("Descripción de la unidad de despacho", "name", record.name, { required: true, locked: true })}
             ${renderField("Envase agrupador", "packaging", record.packaging)}
             <div class="col-12 col-lg-6">
               <div class="dispatch-editor__preview">
@@ -140,11 +137,29 @@
       ? ' <span class="text-danger" aria-label="obligatorio">*</span>'
       : "";
     const inputMode = options.inputMode ? ` inputmode="${escapeAttribute(options.inputMode)}"` : "";
+    const locked = options.locked ? ' class="form-control form-control--locked" readonly aria-readonly="true"' : ' class="form-control"';
 
     return `
       <div class="col-12 col-md-6">
         <label class="form-label" for="dispatch-${name}">${label}${requiredBadge}</label>
-        <input class="form-control" id="dispatch-${name}" name="${name}" value="${escapeAttribute(value || "")}"${inputMode}>
+        <input${locked} id="dispatch-${name}" name="${name}" value="${escapeAttribute(value || "")}"${inputMode}>
+      </div>
+    `;
+  }
+
+  function renderSelectField(label, name, value) {
+    const selectedValue = /^[0-9]$/.test(String(value || "")) ? String(value) : "";
+    const options = Array.from({ length: 10 }, (_, option) => `
+      <option value="${option}"${selectedValue === String(option) ? " selected" : ""}>${option}</option>
+    `).join("");
+
+    return `
+      <div class="col-12 col-md-6">
+        <label class="form-label" for="dispatch-${name}">${label}</label>
+        <select class="form-select" id="dispatch-${name}" name="${name}" required>
+          <option value="">Elegir…</option>
+          ${options}
+        </select>
       </div>
     `;
   }
@@ -163,6 +178,9 @@
 
   function validatePayload(payload) {
     const errors = [];
+    if (!/^[0-9]$/.test(payload.packagingLevel)) {
+      errors.push("La variable logística debe ser un dígito entre 0 y 9.");
+    }
     if (!payload.containedGtin) {
       errors.push("El GTIN contenido es obligatorio.");
     }

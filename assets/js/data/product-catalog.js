@@ -206,7 +206,7 @@
         classification: CLASSIFICATIONS[index % CLASSIFICATIONS.length],
         content: CONTENTS[index % CONTENTS.length],
         distributionType: DISTRIBUTIONS[index % DISTRIBUTIONS.length],
-        shortDescription: `${brand} ${variety} con registro comercial activo en GS1.`,
+        shortDescription: `${brand} ${variety}`,
         graceStatus,
         markets: MARKETS[index % MARKETS.length],
         packaging: PACKAGING[index % PACKAGING.length],
@@ -252,14 +252,14 @@
         classification: "Logistica / Distribucion / Unidad de despacho",
         content: `${unitsContained} unidades base`,
         distributionType: DESTINATIONS[index % DESTINATIONS.length],
-        packagingLevel: PACKAGING_LEVELS[index % PACKAGING_LEVELS.length],
+        packagingLevel: String(index % 10),
         destination: DESTINATIONS[index % DESTINATIONS.length],
         baseQuantity: `${unitsContained} unidades base`,
         shortDescription: `Unidad logistica preparada para ${DESTINATIONS[index % DESTINATIONS.length].toLowerCase()}.`,
         containedGtin: containedProduct.code,
         containedDescription: containedProduct.name,
         unitsContained: String(unitsContained),
-        packaging: PACKAGING_LEVELS[index % PACKAGING_LEVELS.length],
+        packaging: PACKAGING[index % PACKAGING.length],
       };
       record.logs = buildDispatchLogs(record, index);
       return record;
