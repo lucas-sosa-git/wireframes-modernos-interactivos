@@ -1,14 +1,4 @@
-﻿(function () {
-  const STEPS = [
-    { id: "00", title: "Datos preseleccionados", meta: "Descripci&oacute;n + GTIN contenido" },
-    { id: "01", title: "Variable log&iacute;stica", meta: "Completar variable" },
-    { id: "02", title: "C&aacute;lculo GTIN 14", meta: "Generar c&oacute;digo" },
-    { id: "03", title: "Descripci&oacute;n GTIN 14", meta: "Armar descripci&oacute;n" },
-    { id: "05", title: "Unidades contenidas", meta: "Completar unidades" },
-    { id: "06", title: "Descripci&oacute;n final", meta: "A&ntilde;adir unidades" },
-    { id: "07", title: "Envase", meta: "Completar envase" },
-    { id: "08", title: "Confirmar alta", meta: "Revisar y confirmar" },
-  ];
+(function () {
   let product = null;
   let state = null;
   let pendingImages = [];
@@ -25,22 +15,20 @@
       mount.innerHTML = '<div class="alert alert-warning"><h1 class="h4">No se encontr&oacute; el producto comercial seleccionado.</h1><p>Eleg&iacute; un producto comercial antes de completar el alta.</p><a class="btn btn-primary" href="producto-nuevo-dun14.html">Volver a seleccionar producto</a></div>';
       return;
     }
+
     state = {
-      currentIndex: 0,
-      highestIndex: 0,
       logisticVariable: "",
       code: "",
-      baseDescription: product.name || product.shortDescription || "",
       units: "",
-      finalDescription: "",
       packaging: "",
+      finalDescription: "",
       images: getProductImages(product),
       galleryIndex: 0,
     };
     pendingImages = [];
-    renderFlow();
-    bindFlow();
-    renderCurrentStep();
+    renderAlta();
+    bindAlta();
+    updateDerivedFields();
   }
 
   function getProductImages(record) {
@@ -51,95 +39,155 @@
     return [...new Set(candidates)];
   }
 
-  function renderFlow() {
+  function renderAlta() {
     const mount = document.getElementById("dispatchAltaMount");
     const containedType = window.GS1ProductCatalog.formatProductType
       ? window.GS1ProductCatalog.formatProductType(product.type)
       : product.type;
+
     mount.innerHTML = `
       <section class="card shadow-sm">
         <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
             <div>
               <div class="text-secondary small">Alta de GTIN 14</div>
-              <h1 class="h3">Alta de unidad de despacho</h1>
-              <p class="text-secondary mb-0">Complet&aacute; el proceso paso a paso para generar y confirmar el GTIN 14.</p>
+              <h1 class="h3 mb-1">Alta de unidad de despacho</h1>
+              <p class="text-secondary mb-0">Complet&aacute; los datos de la unidad de despacho y confirm&aacute; el alta.</p>
             </div>
             <a class="btn btn-outline-secondary" href="producto-nuevo-dun14.html">Cambiar producto contenido</a>
           </div>
-          <div class="row g-4 align-items-start mt-4 mb-4">
-            <div class="col-lg-6">
-              <div class="alert alert-light border h-100 mb-0">
-                <h2 class="h5 mb-1">${escapeHtml(product.name)}</h2>
-                <div class="small text-secondary">GTIN contenido: ${escapeHtml(product.code)} &middot; ${escapeHtml(containedType)} &middot; Marca: ${escapeHtml(product.brand)}</div>
-                <div class="small mt-2">${escapeHtml(product.shortDescription)}</div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="dispatch-image-panel border rounded p-3 h-100">
-                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-                  <div>
-                    <div class="fw-semibold">Im&aacute;genes del alta</div>
-                    <div class="small text-secondary">Pod&eacute;s importar m&aacute;s de una imagen.</div>
-                  </div>
-                  <button class="btn btn-outline-primary btn-sm" type="button" data-dispatch-import-image>Importar imagen</button>
-                </div>
-                <div data-dispatch-gallery>${renderGallery()}</div>
-              </div>
-            </div>
-          </div>
-          <ol class="row row-cols-2 row-cols-md-4 g-2 list-unstyled mb-4" aria-label="Pasos del alta" data-flow-stepper></ol>
           <form id="dispatchAltaForm" novalidate>
-            <section class="border rounded p-3 p-md-4" aria-live="polite" data-flow-panel>
-              <div data-flow-content></div>
-            </section>
-            <div class="d-flex flex-wrap justify-content-between gap-2 mt-4" data-flow-actions>
-              <button class="btn btn-link text-decoration-none px-0" type="button" data-flow-previous>&larr; Anterior</button>
-              <button class="btn btn-primary" type="submit" data-flow-next>Continuar &rarr;</button>
+            <div class="row g-4 align-items-start">
+              <div class="col-lg-6">
+                <div class="dispatch-alta-fields border rounded p-3">
+                  <div class="mb-3">
+                    <label class="form-label" for="dispatchLogisticVariable">Variable log&iacute;stica</label>
+                    <select class="form-select" id="dispatchLogisticVariable" name="logisticVariable" required>
+                      <option value="">Elegir&hellip;</option>
+                      ${Array.from({ length: 10 }, (_, value) => `<option value="${value}">${value}</option>`).join("")}
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="dispatchContainedGtin">GTIN Contenido</label>
+                    <input class="form-control" id="dispatchContainedGtin" value="${escapeHtml(product.code)}" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="dispatchContainedDescription">Descripci&oacute;n GTIN Contenido</label>
+                    <input class="form-control" id="dispatchContainedDescription" value="${escapeHtml(product.name)}" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="dispatchCode">GTIN 14</label>
+                    <input class="form-control" id="dispatchCode" value="" readonly aria-describedby="dispatchCodeHelp">
+                    <div class="form-text" id="dispatchCodeHelp">Se calcula con la variable log&iacute;stica y el GTIN contenido.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="dispatchUnits">Unidades Contenidas</label>
+                    <input class="form-control" id="dispatchUnits" name="units" type="number" min="1" step="1" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="dispatchFinalDescription">Descripci&oacute;n GTIN 14</label>
+                    <input class="form-control" id="dispatchFinalDescription" value="" readonly aria-describedby="dispatchDescriptionHelp">
+                    <div class="form-text" id="dispatchDescriptionHelp">Se concatena autom&aacute;ticamente con las unidades y el envase agrupador.</div>
+                  </div>
+                  <div>
+                    <label class="form-label" for="dispatchPackaging">Envase Agrupador</label>
+                    <input class="form-control" id="dispatchPackaging" name="packaging" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="dispatch-image-panel border rounded p-3">
+                  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                    <div>
+                      <div class="fw-semibold">Im&aacute;genes del alta</div>
+                      <div class="small text-secondary">Pod&eacute;s importar m&aacute;s de una imagen.</div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" type="button" data-dispatch-import-image>Importar Imagen</button>
+                  </div>
+                  <div data-dispatch-gallery>${renderGallery()}</div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mt-4">
+              <button class="btn btn-primary px-4" type="submit">Confirmar Alta DUN 14</button>
             </div>
           </form>
-          <div class="modal fade" id="dispatchImageModal" tabindex="-1" aria-labelledby="dispatchImageModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="modal-title h5" id="dispatchImageModalLabel">Importar im&aacute;genes</h2>
-                  <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                  <label class="form-label" for="dispatchImageInput">Seleccion&aacute; una o m&aacute;s im&aacute;genes</label>
-                  <input class="form-control" id="dispatchImageInput" type="file" accept="image/*" multiple>
-                  <div class="small text-secondary mt-2">Las im&aacute;genes seleccionadas se incorporan a la galer&iacute;a del alta.</div>
-                  <div class="row g-2 mt-3" data-dispatch-image-preview></div>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
-                  <button class="btn btn-primary" type="button" data-dispatch-add-images disabled>Agregar im&aacute;genes</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          ${imageImportModal()}
         </div>
       </section>`;
+  }
+
+  function imageImportModal() {
+    return `<div class="modal fade" id="dispatchImageModal" tabindex="-1" aria-labelledby="dispatchImageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="dispatchImageModalLabel">Importar im&aacute;genes</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <label class="form-label" for="dispatchImageInput">Seleccion&aacute; una o m&aacute;s im&aacute;genes</label>
+            <input class="form-control" id="dispatchImageInput" type="file" accept="image/*" multiple>
+            <div class="small text-secondary mt-2">Las im&aacute;genes seleccionadas se incorporan a la galer&iacute;a del alta.</div>
+            <div class="row g-2 mt-3" data-dispatch-image-preview></div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-primary" type="button" data-dispatch-add-images disabled>Agregar im&aacute;genes</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function bindAlta() {
+    const mount = document.getElementById("dispatchAltaMount");
+    const form = document.getElementById("dispatchAltaForm");
+    form.addEventListener("input", () => {
+      collectFormState(form);
+      updateDerivedFields();
+    });
+    form.addEventListener("change", () => {
+      collectFormState(form);
+      updateDerivedFields();
+    });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      collectFormState(form);
+      updateDerivedFields();
+      if (!form.reportValidity()) return;
+      confirmAlta();
+    });
     mount.querySelector("[data-dispatch-import-image]")?.addEventListener("click", () => {
       bootstrap.Modal.getOrCreateInstance(document.getElementById("dispatchImageModal")).show();
     });
-  }
-
-  function bindFlow() {
-    const mount = document.getElementById("dispatchAltaMount");
-    const form = document.getElementById("dispatchAltaForm");
-    mount.querySelector("[data-flow-stepper]").addEventListener("click", (event) => {
-      const button = event.target.closest("[data-flow-step]");
-      if (!button || button.disabled) return;
-      goToStep(Number(button.dataset.flowStep));
-    });
-    mount.querySelector("[data-flow-previous]").addEventListener("click", () => goToStep(state.currentIndex - 1));
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      advanceStep();
-    });
     bindGallery(mount);
     bindImageImport(mount);
+  }
+
+  function collectFormState(form) {
+    state.logisticVariable = String(form.elements.logisticVariable?.value || "");
+    state.units = String(form.elements.units?.value || "").trim();
+    state.packaging = String(form.elements.packaging?.value || "").trim();
+  }
+
+  function updateDerivedFields() {
+    state.code = state.logisticVariable ? calculateCode() : "";
+    state.finalDescription = composeDescription();
+    const codeInput = document.getElementById("dispatchCode");
+    const descriptionInput = document.getElementById("dispatchFinalDescription");
+    if (codeInput) codeInput.value = state.code;
+    if (descriptionInput) descriptionInput.value = state.finalDescription;
+  }
+
+  function calculateCode() {
+    const body = `${String(state.logisticVariable)}${String(product.code).padStart(13, "0").slice(0, 12)}`;
+    return `${body}${window.GS1Utils.computeCheckDigit(body)}`;
+  }
+
+  function composeDescription() {
+    if (!state.units) return "";
+    return `${product.name}${state.packaging ? ` ${state.packaging}` : ""} x ${state.units} unidades`;
   }
 
   function bindGallery(mount) {
@@ -147,13 +195,11 @@
     if (!gallery) return;
     gallery.addEventListener("click", (event) => {
       const control = event.target.closest("[data-dispatch-gallery-prev], [data-dispatch-gallery-next], [data-dispatch-gallery-thumb]");
-      if (!control) return;
-      const images = state.images;
-      if (!images.length) return;
+      if (!control || !state.images.length) return;
       if (control.hasAttribute("data-dispatch-gallery-prev")) state.galleryIndex -= 1;
       if (control.hasAttribute("data-dispatch-gallery-next")) state.galleryIndex += 1;
       if (control.hasAttribute("data-dispatch-gallery-thumb")) state.galleryIndex = Number(control.dataset.dispatchGalleryThumb);
-      state.galleryIndex = (state.galleryIndex + images.length) % images.length;
+      state.galleryIndex = (state.galleryIndex + state.images.length) % state.images.length;
       gallery.innerHTML = renderGallery();
     });
   }
@@ -189,116 +235,29 @@
   }
 
   function readImageFiles(fileList) {
-    return Promise.all(Array.from(fileList || []).filter((file) => file.type.startsWith("image/")).map((file) => new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.addEventListener("load", () => resolve({ name: file.name, dataUrl: String(reader.result || "") }));
-      reader.addEventListener("error", () => resolve(null));
-      reader.readAsDataURL(file);
-    }))).then((images) => images.filter((image) => image?.dataUrl));
+    return Promise.all(Array.from(fileList || [])
+      .filter((file) => file.type.startsWith("image/"))
+      .map((file) => new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => resolve({ name: file.name, dataUrl: String(reader.result || "") }));
+        reader.addEventListener("error", () => resolve(null));
+        reader.readAsDataURL(file);
+      }))).then((images) => images.filter((image) => image?.dataUrl));
   }
 
   function renderGallery() {
-    const images = state?.images || [];
-    if (!images.length) return '<div class="product-image-placeholder dispatch-image-placeholder"><span>No hay im&aacute;genes cargadas</span></div>';
-    const index = Math.min(Math.max(state.galleryIndex, 0), images.length - 1);
+    if (!state.images.length) return '<div class="product-image-placeholder dispatch-image-placeholder"><span>No hay im&aacute;genes cargadas</span></div>';
+    const index = Math.min(Math.max(state.galleryIndex, 0), state.images.length - 1);
     state.galleryIndex = index;
     return `<div class="product-gallery dispatch-image-gallery">
       <div class="product-gallery__stage">
-        ${images.length > 1 ? '<button class="product-gallery__control product-gallery__control--prev" type="button" data-dispatch-gallery-prev aria-label="Imagen anterior">&lsaquo;</button>' : ""}
-        <img data-dispatch-gallery-main src="${escapeHtml(images[index])}" alt="Imagen ${index + 1} del alta" decoding="async">
-        ${images.length > 1 ? '<button class="product-gallery__control product-gallery__control--next" type="button" data-dispatch-gallery-next aria-label="Imagen siguiente">&rsaquo;</button>' : ""}
+        ${state.images.length > 1 ? '<button class="product-gallery__control product-gallery__control--prev" type="button" data-dispatch-gallery-prev aria-label="Imagen anterior">&lsaquo;</button>' : ""}
+        <img data-dispatch-gallery-main src="${escapeHtml(state.images[index])}" alt="Imagen ${index + 1} del alta" decoding="async">
+        ${state.images.length > 1 ? '<button class="product-gallery__control product-gallery__control--next" type="button" data-dispatch-gallery-next aria-label="Imagen siguiente">&rsaquo;</button>' : ""}
       </div>
-      ${images.length > 1 ? `<div class="product-gallery__thumbs" role="tablist">${images.map((image, imageIndex) => `<button class="product-gallery__thumb${imageIndex === index ? " is-active" : ""}" type="button" data-dispatch-gallery-thumb="${imageIndex}" aria-label="Ver imagen ${imageIndex + 1}"><img src="${escapeHtml(image)}" alt=""></button>`).join("")}</div>` : ""}
-      <div class="small text-secondary text-center mt-2">Imagen ${index + 1} de ${images.length}</div>
+      ${state.images.length > 1 ? `<div class="product-gallery__thumbs" role="tablist">${state.images.map((image, imageIndex) => `<button class="product-gallery__thumb${imageIndex === index ? " is-active" : ""}" type="button" data-dispatch-gallery-thumb="${imageIndex}" aria-label="Ver imagen ${imageIndex + 1}"><img src="${escapeHtml(image)}" alt=""></button>`).join("")}</div>` : ""}
+      <div class="small text-secondary text-center mt-2">Imagen ${index + 1} de ${state.images.length}</div>
     </div>`;
-  }
-
-  function renderCurrentStep() {
-    const step = STEPS[state.currentIndex];
-    if (step.id === "02" && state.logisticVariable && !state.code) calculateCode();
-    if (step.id === "06") state.finalDescription = composeDescription();
-    const mount = document.getElementById("dispatchAltaMount");
-    mount.querySelector("[data-flow-content]").innerHTML = stepMarkup(step.id);
-    mount.querySelector("[data-flow-stepper]").innerHTML = STEPS.map((item, index) => `
-      <li class="col">
-        <button type="button" class="w-100 h-100 text-start border rounded p-2 bg-body ${index === state.currentIndex ? "border-primary bg-primary-subtle" : ""}" data-flow-step="${index}" ${index > state.highestIndex ? "disabled" : ""} aria-current="${index === state.currentIndex ? "step" : "false"}">
-          <span class="d-block small fw-semibold">Paso ${item.id}</span>
-          <span class="d-block small">${item.title}</span>
-          <span class="d-block text-secondary small">${item.meta}</span>
-        </button>
-      </li>`).join("");
-    const previous = mount.querySelector("[data-flow-previous]");
-    const next = mount.querySelector("[data-flow-next]");
-    previous.classList.toggle("invisible", state.currentIndex === 0);
-    next.textContent = step.id === "08" ? "Confirmar alta" : `Continuar al paso ${STEPS[state.currentIndex + 1]?.id || ""} \u2192`;
-    next.classList.toggle("btn-success", step.id === "08");
-    next.classList.toggle("btn-primary", step.id !== "08");
-  }
-
-  function stepMarkup(id) {
-    switch (id) {
-      case "00":
-        return `<div class="text-secondary small">Paso 00</div><h2 class="h4">Datos preseleccionados</h2><p class="text-secondary">La descripci&oacute;n y el GTIN contenido vienen seleccionados desde el producto comercial elegido.</p><div class="row g-3"><div class="col-md-6"><label class="form-label" for="dispatchContainedDescription">Descripci&oacute;n</label><input class="form-control" id="dispatchContainedDescription" value="${escapeHtml(product.name)}" readonly></div><div class="col-md-6"><label class="form-label" for="dispatchContainedGtin">GTIN contenido</label><input class="form-control" id="dispatchContainedGtin" value="${escapeHtml(product.code)}" readonly></div></div>`;
-      case "01":
-        return `<div class="text-secondary small">Paso 01</div><h2 class="h4">Complet&aacute; la variable log&iacute;stica</h2><p class="text-secondary">Eleg&iacute; la variable que identifica el nivel de la unidad de despacho.</p><label class="form-label" for="dispatchLogisticVariable">Variable log&iacute;stica <span class="text-danger">*</span></label><select class="form-select" id="dispatchLogisticVariable" name="logisticVariable" required><option value="">Elegir&hellip;</option>${Array.from({ length: 10 }, (_, value) => `<option value="${value}" ${String(state.logisticVariable) === String(value) ? "selected" : ""}>${value}</option>`).join("")}</select>`;
-      case "02":
-        return `<div class="text-secondary small">Paso 02</div><h2 class="h4">Calcul&aacute; el GTIN 14</h2><p class="text-secondary">El c&oacute;digo se calcula con la variable log&iacute;stica y el GTIN contenido.</p><div class="row g-3"><div class="col-md-6"><label class="form-label" for="dispatchCode">GTIN 14 calculado</label><input class="form-control form-control-lg fw-semibold" id="dispatchCode" value="${escapeHtml(state.code)}" readonly></div><div class="col-md-6"><label class="form-label">Variable log&iacute;stica aplicada</label><div class="form-control-plaintext fw-semibold">${escapeHtml(state.logisticVariable)}</div></div></div><div class="alert alert-success mt-3 mb-0">El GTIN 14 queda listo para continuar con su descripci&oacute;n.</div>`;
-      case "03":
-        return `<div class="text-secondary small">Paso 03</div><h2 class="h4">Descripci&oacute;n del GTIN 14</h2><p class="text-secondary">La descripci&oacute;n se toma de la unidad contenida y se completa autom&aacute;ticamente con las unidades y el envase agrupador.</p><label class="form-label" for="dispatchName">Descripci&oacute;n de la unidad contenida</label><input class="form-control" id="dispatchName" value="${escapeHtml(state.baseDescription)}" readonly aria-readonly="true">`;
-      case "05":
-        return `<div class="text-secondary small">Paso 05</div><h2 class="h4">Complet&aacute; las unidades contenidas</h2><p class="text-secondary">Indic&aacute; cu&aacute;ntas unidades del producto seleccionado contiene la unidad de despacho.</p><label class="form-label" for="dispatchUnits">Unidades contenidas <span class="text-danger">*</span></label><input class="form-control" id="dispatchUnits" name="units" type="number" min="1" step="1" value="${escapeHtml(state.units)}" required>`;
-      case "06":
-        return `<div class="text-secondary small">Paso 06</div><h2 class="h4">A&ntilde;ad&iacute; las unidades a la descripci&oacute;n</h2><p class="text-secondary">La descripci&oacute;n se concatena autom&aacute;ticamente con la cantidad cargada en el paso 05. El envase agrupador se sumar&aacute; en el paso 07.</p><label class="form-label" for="dispatchFinalDescription">Descripci&oacute;n parcial del GTIN 14</label><input class="form-control" id="dispatchFinalDescription" value="${escapeHtml(state.finalDescription)}" readonly><div class="alert alert-light border mt-3 mb-0">Se agregar&aacute; <strong>${escapeHtml(state.units)} unidades</strong>.</div>`;
-      case "07":
-        return `<div class="text-secondary small">Paso 07</div><h2 class="h4">Complet&aacute; el envase agrupador</h2><p class="text-secondary">Este dato se incorporar&aacute; al final de la descripci&oacute;n del GTIN 14.</p><label class="form-label" for="dispatchPackaging">Envase agrupador <span class="text-danger">*</span></label><input class="form-control" id="dispatchPackaging" name="packaging" value="${escapeHtml(state.packaging)}" required>`;
-      case "08":
-        return `<div class="text-secondary small">Paso 08</div><h2 class="h4">Confirm&aacute; el alta</h2><p class="text-secondary">Revis&aacute; los datos antes de crear el GTIN 14.</p><div class="row g-3"><div class="col-md-6"><div class="text-secondary small">GTIN 14</div><div class="fw-semibold">${escapeHtml(state.code)}</div></div><div class="col-md-6"><div class="text-secondary small">GTIN contenido</div><div class="fw-semibold">${escapeHtml(product.code)}</div></div><div class="col-md-6"><div class="text-secondary small">Descripci&oacute;n</div><div class="fw-semibold">${escapeHtml(state.finalDescription)}</div></div><div class="col-md-6"><div class="text-secondary small">Unidades contenidas</div><div class="fw-semibold">${escapeHtml(state.units)}</div></div><div class="col-md-6"><div class="text-secondary small">Envase</div><div class="fw-semibold">${escapeHtml(state.packaging)}</div></div><div class="col-md-6"><div class="text-secondary small">Variable log&iacute;stica</div><div class="fw-semibold">${escapeHtml(state.logisticVariable)}</div></div></div>`;
-      default:
-        return "";
-    }
-  }
-
-  function advanceStep() {
-    collectCurrentStep();
-    const form = document.getElementById("dispatchAltaForm");
-    if (!form.reportValidity()) return;
-    if (STEPS[state.currentIndex].id === "08") {
-      confirmAlta();
-      return;
-    }
-    if (state.currentIndex === 1) state.code = "";
-    if (state.currentIndex < STEPS.length - 1) {
-      state.currentIndex += 1;
-      state.highestIndex = Math.max(state.highestIndex, state.currentIndex);
-      renderCurrentStep();
-    }
-  }
-
-  function goToStep(index) {
-    if (index < 0 || index > state.highestIndex) return;
-    collectCurrentStep();
-    state.currentIndex = index;
-    renderCurrentStep();
-  }
-
-  function collectCurrentStep() {
-    const form = document.getElementById("dispatchAltaForm");
-    if (!form) return;
-    const stepId = STEPS[state.currentIndex].id;
-    if (stepId === "01") state.logisticVariable = String(form.elements.logisticVariable?.value || "");
-    if (stepId === "05") state.units = String(form.elements.units?.value || "").trim();
-    if (stepId === "07") state.packaging = String(form.elements.packaging?.value || "").trim();
-    if (state.baseDescription && state.units) state.finalDescription = composeDescription();
-  }
-
-  function calculateCode() {
-    const body = `${String(state.logisticVariable)}${String(product.code).padStart(13, "0").slice(0, 12)}`;
-    state.code = `${body}${window.GS1Utils.computeCheckDigit(body)}`;
-  }
-
-  function composeDescription() {
-    if (!state.baseDescription || !state.units) return state.baseDescription;
-    return `${state.baseDescription} x ${state.units} unidades${state.packaging ? ` - ${state.packaging}` : ""}`;
   }
 
   function confirmAlta() {
@@ -375,8 +334,7 @@
             </div>
           </div>
         </div>
-      </section>
-    `;
+      </section>`;
   }
 
   function renderSuccessField(label, value) {
