@@ -69,11 +69,11 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="dispatchContainedGtin">GTIN Contenido</label>
-                    <input class="form-control" id="dispatchContainedGtin" value="${escapeHtml(product.code)}" readonly>
+                    <input class="form-control form-control--locked" id="dispatchContainedGtin" value="${escapeHtml(product.code)}" readonly>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="dispatchContainedDescription">Descripci&oacute;n GTIN Contenido</label>
-                    <input class="form-control" id="dispatchContainedDescription" value="${escapeHtml(product.name)}" readonly>
+                    <input class="form-control form-control--locked" id="dispatchContainedDescription" value="${escapeHtml(product.name)}" readonly>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="dispatchCode">GTIN 14</label>
@@ -86,7 +86,7 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="dispatchFinalDescription">Descripci&oacute;n GTIN 14</label>
-                    <input class="form-control" id="dispatchFinalDescription" value="" readonly aria-describedby="dispatchDescriptionHelp">
+                    <input class="form-control form-control--locked" id="dispatchFinalDescription" value="" readonly aria-describedby="dispatchDescriptionHelp">
                     <div class="form-text" id="dispatchDescriptionHelp">Se concatena autom&aacute;ticamente con las unidades y el envase agrupador.</div>
                   </div>
                   <div>
@@ -333,7 +333,7 @@
   }
 
   function renderSuccessField(label, value) {
-    return `<div class="col-md-6"><div class="product-detail-field product-detail-field--locked" aria-disabled="true"><div class="text-secondary small">${label}</div><div class="fw-semibold">${escapeHtml(value || "-")}</div></div></div>`;
+    return `<div class="col-md-6"><div class="product-detail-field"><div class="text-secondary small">${label}</div><div class="fw-semibold">${escapeHtml(value || "-")}</div></div></div>`;
   }
 
   function escapeHtml(value) { return window.GS1Utils.escapeHtml(String(value ?? "")); }
