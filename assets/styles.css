@@ -524,6 +524,13 @@ main,
   height: 100%;
 }
 
+.product-detail-field.product-detail-field--locked {
+  border-color: #d7dce4;
+  background: #f1f3f5;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
 .product-detail-note {
   border: 1px solid #e3e7ef;
   border-radius: 16px;

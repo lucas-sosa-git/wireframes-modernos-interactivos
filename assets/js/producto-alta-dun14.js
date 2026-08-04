@@ -275,18 +275,14 @@
       imageGallery: [...state.images],
       shortDescription: state.finalDescription,
     };
-    const token = window.GS1Utils.saveQrHandoff(payload);
     window.GS1Utils.showSimulationToast(`Alta DUN 14 ${state.code} confirmada.`, "success");
-    renderAltaSuccess(payload, token);
+    renderAltaSuccess(payload);
   }
 
-  function renderAltaSuccess(payload, token) {
+  function renderAltaSuccess(payload) {
     const mount = document.getElementById("dispatchAltaMount");
     if (!mount) return;
     const image = window.GS1ProductCatalog.resolveImagePath(payload.image);
-    const qrAction = token
-      ? `<a class="btn btn-primary" href="qr-digital-link.html?handoff=${encodeURIComponent(token)}">Imprim&iacute; tu QR</a>`
-      : '<button class="btn btn-primary" type="button" disabled aria-disabled="true">Imprim&iacute; tu QR</button>';
     mount.innerHTML = `
       <section class="card shadow-sm product-detail-card">
         <div class="card-body">
@@ -324,7 +320,6 @@
                 ${renderSuccessField("Marca", payload.brand)}
               </div>
               <div class="d-flex flex-wrap gap-2 mt-4">
-                ${qrAction}
                 <a class="btn btn-primary" href="generador-simbologia.html">Generar Simbolog&iacute;a</a>
                 <a class="btn btn-primary" href="producto-nuevo-dun14.html">Dar de Alta Nuevo Producto</a>
                 <a class="btn btn-primary" href="producto-nuevo-dun14.html">Copiar</a>
@@ -338,7 +333,7 @@
   }
 
   function renderSuccessField(label, value) {
-    return `<div class="col-md-6"><div class="product-detail-field"><div class="text-secondary small">${label}</div><div class="fw-semibold">${escapeHtml(value || "-")}</div></div></div>`;
+    return `<div class="col-md-6"><div class="product-detail-field product-detail-field--locked" aria-disabled="true"><div class="text-secondary small">${label}</div><div class="fw-semibold">${escapeHtml(value || "-")}</div></div></div>`;
   }
 
   function escapeHtml(value) { return window.GS1Utils.escapeHtml(String(value ?? "")); }
