@@ -519,12 +519,16 @@
 
   function injectEditNotice(record) {
     const isActive = record.mode === "products" && record.status === "Activo";
+    const exceptionAction = isActive
+      ? `<a class="btn btn-sm btn-outline-primary mt-2" href="producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new">Solicitar excepción para otro cambio</a>`
+      : "";
     injectBanner(`
       <div class="alert alert-info gs1-inline-banner" role="status">
         <div class="fw-semibold">${isActive ? "Edición restringida" : "Edición habilitada"}</div>
         <div class="small">${isActive
           ? `El producto <strong>${escapeHtml(record.name)}</strong> está activo. Solo se pueden modificar el Código Interno, las imágenes, la URL y los sellos.`
           : `Podés modificar la información de <strong>${escapeHtml(record.name)}</strong> antes de guardar los cambios.`}</div>
+        ${exceptionAction}
       </div>
     `);
   }

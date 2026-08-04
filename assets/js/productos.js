@@ -714,7 +714,7 @@
         <div class="btn-group btn-group-sm product-row-actions" role="group" aria-label="Acciones del registro">
           ${renderActionButton("detail", record.id, "Detalle", "eye")}
           ${renderActionButton("copy", record.id, "Editar copia", "files")}
-          ${renderActionButton("edit", record.id, record.mode === TABLE_MODES.products && record.status === "Activo" ? "Crear Solicitud de Excepción" : "Modificar", "pencil-square")}
+          ${renderActionButton("edit", record.id, "Modificar", "pencil-square")}
           ${renderActionButton("logs", record.id, "Logs", "clock-history")}
           ${renderActionButton("digital-link", record.id, "QR / Digital Link", "../QR-DATAMATRIX.png")}
           ${renderActionButton("symbol", record.id, "Generador de simbologia", "../GENERADOR DE SIMBOLOGIA.png")}
@@ -1403,7 +1403,7 @@
       return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
     }
     if (record.mode === TABLE_MODES.products && record.status === "Activo") {
-      return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+      return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
     }
     switch (record.graceStatus) {
       case "exception-required":

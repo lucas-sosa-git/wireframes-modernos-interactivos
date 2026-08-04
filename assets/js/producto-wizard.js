@@ -551,7 +551,13 @@
     const notice = document.createElement("div");
     notice.className = "product-wizard-readonly-notice";
     notice.setAttribute("role", "note");
-    notice.innerHTML = `<span aria-hidden="true">🔒</span><span>${escapeHtml(options.message || "Paso de solo lectura.")}</span>`;
+    const exceptionUrl = editingRecord
+      ? `producto-solicitud-modificacion.html?id=${encodeURIComponent(editingRecord.id)}&view=new`
+      : "producto-solicitud-modificacion.html";
+    const exceptionLabel = options.partial
+      ? "Solicitar excepción para los demás campos"
+      : "Solicitar excepción para modificar este paso";
+    notice.innerHTML = `<span aria-hidden="true">&#128274;</span><div class="product-wizard-readonly-notice__content"><div>${escapeHtml(options.message || "Paso de solo lectura.")}</div><a class="btn btn-sm btn-outline-primary product-wizard-exception-link" href="${exceptionUrl}">${exceptionLabel}</a></div>`;
     (intro || panel.querySelector("h2"))?.insertAdjacentElement("afterend", notice);
   }
 

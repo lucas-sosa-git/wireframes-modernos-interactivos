@@ -35,7 +35,7 @@
 
   function getEditUrl(record) {
     if (record.mode === "dispatchUnits") return `producto-editar-dun14.html?id=${encodeURIComponent(record.id)}`;
-    if (record.status === "Activo") return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
+    if (record.status === "Activo") return `producto-editar.html?id=${encodeURIComponent(record.id)}`;
     if (record.graceStatus === "exception-open") return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=open`;
     if (record.graceStatus === "exception-required") return `producto-solicitud-modificacion.html?id=${encodeURIComponent(record.id)}&view=new`;
     return `producto-editar.html?id=${encodeURIComponent(record.id)}`;

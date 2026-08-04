@@ -223,6 +223,15 @@
   font-size: .9rem;
 }
 
+.product-wizard-readonly-notice__content {
+  display: grid;
+  gap: .55rem;
+}
+
+.product-wizard-exception-link {
+  justify-self: start;
+}
+
 .product-wizard-step--readonly .form-control:disabled,
 .product-wizard-step--readonly .form-select:disabled,
 .product-wizard-step--partially-editable .form-control:disabled,
