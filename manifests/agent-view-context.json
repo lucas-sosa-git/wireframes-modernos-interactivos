@@ -145,7 +145,8 @@
       ],
       "styles": [
         "assets/b05/css/bootstrap.min.css",
-        "assets/styles.css"
+        "assets/styles.css",
+        "assets/b05/css/producto-wizard.css"
       ],
       "local_routes": [],
       "mounts": [

@@ -2,6 +2,7 @@
   let product = null;
   let state = null;
   let pendingImages = [];
+  let currentStep = 1;
 
   document.addEventListener("DOMContentLoaded", init);
 
@@ -19,6 +20,7 @@
     }
 
     state = {
+      gtinType: copyRecord ? "dun14" : "",
       logisticVariable: copyRecord ? String(copyRecord.code || "").charAt(0) : "",
       code: "",
       units: copyRecord ? String(copyRecord.unitsContained || "") : "",
@@ -29,9 +31,8 @@
     };
     pendingImages = [];
     renderAlta();
-    setInitialFormValues();
     bindAlta();
-    updateDerivedFields();
+    renderStep();
   }
 
   function findContainedProduct(containedGtin) {
@@ -61,75 +62,196 @@
       : product.type;
 
     mount.innerHTML = `
-      <section class="card shadow-sm">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
-            <div>
-              <div class="text-secondary small">Alta de unidad de despacho</div>
-              <h1 class="h3 mb-1">Alta de unidad de despacho</h1>
-              <p class="text-secondary mb-0">Complet&aacute; los datos de la unidad de despacho y confirm&aacute; el alta.</p>
-            </div>
-            <a class="btn btn-outline-secondary" href="alta-unidad-de-despacho.html">Cambiar producto contenido</a>
+      <section class="card shadow-sm product-wizard-modern" data-dispatch-wizard>
+        <header class="product-wizard-modern__header">
+          <div>
+            <div class="product-wizard-modern__eyebrow">Alta de unidad de despacho</div>
+            <h1 class="product-wizard-modern__title">Alta de unidad de despacho</h1>
+            <p class="product-wizard-modern__lead">Complet&aacute; los pasos para definir el tipo de GTIN, cargar los atributos y confirmar el alta.</p>
           </div>
-          <form id="dispatchAltaForm" novalidate>
-            <div class="row g-4 align-items-start">
-              <div class="col-lg-6">
-                <div class="dispatch-alta-fields border rounded p-3">
-                  <div class="mb-3">
-                    <label class="form-label" for="dispatchLogisticVariable">Variable log&iacute;stica</label>
-                    <select class="form-select" id="dispatchLogisticVariable" name="logisticVariable" required>
-                      <option value="">Elegir&hellip;</option>
-                      ${Array.from({ length: 10 }, (_, value) => `<option value="${value}">${value}</option>`).join("")}
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="dispatchContainedGtin">GTIN Contenido</label>
-                    <input class="form-control form-control--locked" id="dispatchContainedGtin" value="${escapeHtml(product.code)}" readonly>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="dispatchContainedDescription">Descripci&oacute;n GTIN Contenido</label>
-                    <input class="form-control form-control--locked" id="dispatchContainedDescription" value="${escapeHtml(product.name)}" readonly>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="dispatchCode">GTIN 14</label>
-                    <input class="form-control" id="dispatchCode" value="" readonly aria-describedby="dispatchCodeHelp">
-                    <div class="form-text" id="dispatchCodeHelp">Se calcula con la variable log&iacute;stica y el GTIN contenido.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="dispatchUnits">Unidades Contenidas</label>
-                    <input class="form-control" id="dispatchUnits" name="units" type="number" min="1" step="1" required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="dispatchFinalDescription">Descripci&oacute;n GTIN 14</label>
-                    <input class="form-control form-control--locked" id="dispatchFinalDescription" value="" readonly aria-describedby="dispatchDescriptionHelp">
-                    <div class="form-text" id="dispatchDescriptionHelp">Se concatena autom&aacute;ticamente con las unidades y el envase agrupador.</div>
-                  </div>
-                  <div>
-                    <label class="form-label" for="dispatchPackaging">Envase Agrupador</label>
-                    <input class="form-control" id="dispatchPackaging" name="packaging" required>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="dispatch-image-panel border rounded p-3">
-                  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-                    <div>
-                      <div class="fw-semibold">Im&aacute;genes del alta</div>
-                      <div class="small text-secondary">Pod&eacute;s importar m&aacute;s de una imagen.</div>
-                    </div>
-                    <button class="btn btn-primary btn-sm" type="button" data-dispatch-import-image>Importar Imagen</button>
-                  </div>
-                  <div data-dispatch-gallery>${renderGallery()}</div>
-                </div>
-              </div>
+          <div>
+            <div class="product-wizard-modern__help btn-group" role="group" aria-label="Material de ayuda para el alta de unidad de despacho">
+              <a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo Alta de unidad de despacho</a>
+              <button class="btn btn-outline-primary" type="button">Video de ayuda Alta de unidad de despacho</button>
             </div>
-            <div class="d-flex justify-content-start mt-4">
-              <button class="btn btn-primary px-4" type="submit">Confirmar alta de unidad de despacho</button>
+          </div>
+        </header>
+        <div class="product-wizard-modern__layout">
+          <nav aria-label="Pasos del alta de unidad de despacho">
+            <ol class="product-wizard-stepper" data-dispatch-stepper></ol>
+          </nav>
+          <section class="product-wizard-panel" aria-live="polite">
+            <div class="product-wizard-panel__body" data-dispatch-step-content></div>
+            <div class="product-wizard-actions">
+              <button type="button" class="btn btn-link text-decoration-none" data-dispatch-previous>&larr; Anterior</button>
+              <span class="product-wizard-actions__spacer"></span>
+              <button type="button" class="btn btn-primary" data-dispatch-next>Continuar &rarr;</button>
             </div>
-          </form>
-          ${imageImportModal()}
+          </section>
         </div>
       </section>`;
+  }
+
+  function renderStep() {
+    const mount = document.getElementById("dispatchAltaMount");
+    const content = mount?.querySelector("[data-dispatch-step-content]");
+    const stepper = mount?.querySelector("[data-dispatch-stepper]");
+    if (!content || !stepper) return;
+
+    stepper.innerHTML = [
+      [1, "Tipo de GTIN", "Est&aacute;ndar de codificaci&oacute;n"],
+      [2, "Atributos", "Datos de la unidad"],
+      [3, "Confirmaci&oacute;n", "Revisi&oacute;n final"],
+    ].map(([id, title, meta]) => `
+      <li class="product-wizard-stepper__item" data-status="${id < currentStep ? "completed" : id === currentStep ? "current" : "pending"}">
+        <button type="button" class="product-wizard-stepper__button" data-dispatch-step="${id}" ${id > currentStep ? "disabled" : ""} aria-current="${id === currentStep ? "step" : "false"}">
+          <span class="product-wizard-stepper__marker" aria-hidden="true">${id}</span>
+          <span class="product-wizard-stepper__title">${title}</span>
+          <span class="product-wizard-stepper__meta">${meta}</span>
+        </button>
+      </li>`).join("");
+
+    if (currentStep === 1) content.innerHTML = renderGtinStep();
+    if (currentStep === 2) content.innerHTML = renderAttributesStep();
+    if (currentStep === 3) content.innerHTML = renderConfirmationStep();
+
+    const previous = mount.querySelector("[data-dispatch-previous]");
+    const next = mount.querySelector("[data-dispatch-next]");
+    previous.disabled = currentStep === 1;
+    next.textContent = currentStep === 3 ? "Confirmar alta" : "Continuar →";
+    mount.querySelectorAll("[data-dispatch-step]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = Number(button.dataset.dispatchStep);
+        if (target <= currentStep) {
+          currentStep = target;
+          renderStep();
+        }
+      });
+    });
+    if (currentStep === 1) bindGtinSelection(mount);
+    if (currentStep === 2 && state.gtinType === "dun14") bindDispatchForm(mount);
+  }
+
+  function renderGtinStep() {
+    return `
+      <div class="product-wizard-step-intro">
+        <h2 class="h4 mb-1">01 &middot; Seleccion&aacute; el tipo de GTIN</h2>
+        <p class="mb-0">Eleg&iacute; el est&aacute;ndar que vas a utilizar para la unidad de despacho.</p>
+      </div>
+      <div class="mb-4 p-3 rounded border bg-body-tertiary">
+        <div class="text-secondary small">Producto contenido</div>
+        <div class="fw-semibold">${escapeHtml(product.name)}</div>
+        <div class="small text-secondary">GTIN ${escapeHtml(product.code)}</div>
+        <a class="btn btn-outline-secondary btn-sm mt-3" href="alta-unidad-de-despacho.html">Cambiar producto contenido</a>
+      </div>
+      <div class="row g-3" role="radiogroup" aria-label="Tipo de GTIN">
+        ${gtinChoice("gtin13", "GTIN 13", "La validaci&oacute;n de atributos se completar&aacute; con Identificaci&oacute;n.")}
+        ${gtinChoice("dun14", "DUN 14", "Permite completar los datos log&iacute;sticos de la unidad de despacho.")}
+      </div>`;
+  }
+
+  function gtinChoice(value, title, description) {
+    const selected = state.gtinType === value;
+    return `<div class="col-md-6">
+      <button type="button" class="wizard-choice w-100 h-100 text-start border-0 bg-transparent p-0 ${selected ? "is-selected" : ""}" data-modern-choice data-dispatch-gtin="${value}" aria-pressed="${selected}">
+        <span class="card h-100 p-3">
+          <span class="d-block fw-semibold fs-5">${title}</span>
+          <span class="d-block text-secondary mt-2">${description}</span>
+        </span>
+      </button>
+    </div>`;
+  }
+
+  function renderAttributesStep() {
+    if (state.gtinType === "gtin13") {
+      return `
+        <div class="product-wizard-step-intro">
+          <h2 class="h4 mb-1">02 &middot; Atributos</h2>
+          <p class="mb-0">Valid&aacute; la informaci&oacute;n que corresponde al tipo de GTIN elegido.</p>
+        </div>
+        <div class="alert alert-info mb-0" role="status">
+          <h3 class="h5">Validar atributos con Identificaci&oacute;n</h3>
+          <p class="mb-2">En esta etapa se definir&aacute; con el equipo de Identificaci&oacute;n qu&eacute; atributos corresponden al GTIN 13.</p>
+          <p class="mb-0">Por ahora no se solicita un formulario adicional. Pod&eacute;s continuar para revisar y confirmar el alta.</p>
+        </div>`;
+    }
+
+    return `
+      <div class="product-wizard-step-intro">
+        <h2 class="h4 mb-1">02 &middot; Atributos DUN 14</h2>
+        <p class="mb-0">Complet&aacute; los datos log&iacute;sticos de la unidad de despacho.</p>
+      </div>
+      <form id="dispatchAltaForm" novalidate>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6">
+            <div class="dispatch-alta-fields border rounded p-3">
+              <div class="mb-3">
+                <label class="form-label" for="dispatchLogisticVariable">Variable log&iacute;stica</label>
+                <select class="form-select" id="dispatchLogisticVariable" name="logisticVariable" required>
+                  <option value="">Elegir&hellip;</option>
+                  ${Array.from({ length: 10 }, (_, value) => `<option value="${value}">${value}</option>`).join("")}
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="dispatchContainedGtin">GTIN contenido</label>
+                <input class="form-control form-control--locked" id="dispatchContainedGtin" value="${escapeHtml(product.code)}" readonly>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="dispatchContainedDescription">Descripci&oacute;n GTIN contenido</label>
+                <input class="form-control form-control--locked" id="dispatchContainedDescription" value="${escapeHtml(product.name)}" readonly>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="dispatchCode">DUN 14</label>
+                <input class="form-control" id="dispatchCode" value="" readonly aria-describedby="dispatchCodeHelp">
+                <div class="form-text" id="dispatchCodeHelp">Se calcula con la variable log&iacute;stica y el GTIN contenido.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="dispatchUnits">Unidades contenidas</label>
+                <input class="form-control" id="dispatchUnits" name="units" type="number" min="1" step="1" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="dispatchFinalDescription">Descripci&oacute;n DUN 14</label>
+                <input class="form-control form-control--locked" id="dispatchFinalDescription" value="" readonly aria-describedby="dispatchDescriptionHelp">
+                <div class="form-text" id="dispatchDescriptionHelp">Se concatena autom&aacute;ticamente con las unidades y el envase agrupador.</div>
+              </div>
+              <div>
+                <label class="form-label" for="dispatchPackaging">Envase agrupador</label>
+                <input class="form-control" id="dispatchPackaging" name="packaging" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="dispatch-image-panel border rounded p-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <div>
+                  <div class="fw-semibold">Im&aacute;genes del alta</div>
+                  <div class="small text-secondary">Im&aacute;genes disponibles del producto contenido.</div>
+                </div>
+              </div>
+              <div data-dispatch-gallery>${renderGallery()}</div>
+            </div>
+          </div>
+        </div>
+      </form>`;
+  }
+
+  function renderConfirmationStep() {
+    const isDun14 = state.gtinType === "dun14";
+    return `
+      <div class="product-wizard-step-intro">
+        <h2 class="h4 mb-1">03 &middot; Confirmaci&oacute;n</h2>
+        <p class="mb-0">Revis&aacute; la informaci&oacute;n antes de confirmar el alta.</p>
+      </div>
+      <div class="border rounded p-3">
+        <div class="row g-3">
+          ${renderSuccessField("Producto contenido", product.name)}
+          ${renderSuccessField("GTIN contenido", product.code)}
+          ${renderSuccessField("Tipo de GTIN", isDun14 ? "DUN 14" : "GTIN 13")}
+          ${isDun14 ? renderSuccessField("DUN 14", state.code || "Pendiente de completar") : renderSuccessField("Atributos", "Validar con Identificación")}
+          ${isDun14 ? renderSuccessField("Unidades contenidas", state.units || "Pendiente de completar") : ""}
+          ${isDun14 ? renderSuccessField("Envase agrupador", state.packaging || "Pendiente de completar") : ""}
+        </div>
+      </div>`;
   }
 
   function imageImportModal() {
@@ -157,7 +279,24 @@
 
   function bindAlta() {
     const mount = document.getElementById("dispatchAltaMount");
-    const form = document.getElementById("dispatchAltaForm");
+    mount.querySelector("[data-dispatch-previous]")?.addEventListener("click", previousStep);
+    mount.querySelector("[data-dispatch-next]")?.addEventListener("click", nextStep);
+  }
+
+  function bindGtinSelection(mount) {
+    mount.querySelectorAll("[data-dispatch-gtin]").forEach((choice) => {
+      choice.addEventListener("click", () => {
+        state.gtinType = choice.dataset.dispatchGtin;
+        renderStep();
+      });
+    });
+  }
+
+  function bindDispatchForm(mount) {
+    const form = mount.querySelector("#dispatchAltaForm");
+    if (!form) return;
+    setInitialFormValues();
+    updateDerivedFields();
     form.addEventListener("input", () => {
       collectFormState(form);
       updateDerivedFields();
@@ -168,16 +307,56 @@
     });
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      collectFormState(form);
-      updateDerivedFields();
-      if (!form.reportValidity()) return;
-      confirmAlta();
+      nextStep();
     });
     mount.querySelector("[data-dispatch-import-image]")?.addEventListener("click", () => {
       bootstrap.Modal.getOrCreateInstance(document.getElementById("dispatchImageModal")).show();
     });
     bindGallery(mount);
     bindImageImport(mount);
+  }
+
+  function previousStep() {
+    if (currentStep === 1) return;
+    currentStep -= 1;
+    renderStep();
+  }
+
+  function nextStep() {
+    if (currentStep === 1) {
+      if (!state.gtinType) {
+        showStepFeedback("Seleccion&aacute; un tipo de GTIN para continuar.");
+        return;
+      }
+      currentStep = 2;
+      renderStep();
+      return;
+    }
+
+    if (currentStep === 2) {
+      const form = document.getElementById("dispatchAltaForm");
+      if (state.gtinType === "dun14" && form) {
+        collectFormState(form);
+        updateDerivedFields();
+        if (!form.reportValidity()) return;
+      }
+      currentStep = 3;
+      renderStep();
+      return;
+    }
+
+    if (state.gtinType === "dun14") {
+      confirmAlta();
+      return;
+    }
+    renderGtin13Success();
+  }
+
+  function showStepFeedback(message) {
+    const content = document.querySelector("[data-dispatch-step-content]");
+    if (!content) return;
+    content.querySelector("[data-dispatch-feedback]")?.remove();
+    content.insertAdjacentHTML("afterbegin", `<div class="alert alert-warning" data-dispatch-feedback role="alert">${message}</div>`);
   }
 
   function collectFormState(form) {
@@ -292,6 +471,32 @@
     };
     window.GS1Utils.showSimulationToast(`Alta de unidad de despacho ${state.code} confirmada.`, "success");
     renderAltaSuccess(payload);
+  }
+
+  function renderGtin13Success() {
+    const mount = document.getElementById("dispatchAltaMount");
+    if (!mount) return;
+    mount.innerHTML = `
+      <section class="card shadow-sm product-detail-card">
+        <div class="card-body">
+          <div class="text-center border-bottom pb-3 mb-4">
+            <div class="display-6 text-success" aria-hidden="true">&#10003;</div>
+            <div class="text-secondary small">Alta de unidad de despacho</div>
+            <h1 class="h2 mb-2">Validar felicitaci&oacute;n con Identificaci&oacute;n</h1>
+            <p class="text-secondary mb-0">La felicitaci&oacute;n del alta para GTIN 13 queda pendiente de validaci&oacute;n con el equipo de Identificaci&oacute;n.</p>
+          </div>
+          <div class="row g-3">
+            ${renderSuccessField("Producto contenido", product.name)}
+            ${renderSuccessField("GTIN contenido", product.code)}
+            ${renderSuccessField("Tipo seleccionado", "GTIN 13")}
+            ${renderSuccessField("Pr&oacute;ximo paso", "Definir la felicitaci&oacute;n con Identificaci&oacute;n")}
+          </div>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a class="btn btn-primary" href="alta-unidad-de-despacho.html">Dar de alta otra unidad de despacho</a>
+            <a class="btn btn-outline-secondary" href="productos-listado-dun14.html">Volver al listado</a>
+          </div>
+        </div>
+      </section>`;
   }
 
   function renderAltaSuccess(payload) {

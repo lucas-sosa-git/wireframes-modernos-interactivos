@@ -4,7 +4,7 @@
   function init() {
     const mount = document.getElementById("dispatchNewMount");
     if (!mount || !window.GS1ProductTable || !window.GS1ProductCatalog) return;
-    mount.innerHTML = `<section class="card shadow-sm mb-4"><div class="card-body"><div class="d-flex flex-wrap justify-content-between gap-2"><div><div class="text-secondary small">Paso 1 de 2</div><h1 class="h3">Seleccionar producto contenido</h1><p class="text-secondary mb-0">Primero seleccioná el producto comercial que quedará contenido en la unidad de despacho.</p></div></div></div></section><div id="dispatchProductTable"></div>${detailModal()}`;
+    mount.innerHTML = `<section class="card shadow-sm mb-4"><div class="card-body"><div class="d-flex flex-wrap justify-content-between gap-2"><div><div class="text-secondary small">Selecci&oacute;n inicial</div><h1 class="h3">Seleccionar producto contenido</h1><p class="text-secondary mb-0">Primero seleccion&aacute; el producto comercial que quedar&aacute; contenido en la unidad de despacho.</p></div></div></div></section><div id="dispatchProductTable"></div>${detailModal()}`;
     const outerCard = mount.querySelector("section");
     const tableMount = mount.querySelector("#dispatchProductTable");
     outerCard?.classList.add("dispatch-new-card");
@@ -32,7 +32,7 @@
       mode: "products",
       actions: "dun14-selection",
       persistenceKey: "gs1.products.columnVisibility.dun14Selection.v2",
-      eyebrow: "Paso 1 de 2",
+      eyebrow: "Selecci&oacute;n inicial",
       heading: "Productos comerciales",
       description: "Buscá por GTIN, producto, marca, variedad, origen, estado o fechas.",
       onAction(action, record, trigger) {
