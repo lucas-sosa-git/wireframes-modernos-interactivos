@@ -154,7 +154,7 @@ Fecha de ejecucion: 2026-05-21
 | https://www.e-tradeconsult.com/privado/gs1/b05/producto-editar.html | b05/producto-editar.html | HTTP 200 | actualizado | xlsx |
 | https://www.e-tradeconsult.com/privado/gs1/b05/producto-ficha.html | b05/producto-ficha.html | HTTP 200 | actualizado | xlsx |
 | https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo.html | b05/producto-nuevo.html | HTTP 200 | actualizado | xlsx |
-| https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html | b05/producto-nuevo-dun14.html | HTTP 200 | creado | navigation |
+| https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html | b05/alta-unidad-de-despacho.html | HTTP 200 | creado | navigation |
 | https://www.e-tradeconsult.com/privado/gs1/b05/productos.html | b05/productos.html | HTTP 200 | actualizado | xlsx |
 | https://www.e-tradeconsult.com/privado/gs1/b05/productos-carga-masiva.html | b05/productos-carga-masiva.html | HTTP 200 | actualizado | xlsx |
 | https://www.e-tradeconsult.com/privado/gs1/b05/productos-listado.html | b05/productos-listado.html | HTTP 200 | actualizado | xlsx |

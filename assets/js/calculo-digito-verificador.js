@@ -17,9 +17,18 @@
     mount.innerHTML = `
       <section class="card shadow-sm gs1-tool-shell">
         <div class="card-body">
+          <div class="gs1-tool-header">
+            <div>
+              <h1 class="h3 mb-1">C&aacute;lculo del D&iacute;gito Verificador</h1>
+              <div class="text-secondary">Herramienta para calcular d&iacute;gitos verificadores GS1</div>
+            </div>
+            <div class="btn-group gs1-tool-help-actions" role="group" aria-label="Material de ayuda para el cálculo del dígito verificador">
+              <a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo D&iacute;gito verificador</a>
+              <button class="btn btn-outline-primary" type="button">Video de ayuda D&iacute;gito verificador</button>
+            </div>
+          </div>
           <div class="row g-4">
             <div class="col-lg-7">
-              <h1 class="h3 mb-3">C&aacute;lculo del D&iacute;gito Verificador</h1>
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label" for="checkDigitType">Tipo</label>

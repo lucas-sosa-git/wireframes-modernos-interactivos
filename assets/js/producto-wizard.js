@@ -226,6 +226,14 @@
         <h1 class="product-wizard-modern__title">${title}</h1>
         <p class="product-wizard-modern__lead">${lead}</p>
       </div>
+      <div class="product-wizard-modern__help btn-group" role="group" aria-label="Material de ayuda para el alta de producto">
+        <a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>
+          Descargar instructivo Alta de producto
+        </a>
+        <button type="button" class="btn btn-outline-primary" data-wizard-help-video>
+          Video de ayuda Alta de producto
+        </button>
+      </div>
     `;
 
     const layout = document.createElement("div");

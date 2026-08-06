@@ -52,7 +52,7 @@
                   <a href="${getEditUrl(record)}" class="btn btn-outline-primary">${getEditLabel(record)}</a>
                   <a href="${getCopyUrl(record)}" class="btn btn-outline-primary">Copiar datos</a>
                   <a href="productos.html" class="btn btn-outline-secondary">Volver al listado</a>
-                  <a href="${record.mode === "dispatchUnits" ? "producto-nuevo-dun14.html" : "producto-nuevo.html"}" class="btn btn-primary">Nueva alta</a>
+                  <a href="${record.mode === "dispatchUnits" ? "alta-unidad-de-despacho.html" : "producto-nuevo.html"}" class="btn btn-primary">Nueva alta</a>
                 </div>
               </div>
 
@@ -259,7 +259,7 @@
 
   function getCopyUrl(record) {
     return record.mode === "dispatchUnits"
-      ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
+      ? `alta-unidad-de-despacho.html?mode=copy&id=${encodeURIComponent(record.id)}`
       : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
   }
 

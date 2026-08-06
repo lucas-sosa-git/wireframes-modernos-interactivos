@@ -13,10 +13,10 @@
       eyebrow: "Catálogo GS1",
       heading: mode === "products" ? "Productos comerciales" : "Unidades de despacho DUN 14",
       description: "Consultá y administrá los registros desde un listado responsive.",
-      headerActions: `<div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-outline-primary" id="downloadProductsListBtn">${downloadLabel}</button><a class="btn btn-outline-primary" href="${isDispatchList ? "productos.html?mode=dispatchUnits" : "productos.html"}">Vista resumida</a><a class="btn btn-primary" href="${isDispatchList ? "producto-nuevo-dun14.html" : "producto-nuevo.html"}">${isDispatchList ? "Generar DUN 14" : "Nuevo producto"}</a></div>`,
+      headerActions: `<div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-outline-primary" id="downloadProductsListBtn">${downloadLabel}</button><a class="btn btn-outline-primary" href="${isDispatchList ? "productos.html?mode=dispatchUnits" : "productos.html"}">Vista resumida</a><a class="btn btn-primary" href="${isDispatchList ? "alta-unidad-de-despacho.html" : "producto-nuevo.html"}">${isDispatchList ? "Alta de unidad de despacho" : "Nuevo producto"}</a></div>`,
       onAction(action, record) {
         if (action === "detail") window.location.href = `producto-ficha.html?id=${encodeURIComponent(record.id)}`;
-        if (action === "copy") window.location.href = record.mode === "dispatchUnits" ? `producto-alta-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}` : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
+        if (action === "copy") window.location.href = record.mode === "dispatchUnits" ? `producto-alta-unidad-de-despacho.html?mode=copy&id=${encodeURIComponent(record.id)}` : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
         if (action === "edit") window.location.href = getEditUrl(record);
         if (action === "logs") showLogsModal(record);
         if (action === "image") window.location.href = `producto-ficha.html?id=${encodeURIComponent(record.id)}#imagen`;

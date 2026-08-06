@@ -14,7 +14,7 @@
     const mount = document.getElementById("dispatchAltaMount");
     if (!mount) return;
     if (!product) {
-      mount.innerHTML = '<div class="alert alert-warning"><h1 class="h4">No se encontr&oacute; el producto comercial seleccionado.</h1><p>Eleg&iacute; un producto comercial antes de completar el alta.</p><a class="btn btn-primary" href="producto-nuevo-dun14.html">Volver a seleccionar producto</a></div>';
+      mount.innerHTML = '<div class="alert alert-warning"><h1 class="h4">No se encontr&oacute; el producto comercial seleccionado.</h1><p>Eleg&iacute; un producto comercial antes de completar el alta.</p><a class="btn btn-primary" href="alta-unidad-de-despacho.html">Volver a seleccionar producto</a></div>';
       return;
     }
 
@@ -65,11 +65,11 @@
         <div class="card-body">
           <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
             <div>
-              <div class="text-secondary small">Alta de GTIN 14</div>
+              <div class="text-secondary small">Alta de unidad de despacho</div>
               <h1 class="h3 mb-1">Alta de unidad de despacho</h1>
               <p class="text-secondary mb-0">Complet&aacute; los datos de la unidad de despacho y confirm&aacute; el alta.</p>
             </div>
-            <a class="btn btn-outline-secondary" href="producto-nuevo-dun14.html">Cambiar producto contenido</a>
+            <a class="btn btn-outline-secondary" href="alta-unidad-de-despacho.html">Cambiar producto contenido</a>
           </div>
           <form id="dispatchAltaForm" novalidate>
             <div class="row g-4 align-items-start">
@@ -124,7 +124,7 @@
               </div>
             </div>
             <div class="d-flex justify-content-start mt-4">
-              <button class="btn btn-primary px-4" type="submit">Confirmar Alta DUN 14</button>
+              <button class="btn btn-primary px-4" type="submit">Confirmar alta de unidad de despacho</button>
             </div>
           </form>
           ${imageImportModal()}
@@ -290,7 +290,7 @@
       imageGallery: [...state.images],
       shortDescription: state.finalDescription,
     };
-    window.GS1Utils.showSimulationToast(`Alta DUN 14 ${state.code} confirmada.`, "success");
+    window.GS1Utils.showSimulationToast(`Alta de unidad de despacho ${state.code} confirmada.`, "success");
     renderAltaSuccess(payload);
   }
 
@@ -303,9 +303,9 @@
         <div class="card-body">
           <div class="text-center border-bottom pb-3 mb-4">
             <div class="display-6 text-success" aria-hidden="true">&#10003;</div>
-            <div class="text-secondary small">Alta de GTIN 14</div>
+            <div class="text-secondary small">Alta de unidad de despacho</div>
             <h1 class="h2 mb-2">&iexcl;Alta exitosa!</h1>
-            <p class="text-secondary mb-0">El GTIN 14 fue creado con &eacute;xito.</p>
+            <p class="text-secondary mb-0">La unidad de despacho se cre&oacute; con &eacute;xito.</p>
           </div>
           <div class="row g-4 align-items-start">
             <div class="col-lg-4">
@@ -315,7 +315,7 @@
             </div>
             <div class="col-lg-8">
               <div class="mb-4">
-                <div class="text-secondary small">DUN 14</div>
+                <div class="text-secondary small">Unidad de despacho</div>
                 <h2 class="h3 mb-2">${escapeHtml(payload.name)}</h2>
                 <div class="d-flex flex-wrap gap-2 align-items-center">
                   <span class="badge text-bg-primary">${escapeHtml(payload.code)}</span>
@@ -327,7 +327,7 @@
                 </div>
               </div>
               <div class="row g-3">
-                ${renderSuccessField("DUN 14", payload.code)}
+                ${renderSuccessField("C&oacute;digo de unidad de despacho", payload.code)}
                 ${renderSuccessField("GTIN contenido", payload.containedGtin)}
                 ${renderSuccessField("Unidades contenidas", payload.unitsContained)}
                 ${renderSuccessField("Envase agrupador", payload.packaging)}
@@ -336,10 +336,10 @@
               </div>
               <div class="d-flex flex-wrap gap-2 mt-4">
                 <a class="btn btn-primary" href="generador-simbologia.html">Generar Simbolog&iacute;a</a>
-                <a class="btn btn-primary" href="producto-nuevo-dun14.html">Dar de Alta Nuevo Producto</a>
-                <a class="btn btn-primary" href="producto-nuevo-dun14.html">Copiar</a>
-                <a class="btn btn-primary" href="productos-listado-dun14.html">Ver Listado DUN 14</a>
-                <a class="btn btn-primary" href="producto-editar-dun14.html">Modificar este producto</a>
+                <a class="btn btn-primary" href="alta-unidad-de-despacho.html">Dar de alta nueva unidad de despacho</a>
+                <a class="btn btn-primary" href="alta-unidad-de-despacho.html">Copiar</a>
+                <a class="btn btn-primary" href="productos-listado-dun14.html">Ver listado de unidades de despacho</a>
+                <a class="btn btn-primary" href="producto-editar-dun14.html">Modificar esta unidad de despacho</a>
               </div>
             </div>
           </div>

@@ -2,7 +2,6 @@
   const TYPES = {
     "product-13": "Alta masiva GTIN 13",
     "product-12": "Alta masiva UPC 12",
-    "product-8": "Alta masiva GTIN 8",
     dun14: "Alta masiva DUN 14",
   };
   const PRODUCT_TEMPLATE_COLUMNS = {
@@ -39,9 +38,9 @@
           <h1 class="h3 mb-1">Alta masiva</h1>
           <p class="text-secondary">Seleccion&aacute; el tipo de proceso antes de cargar el archivo.</p>
           <select class="form-select mx-auto" id="bulkType" style="max-width: 340px">${Object.entries(TYPES).map(([value, label]) => `<option value="${value}" ${value === initial ? "selected" : ""}>${label}</option>`).join("")}</select>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-            <a class="btn btn-primary" id="viewInstructions" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank" rel="noopener">Ver instructivo Alta masiva GTIN 13</a>
-            <a class="btn btn-primary" id="downloadInstructions" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo Alta masiva GTIN 13</a>
+          <div class="btn-group bulk-help-actions mt-4" role="group" aria-label="Material de ayuda para el alta masiva">
+            <a class="btn btn-outline-primary" id="downloadInstructions" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo Alta masiva GTIN 13</a>
+            <button class="btn btn-outline-primary" id="videoInstructions" type="button">Video de ayuda Alta masiva GTIN 13</button>
           </div>
           <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
             <div class="dropdown" id="templateDownloadMenu">
@@ -102,10 +101,10 @@
           <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
             <div>
               <div class="text-secondary small">Herramienta complementaria</div>
-              <h2 class="h5 mb-1">Generador de URLs - Alta Masiva DUN 14</h2>
+              <h2 class="h5 mb-1">Generador de URLs</h2>
               <p class="text-secondary mb-0">Import&aacute; las im&aacute;genes para preparar URLs temporales.</p>
             </div>
-            <a class="btn btn-outline-primary btn-sm" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank" rel="noopener">Instructivo para carga</a>
+            <a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" target="_blank" rel="noopener">Instructivo para carga</a>
           </div>
           <label class="bulk-drop-zone d-block border border-2 border-primary border-opacity-25 rounded-3 p-4 text-center mt-3" id="urlDropZone" for="urlFile">
             <strong>Importar</strong><span class="d-block text-secondary small mt-1">o arrastr&aacute; un archivo aqu&iacute;</span>
@@ -153,8 +152,8 @@
   function updateBulkType() {
     const type = document.getElementById("bulkType").value;
     const label = TYPES[type];
-    document.getElementById("viewInstructions").textContent = `Ver instructivo ${label}`;
     document.getElementById("downloadInstructions").textContent = `Descargar instructivo ${label}`;
+    document.getElementById("videoInstructions").textContent = `Video de ayuda ${label}`;
     const isCommercialProduct = ["product-13", "product-12", "product-8"].includes(type);
     document.getElementById("templateDownloadMenu").classList.toggle("d-none", !isCommercialProduct);
     document.getElementById("templateDownloadHint").classList.toggle("d-none", !isCommercialProduct);

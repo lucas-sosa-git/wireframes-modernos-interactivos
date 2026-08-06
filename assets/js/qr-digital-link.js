@@ -12,10 +12,19 @@
     mount.innerHTML = `
       <section class="card shadow-sm gs1-tool-shell">
         <div class="card-body">
+          <div class="gs1-tool-header">
+            <div>
+              <h1 class="h3 mb-1">Generador de GS1 QR Code (Digital Link)</h1>
+              <div class="text-secondary">Herramienta de generación de QR Digital Link</div>
+            </div>
+            <div class="btn-group gs1-tool-help-actions" role="group" aria-label="Material de ayuda para QR Digital Link">
+              <a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo QR Digital Link</a>
+              <button class="btn btn-outline-primary" type="button">Video de ayuda QR Digital Link</button>
+            </div>
+          </div>
           <div class="alert alert-info">Esta herramienta genera un GS1 QR Code con Digital Link en modo simulaci&oacute;n.</div>
           <div class="row g-4">
             <div class="col-lg-7">
-              <h1 class="h3 mb-3">Generador de GS1 QR Code (Digital Link)</h1>
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label" for="digitalLinkGtin">GTIN</label>

@@ -126,7 +126,7 @@
       return `<td class="${["code", "createdAt", "modifiedAt"].includes(column.key) ? "product-cell-nowrap" : "product-cell-break"}">${escape(value || "")}</td>`;
     }
     function actions(record) {
-      if (options.actions === "dun14-selection") return `${button("create-dun14", record, "Generar nuevo DUN 14", "", "btn-primary product-table-generate-dun14")}${button("detail", record, "Detalle", "eye")}`;
+      if (options.actions === "dun14-selection") return `${button("create-dun14", record, "Generar nueva unidad de despacho", "", "btn-primary product-table-generate-dun14")}${button("detail", record, "Detalle", "eye")}`;
       return [button("detail", record, "Detalle", "eye"), button("copy", record, "Editar copia", "files"), button("edit", record, "Modificar", "pencil-square"), button("logs", record, "Logs", "clock-history"), button("digital-link", record, "QR / Digital Link", "../assets/img/QR-DATAMATRIX.png"), button("symbol", record, "Generador de simbología", "../assets/img/GENERADOR DE SIMBOLOGIA.png")].join("");
     }
     function button(action, record, label, icon, className = "btn-outline-secondary") { const mark = icon ? iconMarkup(icon) : escape(label); return `<button type="button" class="btn ${className}" data-product-table-action="${action}" data-product-id="${escapeAttr(record.id)}" aria-label="${escapeAttr(label)}" title="${escapeAttr(label)}" data-bs-toggle="tooltip" data-bs-title="${escapeAttr(label)}">${mark}</button>`; }

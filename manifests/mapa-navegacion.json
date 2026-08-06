@@ -1,4 +1,4 @@
-﻿{
+{
     "included":  [
                      {
                          "from":  "b03/ayuda.html",
@@ -21377,7 +21377,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/micuenta.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/micuenta.html",
                          "hash":  "",
@@ -21385,7 +21385,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/micuenta.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/micuenta.html",
                          "hash":  "",
@@ -21393,7 +21393,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/producto-editar.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-editar.html",
                          "hash":  "",
@@ -21401,7 +21401,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/producto-editar.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-editar.html",
                          "hash":  "",
@@ -21409,7 +21409,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/producto-nuevo.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo.html",
                          "hash":  "",
@@ -21417,7 +21417,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/producto-nuevo.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo.html",
                          "hash":  "",
@@ -21425,103 +21425,103 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#account-collapse",
                          "mechanism":  "data-bs-target",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#collapseNuevaMarca",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#collapseNuevaSubMarca",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#contenedor-atajos",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#contenedor-empresa",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#dashboard-collapse",
                          "mechanism":  "data-bs-target",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#home-collapse",
                          "mechanism":  "data-bs-target",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#ModalEditarMisDatos",
                          "mechanism":  "data-bs-target",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#ModalNotificaciones",
                          "mechanism":  "data-bs-target",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#orders-collapse",
                          "mechanism":  "data-bs-target",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "#respuesta",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/productos.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos.html",
                          "hash":  "",
@@ -21529,7 +21529,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/productos.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos.html",
                          "hash":  "",
@@ -21537,7 +21537,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/productos-listado.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos-listado.html",
                          "hash":  "",
@@ -21545,7 +21545,7 @@
                          "type":  "html"
                      },
                      {
-                         "from":  "b05/producto-nuevo-dun14.html",
+                         "from":  "b05/alta-unidad-de-despacho.html",
                          "to":  "b05/productos-listado.html",
                          "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/productos-listado.html",
                          "hash":  "",
@@ -21634,16 +21634,16 @@
                      },
                      {
                          "from":  "b05/productos.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
                          "from":  "b05/productos.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "",
                          "mechanism":  "html literal/js",
                          "type":  "html"
@@ -22266,16 +22266,16 @@
                      },
                      {
                          "from":  "b05/productos-listado-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "",
                          "mechanism":  "href",
                          "type":  "html"
                      },
                      {
                          "from":  "b05/productos-listado-dun14.html",
-                         "to":  "b05/producto-nuevo-dun14.html",
-                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/producto-nuevo-dun14.html",
+                         "to":  "b05/alta-unidad-de-despacho.html",
+                         "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/alta-unidad-de-despacho.html",
                          "hash":  "",
                          "mechanism":  "html literal/js",
                          "type":  "html"
@@ -23723,7 +23723,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/ayuda.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/ayuda.html",
                                 "hash":  "",
@@ -23731,7 +23731,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/ayuda.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/ayuda.html",
                                 "hash":  "",
@@ -23739,7 +23739,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/codificar.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/codificar.html",
                                 "hash":  "",
@@ -23747,7 +23747,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/codificar.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/codificar.html",
                                 "hash":  "",
@@ -23755,7 +23755,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/empresas.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/empresas.html",
                                 "hash":  "",
@@ -23763,7 +23763,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/empresas.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/empresas.html",
                                 "hash":  "",
@@ -23771,7 +23771,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/gln.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/gln.html",
                                 "hash":  "",
@@ -23779,7 +23779,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/gln.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/gln.html",
                                 "hash":  "",
@@ -23787,7 +23787,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/home.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/home.html",
                                 "hash":  "",
@@ -23795,7 +23795,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/home.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/home.html",
                                 "hash":  "",
@@ -23803,7 +23803,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/pagina-web.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/pagina-web.html",
                                 "hash":  "",
@@ -23811,7 +23811,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/pagina-web.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/pagina-web.html",
                                 "hash":  "",
@@ -23819,7 +23819,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/preferencias.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/preferencias.html",
                                 "hash":  "",
@@ -23827,7 +23827,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/preferencias.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/preferencias.html",
                                 "hash":  "",
@@ -23835,7 +23835,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/servicio-negociar.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/servicio-negociar.html",
                                 "hash":  "",
@@ -23843,7 +23843,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/servicio-negociar.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/servicio-negociar.html",
                                 "hash":  "",
@@ -23851,7 +23851,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/usuarios.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/usuarios.html",
                                 "hash":  "",
@@ -23859,7 +23859,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/usuarios.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/usuarios.html",
                                 "hash":  "",
@@ -23867,7 +23867,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/utilidades.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/utilidades.html",
                                 "hash":  "",
@@ -23875,7 +23875,7 @@
                                 "type":  "html"
                             },
                             {
-                                "from":  "b05/producto-nuevo-dun14.html",
+                                "from":  "b05/alta-unidad-de-despacho.html",
                                 "to":  "b05/utilidades.html",
                                 "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/utilidades.html",
                                 "hash":  "",
@@ -29031,55 +29031,55 @@
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/bootstrap.min.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/carousel-micuenta.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/dropdowns.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/features.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/list-groups.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/micuenta2.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/sidebars.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/css/subir-imagen.css",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"
                                },
                                {
-                                   "from":  "b05/producto-nuevo-dun14.html",
+                                   "from":  "b05/alta-unidad-de-despacho.html",
                                    "url":  "https://www.e-tradeconsult.com/privado/gs1/b05/favicon.ico",
                                    "mechanism":  "href",
                                    "action":  "reemplazado_por_hash"

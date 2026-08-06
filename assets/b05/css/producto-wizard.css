@@ -49,6 +49,15 @@
   color: var(--wizard-muted);
 }
 
+.product-wizard-modern__help {
+  flex: 0 0 auto;
+  margin-top: .15rem;
+}
+
+.product-wizard-modern__help .btn {
+  white-space: nowrap;
+}
+
 .product-wizard-modern__layout {
   display: grid;
   grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
@@ -740,6 +749,19 @@
 }
 
 @media (max-width: 767.98px) {
+  .product-wizard-modern__header {
+    flex-direction: column;
+  }
+
+  .product-wizard-modern__help {
+    align-self: stretch;
+  }
+
+  .product-wizard-modern__help .btn {
+    width: 50%;
+    white-space: normal;
+  }
+
   .product-wizard-modern__layout {
     display: block;
   }

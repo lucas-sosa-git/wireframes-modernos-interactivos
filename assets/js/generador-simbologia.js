@@ -16,9 +16,9 @@
               <div class="gs1-side-panel">
                 <label class="form-label" for="symbolType">Simbología</label>
                 <div class="btn-group w-100 mb-3" role="group" aria-label="Selector de simbología">
-                  <button type="button" class="btn btn-outline-primary symbol-type-button is-active" data-symbol-type="GTIN-13">EAN-13</button>
-                  <button type="button" class="btn btn-outline-primary symbol-type-button" data-symbol-type="GTIN-14">ITF-14</button>
-                  <button type="button" class="btn btn-outline-primary symbol-type-button" data-symbol-type="Otros" data-bs-toggle="collapse" data-bs-target="#otherSymbolTypes">Otros</button>
+                  <button type="button" class="btn btn-outline-primary symbol-type-button is-active" aria-pressed="true" data-symbol-type="GTIN-13">EAN-13</button>
+                  <button type="button" class="btn btn-outline-primary symbol-type-button" aria-pressed="false" data-symbol-type="GTIN-14">ITF-14</button>
+                  <button type="button" class="btn btn-outline-primary symbol-type-button" aria-pressed="false" data-symbol-type="Otros" data-bs-toggle="collapse" data-bs-target="#otherSymbolTypes">Otros</button>
                 </div>
                 <div class="collapse mb-3" id="otherSymbolTypes">
                   <select class="form-select" id="symbolTypeOther">${TYPES.slice(2).map((type) => `<option value="${type}">${type}</option>`).join("")}</select>
@@ -47,10 +47,14 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="mb-3">
+              <div class="gs1-tool-header">
                 <div>
                   <h1 class="h3 mb-1">Generador de Simbolog&iacute;a</h1>
                   <div class="text-secondary">${escapeHtml(record ? `${record.type} | ${record.name}` : "Herramienta de simulacion local")}</div>
+                </div>
+                <div class="btn-group gs1-tool-help-actions" role="group" aria-label="Material de ayuda para el generador de simbología">
+                  <a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo Generador de simbología</a>
+                  <button class="btn btn-outline-primary" type="button">Video de ayuda Generador de simbología</button>
                 </div>
               </div>
               <div class="d-flex flex-wrap justify-content-end gap-2 mb-3">
@@ -66,9 +70,7 @@
     if (record) {
       const inferredType = inferType(record.type);
       document.getElementById("symbolType").value = inferredType;
-      document.querySelectorAll("[data-symbol-type]").forEach((button) => {
-        button.classList.toggle("is-active", button.dataset.symbolType === inferredType);
-      });
+      setActiveSymbolButton(inferredType === "GTIN-13" || inferredType === "GTIN-14" ? inferredType : "Otros");
     }
     bindGenerator();
     renderPreview();
@@ -78,7 +80,7 @@
     document.querySelectorAll("[data-symbol-type]").forEach((button) => button.addEventListener("click", () => {
       const type = button.dataset.symbolType === "Otros" ? document.getElementById("symbolTypeOther").value : button.dataset.symbolType;
       document.getElementById("symbolType").value = type;
-      document.querySelectorAll("[data-symbol-type]").forEach((item) => item.classList.toggle("is-active", item === button));
+      setActiveSymbolButton(button.dataset.symbolType);
       renderPreview();
     }));
     document.getElementById("symbolTypeOther").addEventListener("change", (event) => {
@@ -93,13 +95,21 @@
         return;
       }
       document.getElementById("symbolType").value = selectedType;
-      document.querySelectorAll("[data-symbol-type]").forEach((item) => item.classList.toggle("is-active", item.dataset.symbolType === "Otros"));
+      setActiveSymbolButton("Otros");
       renderPreview();
     });
     document.getElementById("symbolCode").addEventListener("input", renderPreview);
     document.getElementById("generateSymbolBtn").addEventListener("click", generateFinalSymbol);
     document.getElementById("resetSymbolBtn").addEventListener("click", () => window.location.reload());
     document.getElementById("downloadSymbolBtn").addEventListener("click", () => window.GS1Utils.showSimulationToast("Descarga simulada correctamente.", "success"));
+  }
+
+  function setActiveSymbolButton(symbolType) {
+    document.querySelectorAll("[data-symbol-type]").forEach((item) => {
+      const isActive = item.dataset.symbolType === symbolType;
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
+    });
   }
 
   function generateFinalSymbol() {

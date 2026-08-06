@@ -1391,7 +1391,7 @@
 
   function getCopyUrl(record) {
     return record.mode === TABLE_MODES.dispatchUnits
-      ? `producto-alta-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
+      ? `producto-alta-unidad-de-despacho.html?mode=copy&id=${encodeURIComponent(record.id)}`
       : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
   }
 

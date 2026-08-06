@@ -22,7 +22,7 @@
       ],
       "styles": [
         "assets/b05/css/bootstrap.min.css",
-        "assets/styles.css"
+        "assets/styles.css?v=3"
       ],
       "local_routes": [],
       "mounts": [
@@ -51,7 +51,7 @@
       ],
       "styles": [
         "assets/b05/css/bootstrap.min.css",
-        "assets/styles.css"
+        "assets/styles.css?v=3"
       ],
       "local_routes": [],
       "mounts": [
@@ -129,7 +129,7 @@
         "assets/js/bootstrap.bundle.min.js"
       ]
     },
-    "b05/producto-alta-dun14.html": {
+    "b05/producto-alta-unidad-de-despacho.html": {
       "controller_js": [
         "assets/js/producto-alta-dun14.js"
       ],
@@ -302,7 +302,7 @@
         "assets/js/bootstrap.bundle.min.js"
       ]
     },
-    "b05/producto-nuevo-dun14.html": {
+    "b05/alta-unidad-de-despacho.html": {
       "controller_js": [
         "assets/js/producto-nuevo-dun14.js"
       ],
@@ -528,7 +528,7 @@
         "micuenta.html#ModalEditarMisDatos",
         "producto-editar.html",
         "producto-ficha.html",
-        "producto-nuevo-dun14.html",
+        "alta-unidad-de-despacho.html",
         "producto-nuevo.html",
         "productos-carga-masiva.html",
         "productos-listado-dun14.html",
@@ -563,7 +563,7 @@
       ],
       "styles": [
         "assets/b05/css/bootstrap.min.css",
-        "assets/styles.css"
+        "assets/styles.css?v=3"
       ],
       "local_routes": [],
       "mounts": [

@@ -4,9 +4,31 @@
   function init() {
     const mount = document.getElementById("dispatchNewMount");
     if (!mount || !window.GS1ProductTable || !window.GS1ProductCatalog) return;
-    mount.innerHTML = `<section class="card shadow-sm mb-4"><div class="card-body"><div class="d-flex flex-wrap justify-content-between gap-2"><div><div class="text-secondary small">Paso 1 de 2</div><h1 class="h3">Seleccionar producto contenido</h1><p class="text-secondary mb-0">Primero seleccioná el producto comercial que quedará contenido en la unidad de despacho.</p></div><a class="btn btn-outline-secondary align-self-start" href="productos-listado-dun14.html">Volver al listado</a></div></div></section><div id="dispatchProductTable"></div>${detailModal()}`;
+    mount.innerHTML = `<section class="card shadow-sm mb-4"><div class="card-body"><div class="d-flex flex-wrap justify-content-between gap-2"><div><div class="text-secondary small">Paso 1 de 2</div><h1 class="h3">Seleccionar producto contenido</h1><p class="text-secondary mb-0">Primero seleccioná el producto comercial que quedará contenido en la unidad de despacho.</p></div></div></div></section><div id="dispatchProductTable"></div>${detailModal()}`;
+    const outerCard = mount.querySelector("section");
+    const tableMount = mount.querySelector("#dispatchProductTable");
+    outerCard?.classList.add("dispatch-new-card");
+    if (outerCard && tableMount) outerCard.appendChild(tableMount);
+
+    const headerRow = mount.querySelector("section .card-body > .d-flex");
+    const headerCopy = headerRow?.firstElementChild;
+    headerRow?.classList.add("dispatch-new-card__header");
+    headerCopy?.classList.add("dispatch-new-card__copy");
+    const headerTitle = headerRow?.querySelector("h1");
+    if (headerTitle) headerTitle.textContent = "Alta de unidad de despacho";
+    if (headerRow) {
+      const helpGroup = document.createElement("div");
+      helpGroup.className = "btn-group align-self-start";
+      helpGroup.setAttribute("role", "group");
+      helpGroup.setAttribute("aria-label", "Material de ayuda para el alta de unidad de despacho");
+      helpGroup.innerHTML = `<a class="btn btn-outline-primary" href="../assets/archivos/Instructivo_ABM.pdf" download>Descargar instructivo Alta de unidad de despacho</a><button type="button" class="btn btn-outline-primary">Video de ayuda Alta de unidad de despacho</button>`;
+      const headerActions = document.createElement("div");
+      headerActions.className = "dispatch-new-card__actions d-flex flex-column align-items-end gap-2";
+      headerActions.appendChild(helpGroup);
+      headerRow.appendChild(headerActions);
+    }
     window.GS1ProductTable.mount({
-      mount: document.getElementById("dispatchProductTable"),
+      mount: tableMount,
       mode: "products",
       actions: "dun14-selection",
       persistenceKey: "gs1.products.columnVisibility.dun14Selection.v2",
@@ -15,7 +37,7 @@
       description: "Buscá por GTIN, producto, marca, variedad, origen, estado o fechas.",
       onAction(action, record, trigger) {
         if (action === "create-dun14") {
-          const url = new URL("producto-alta-dun14.html", document.baseURI);
+          const url = new URL("producto-alta-unidad-de-despacho.html", document.baseURI);
           url.searchParams.set("id", record.id);
           window.location.assign(url.href);
           return;
@@ -23,6 +45,14 @@
         if (action === "detail" || action === "image") showDetail(record, trigger);
       },
     });
+    const tableCard = tableMount?.querySelector(".product-table-component");
+    tableCard?.classList.add("dispatch-new-card__table");
+    const tableHeader = tableCard?.querySelector(":scope > .card-body.border-bottom");
+    const tableIntro = tableHeader?.querySelector(":scope > .d-flex.align-items-start");
+    const tableTools = tableHeader?.querySelector(":scope > .d-flex.mt-3");
+    tableIntro?.remove();
+    tableTools?.classList.remove("mt-3");
+    tableHeader?.classList.add("dispatch-new-card__table-tools");
   }
 
   function showDetail(record, trigger) {

@@ -9,7 +9,7 @@
       return;
     }
     const destination = record.mode === "dispatchUnits"
-      ? `producto-nuevo-dun14.html?mode=copy&id=${encodeURIComponent(record.id)}`
+      ? `alta-unidad-de-despacho.html?mode=copy&id=${encodeURIComponent(record.id)}`
       : `producto-nuevo.html?mode=copy&id=${encodeURIComponent(record.id)}`;
     window.location.replace(destination);
   });
