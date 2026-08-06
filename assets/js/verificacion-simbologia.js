@@ -35,8 +35,6 @@
           <h1 class="h3 mb-3">Generar solicitud</h1>
           <form id="verificationNewForm" class="row g-3">
             <div class="col-12"><label class="form-label" for="verificationDescription">Descripci&oacute;n o consulta</label><textarea class="form-control" id="verificationDescription" rows="4"></textarea></div>
-            <div class="col-md-6"><label class="form-label" for="verificationGtin">GTIN relacionado</label><input class="form-control" id="verificationGtin"></div>
-            <div class="col-md-6"><label class="form-label" for="verificationType">Tipo de simbolog&iacute;a</label><select class="form-select" id="verificationType"><option>EAN-13</option><option>ITF-14</option><option>QR Digital Link</option><option>GS1 DataMatrix</option></select></div>
             <div class="col-12"><label class="form-label" for="verificationFiles">Archivos adjuntos</label><input class="form-control" id="verificationFiles" type="file" multiple></div>
             <div class="col-12" id="verificationFileList"></div>
             <div class="col-12 d-none" id="verificationError"><div class="alert alert-danger mb-0"></div></div>
