@@ -1,0 +1,70 @@
+/*responsive*/
+@media screen and (max-width: 1200px) {
+  .sidebar-wrapper {
+    left: -270px;
+  }
+  .sidebar-wrapper .sidebar-wrapper-search {
+    left: -270px;
+  }
+  .main-content {
+    margin-left: 0px;
+  }
+  /*collapsed*/
+  .layout-wrapper.collapsed .sidebar-wrapper {
+    left: 0px;
+  }
+  .layout-wrapper.collapsed .sidebar-wrapper .sidebar-wrapper-search {
+    left: 0px;
+  }
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .sidebar-overlay.show {
+    display: block;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 576px) {
+  .topheader .dropdown {
+    position: static !important;
+  }
+  .topheader .dropdown .dropdown-menu {
+    width: calc(100% - 32px) !important;
+    margin: 0 16px !important;
+  }
+  .topheader .dropdown-noti-container {
+    width: 100% !important;
+  }
+}
+/* Chatbox Responsive */
+@media screen and (max-width: 991px) {
+  .chatbox-wrapper .chatbox-sidebar {
+    left: -350px;
+  }
+  .chatbox-wrapper .chatbox-content-wrapper {
+    margin-left: 0 !important;
+  }
+  .chatbox-wrapper .chatbox-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .chatbox-wrapper .chatbox-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  /*collapsed*/
+  .chatbox-wrapper.chat-collapsed .chatbox-sidebar {
+    left: 0px;
+  }
+}/*# sourceMappingURL=responsive.css.map */
